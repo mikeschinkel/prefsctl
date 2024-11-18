@@ -30,7 +30,7 @@ PreferenceResult getPreferenceValue(const char* domain, const char* key);
 void freePreferenceResult(PreferenceResult result);
 
 PreferenceResult getPreferenceValue(const char* domain, const char* key) {
-	 PreferenceResult result = {NULL, PREF_SUCCESS, KIND_INVALID};
+	 PreferenceResult result = {NULL, NULL, PREF_SUCCESS, KIND_INVALID};
 
 	 @autoreleasepool {
 			 if (!domain || !key) {
