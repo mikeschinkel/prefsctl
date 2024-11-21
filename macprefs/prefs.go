@@ -2,8 +2,9 @@ package macprefs
 
 /*
 #cgo CFLAGS: -x objective-c
-#cgo LDFLAGS: -framework Foundation
+#cgo LDFLAGS: -framework Foundation -framework SystemConfiguration -framework CoreFoundation
 #import <Foundation/Foundation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 
 // Match Go's reflect.Kind relevant values
 typedef enum {
@@ -20,34 +21,38 @@ int PREF_NOT_FOUND = 2;
 int PREF_UNSUPPORTED_TYPE = 3;
 
 typedef struct {
-	 const char* value;     // UTF-8 string value or error message
+	 const char* value;     // UTF-8 string current value, or error message
 	 const char* descr;     // UTF-8 string description of value
 	 int error;             // 0 for success, error code otherwise
 	 PreferenceKind kind;   // Type of the value (valid only if error == 0)
 } PreferenceResult;
 
-PreferenceResult getPreferenceValue(const char* domain, const char* key);
+PreferenceResult getPreferenceResult(const char* domain, const char* name);
 void freePreferenceResult(PreferenceResult result);
 
-PreferenceResult getPreferenceValue(const char* domain, const char* key) {
+PreferenceResult getPreferenceResult(const char* domain, const char* name) {
 	 PreferenceResult result = {NULL, NULL, PREF_SUCCESS, KIND_INVALID};
 
 	 @autoreleasepool {
-			 if (!domain || !key) {
+			 if (!domain || !name) {
 					 result.value = strdup("invalid input parameters");
 					 result.error = PREF_INVALID_INPUT;
 					 return result;
 			 }
 
 			 NSString* domainStr = [NSString stringWithUTF8String:domain];
-			 NSString* keyStr = [NSString stringWithUTF8String:key];
+			 NSString* keyStr = [NSString stringWithUTF8String:name];
 
+			// Get current value
 			id value = CFBridgingRelease(CFPreferencesCopyAppValue(
 				 (__bridge CFStringRef)keyStr,
 				 (__bridge CFStringRef)domainStr
 			));
 
-			 if (!value) {
+			// Try different methods to get default value
+			id defaultValue = NULL;
+
+			if (!value) {
 					 result.value = strdup("preference not found");
 					 result.error = PREF_NOT_FOUND;
 					 return result;
@@ -79,7 +84,6 @@ PreferenceResult getPreferenceValue(const char* domain, const char* key) {
 			 }
 
 			 // Handle unsupported types
-			//result.value = strdup("unsupported preference type");
 			NSString *className = NSStringFromClass([value class]);
 			NSString *typeDesc = [value description];
 			NSString *errorMsg = [NSString stringWithFormat:@"unsupported preference class: %@",className];
@@ -102,36 +106,85 @@ import (
 	"unsafe"
 )
 
-// Pref represents a preference with its Domain and key
+type WhatSetsType string
+
+const (
+	UnknownWhatSets WhatSetsType = ""
+	MacOSSets       WhatSetsType = "macos"
+	InstallSets     WhatSetsType = "install"
+	UnsureWhatSets  WhatSetsType = "unsure"
+)
+
+type PrefType string
+
+const (
+	StringType   PrefType = "string"
+	NumberType   PrefType = "number"
+	BoolType     PrefType = "bool"
+	LanguageType PrefType = "language"
+	LocaleType   PrefType = "locale"
+)
+
+// YAMLPref represents a preference with its Domain and name
+type YAMLPref struct {
+	Name  string   `yaml:"name"`
+	Value string   `yaml:"value"` // raw string value
+	Kind  PrefType `yaml:"kind"`  // type of the value
+}
+
+// YAMLPrefDefault represents a preference's default value
+type YAMLPrefDefault struct {
+	Name         string       `yaml:"name"`
+	DefaultValue string       `yaml:"default"`  // raw string value for default
+	WhatSets     WhatSetsType `yaml:"whatSets"` // determine what sets the value
+	Kind         PrefType     `yaml:"kind"`     // type of the value
+	Options      []string     `yaml:"options"`
+}
+
+// PrefDefault represents a preference's default value
+type PrefDefault struct {
+	domain   Domain
+	Name     string
+	Value    string       // raw string value for default
+	Type     PrefType     // type of the value
+	WhatSets WhatSetsType // determine what sets the value
+}
+
+// Pref represents a preference with its Domain and name
 type Pref struct {
-	domain      *Domain
-	Key         string
+	Domain      string
+	Name        string
+	Value       string       // raw string value
+	Kind        reflect.Kind // kind of the value
+	Default     *PrefDefault
+	err         error // last error encountered
 	Description string
-	value       string       // raw string value
-	kind        reflect.Kind // type of the value
-	err         error        // last error encountered
 }
 
 // NewPref creates a new Pref instance
-func NewPref(domain *Domain, key string) *Pref {
+func NewPref(domain *Domain, name string) *Pref {
+	// TODO Set Default in .Initialize()
 	return &Pref{
-		Key:    key,
-		domain: domain,
+		Name: name,
+		Default: &PrefDefault{
+			domain: *domain,
+			Name:   name,
+		},
 	}
 }
 
 // Retrieve fetches the preference value from the system
 func (p *Pref) Retrieve() error {
-	cDomain := C.CString(p.domain.Name)
-	cKey := C.CString(p.Key)
+	cDomain := C.CString(p.Domain)
+	cKey := C.CString(p.Name)
 	defer C.free(unsafe.Pointer(cDomain))
 	defer C.free(unsafe.Pointer(cKey))
 
-	result := C.getPreferenceValue(cDomain, cKey)
+	result := C.getPreferenceResult(cDomain, cKey)
 	defer C.freePreferenceResult(result)
 
 	if result.error != C.PREF_SUCCESS {
-		p.value = C.GoString(result.value) // Save error message
+		p.Value = C.GoString(result.value) // Save error message
 		p.Description = C.GoString(result.descr)
 		switch result.error {
 		case C.PREF_INVALID_INPUT:
@@ -146,38 +199,55 @@ func (p *Pref) Retrieve() error {
 		return p.err
 	}
 
-	p.value = C.GoString(result.value)
-	p.kind = reflect.Kind(result.kind)
+	p.Value = C.GoString(result.value)
+	p.Kind = reflect.Kind(result.kind)
 	p.err = nil
 	return nil
 }
 
+// IsDefault returns true if the property's current value is the same as its default value.
+//func (p *Pref) IsDefault() (isDefault bool) {
+//	if p.err != nil {
+//		isDefault = false
+//		goto end
+//	}
+//	switch p.Kind {
+//	case reflect.String:
+//		isDefault = p.Value == p.DefaultValue
+//	case reflect.Int:
+//		isDefault = p.Int() == p.DefaultInt()
+//	case reflect.Bool:
+//		isDefault = p.Value == p.DefaultValue
+//		if !isDefault && p.DefaultValue == "" {
+//			isDefault = true
+//		}
+//	}
+//end:
+//	return isDefault
+//}
+
 // String returns the raw string value regardless of type
 func (p *Pref) String() string {
-	return p.value
+	return p.Value
 }
 func (p *Pref) Message() string {
 	if p.err != nil {
-		return p.value
+		return p.Value
 	}
 	return ""
 }
+
 func (p *Pref) Bool() bool {
-	return p.value == "true"
+	return p.Value == "true"
 }
 
 // Int returns the value as an integer
 func (p *Pref) Int() int {
-	n, _ := strconv.Atoi(p.value)
+	n, _ := strconv.Atoi(p.Value)
 	return n
 }
 
 // Err returns the last error encountered
 func (p *Pref) Err() error {
 	return p.err
-}
-
-// Kind returns the preference value type
-func (p *Pref) Kind() reflect.Kind {
-	return p.kind
 }

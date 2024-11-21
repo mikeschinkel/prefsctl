@@ -1,0 +1,13 @@
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.Dock
+  macos: sequoia
+spec:
+  preferences:
+  - name: autohide
+    kind: bool
+    whatSets: macos
+    default: false
+

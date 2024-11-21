@@ -1,0 +1,14 @@
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: GlobalPreferences
+  macos: sequoia
+spec:
+  preferences:
+  - name: AppleLanguage
+    kind: language
+    whatSets: install
+  - name: AppleLocale
+    whatSets: install
+    kind: locale

@@ -89,12 +89,16 @@ func (d *Domain) Prefs() ([]*Pref, error) {
 		if cPref == nil {
 			continue
 		}
-
+		name := C.GoString(cPref)
+		// TODO Lookup PrefDefault here instead
 		pref := &Pref{
-			Key:    C.GoString(cPref),
-			domain: d,
-			// Note: value, kind, and err will be populated by your existing code
-			// when the preference value is actually read
+			Name:  name,
+			Value: "",
+			Kind:  0,
+			Default: &PrefDefault{
+				domain: *d,
+				Name:   name,
+			},
 		}
 		prefs = append(prefs, pref)
 		C.free(unsafe.Pointer(cPref))
