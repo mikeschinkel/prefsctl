@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"reflect"
 	"strings"
 
 	"github.com/mikeschinkel/prefsctl/macprefs"
@@ -28,6 +27,7 @@ import (
 */
 
 func main() {
+	return
 	domains, err := macprefs.GetPreferenceDomains()
 	if err != nil {
 		panic(err)
@@ -37,19 +37,22 @@ func main() {
 		if !strings.HasPrefix(d.Name, "com.apple.") {
 			continue
 		}
-		//fmt.Println(d.Name)
 		prefs, err := d.Prefs()
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
-		for _, pref := range prefs {
+		header := false
+		for i, pref := range prefs {
 			if err := pref.Retrieve(); err != nil {
 				if !errors.Is(err, macprefs.ErrUnsupportedType) {
+					if i == 0 {
+						fmt.Println(d.Name)
+					}
 					fmt.Printf("ERROR: %v [pref=%s/%s])\n",
 						err,
 						d.Name,
-						pref.Key,
+						pref.Name,
 					)
 					continue
 				}
@@ -57,23 +60,30 @@ func main() {
 				//fmt.Printf("WARNING: %s [pref=%s/%s]\n",
 				//	pref.Message(),
 				//	d.Name,
-				//	pref.Key,
+				//	pref.Name,
 				//)
 				continue
 			}
-			continue
-			fmt.Printf("— %s:", pref.Key)
-			// Check the type and get the value
-			switch pref.Kind() {
-			case reflect.Bool:
-				fmt.Printf("%v\n", pref.Bool())
-			case reflect.Int:
-				fmt.Printf("%d\n", pref.Int())
-			case reflect.String:
-				fmt.Printf("%s\n", pref.String())
-			default:
-				fmt.Printf("%s; %s\n", pref.Message(), pref.Err())
+			//if pref.IsDefault() {
+			//	continue
+			//}
+			if !header {
+				fmt.Println(d.Name)
+				header = true
 			}
+			// continue
+			fmt.Printf("— %s:", pref.Name)
+			// Check the type and get the value
+			//switch pref.Kind {
+			//case reflect.Bool:
+			//	fmt.Printf("%v (%v)\n", pref.Bool(), pref.DefaultBool())
+			//case reflect.Int:
+			//	fmt.Printf("%d (%d)\n", pref.Int(), pref.DefaultInt())
+			//case reflect.String:
+			//	fmt.Printf("%#v (%#v)\n", pref.String(), pref.DefaultString())
+			//default:
+			//	fmt.Printf("%s; %s\n", pref.Message(), pref.Err())
+			//}
 
 		}
 	}
@@ -84,11 +94,11 @@ func main() {
 
 //func main2() {
 //	domain := "com.apple.dock"
-//	key := "autohide"
+//	name := "autohide"
 //	//domain := "com.apple.finder"
-//	//key := "ShowHardDrivesOnDesktop"
+//	//name := "ShowHardDrivesOnDesktop"
 //
-//	pref := NewPreference(domain, key)
+//	pref := NewPreference(domain, name)
 //	if pref.Retrieve() != nil {
 //		fmt.Println(pref.Err())
 //	}

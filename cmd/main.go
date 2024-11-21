@@ -29,10 +29,10 @@ var rootCmd = &cobra.Command{
 	Short: "A CLI that manages macOS preferences",
 	Long:  `A command line interface (CLI) app for managing macOS preferences`,
 }
-var initCmd = &cobra.Command{
-	Use:   "init",
-	Short: "Initialize a prefs.yaml",
-	Long:  `Generate a 'prefs.yaml' file in the current directory containing macOS preferences`,
+var getCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get information about prefs",
+	Long:  `??`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		var err error
 		var errs errutil.MultiErr
