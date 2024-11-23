@@ -79,6 +79,7 @@ const (
 	HostnameLogArg           = "hostname"
 	NegotiatedProtocolLogArg = "negotiated_protocol"
 	PeerCertCountLogArg      = "peer_cert_count"
+	PrefsDomainLogArg        = "prefs_domain"
 	RequestFormLogArg        = "request_form"
 	RequestMethodLogArg      = "request_method"
 	RequestPatternLogArg     = "request_pattern"

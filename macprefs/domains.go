@@ -12,7 +12,7 @@ CFArrayRef GetPreferenceDomains() {
 	return CFPreferencesCopyApplicationList(kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
 }
 
-CFArrayRef GetKeysForDomain(CFStringRef domain) {
+CFArrayRef GetPrefNamesForDomain(CFStringRef domain) {
     return CFPreferencesCopyKeyList(
         domain,
         kCFPreferencesCurrentUser,
@@ -20,7 +20,7 @@ CFArrayRef GetKeysForDomain(CFStringRef domain) {
     );
 }
 
-int GetArrayCount(CFArrayRef array) {
+int GetArrayLen(CFArrayRef array) {
 	 return (int)CFArrayGetCount(array);
 }
 
@@ -50,37 +50,52 @@ CFStringRef CreateCFString(const char* str) {
 import "C"
 import (
 	"fmt"
+	"strings"
 	"unsafe"
+
+	"github.com/mikeschinkel/prefsctl/errutil"
+	"github.com/mikeschinkel/prefsctl/logging"
 )
 
 // Domain represents a preference domain in macOS
-type Domain struct {
-	Name string
+type Domain string
+
+func (d Domain) String() string {
+	return string(d)
+}
+func (d Domain) HasPrefix(prefix string) bool {
+	return strings.HasPrefix(string(d), prefix)
 }
 
 // Prefs returns all available preferences for this domain
-func (d *Domain) Prefs() ([]*Pref, error) {
+func (d Domain) Prefs() (prefs []*Pref, err error) {
+	var numPrefs int
+
 	// Convert domain name to CFString
-	cfDomain := C.CreateCFString(C.CString(d.Name))
+	cfDomain := C.CreateCFString(C.CString(string(d)))
+	// TODO Set type here instead of calling func
+	var cfaPrefs = C.GetPrefNamesForDomain(cfDomain)
 	if cfDomain == 0 {
-		return nil, fmt.Errorf("failed to create CFString from domain name")
+		err = errutil.AnnotateErr(ErrFailedToCreateCFString, "%s=%s", logging.PrefsDomainLogArg, d)
+		goto end
 	}
 	defer C.CFRelease(C.CFTypeRef(cfDomain))
 
 	// Get the array of keys
-	keysArray := C.GetKeysForDomain(cfDomain)
-	if keysArray == 0 {
-		return nil, fmt.Errorf("failed to get preference keys for domain %s", d.Name)
+	cfaPrefs = C.GetPrefNamesForDomain(cfDomain)
+	if cfaPrefs == 0 {
+		err = errutil.AnnotateErr(ErrFailedToGetPrefNames, "%s=%s", logging.PrefsDomainLogArg, d)
+		goto end
 	}
-	defer C.CFRelease(C.CFTypeRef(keysArray))
+	defer C.CFRelease(C.CFTypeRef(cfaPrefs))
 
-	// Get the count of keys
-	count := int(C.GetArrayCount(keysArray))
-	prefs := make([]*Pref, 0, count)
+	// Get the numPrefs of keys
+	numPrefs = int(C.GetArrayLen(cfaPrefs))
+	prefs = make([]*Pref, 0, numPrefs)
 
 	// Iterate through the array and create Pref objects
-	for i := 0; i < count; i++ {
-		cfStr := C.GetArrayValueAtIndex(keysArray, C.int(i))
+	for i := 0; i < numPrefs; i++ {
+		cfStr := C.GetArrayValueAtIndex(cfaPrefs, C.int(i))
 		if cfStr == 0 {
 			continue
 		}
@@ -90,26 +105,24 @@ func (d *Domain) Prefs() ([]*Pref, error) {
 			continue
 		}
 		name := C.GoString(cPref)
-		// TODO Lookup PrefDefault here instead
-		pref := &Pref{
-			Name:  name,
-			Value: "",
-			Kind:  0,
-			Default: &PrefDefault{
-				domain: *d,
-				Name:   name,
-			},
+		id := GetPrefId(d, name)
+		pd, ok := prefDefaultsMap[id]
+		if !ok {
+			// Not found in our defaults, so safe to ignore
+			continue
 		}
+		pref := NewPref(pd)
 		prefs = append(prefs, pref)
 		C.free(unsafe.Pointer(cPref))
 	}
 
+end:
 	return prefs, nil
 }
 
-// GetPreferenceDomains returns a list of all preference domains available
+// GetPrefDomains returns a list of all preference domains available
 // for the current user on macOS.
-func GetPreferenceDomains() ([]*Domain, error) {
+func GetPrefDomains() ([]Domain, error) {
 	// Get the CFArray of preference domains
 	domainsArray := C.GetPreferenceDomains()
 	if domainsArray == 0 {
@@ -118,8 +131,8 @@ func GetPreferenceDomains() ([]*Domain, error) {
 	defer C.CFRelease(C.CFTypeRef(domainsArray))
 
 	// Get the count of domains
-	count := int(C.GetArrayCount(domainsArray))
-	domains := make([]*Domain, 0, count)
+	count := int(C.GetArrayLen(domainsArray))
+	domains := make([]Domain, 0, count)
 
 	// Iterate through the array and convert each CFString to Go string
 	for i := 0; i < count; i++ {
@@ -133,9 +146,7 @@ func GetPreferenceDomains() ([]*Domain, error) {
 			continue
 		}
 
-		domains = append(domains, &Domain{
-			Name: C.GoString(cDomain),
-		})
+		domains = append(domains, Domain(C.GoString(cDomain)))
 
 		C.free(unsafe.Pointer(cDomain))
 	}

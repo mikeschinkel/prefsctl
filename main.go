@@ -3,9 +3,9 @@ package main
 import (
 	"errors"
 	"fmt"
-	"strings"
 
 	"github.com/mikeschinkel/prefsctl/macprefs"
+	_ "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
 )
 
 /*
@@ -27,14 +27,20 @@ import (
 */
 
 func main() {
+	macprefs.Initialize()
+
+	for _, pd := range macprefs.PrefDefaultsMap() {
+		fmt.Println(pd.LogValue())
+	}
 	return
-	domains, err := macprefs.GetPreferenceDomains()
+
+	domains, err := macprefs.GetPrefDomains()
 	if err != nil {
 		panic(err)
 	}
 	unsupported := make(map[string]struct{})
 	for _, d := range domains {
-		if !strings.HasPrefix(d.Name, "com.apple.") {
+		if !d.HasPrefix("com.apple.") {
 			continue
 		}
 		prefs, err := d.Prefs()
@@ -47,13 +53,9 @@ func main() {
 			if err := pref.Retrieve(); err != nil {
 				if !errors.Is(err, macprefs.ErrUnsupportedType) {
 					if i == 0 {
-						fmt.Println(d.Name)
+						fmt.Println(d)
 					}
-					fmt.Printf("ERROR: %v [pref=%s/%s])\n",
-						err,
-						d.Name,
-						pref.Name,
-					)
+					fmt.Printf("ERROR: %v (for %s)\n", err, pref.LogValue())
 					continue
 				}
 				unsupported[pref.Message()] = struct{}{}
@@ -68,7 +70,7 @@ func main() {
 			//	continue
 			//}
 			if !header {
-				fmt.Println(d.Name)
+				fmt.Println(d)
 				header = true
 			}
 			// continue

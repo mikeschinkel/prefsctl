@@ -1,6 +1,6 @@
 ---
 apiVersion: prefs/v1beta1
-kind: defaults
+kind: prefdefaults
 metadata:
   domain: com.apple.Dock
   macos: sequoia
