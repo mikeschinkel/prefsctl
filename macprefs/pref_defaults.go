@@ -11,9 +11,9 @@ const prefDefaultsGoImport = "github.com/mikeschinkel/prefsctl/macprefs/prefdefa
 
 type defaultsMapFunc func() DomainPrefDefaults
 
-var defaultsMapFuncs = make(map[MacOSName]defaultsMapFunc)
+var defaultsMapFuncs = make(map[Name]defaultsMapFunc)
 
-func RegisterDefaultsMapFunc(os MacOSName, f defaultsMapFunc) {
+func RegisterDefaultsMapFunc(os Name, f defaultsMapFunc) {
 	defaultsMapFuncs[os] = f
 }
 
@@ -23,7 +23,7 @@ var prefDefaultsMap = make(map[PrefId]*PrefDefault)
 var prefDefaultsMapMutex sync.Mutex
 
 func PrefDefaultsMap() map[PrefId]*PrefDefault {
-	var osName MacOSName
+	var osName Name
 	var err error
 	var df defaultsMapFunc
 	var ok bool

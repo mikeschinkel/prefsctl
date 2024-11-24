@@ -30,8 +30,8 @@ import (
 	"fmt"
 	"regexp"
 	"runtime"
+	"slices"
 	"strconv"
-	"strings"
 	"text/template"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
@@ -39,12 +39,13 @@ import (
 )
 
 type MacOS struct {
-	Name         MacOSName
+	Name         Name
 	PrefDefaults []*PrefDefault
 }
-type MacOSName string
+type Name string
+type NumericVersion string
 
-var macOSIndex = map[string]MacOSName{
+var macOSIndex = map[NumericVersion]Label{
 	"15":    Sequoia,
 	"14":    Sonoma,
 	"13":    Ventura,
@@ -68,36 +69,37 @@ var macOSIndex = map[string]MacOSName{
 	"10.0":  Cheetah,
 }
 
-const (
-	Sequoia      MacOSName = "sequoia"
-	Sonoma       MacOSName = "sonoma"
-	Ventura      MacOSName = "ventura"
-	Monterey     MacOSName = "monterey"
-	BigSur       MacOSName = "bigSur"
-	Catalina     MacOSName = "catalina"
-	Mojave       MacOSName = "mojave"
-	HighSierra   MacOSName = "highSierra"
-	Sierra       MacOSName = "sierra"
-	ElCapitan    MacOSName = "elCapitan"
-	Yosemite     MacOSName = "yosemite"
-	Mavericks    MacOSName = "mavericks"
-	MountainLion MacOSName = "mountainLion"
-	Lion         MacOSName = "lion"
-	SnowLeopard  MacOSName = "snowLeopard"
-	Leopard      MacOSName = "leopard"
-	Tiger        MacOSName = "tiger"
-	Panther      MacOSName = "panther"
-	Jaguar       MacOSName = "jaguar"
-	Puma         MacOSName = "puma"
-	Cheetah      MacOSName = "cheetah"
+var (
+	Sequoia      = Label{OSVersion, "sequoia"}
+	Sonoma       = Label{OSVersion, "sonoma"}
+	Ventura      = Label{OSVersion, "ventura"}
+	Monterey     = Label{OSVersion, "monterey"}
+	BigSur       = Label{OSVersion, "bigSur"}
+	Catalina     = Label{OSVersion, "catalina"}
+	Mojave       = Label{OSVersion, "mojave"}
+	HighSierra   = Label{OSVersion, "highSierra"}
+	Sierra       = Label{OSVersion, "sierra"}
+	ElCapitan    = Label{OSVersion, "elCapitan"}
+	Yosemite     = Label{OSVersion, "yosemite"}
+	Mavericks    = Label{OSVersion, "mavericks"}
+	MountainLion = Label{OSVersion, "mountainLion"}
+	Lion         = Label{OSVersion, "lion"}
+	SnowLeopard  = Label{OSVersion, "snowLeopard"}
+	Leopard      = Label{OSVersion, "leopard"}
+	Tiger        = Label{OSVersion, "tiger"}
+	Panther      = Label{OSVersion, "panther"}
+	Jaguar       = Label{OSVersion, "jaguar"}
+	Puma         = Label{OSVersion, "puma"}
+	Cheetah      = Label{OSVersion, "cheetah"}
 )
 
 var macOSVerRegex = regexp.MustCompile(`(\d+)\.(\d+)\.\d+`)
 
-func MacOSVersionName() (name MacOSName, _ error) {
+func MacOSVersionName() (name Name, _ error) {
 	var ok bool
 	var matches []string
 	var n int
+	var label Label
 
 	parseVersion := func(v string) (int, error) {
 		n, err := strconv.ParseInt(v, 10, 0)
@@ -144,13 +146,14 @@ func MacOSVersionName() (name MacOSName, _ error) {
 		}
 		v = fmt.Sprintf("10.%d", n)
 	}
-	name, ok = macOSIndex[v]
+	label, ok = macOSIndex[NumericVersion(v)]
 	if !ok {
 		err = errors.Join(ErrUnrecognizedMacOSVersion,
 			fmt.Errorf("%s=%s", logging.VersionLogArg, v),
 		)
 		goto end
 	}
+	name = Name(label.Name)
 end:
 	return name, err
 }
@@ -174,30 +177,6 @@ end:
 	return v, err
 }
 
-type data struct {
-	Name    MacOSName
-	Domains []Domain
-}
-
-const goMacOSPrefsFuncTemplate = `func {{.Name}}PrefDefaults() macprefs.DomainPrefDefaults {
-	return macprefs.DomainPrefDefaults{
-		{{- range $i, $domain := .Domains}}
-		"{{$domain}}": []*macprefs.PrefDefault{
-			{{- range $pref := index $.PrefDefaults $i}}
-			{
-				Name:     "{{$pref.Name}}",
-				Type:     {{$pref.TypeName}},
-				WhatSets: {{$pref.WhatSets}},
-				{{- if $pref.ShowValue}}
-				Value:    "{{$pref.Value}}",
-				{{- end}}
-			},
-			{{- end}}
-		},
-		{{- end}}
-	}
-}`
-
 // tmplPrefs represents the structure passed to the template
 type tmplPrefs struct {
 	Name         string
@@ -205,70 +184,16 @@ type tmplPrefs struct {
 	PrefDefaults [][]tmplPref
 }
 
-//func newTmplPrefs(name string) *tmplPrefs {
-//	seen := make(map[Domain]int)
-//	var data tmplPrefs
-//	data.Name = string(name)
-//
-//	// First pass: collect domains in order of appearance
-//	for _, pref := range m.PrefDefaults {
-//		if _, exists := seen[pref.Domain]; !exists {
-//			seen[pref.Domain] = len(data.Domains)
-//			data.Domains = append(data.Domains, pref.Domain)
-//			data.PrefDefaults = append(data.PrefDefaults, make([]tmplPref, 0))
-//		}
-//	}
-//
-//	// Second pass: populate preferences
-//	for _, pref := range m.PrefDefaults {
-//		idx := seen[pref.Domain]
-//
-//		tPref := tmplPref{
-//			Name:     pref.Name,
-//			Value:    pref.Value,
-//			TypeName: prefTypeString(pref.Type),
-//			WhatSets: whatSetsString(pref.WhatSets),
-//		}
-//
-//		data.PrefDefaults[idx] = append(data.PrefDefaults[idx], tPref)
-//	}
-//
-//	return &tmplPrefs{Name: name}
-//}
-
 // tmplPref represents a preference formatted for template output
 type tmplPref PrefDefault
 
-// ShowValue returns true if WhatSets!="install" — This means it is either a true
-// default or we do not yet know for sure, but we do not that it is not determine
-// exclusively by the person installing the OS.
+// ShowValue returns true if there is no label "install-sets" — This means it is
+// either a true default or we do not yet know for sure, but we do not that it is
+// not determine exclusively by the person installing the OS.
 func (p tmplPref) ShowValue() bool {
-	return p.WhatSets != InstallSets
-}
-
-// GoType converts a PrefType to its template string representation as a
-// Go constant, e.g. "string" ->  "macprefs.StringType"
-func (p tmplPref) GoType() string {
-	return fmt.Sprintf("macprefs.%s%sType",
-		strings.ToUpper(string(p.Type[:1])),
-		string(p.Type[1:]),
-	)
-}
-
-// GoWhatSets converts a WhatSetsType to its template string representation as a
-// Go constant, e.g. "macos" -> "macprefs.MacOSSets" and "unsure" -> "macprefs.UnsureWhatSets"
-func (p tmplPref) GoWhatSets() (what string) {
-	switch p.WhatSets {
-	case "macos":
-		what = "MacOS"
-	case "install":
-		what = "Install"
-	case "unsure":
-		what = "UnsureWhat"
-	default:
-		what = "UnknownWhat"
-	}
-	return fmt.Sprintf("macprefs.%sSets", what)
+	return !slices.ContainsFunc(p.Labels, func(label *Label) bool {
+		return label.Value == InstallSets.Value
+	})
 }
 
 // GoCode generates Go code for preference defaults
@@ -293,10 +218,9 @@ func (m *MacOS) GoCode() (string, error) {
 		idx := seen[pref.Domain]
 
 		tPref := tmplPref{
-			Name:     pref.Name,
-			Value:    pref.Value,
-			Type:     pref.Type,
-			WhatSets: pref.WhatSets,
+			Name:   pref.Name,
+			Value:  pref.Value,
+			Labels: pref.Labels,
 		}
 
 		data.PrefDefaults[idx] = append(data.PrefDefaults[idx], tPref)
@@ -315,3 +239,26 @@ func (m *MacOS) GoCode() (string, error) {
 
 	return buf.String(), nil
 }
+
+const goMacOSPrefsFuncTemplate = `func {{.Name}}PrefDefaults() macprefs.DomainPrefDefaults {
+	return macprefs.DomainPrefDefaults{
+		{{- range $i, $domain := .Domains}}
+		"{{$domain}}": []*macprefs.PrefDefault{
+			{{- range $pref := index $.PrefDefaults $i}}
+			{
+				Name:     "{{$pref.Name}}",
+				Type:     {{$pref.TypeName}},
+				{{- if $pref.ShowValue}}
+				Value:    "{{$pref.Value}}",
+				{{- end}}
+				Labels: []macprefs.Label{
+				{{- range $i, $label := .Labels}}
+					{{$label.GoProperty}},
+				{{- end}}
+				},
+			},
+			{{- end}}
+		},
+		{{- end}}
+	}
+}`

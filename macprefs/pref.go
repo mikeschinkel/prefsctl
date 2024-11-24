@@ -121,7 +121,7 @@ type PrefArgs struct {
 	Name    string
 	Value   string // raw string value
 	Default string // raw string value
-	Type    PrefType
+	Labels  []Label
 	Kind    reflect.Kind // kind of the value
 }
 

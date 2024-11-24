@@ -1,14 +1,21 @@
----
 apiVersion: prefs/v1beta1
-kind: prefdefaults
+kind: PrefDefaults                    # Convention: CamelCase for kinds
 metadata:
+  name: global-preferences            # Added name as it's required in K8s
   domain: GlobalPreferences
-  macos: sequoia
+  labels:                            # Moved labels to metadata
+    macos-version: sequoia
 spec:
   preferences:
   - name: AppleLanguage
     kind: language
-    whatSets: install
+    metadata:                        # Each sub-resource gets its own metadata
+      labels:
+        what-sets: install
+        preference-type: language
   - name: AppleLocale
-    whatSets: install
     kind: locale
+    metadata:
+      labels:
+        what-sets: install
+        preference-type: locale

@@ -2,68 +2,12 @@ package stdlibex
 
 import (
 	"cmp"
-	"fmt"
 	"slices"
-
-	"github.com/mikeschinkel/prefsctl/errutil"
 )
 
-// ConvertSliceToAny converts a slice of whatever type to a slice of any
-//
 //goland:noinspection GoUnusedExportedFunction
-func ConvertSliceToAny[ST []T, T any](slice ST) []any {
-	items := make([]any, len(slice))
-	for i, item := range slice {
-		items[i] = item
-	}
-	return items
-}
 
-// ConvertSliceToStrings converts a slice of whatever type to a slice of string
-func ConvertSliceToStrings[ST []T, T any](slice ST) []string {
-	items := make([]string, len(slice))
-	for i, item := range slice {
-		items[i] = fmt.Sprintf("%v", item)
-	}
-	return items
-}
-
-// ConvertSliceToPtrs converts a slice of any type to a slice of pointers to that type
-func ConvertSliceToPtrs[E any](from []E) []*E {
-	items := make([]*E, len(from))
-	for i, item := range from {
-		items[i] = &item
-	}
-	return items
-}
-
-// ConvertSliceFunc converts a slice of one type to a slice of another type
-func ConvertSliceFunc[F, T any](from []F, fn func(F) T) []T {
-	items := make([]T, len(from))
-	for i, item := range from {
-		items[i] = fn(item)
-	}
-	return items
-}
-
-// ConvertSliceToMapFunc converts a slice of a map using a func
-//
 //goland:noinspection GoUnusedExportedFunction
-func ConvertSliceToMapFunc[K comparable, V, T any](slice []T, fn func(T) (bool, K, V, error)) (map[K]V, error) {
-	var errs errutil.MultiErr
-	items := make(map[K]V)
-	for _, item := range slice {
-		include, k, v, err := fn(item)
-		if !include {
-			continue
-		}
-		if err != nil {
-			errs.Add(err)
-		}
-		items[k] = v
-	}
-	return items, errs.Err()
-}
 
 func RemoveElements[S []T, T any](slice S, startPos, count int) S {
 	s := slices.Clone(slice)

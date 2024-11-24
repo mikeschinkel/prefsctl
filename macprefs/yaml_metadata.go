@@ -5,8 +5,9 @@ import (
 )
 
 type YAMLMetadata struct {
-	Domain string `yaml:"domain"`
-	OSName string `yaml:"macos"`
+	Name   string     `yaml:"name"`
+	Domain string     `yaml:"domain"`
+	Labels YAMLLabels `yaml:"labels"`
 }
 
 func (m YAMLMetadata) YAML() string {
