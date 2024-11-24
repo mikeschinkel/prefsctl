@@ -20,17 +20,6 @@ func RootCmd() *Command {
 	return rootCmd
 }
 
-func SetRootCmd(cmd *Command) {
-	rootCmdMutex.Lock()
-	rootCmd = cmd
-	rootCmdMutex.Unlock()
-}
-func SetCalledCmd(cmd *cobra.Command) {
-	calledCmdMutex.Lock()
-	calledCmd = cmd
-	calledCmdMutex.Unlock()
-}
-
 //func SetArgsPassed(args []string) {
 //	argsPassed = args
 //}

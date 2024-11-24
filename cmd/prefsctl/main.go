@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/cliutil"
+	"prefsctl/cmds"
 )
 
 func main() {
@@ -13,7 +14,7 @@ func main() {
 	var cli *cliutil.CLI
 
 	ctx := cliutil.DefaultContext()
-	cfg, err = GetConfig(ctx)
+	cfg, err = cmds.GetConfig(ctx)
 	if err != nil {
 		goto end
 	}

@@ -1,8 +1,6 @@
-package main
+package cmds
 
 import (
-	"io"
-
 	"github.com/mikeschinkel/prefsctl/cliutil"
 	"github.com/spf13/cobra"
 )
@@ -16,7 +14,7 @@ var rootCmd = cliutil.NewCommandFromArgs(cliutil.CommandOpts{
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			cliutil.SetCalledCmd(cmd)
 			if *GlobalFlags.Quiet {
-				SetQuiet(cmd)
+				cliutil.SetQuiet(cmd)
 			}
 		},
 		// Silence usage as we present usage after calling Cobra
@@ -49,19 +47,14 @@ var GlobalFlags struct {
 	Quiet *bool
 }
 
-func SetQuiet(cmd *cobra.Command) {
-	cmd.SetOut(io.Discard)
-}
-
 func init() {
 	cliutil.SetRootCmd(rootCmd)
-	GlobalFlags.Quiet = rootCmd.PersistentFlags().BoolP(
-		"quiet",
-		"q",
-		false,
-		"Disable informational messages to stdOut",
-	)
 	cliutil.AddInitializer(func(cli *cliutil.CLI) {
-		// Add if needed
+		GlobalFlags.Quiet = rootCmd.PersistentFlags().BoolP(
+			"quiet",
+			"q",
+			false,
+			"Disable informational messages to stdOut",
+		)
 	})
 }
