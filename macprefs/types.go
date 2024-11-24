@@ -27,7 +27,8 @@ type YAMLFile struct {
 	Preferences []YAMLDomain `yaml:"preferences"`
 }
 
-type YAMLDomain struct {
-	Name       string            `yaml:"-"`
-	Properties map[string]string `yaml:",inline"`
+type Printer interface {
+	Print(i ...any)
+	Println(i ...any)
+	Printf(format string, i ...any)
 }

@@ -10,9 +10,8 @@ import (
 
 type Command struct {
 	*cobra.Command
-	CLI     *CLI
-	Props   Props
-	urlPath string
+	CLI   *CLI
+	Props Props
 }
 
 func NewCommand(cli *CLI, command *cobra.Command) *Command {
@@ -28,7 +27,7 @@ func (c *Command) AddCommand(cmd *Command) {
 	}
 }
 
-type RunFunc = func(Context, Props) (Result, error)
+type RunFunc = func(Context, *Command, Props) (Result, error)
 type CommandOpts struct {
 	Parent     *Command
 	Command    *cobra.Command
@@ -45,7 +44,7 @@ func NewCommandFromArgs(opts CommandOpts) (cmd *Command) {
 	AddInitializer(func(cli *CLI) {
 		cmd.CLI = cli
 		rootCmd.AddCommand(cmd)
-		cmd.Command.RunE = func(cmd *cobra.Command, args []string) (err error) {
+		cmd.Command.RunE = func(cc *cobra.Command, args []string) (err error) {
 			var result Result
 
 			ctx := context.Background()
@@ -55,7 +54,7 @@ func NewCommandFromArgs(opts CommandOpts) (cmd *Command) {
 			if err != nil {
 				goto end
 			}
-			result, err = opts.RunFunc(ctx, props)
+			result, err = opts.RunFunc(ctx, cmd, props)
 			if err != nil {
 				goto end
 			}
@@ -63,7 +62,7 @@ func NewCommandFromArgs(opts CommandOpts) (cmd *Command) {
 			SetResult(result)
 			if err == nil {
 				//goland:noinspection GoDfaNilDereference
-				cmd.Printf(opts.SuccessMsg+"\n",
+				cc.Printf(opts.SuccessMsg+"\n",
 					stdlibex.IndentLines(2, result.String()),
 				)
 			}

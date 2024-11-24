@@ -2,7 +2,12 @@ package macprefs
 
 import (
 	"os"
+	"sync"
+
+	"github.com/mikeschinkel/prefsctl/logging"
 )
+
+const prefDefaultsGoImport = "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
 
 type defaultsMapFunc func() DomainPrefDefaults
 
@@ -15,6 +20,7 @@ func RegisterDefaultsMapFunc(os MacOSName, f defaultsMapFunc) {
 // domainPrefDefaults will contain Pref Defaults by Domain after calling macprefs.Initialize()
 var domainPrefDefaults DomainPrefDefaults
 var prefDefaultsMap = make(map[PrefId]*PrefDefault)
+var prefDefaultsMapMutex sync.Mutex
 
 func PrefDefaultsMap() map[PrefId]*PrefDefault {
 	var osName MacOSName
@@ -25,6 +31,8 @@ func PrefDefaultsMap() map[PrefId]*PrefDefault {
 	if len(prefDefaultsMap) > 0 {
 		goto end
 	}
+	prefDefaultsMapMutex.Lock()
+
 	osName, err = MacOSVersionName()
 	if err != nil {
 		slog.Error(err.Error())
@@ -32,7 +40,8 @@ func PrefDefaultsMap() map[PrefId]*PrefDefault {
 	}
 	df, ok = defaultsMapFuncs[osName]
 	if !ok {
-		slog.Error("Unsupported macOS version: %s (%s)", osName)
+		slog.Error("Unsupported macOS version", logging.OSNameLogArg, osName)
+		slog.Error(`Did you forget "import _ "%s" in main.go?`, prefDefaultsGoImport)
 		os.Exit(2)
 	}
 

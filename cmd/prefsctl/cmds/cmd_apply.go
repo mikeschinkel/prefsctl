@@ -35,8 +35,8 @@ var applyCmd = cliutil.NewCommandFromArgs(cliutil.CommandOpts{
 			},
 		},
 	},
-	RunFunc: func(ctx Context, props cliutil.Props) (cliutil.Result, error) {
-		return macprefs.Apply(ctx, macprefs.ApplyArgs{
+	RunFunc: func(ctx Context, cmd *cliutil.Command, props cliutil.Props) (cliutil.Result, error) {
+		return macprefs.Apply(ctx, cmd, macprefs.ApplyArgs{
 			Filename: macprefs.Filename(*props.(*ApplyProps).filename),
 		})
 	},

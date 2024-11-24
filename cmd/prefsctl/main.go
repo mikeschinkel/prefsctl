@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/cliutil"
+	_ "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
 	"prefsctl/cmds"
 )
 

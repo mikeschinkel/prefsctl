@@ -1,9 +1,9 @@
 package macprefs
 
-var _ Spec = (*DefaultsSpec)(nil)
+var _ Spec = (*YAMLDefaultsSpec)(nil)
 
-type DefaultsSpec struct {
+type YAMLDefaultsSpec struct {
 	Prefs []PrefDefault `yaml:"preferences"`
 }
 
-func (DefaultsSpec) Spec() {}
+func (YAMLDefaultsSpec) Spec() {}

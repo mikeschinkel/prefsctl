@@ -70,6 +70,7 @@ const (
 	WriteTimeoutLogArg      = "write_timeout"
 )
 const (
+	OSNameLogArg             = "os_name"
 	CallerLogArg             = "caller"
 	CipherSuiteLogArg        = "cipher_suite"
 	ContentTypeLengthLogArg  = "content_length"
@@ -79,6 +80,7 @@ const (
 	HostnameLogArg           = "hostname"
 	NegotiatedProtocolLogArg = "negotiated_protocol"
 	PeerCertCountLogArg      = "peer_cert_count"
+	PrefIdLogArg             = "pref_id"
 	PrefsDomainLogArg        = "prefs_domain"
 	RequestFormLogArg        = "request_form"
 	RequestMethodLogArg      = "request_method"

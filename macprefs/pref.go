@@ -106,13 +106,6 @@ import (
 	"unsafe"
 )
 
-// YAMLPref represents a preference with its Domain and name
-type YAMLPref struct {
-	Name  string   `yaml:"name"`
-	Value string   `yaml:"value"` // raw string value
-	Kind  PrefType `yaml:"kind"`  // type of the value
-}
-
 // Pref represents a preference with its Domain and name
 type Pref struct {
 	*PrefDefault
@@ -122,8 +115,32 @@ type Pref struct {
 	Description string
 }
 
+// PrefArgs are used to pass to NewPref() to set initial struct properties
+type PrefArgs struct {
+	Domain  Domain
+	Name    string
+	Value   string // raw string value
+	Default string // raw string value
+	Type    PrefType
+	Kind    reflect.Kind // kind of the value
+}
+
 // NewPref creates a new Pref instance
-func NewPref(pd *PrefDefault) *Pref {
+func NewPref(args PrefArgs) *Pref {
+	return &Pref{
+		Value: args.Value,
+		Kind:  0,
+		PrefDefault: &PrefDefault{
+			Domain: args.Domain,
+			Name:   args.Name,
+			Value:  args.Default,
+			Type:   args.Type,
+		},
+	}
+}
+
+// NewPrefFromDefault creates a new Pref instance from a *PrefDefault instance
+func NewPrefFromDefault(pd *PrefDefault) *Pref {
 	return &Pref{
 		PrefDefault: pd,
 	}
@@ -132,11 +149,11 @@ func NewPref(pd *PrefDefault) *Pref {
 // Retrieve fetches the preference value from the system
 func (p *Pref) Retrieve() error {
 	cDomain := C.CString(string(p.Domain))
-	cKey := C.CString(p.Name)
+	cName := C.CString(p.Name)
 	defer C.free(unsafe.Pointer(cDomain))
-	defer C.free(unsafe.Pointer(cKey))
+	defer C.free(unsafe.Pointer(cName))
 
-	result := C.getPreferenceResult(cDomain, cKey)
+	result := C.getPreferenceResult(cDomain, cName)
 	defer C.freePreferenceResult(result)
 
 	if result.error != C.PREF_SUCCESS {

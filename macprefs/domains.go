@@ -69,6 +69,45 @@ func (d Domain) HasPrefix(prefix string) bool {
 
 // Prefs returns all available preferences for this domain
 func (d Domain) Prefs() (prefs []*Pref, err error) {
+	return GetDomainPrefs(d)
+}
+
+// GetPrefDomains returns a list of all preference domains available
+// for the current user on macOS.
+func GetPrefDomains() ([]Domain, error) {
+	// Get the CFArray of preference domains
+	domainsArray := C.GetPreferenceDomains()
+	if domainsArray == 0 {
+		return nil, fmt.Errorf("failed to get preference domains")
+	}
+	defer C.CFRelease(C.CFTypeRef(domainsArray))
+
+	// Get the count of domains
+	count := int(C.GetArrayLen(domainsArray))
+	domains := make([]Domain, 0, count)
+
+	// Iterate through the array and convert each CFString to Go string
+	for i := 0; i < count; i++ {
+		domain := C.GetArrayValueAtIndex(domainsArray, C.int(i))
+		if domain == 0 {
+			continue
+		}
+
+		cDomain := C.CFStringToCString(domain)
+		if cDomain == nil {
+			continue
+		}
+
+		domains = append(domains, Domain(C.GoString(cDomain)))
+
+		C.free(unsafe.Pointer(cDomain))
+	}
+
+	return domains, nil
+}
+
+// GetDomainPrefs returns all available preferences for this domain
+func GetDomainPrefs(d Domain) (prefs []*Pref, err error) {
 	var numPrefs int
 
 	// Convert domain name to CFString
@@ -105,51 +144,18 @@ func (d Domain) Prefs() (prefs []*Pref, err error) {
 			continue
 		}
 		name := C.GoString(cPref)
-		id := GetPrefId(d, name)
-		pd, ok := prefDefaultsMap[id]
-		if !ok {
-			// Not found in our defaults, so safe to ignore
-			continue
-		}
-		pref := NewPref(pd)
+		pref := NewPref(PrefArgs{
+			Domain:  d,
+			Name:    name,
+			Value:   "",
+			Default: "",
+			Type:    "",
+			Kind:    0,
+		})
 		prefs = append(prefs, pref)
 		C.free(unsafe.Pointer(cPref))
 	}
 
 end:
 	return prefs, nil
-}
-
-// GetPrefDomains returns a list of all preference domains available
-// for the current user on macOS.
-func GetPrefDomains() ([]Domain, error) {
-	// Get the CFArray of preference domains
-	domainsArray := C.GetPreferenceDomains()
-	if domainsArray == 0 {
-		return nil, fmt.Errorf("failed to get preference domains")
-	}
-	defer C.CFRelease(C.CFTypeRef(domainsArray))
-
-	// Get the count of domains
-	count := int(C.GetArrayLen(domainsArray))
-	domains := make([]Domain, 0, count)
-
-	// Iterate through the array and convert each CFString to Go string
-	for i := 0; i < count; i++ {
-		domain := C.GetArrayValueAtIndex(domainsArray, C.int(i))
-		if domain == 0 {
-			continue
-		}
-
-		cDomain := C.CFStringToCString(domain)
-		if cDomain == nil {
-			continue
-		}
-
-		domains = append(domains, Domain(C.GoString(cDomain)))
-
-		C.free(unsafe.Pointer(cDomain))
-	}
-
-	return domains, nil
 }

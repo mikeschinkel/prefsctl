@@ -25,16 +25,23 @@ char* getMacOSVersion() {
 */
 import "C"
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"regexp"
 	"runtime"
 	"strconv"
+	"strings"
+	"text/template"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/logging"
 )
 
+type MacOS struct {
+	Name         MacOSName
+	PrefDefaults []*PrefDefault
+}
 type MacOSName string
 
 var macOSIndex = map[string]MacOSName{
@@ -104,7 +111,7 @@ func MacOSVersionName() (name MacOSName, _ error) {
 
 	v, err := MacOSVersion()
 	if err != nil {
-		err = errors.Join(ErrFailedGettingMacOSVersionName, err)
+		err = errors.Join(ErrFailedToGetMacOSVersionName, err)
 		goto end
 	}
 	matches = macOSVerRegex.FindStringSubmatch(v)
@@ -157,7 +164,7 @@ func MacOSVersion() (v string, err error) {
 
 	cVer = C.getMacOSVersion()
 	if cVer == nil {
-		err = ErrFailedGettingMacOSVersion
+		err = ErrFailedToGetMacOSVersion
 		goto end
 	}
 	defer C.freeMacOSVersion(cVer)
@@ -165,4 +172,146 @@ func MacOSVersion() (v string, err error) {
 	v = C.GoString(cVer)
 end:
 	return v, err
+}
+
+type data struct {
+	Name    MacOSName
+	Domains []Domain
+}
+
+const goMacOSPrefsFuncTemplate = `func {{.Name}}PrefDefaults() macprefs.DomainPrefDefaults {
+	return macprefs.DomainPrefDefaults{
+		{{- range $i, $domain := .Domains}}
+		"{{$domain}}": []*macprefs.PrefDefault{
+			{{- range $pref := index $.PrefDefaults $i}}
+			{
+				Name:     "{{$pref.Name}}",
+				Type:     {{$pref.TypeName}},
+				WhatSets: {{$pref.WhatSets}},
+				{{- if $pref.ShowValue}}
+				Value:    "{{$pref.Value}}",
+				{{- end}}
+			},
+			{{- end}}
+		},
+		{{- end}}
+	}
+}`
+
+// tmplPrefs represents the structure passed to the template
+type tmplPrefs struct {
+	Name         string
+	Domains      []Domain
+	PrefDefaults [][]tmplPref
+}
+
+//func newTmplPrefs(name string) *tmplPrefs {
+//	seen := make(map[Domain]int)
+//	var data tmplPrefs
+//	data.Name = string(name)
+//
+//	// First pass: collect domains in order of appearance
+//	for _, pref := range m.PrefDefaults {
+//		if _, exists := seen[pref.Domain]; !exists {
+//			seen[pref.Domain] = len(data.Domains)
+//			data.Domains = append(data.Domains, pref.Domain)
+//			data.PrefDefaults = append(data.PrefDefaults, make([]tmplPref, 0))
+//		}
+//	}
+//
+//	// Second pass: populate preferences
+//	for _, pref := range m.PrefDefaults {
+//		idx := seen[pref.Domain]
+//
+//		tPref := tmplPref{
+//			Name:     pref.Name,
+//			Value:    pref.Value,
+//			TypeName: prefTypeString(pref.Type),
+//			WhatSets: whatSetsString(pref.WhatSets),
+//		}
+//
+//		data.PrefDefaults[idx] = append(data.PrefDefaults[idx], tPref)
+//	}
+//
+//	return &tmplPrefs{Name: name}
+//}
+
+// tmplPref represents a preference formatted for template output
+type tmplPref PrefDefault
+
+// ShowValue returns true if WhatSets!="install" — This means it is either a true
+// default or we do not yet know for sure, but we do not that it is not determine
+// exclusively by the person installing the OS.
+func (p tmplPref) ShowValue() bool {
+	return p.WhatSets != InstallSets
+}
+
+// GoType converts a PrefType to its template string representation as a
+// Go constant, e.g. "string" ->  "macprefs.StringType"
+func (p tmplPref) GoType() string {
+	return fmt.Sprintf("macprefs.%s%sType",
+		strings.ToUpper(string(p.Type[:1])),
+		string(p.Type[1:]),
+	)
+}
+
+// GoWhatSets converts a WhatSetsType to its template string representation as a
+// Go constant, e.g. "macos" -> "macprefs.MacOSSets" and "unsure" -> "macprefs.UnsureWhatSets"
+func (p tmplPref) GoWhatSets() (what string) {
+	switch p.WhatSets {
+	case "macos":
+		what = "MacOS"
+	case "install":
+		what = "Install"
+	case "unsure":
+		what = "UnsureWhat"
+	default:
+		what = "UnknownWhat"
+	}
+	return fmt.Sprintf("macprefs.%sSets", what)
+}
+
+// GoCode generates Go code for preference defaults
+func (m *MacOS) GoCode() (string, error) {
+	var tmpl = goMacOSPrefsFuncTemplate
+	// Group preferences by domain while preserving order
+	seen := make(map[Domain]int)
+	var data tmplPrefs
+	data.Name = string(m.Name)
+
+	// First pass: collect domains in order of appearance
+	for _, pref := range m.PrefDefaults {
+		if _, exists := seen[pref.Domain]; !exists {
+			seen[pref.Domain] = len(data.Domains)
+			data.Domains = append(data.Domains, pref.Domain)
+			data.PrefDefaults = append(data.PrefDefaults, make([]tmplPref, 0))
+		}
+	}
+
+	// Second pass: populate preferences
+	for _, pref := range m.PrefDefaults {
+		idx := seen[pref.Domain]
+
+		tPref := tmplPref{
+			Name:     pref.Name,
+			Value:    pref.Value,
+			Type:     pref.Type,
+			WhatSets: pref.WhatSets,
+		}
+
+		data.PrefDefaults[idx] = append(data.PrefDefaults[idx], tPref)
+	}
+
+	// Parse and execute template
+	t, err := template.New("prefDefaults").Parse(tmpl)
+	if err != nil {
+		return "", err
+	}
+
+	var buf bytes.Buffer
+	if err := t.Execute(&buf, data); err != nil {
+		return "", err
+	}
+
+	return buf.String(), nil
 }
