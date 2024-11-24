@@ -60,7 +60,7 @@ func NewCommandFromArgs(opts CommandOpts) (cmd *Command) {
 			}
 		end:
 			SetResult(result)
-			if err == nil {
+			if err == nil && len(opts.SuccessMsg) != 0 {
 				//goland:noinspection GoDfaNilDereference
 				cc.Printf(opts.SuccessMsg+"\n",
 					stdlibex.IndentLines(2, result.String()),

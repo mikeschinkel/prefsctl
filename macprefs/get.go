@@ -2,6 +2,7 @@ package macprefs
 
 import (
 	"errors"
+	"os"
 
 	"github.com/mikeschinkel/prefsctl/cliutil"
 )
@@ -34,7 +35,9 @@ func getText(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err
 		err = errors.Join(ErrFailedToQueryPrefState, err)
 		goto end
 	}
-	result = NewResult(state)
+	state.Describe(os.Stdout)
+	//result = NewResult(state)
+	result = NewResult("Success")
 end:
 	return result, err
 }

@@ -2,7 +2,9 @@ package macprefs
 
 import (
 	"errors"
+	"io"
 	"slices"
+	"strings"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/logging"
@@ -15,6 +17,27 @@ type PrefsState struct {
 	Prefs       [][]*Pref
 	Unsupported map[string]struct{}
 	Map         Map
+}
+
+func writeString(w io.Writer, s string) {
+	_, _ = w.Write([]byte(s))
+}
+func writeByte(w io.Writer, b byte) {
+	_, _ = w.Write([]byte{b})
+}
+
+func (s *PrefsState) Describe(w io.Writer) {
+	for i, domain := range s.Domains {
+		writeString(w, string(domain))
+		writeByte(w, '\n')
+		for _, pref := range s.Prefs[i] {
+			writeString(w, "— ")
+			writeString(w, pref.Name)
+			writeString(w, ": ")
+			writeString(w, pref.Value)
+			writeByte(w, '\n')
+		}
+	}
 }
 
 func (s *PrefsState) Query() (err error) {
@@ -70,6 +93,7 @@ end:
 }
 
 func (s *PrefsState) AddUnsupported(msg string) {
+	msg = strings.Replace(msg, "unsupported preference class: ", "", 1)
 	s.Unsupported[msg] = struct{}{}
 }
 func (s *PrefsState) AddDomain(d Domain) (index int) {
