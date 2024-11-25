@@ -40,7 +40,11 @@ func (s *PrefsState) Describe(w io.Writer) {
 	}
 }
 
-func (s *PrefsState) Query() (err error) {
+type QueryArgs struct {
+	Filters KeyValueFilters
+}
+
+func (s *PrefsState) Query(args QueryArgs) (err error) {
 	var errs errutil.MultiErr
 	var domains []Domain
 	var index int
@@ -53,9 +57,10 @@ func (s *PrefsState) Query() (err error) {
 	}
 
 	for _, domain := range domains {
-		if !domain.HasPrefix("com.apple.") {
-			// TODO: Maybe we'll support more later domains later
-			continue
+		if !args.Filters.MustKeepString(string(domain)) {
+			if args.Filters.OmitDomain(string(domain)) {
+				continue
+			}
 		}
 		prefs, err = domain.Prefs()
 		if err != nil {
@@ -74,6 +79,11 @@ func (s *PrefsState) Query() (err error) {
 				}
 				s.AddUnsupported(pref.Message())
 				continue
+			}
+			if !args.Filters.MustKeepKeyValue(string(pref.Name), string(pref.Value)) {
+				if args.Filters.OmitKeyValue(string(pref.Name), string(pref.Value)) {
+					continue
+				}
 			}
 			if !header {
 				index = s.AddDomain(domain)

@@ -121,7 +121,7 @@ type PrefArgs struct {
 	Name    string
 	Value   string // raw string value
 	Default string // raw string value
-	Labels  []Label
+	Labels  Labels
 	Kind    reflect.Kind // kind of the value
 }
 
@@ -134,7 +134,7 @@ func NewPref(args PrefArgs) *Pref {
 			Domain: args.Domain,
 			Name:   args.Name,
 			Value:  args.Default,
-			Type:   args.Type,
+			Labels: args.Labels,
 		},
 	}
 }

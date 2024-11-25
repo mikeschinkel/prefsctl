@@ -149,7 +149,7 @@ func GetDomainPrefs(d Domain) (prefs []*Pref, err error) {
 			Name:    name,
 			Value:   "",
 			Default: "",
-			Type:    "",
+			Labels:  Labels{},
 			Kind:    0,
 		})
 		prefs = append(prefs, pref)

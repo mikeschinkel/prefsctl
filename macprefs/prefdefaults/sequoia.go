@@ -9,27 +9,27 @@ func sequoiaPrefDefaults() macprefs.DomainPrefDefaults {
 		"GlobalPreferences": []*macprefs.PrefDefault{
 			{
 				Name: "AppleLanguage",
-				Type: macprefs.StringType,
-				Labels: []macprefs.Label{
-					macprefs.InstallSets,
+				Labels: macprefs.Labels{
+					&macprefs.InstallSets,
+					&macprefs.StringType,
 				},
 			},
 			{
 				Name: "AppleLocale",
-				Type: macprefs.LocaleType,
-				Labels: []macprefs.Label{
-					macprefs.InstallSets,
+				Labels: macprefs.Labels{
+					&macprefs.InstallSets,
+					&macprefs.StringType,
 				},
 			},
 		},
 		"com.apple.Dock": []*macprefs.PrefDefault{
 			{
-				Name: "autohide",
-				Type: macprefs.BoolType,
-				Labels: []macprefs.Label{
-					macprefs.MacOSSets,
-				},
+				Name:  "autohide",
 				Value: "false",
+				Labels: macprefs.Labels{
+					&macprefs.MacOSSets,
+					&macprefs.BoolType,
+				},
 			},
 		},
 	}

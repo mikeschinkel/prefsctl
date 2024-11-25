@@ -30,7 +30,9 @@ func Get(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err err
 
 func getText(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err error) {
 	state := NewPrefsState()
-	err = state.Query()
+	err = state.Query(QueryArgs{
+		Filters: QueryFilters(),
+	})
 	if err != nil {
 		err = errors.Join(ErrFailedToQueryPrefState, err)
 		goto end

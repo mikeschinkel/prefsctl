@@ -13,8 +13,8 @@ type defaultsMapFunc func() DomainPrefDefaults
 
 var defaultsMapFuncs = make(map[Name]defaultsMapFunc)
 
-func RegisterDefaultsMapFunc(os Name, f defaultsMapFunc) {
-	defaultsMapFuncs[os] = f
+func RegisterDefaultsMapFunc(os Label, f defaultsMapFunc) {
+	defaultsMapFuncs[Name(os.Name)] = f
 }
 
 // domainPrefDefaults will contain Pref Defaults by Domain after calling macprefs.Initialize()
