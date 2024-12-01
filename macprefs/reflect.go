@@ -4,7 +4,7 @@ package macprefs
 //"reflect"
 //)
 
-//func ReflectKindFromPrefType(t PrefType) (rk reflect.Kind) {
+//func ReflectKindFromPrefType(t Type) (rk reflect.Kind) {
 //	switch t {
 //	case NumberType:
 //		rk = reflect.Int // TODO: What about floating point?!?

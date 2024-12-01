@@ -1,0 +1,557 @@
+com.apple.Accessibility
+— AccessibilityEnabled: false
+— ApplicationAccessibilityEnabled: 0
+— AutomationEnabled: 0
+— AXSClassicInvertColorsPreference: 0
+— CommandAndControlEnabled: 0
+— DarkenSystemColors: 0
+— DifferentiateWithoutColor: 0
+— EnhancedBackgroundContrastEnabled: 0
+— FullKeyboardAccessEnabled: 0
+— FullKeyboardAccessFocusRingEnabled: 1
+— GenericAccessibilityClientEnabled: 0
+— GrayscaleDisplay: 0
+— InvertColorsEnabled: 0
+— KeyRepeatDelay: 0.25
+— KeyRepeatEnabled: 1
+— KeyRepeatInterval: 0.03333333299999999
+— ReduceMotionEnabled: 0
+— SpeakThisEnabled: 0
+— VoiceOverTouchEnabled: 0
+— ZoomTouchEnabled: 0
+com.apple.ActivityMonitor
+— ShowCategory: 100
+— ShowCategoryAppsinLast12Hours: true
+com.apple.AddressBook
+— AB21vCardEncoding: macintosh
+— ABBirthDayVisible: true
+— ABPrivateVCardFieldsEnabled: true
+— ABTextSizeIncrement: 2
+com.apple.airplay
+— showInMenuBarIfPresent: true
+com.apple.airport.airportutility
+— dontPerformBaseRestartWarning: false
+com.apple.amp.mediasharingd
+— home-sharing-enabled: 1
+— photo-sharing-enabled: 0
+— public-sharing-enabled: 0
+— public-sharing-is-protected: 0
+— shared-library-name: Mike’s MacBook Pro Library
+com.apple.AMPDevicesAgent
+— AutomaticDeviceBackupsDisabled: true
+— dontAutomaticallySyncIPods: true
+— userMaxConcurrentDownloads: 3
+com.apple.AMPLibraryAgent
+— iTunes-media-folder-url: file:///Users/mikeschinkel/Music/iTunes/iTunes%20Media/
+— show-home-sharing-turned-on-in-iTunes-warning: 0
+com.apple.AppleMultitouchMouse
+— MouseButtonDivision: 55
+— MouseButtonMode: TwoButton
+— MouseHorizontalScroll: true
+— MouseMomentumScroll: true
+— MouseOneFingerDoubleTapGesture: 0
+— MouseTwoFingerDoubleTapGesture: 3
+— MouseTwoFingerHorizSwipeGesture: 2
+— MouseVerticalScroll: true
+— UserPreferences: true
+com.apple.AppleMultitouchTrackpad
+— ActuateDetents: 1
+— ActuationStrength: 1
+— Clicking: true
+— Dragging: true
+— DragLock: false
+— FirstClickThreshold: 1
+— HIDScrollZoomModifierMask: 0
+— SecondClickThreshold: 1
+— TrackpadCornerSecondaryClick: 2
+— TrackpadFiveFingerPinchGesture: 2
+— TrackpadFourFingerHorizSwipeGesture: 2
+— TrackpadFourFingerPinchGesture: 2
+— TrackpadFourFingerVertSwipeGesture: 2
+— TrackpadHandResting: true
+— TrackpadHorizScroll: 1
+— TrackpadMomentumScroll: true
+— TrackpadPinch: 1
+— TrackpadRightClick: false
+— TrackpadRotate: 1
+— TrackpadScroll: true
+— TrackpadThreeFingerDrag: false
+— TrackpadThreeFingerHorizSwipeGesture: 2
+— TrackpadThreeFingerTapGesture: 2
+— TrackpadThreeFingerVertSwipeGesture: 2
+— TrackpadTwoFingerDoubleTapGesture: 1
+— TrackpadTwoFingerFromRightEdgeSwipeGesture: 3
+— USBMouseStopsTrackpad: 0
+com.apple.AppStore
+— AutoPlayVideoSetting: on
+— AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey: true
+com.apple.assistant
+— Manual Endpointing Threshold: 2
+com.apple.assistant.backedup
+— Cloud Sync Enabled: false
+— Hands Free Mode: 1
+— MultiUser VoiceIdentification Enabled: false
+— Session Language: en-US
+com.apple.assistant.support
+— Assistant Enabled: true
+— Dictation Enabled: false
+— Siri Data Sharing Opt-In Status: 1
+com.apple.AssistiveControl.virtualKeyboard
+— DesiredPanelWindowPosition: Absolute
+— PanelPosition: Absolute
+com.apple.CharacterPaletteIM
+— CVFontSize: 26
+— CVStartAsLargeWindow: false
+com.apple.classroom
+— allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0: true
+— allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0-ask: false
+— allowClassroomOpenApp: true
+— allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0: true
+— allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0-ask: false
+— allowClassroomOpenApp-ask: false
+— allowClassroomOpenURL: true
+— allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0: true
+— allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0-ask: false
+— allowClassroomOpenURL-ask: false
+— allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0: true
+— allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0-ask: false
+— forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0: true
+— forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0-ask: false
+com.apple.ColorSyncCalibrator
+— 722524374X-expertMode: 1
+— 722524374X-name: DELL U3223QE Calibrated
+— 722524374X-shareMode: 0
+— 722524374X-targetTemp: 0
+com.apple.ColorSyncUtility
+— CSProfsUtilsGroupBy: 0
+com.apple.CoreGraphics
+— DisplayUseForcedGray: false
+— DisplayUseInvertedPolarity: false
+com.apple.dashboard
+— devmode: true
+com.apple.desktopservices
+— DSDontWriteNetworkStores: true
+com.apple.DiskUtility
+— advanced-image-options: true
+— DUDebugMenuEnabled: true
+— SidebarShowAllDevices: false
+com.apple.dock
+— autohide: false
+— autohide-delay: 0
+— largesize: 75
+— launchanim: true
+— magnification: true
+— minimize-to-application: true
+— no-bouncing: false
+— showAppExposeGestureEnabled: true
+— showhidden: true
+— showMissionControlGestureEnabled: true
+— tilesize: 70
+— wvous-br-corner: 14
+— wvous-tr-corner: 1
+— wvous-tr-modifier: 1048576
+com.apple.dock.external.extra.x86_64
+— ShowSolidarity: false
+com.apple.driver.AppleBluetoothMultitouch.mouse
+— MouseButtonDivision: 55
+— MouseButtonMode: TwoButton
+— MouseHorizontalScroll: true
+— MouseMomentumScroll: true
+— MouseOneFingerDoubleTapGesture: 0
+— MouseTwoFingerDoubleTapGesture: 3
+— MouseTwoFingerHorizSwipeGesture: 2
+— MouseVerticalScroll: true
+— UserPreferences: true
+com.apple.driver.AppleBluetoothMultitouch.trackpad
+— Clicking: true
+— Dragging: true
+— DragLock: false
+— HIDScrollZoomModifierMask: 0
+— TrackpadCornerSecondaryClick: 2
+— TrackpadFiveFingerPinchGesture: 2
+— TrackpadFourFingerHorizSwipeGesture: 2
+— TrackpadFourFingerPinchGesture: 2
+— TrackpadFourFingerVertSwipeGesture: 2
+— TrackpadHandResting: true
+— TrackpadHorizScroll: 1
+— TrackpadMomentumScroll: true
+— TrackpadPinch: 1
+— TrackpadRightClick: false
+— TrackpadRotate: 1
+— TrackpadScroll: true
+— TrackpadThreeFingerDrag: false
+— TrackpadThreeFingerHorizSwipeGesture: 2
+— TrackpadThreeFingerTapGesture: 2
+— TrackpadThreeFingerVertSwipeGesture: 2
+— TrackpadTwoFingerDoubleTapGesture: 1
+— TrackpadTwoFingerFromRightEdgeSwipeGesture: 3
+— USBMouseStopsTrackpad: 0
+— UserPreferences: true
+com.apple.driver.AppleHIDMouse
+— Button1: 1
+— Button2: 1
+— Button3: 0
+— Button4: 0
+— Button4Click: 0
+— Button4Force: 0
+— ButtonDominance: 1
+— ScrollH: 1
+— ScrollS: 4
+— ScrollSSize: 30
+— ScrollV: 1
+com.apple.dt.Xcode
+— IBAppliesAutoResizingRulesWhileResizing: false
+— IDEKeyBindingCurrentPreferenceSet: Default.idekeybindings
+— IDEUserWantsToEnableDeveloperSystemPolicyMode: false
+— XCFontAndColorCurrentTheme: Default (Light).xccolortheme
+com.apple.FaceTime
+— kPromptEnableReadRecipts: false
+— PreferredVideoDeviceUID: CC26373HVV3G1HNBN
+com.apple.finder
+— _FXShowPosixPathInTitle: true
+— _FXSortFoldersFirst: true
+— _FXSortFoldersFirstOnDesktop: true
+— AppleShowAllFiles: true
+— DisableAllAnimations: true
+— FK_AppCentricShowSidebar: true
+— FK_ArrangeBy: None
+— FXArrangeGroupViewBy: Name
+— FXDefaultSearchScope: SCcf
+— FXEnableExtensionChangeWarning: false
+— FXICloudDriveDesktop: false
+— FXICloudDriveDocuments: false
+— FXICloudDriveEnabled: true
+— FXPreferredGroupBy: Kind
+— FXPreferredSearchViewStyle: Nlsv
+— FXPreferredViewStyle: Nlsv
+— NewWindowTarget: PfHm
+— QLEnableTextSelection: true
+— QuitMenuItem: true
+— RecentsArrangeGroupViewBy: Date Last Opened
+— ShowExternalHardDrivesOnDesktop: false
+— ShowHardDrivesOnDesktop: false
+— ShowMountedServersOnDesktop: false
+— ShowPathbar: true
+— ShowRemovableMediaOnDesktop: false
+— ShowSidebar: true
+— ShowStatusBar: true
+— SidebarShowingiCloudDesktop: false
+com.apple.FolderActionsDispatcher
+— folderActionsEnabled: true
+com.apple.HIToolbox
+— AppleCurrentKeyboardLayoutInputSourceID: com.apple.keylayout.US
+— AppleDictationAutoEnable: 0
+— AppleFnUsageType: 2
+com.apple.iCal
+— AllDayAreaHeight: 60
+— AvailabilityShowTwentyFourHours: true
+— CalDefaultCalendar: UseLastSelectedAsDefaultCalendar
+— CalendarListMiniMonthVisibleMonths: 1
+— CalendarSidebarShown: true
+— CalendarSidebarView: 1
+— display birthdays calendar: true
+— first minute of day time range: 0
+— IncludeDebugMenu: true
+— last minute of day time range: 1440
+— lastViewsTimeZone: America/New_York
+— Show Week Numbers: false
+— TimeZone support enabled: true
+— WR_DONT_ASK_FOR_DEFAULT: true
+com.apple.iChat
+— imageBrowser.disableOpenGL: true
+— KeepMessageForDays: 0
+— NotifyAboutMessagesFromUnknownContacts: true
+— PlaySoundsKey: true
+— SaveConversationsOnClose: false
+— SODefaultTranscriptName: ChatTranscriptViewController
+— UnifiedChatListViewControllerAutomaticallySortsChats: true
+— WebIconDatabaseEnabled: false
+com.apple.Image_Capture
+— com.apple.imagekit.cameraviewmode: 0
+— IK_Camera_preferPostPocessingApp: false
+— IK_Camera_selectedPathType: 2
+— IK_Scanner_downloadURL: ~/Pictures
+— IK_Scanner_PostProcessApplication: /Applications/Preview.app
+— IKC_sort_ascending: false
+— IKC_sort_key: creationDate
+com.apple.imagent
+— Setting.EnableReadReceipts: false
+com.apple.internetconfigpriv
+— WWWHomePage: http://livepage.apple.com/
+com.apple.internetconfigspec
+— WWWHomePage: http://livepage.apple.com/
+com.apple.ipTelephony
+— ImsLoggingEnabled: true
+com.apple.iTunes
+— AutomaticDeviceBackupsDisabled: true
+— com.apple.iTunes.WebKit2DeveloperExtrasEnabled: true
+— DeviceBackupsDisabled: true
+— disableRadio: false
+— disableShareLibraryInfo: false
+— dontAutomaticallySyncIPods: true
+com.apple.keyboard
+— KeyboardWordOrSentenceTrackingForPFL: false
+com.apple.keychainaccess
+— Keychain Item List Sort Descending: false
+— Keychain Item List Sorting: modified-date
+com.apple.loginwindow
+— TALLogoutSavesState: true
+com.apple.madrid
+— CloudKitSyncingEnabled: false
+— enableCKSyncingV2: false
+com.apple.mediaaccessibility.public
+— MACaptionDisplayType: 2
+com.apple.menuextra.battery
+— ShowPercent: YES
+com.apple.menuextra.clock
+— DateFormat: EEE MMM d  j:mm a
+com.apple.messages.facetime
+— FaceTimeTwoTimeCallthroughEnabled: true
+com.apple.messages.nicknames
+— MeCardSharingAudience: 1
+— MeCardSharingEnabled: true
+com.apple.MobileSMS
+— KeepMessageForDays: 0
+— NotifyAboutMessagesFromUnknownContacts: true
+— PlaySoundsKey: true
+— TextFontSize: 13
+— TextSize: 4
+com.apple.MobileSMSPreview
+— IMPreviewGenerationMaxPxWidth: 300
+— IMPreviewGenerationMinHeight: 50
+— IMPreviewGenerationMinWidth: 50
+com.apple.Music
+— automaticallyDownloadArtwork: true
+— dontAskForAllPlaylistItemRemoval: true
+— dontShowRestrictionsPrefs: true
+— dontWarnDownloadCloudPurchases: true
+— encoderName: AAC Encoder
+— eqEnabled: true
+— gridViewSearchDoesNotSwitchView: true
+— miniPlayerLargeArtVisible: false
+— miniplayerSnapMode: 5
+— musicVideoPlaybackLocation: 2
+— preloadFilesIntoMemory: false
+— soundEnhancerAmount: 191
+— soundEnhancerEnabled: true
+— userMaxConcurrentDownloads: 3
+— userWantsPlaybackNotifications: false
+— volumeWSG: 0.1204547
+com.apple.ncprefs
+— content_visibility: 2
+— sort_order: 0
+com.apple.networkConnect
+— VPNShowTime: true
+com.apple.NetworkUtility
+— NUNetstatChoice: 0
+— NUPingChoice: 1
+— NUPortScanRange: 0
+— NUWhoisSelectedServer: whois.internic.net
+com.apple.newscore
+— news_carplay_is_enabled: false
+— notificationEnableAssetPrefetching: true
+com.apple.notificationcenterui
+— bannerTime: 100
+com.apple.PhotoBooth
+— AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey: true
+com.apple.photos.shareddefaults
+— clearPurgeableResources: true
+— CPLDefaultDownload: Default
+— downloadAndKeepOriginals: true
+com.apple.preferences.extensions.CredentialProvider
+— userHasOrdered: true
+com.apple.preferences.extensions.FinderSync
+— userHasOrdered: true
+com.apple.preferences.extensions.PhotoEditing
+— userHasOrdered: true
+com.apple.preferences.extensions.PhotoProjects
+— userHasOrdered: true
+com.apple.preferences.extensions.QuickLook
+— userHasOrdered: true
+com.apple.preferences.extensions.ServicesWithUI
+— userHasOrdered: true
+com.apple.preferences.extensions.SharedLinks
+— userHasOrdered: true
+com.apple.preferences.extensions.ShareMenu
+— userHasOrdered: true
+com.apple.preferences.extensions.XcodeSourceEditor
+— userHasOrdered: true
+com.apple.print.PrinterProxy
+— IK_Scanner_downloadURL: ~/Pictures
+— IK_Scanner_PostProcessApplication: /System/Applications/Preview.app
+com.apple.ProblemReporter
+— ShowComments: true
+— ShowDetails: 1
+com.apple.PTPCamera
+— FilenamePrefix: IMG_
+com.apple.rapport
+— familySyncedName: MacBookPro
+com.apple.Safari
+— com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled: true
+— IncludeDebugMenu: true
+— IncludeDevelopMenu: true
+— IncludeInternalDebugMenu: true
+— ResetCloudHistory: true
+— ShowFullURLInSmartSearchField: true
+— SuppressSearchSuggestions: true
+— UniversalSearchEnabled: false
+— WebKitDeveloperExtrasEnabledPreferenceKey: true
+— WebKitHistoryAgeInDaysLimit: 360
+— WebKitHistoryItemLimit: 9999
+— WebKitInitialTimedLayoutDelay: 0.25
+com.apple.Safari.SandboxBroker
+— ShowDevelopMenu: true
+com.apple.screencapture
+— captureDelay: 5
+— location: /Users/mikeschinkel/Desktop/Screenshots
+— style: display
+— video: false
+com.apple.screencaptureui
+— com.apple.AnnotationKit.arrowHeadStyle: 2
+— com.apple.AnnotationKit.brushStyle: 0
+— com.apple.AnnotationKit.hasShadow: false
+— com.apple.AnnotationKit.highlightStyle: 765200
+— com.apple.AnnotationKit.strokeIsDashed: false
+— com.apple.AnnotationKit.strokeWidth: 5
+com.apple.screensaver
+— tokenRemovalAction: 0
+com.apple.scriptmenu
+— ScriptMenuEnabled: false
+com.apple.sharingd
+— DiscoverableMode: Contacts Only
+com.apple.Siri
+— StatusMenuVisible: true
+— VoiceTriggerUserEnabled: true
+com.apple.SocialLayer
+— SharedWithYouEnabled: true
+com.apple.SoftwareUpdate
+— AutoUpdateMajorOSVersion: 10.15
+com.apple.speech.recognition.AppleSpeechRecognition.prefs
+— DictationIMLocaleIdentifier: en_US
+— DictationIMPlaySoundUponRecognition: true
+— DictationIMUseOnlyOfflineDictation: false
+com.apple.SpeechRecognitionCore
+— AllowAudioDucking: false
+com.apple.suggestions
+— SuggestionsAllowGeocode: true
+com.apple.systempreferences
+— NSFullScreenMenuItemEverywhere: false
+— NSQuitAlwaysKeepsWindows: false
+— ShowAllMode: false
+com.apple.TelephonyUtilities
+— FaceTimePhotosEnabled: false
+— relayCallingDisabled: true
+com.apple.Terminal
+— Default Window Settings: Basic
+— SecureKeyboardEntry: false
+— Startup Window Settings: Basic
+com.apple.TextEdit
+— PlainTextEncoding: 4
+— PlainTextEncodingForWrite: 4
+— RichText: 0
+com.apple.TextInputMenu
+— visible: true
+com.apple.TTY
+— TUIsRelayCallingEnabledPreference: false
+com.apple.TV
+— automaticallyDeleteVideoAssetsAfterWatching: true
+— automaticallyDownloadArtwork: true
+— checkForAvailableDownloads: true
+— dontAskForAllPlaylistItemRemoval: true
+— gridViewSearchDoesNotSwitchView: true
+— miniPlayerLargeArtVisible: false
+— miniPlayerQueueVisible: true
+— miniplayerSnapMode: 5
+— musicVideoPlaybackLocation: 2
+— preloadFilesIntoMemory: false
+— tabViewMode: 22
+— userMaxConcurrentDownloads: 3
+— userWantsPlaybackNotifications: false
+com.apple.universalaccess
+— AssistiveControlType: 2
+— closeViewDesiredZoomFactor: 1.1
+— closeViewHotkeysEnabled: true
+— closeViewScrollWheelToggle: false
+— closeViewSplitScreenRatio: 0.2
+— closeViewZoomFactor: 1
+— contrast: 0
+— differentiateWithoutColor: false
+— dwellEnabled: false
+— dwellHideUITimeout: 15
+— grayscale: false
+— headMouseEnabled: false
+— hoverTextEnabled: false
+— hoverTextIsAlwaysOn: false
+— increaseContrast: false
+— keyboardAccessFocusRingTimeout: 15
+— mouseDriver: false
+— mouseDriverCursorSize: 1.44109
+— reduceTransparency: false
+— slowKey: false
+— slowKeyDelay: 250
+— stickyKey: false
+— switchAutoScanElementInterval: 0.5
+— switchAutoScanPanelInterval: 0.5
+— switchCoalescePressesDuration: 0
+— switchFirstElementDelay: 0
+— switchHideUITimeout: 15
+— switchHoldBeforeRepeatDuration: 3
+— switchMinimumPressDuration: 0
+— switchOnOffKey: false
+— switchSweepingCursorSpeed: 5
+— useStickyKeysShortcutKeys: false
+— virtualKeyboardOnOff: false
+— voiceOverOnOffKey: false
+— whiteOnBlack: false
+com.apple.visualintelligence
+— debugUI: false
+— enableAlbumsDomain: true
+— enableArtDomain: true
+— enableBooksDomain: true
+— enableCoarseClassification: true
+— enableLandmarkDomain: true
+— enableNatureDomain: true
+— enablePetsDomain: true
+— enablePhotosApp: true
+— enableQuickLook: true
+— enableSafariApp: true
+— enableScreenshots: true
+— sendLocationInfo: true
+— sendOCRText: true
+com.apple.VoiceOver4.local
+— SCRCUserDefaultsAllowAirPlay: true
+com.apple.VoiceOverTraining
+— doNotShowSplashScreen: true
+com.apple.voicetrigger
+— VoiceTrigger Enabled: true
+GlobalPreferences
+— AppleActionOnDoubleClick: Maximize
+— AppleAntiAliasingThreshold: 4
+— AppleAquaColorVariant: 1
+— AppleEnableSwipeNavigateWithScrolls: false
+— AppleKeyboardUIMode: 1
+— AppleMeasurementUnits: Inches
+— AppleMetricUnits: false
+— AppleMiniaturizeOnDoubleClick: false
+— AppleShowAllExtensions: true
+— AppleShowScrollBars: Always
+— AppleTemperatureUnit: Fahrenheit
+— AppleWindowTabbingMode: always
+— com.apple.mouse.scaling: 3
+— com.apple.sound.beep.flash: 0
+— com.apple.springing.delay: 0.5
+— com.apple.springing.enabled: true
+— com.apple.swipescrolldirection: false
+— com.apple.trackpad.forceClick: false
+— com.apple.trackpad.scaling: 1
+— InitialKeyRepeat: 15
+— KeyRepeat: 2
+— NSAutomaticCapitalizationEnabled: true
+— NSAutomaticDashSubstitutionEnabled: false
+— NSAutomaticPeriodSubstitutionEnabled: true
+— NSAutomaticQuoteSubstitutionEnabled: false
+— NSAutomaticSpellingCorrectionEnabled: true
+— NSAutomaticTextCompletionEnabled: true
+— NSAutomaticWindowAnimationsEnabled: false
+— WebAutomaticSpellingCorrectionEnabled: true
+— WebKitDeveloperExtras: true

@@ -32,6 +32,7 @@ const (
 	LabelNameLogArg         = "label_name"
 	LabelsLogArg            = "endpoint_labels"
 	ListenerMethodLogArg    = "listener_method"
+	MatchCriteriaLogArg     = "match_criteria"
 	MediaTypeLogArg         = "media_type"
 	NewRecordsLogArg        = "new_records"
 	NumToCreateLogArg       = "num_to_create"
@@ -68,9 +69,13 @@ const (
 	VersionLogArg           = "version"
 	WriteFailureLogArg      = "write_failure"
 	WriteTimeoutLogArg      = "write_timeout"
+	OSNameLogArg            = "os_name"
 )
 const (
-	OSNameLogArg             = "os_name"
+	GroupNameLogArg          = "group_name"
+	KeyLogArg                = "key"
+	ValueLogArg              = "value"
+	OSCodeLogArg             = "os_code"
 	CallerLogArg             = "caller"
 	CipherSuiteLogArg        = "cipher_suite"
 	ContentTypeLengthLogArg  = "content_length"

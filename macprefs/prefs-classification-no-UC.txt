@@ -1,0 +1,1146 @@
+com.apple.security.sosaccount
+— SOSEnabled: SM
+com.apple.SafariCloudHistoryPushAgent
+— AcknowledgedPushNotifications: SR
+— UnacknowledgedPushNotifications: SR
+com.apple.print.custompresets.forprinter.Canon_MF5900_Series
+— com.apple.print.lastPresetPref: SR
+— com.apple.print.lastPresetPrefType: SR
+com.apple.finder
+— SidebarTagsSctionDisclosedState: SR
+— PreviewPaneGalleryWidth: SR
+— PreferencesWindow.LastSelection: SR
+— NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow: SR
+— FXToolbarUpgradedToTenNine: MV
+— FXSidebarUpgradedSharedSearchToTwelve: MV
+— FXInfoWindowWidth: SR
+— DownloadsFolderListViewSettingsVersion: MV
+— SidebariCloudDriveSectionDisclosedState: SR
+— FXICloudDriveDeclinedUpgrade: SR
+— FXPreferredSearchViewStyleVersion: MV
+— PreviewPaneWidth: SR
+— FXAtLeastOneScreenHasBeenInHIDPI: SR
+— CopyProgressWindowLocation: SR
+— SidebarShowingSignedIntoiCloud: SR
+— ViewOptionsWindow.Location: SR
+— FXQuickActionsConfigUpgradeLevel: MV
+— SidebarWidth: SR
+— TagsCloudSerialNumber: SR
+— NSNavLastUserSetHideExtensionButtonState: SR
+— FXSidebarUpgradedToTenFourteen: MV
+— LastTrashState: SR
+— GoToField: SR
+— FXSidebarUpgradedToTenTen: MV
+— FXConnectToLastURL: SR
+— EmptyTrashProgressWindowLocation: SR
+— SearchRecentsSavedViewStyle: SR
+— FXDesktopTouchBarUpgradedToTenTwelveOne: MV
+— FXICloudDriveFirstSyncDownComplete: SR
+— SidebarDevicesSectionDisclosedState: SR
+— MountProgressWindowLocation: SR
+— FK_SidebarWidth: SR
+— SearchRecentsSavedViewStyleVersion: MV
+— PreviewPaneInfoExpanded: SR
+— FXLastSearchScope: SR
+— InspectorWindow.Location: SR
+— SidebarPlacesSectionDisclosedState: SR
+— FXToolbarUpgradedToTenEight: MV
+— FXICloudLoggedIn: SR
+— FXToolbarUpgradedToTenSeven: MV
+com.apple.messages.pinning
+— IMPinningPinConfigMigrationKey-v2-r2: MV
+com.apple.identityservicesd
+— ReRegisteredForDevicesv56: SM
+— hasRegIdentityContainer: SM
+— ReRegisteredForDevicesv55: SM
+— persister-migration-personal-session-token-cache-v4: MV
+— ReRegisteredForDevices: SM
+— DidCleanLegacyAccountPrefs: MV
+— ImportedLegacyIMAccounts: MV
+— hasUnregIdentityContainer: SM
+— MigratedToNewDisabledState: MV
+— triggeredRemoteSessionVersion: MV
+— ReRegisteredForDevicesHash: SM
+— ImportedLegacyIDSAccounts2: MV
+— GDRRequestMadeForRelayRepair: SR
+— persister-migration-com.apple.identityservices.userStore: MV
+— ReRegisteredForDevicesv1350: SM
+— performed-user-intent-migrate: MV
+com.apple.Spotlight
+— ModelName: AM
+— engagementCount-com.apple.Spotlight: SR
+— engagementCount-com.apple.mail: SR
+— SSMessageTracingWindowShowCount: SR
+— windowHeight: SR
+— version: MV
+— useCount: SR
+— __NSEnableTSMDocumentWindowLevel: SR
+— SSMessageTracingWindowHideCount: SR
+— engagementCount-com.apple.Spotlight.suggestions: SR
+— SPMessageTracingWindowHideCount: SR
+— showedFTE: SR
+— SPMessageTracingWindowShowCount: SR
+— userHasMovedWindow: SR
+com.apple.DictionaryServices
+— DCSPreferenceVersion: MV
+com.apple.PTPCamera
+— NextFilenameCount: SR
+com.apple.imtranscoding.IMTranscoderAgent
+— kCKMediaObjectManagerDefaultsOSVersion: MV
+com.apple.scriptmenu
+com.apple.TTY
+— RTTSettingsVersionPreference: MV
+— RTTContinuityRTTIsSupportedPreference: SM
+— TUSupportsRelayCallingPreference: SM
+com.apple.voicetrigger
+com.apple.DiskUtility
+— OperationProgress ExpandedHeight: SR
+— OperationProgress DetailsVisible: SR
+— NSNavLastUserSetHideExtensionButtonState: SR
+com.apple.photos.shareddefaults
+— iCloudPhotoLibraryLastResetWelcomePromptDBVersion: MV
+— DiskSpaceWasLow: SR
+— repushAssetsWithImportedByBundleIdentifier: AM
+— repushVideoAssetsMetadata: AM
+com.apple.parsecd
+— PARDefaultsVersion: MV
+— PARTestSeed: SR
+com.apple.universalaccess
+— login: SR
+— lastNightShiftEnabled: SR
+— closeViewZoomedIn: SR
+— sessionChange: SR
+— closeViewZoomFactorBeforeTermination: SR
+— lastNightShiftActive: SR
+— selectedTab: SR
+— lastNightShiftDate: SR
+— closeViewZoomDisplayID: SR
+— hoverTextIsHoveringAndVisible: SR
+— lastNightShiftMode: SR
+com.apple.Terminal
+— HasMigratedDefaults: MV
+— DefaultProfilesVersion: MV
+— ProfileCurrentVersion: MV
+— TTAppPreferences Selected Tab: SR
+com.apple.coreservices.useractivityd
+— kLocalPasteboardBlobName: SR
+— kRemotePasteboardBlobName: SR
+com.apple.ColorSyncUtility
+— CSUtilitiesContentSize: SR
+— CSUtilitiesSelectedIdentifier: SR
+com.apple.weather
+— userId: SM
+com.apple.Music
+— storeSupportsPasswordSettings: SM
+— notifications-warming-last-displayed-time: SR
+— miniplayerVPos: SR
+— com.apple.Music.WebKit2ShouldPrintBackgrounds: SR
+— storeSupportsPreviousPurchases: SM
+— com.apple.Music.WebKit2AsynchronousSpellCheckingEnabled: SR
+— miniPlayerQueueVisible: SR
+— eqWindowHPos: SR
+— miniplayerUserSetHeight: SR
+— com.apple.Music.WebKit2ShowsToolTipOverTruncatedText: SR
+— updateLevel: MV
+— videoWindowVSize: SR
+— com.apple.Music.WebKit2EnableInheritURIQueryComponent: SR
+— refreshedHLSKeysTime: SR
+— miniplayerWidthInDesignCoords: SR
+— com.apple.Music.WebKit2SuppressesIncrementalRendering: SR
+— miniplayerHPos: SR
+— videoWindowVPos: SR
+— log-PlayQueue-LastSelectedTab: SR
+— storeSupportsUPP: SM
+— showWelcomeScreenState: SR
+— checkedHLSKeysTime: SR
+— storeSupportsCloudPurchases: SM
+— ITUserPrefsMigrated: MV
+— cddbPrefsOK: SR
+— eqPrefsVersion: MV
+— playbackIsFullscreen: SR
+— debugAssertCategoriesVersion: MV
+— debugAssertCategoriesEnabled: SM
+— firstLaunchShowWelcomeScreenState: SR
+— com.apple.Music.WebKit2UserInterfaceDirectionPolicy: SR
+— haveRadioState: SR
+— videoWindowHSize: SR
+— eqWindowVPos: SR
+— haveAskedToCheckForAvailableDownloads: SR
+— NSNavLastUserSetHideExtensionButtonState: SR
+— persistentUserID: SM
+— NSApplicationCrashOnExceptions: SM
+— searchSavedTab: SR
+— artworkDownloadDSID: SM
+— videoWindowHPos: SR
+— controllableInterfaceGUID: SM
+— userHasActivatedFullScreenVisualizer: SR
+— storeMediaTypeFlags: SM
+— imported-eq-presets: MV
+— doesStoreSupportCloudMusicLibrary: SM
+com.apple.airport.airportutility
+— version: MV
+com.apple.studentd
+— LastDateProviderSessionToken: SR
+— DeviceIdentifier: SM
+com.apple.systemuiserver
+— __NSEnableTSMDocumentWindowLevel: SR
+com.apple.IMCoreSpotlight
+— IMCSIdxVersion: MV
+— IMCSLastIndexedRowID: SR
+— IMCSNeedsIndexing: SR
+— IMCSIndexTotalRecords: SR
+— IMCSIdxProductVersion: MV
+— IMCSBypassIndexVersionCheckV2: MV
+com.apple.bird
+— icloud-drive.account-migration-status.294735135: MV
+com.apple.xpc.activity2
+— ProductBuildVersion: MV
+com.apple.iPod
+— com.apple.PreferenceSync.ExcludeAllSyncKeys: SM
+com.apple.newscore2
+— report_concern_user_id: SM
+— provider_user_id: SM
+— instance_identifier: SM
+com.apple.cloudd
+— com.apple.private.cloudkit.shouldUseGeneratedDeviceID: SM
+com.apple.driver.AppleBluetoothMultitouch.trackpad
+— version: MV
+— ForceSuppressed: SM
+com.apple.stocks.account
+— deleteOnNextLaunch: SR
+com.apple.preference.trackpad
+— ForceClickSavedState: SR
+com.apple.SetupAssistant
+— PreviousSystemVersion: MV
+— DidSeeSyncSetup2: MV
+— LastSeenDiagnosticsProductVersion: MV
+— LastSeenCloudProductVersion: MV
+— DidSeeCloudSetup: MV
+— PreviousBuildVersion: MV
+— DidSeeApplePaySetup: MV
+— DidSeeTrueTonePrivacy: MV
+— DidSeeScreenTime: MV
+— MiniBuddyShouldLaunchToResumeSetup: SR
+— DidSeeTouchIDSetup: MV
+— DidSeeActivationLock: MV
+— DidSeeSyncSetup: MV
+— DidSeeAvatarSetup: MV
+— MiniBuddyLaunchReason: SR
+— DidSeeSiriSetup: MV
+— DidSeeTrueTone: MV
+— DidSeePrivacy: MV
+— LastPrivacyBundleVersion: MV
+— LastSeenSiriProductVersion: MV
+— DidSeeAppStore: MV
+— LastPreLoginTasksPerformedVersion: MV
+— DidSeeAppearanceSetup: MV
+— LastSeenSyncProductVersion: MV
+— LastSeeniCloudStorageServicesProductVersion: MV
+— LastPreLoginTasksPerformedBuild: MV
+— MiniBuddyLaunchedPostMigration: SR
+— DidSeeAccessibility: MV
+— LastSeenBuddyBuildVersion: MV
+— DidSeeiCloudLoginForStorageServices: MV
+com.apple.ScriptEditor2
+— OSAStandardAdditions ChooseApplication Bounds: SR
+— NSNavLastUserSetHideExtensionButtonState: SR
+com.apple.preferences.extensions.ServicesWithUI
+com.apple.MobileSMS
+— SyndicationOnboardingVersion: MV
+— LegacyAppSidebarPersistedWidth: SR
+— QuickSaveHasBeenUsedBefore: SR
+— CatalystPreferenceMigrationVersion: MV
+— BusinessChatPrivacyPageDisplayed: SR
+— sForceUnknownFilteringCompleted: SM
+— CKLastSelectedItemIdentifier: SR
+— kCKMediaObjectManagerDefaultsOSVersion: MV
+— CatalystCustomFontMigrationVersion: MV
+— CKMigratedAutoSpamReports26375262: MV
+— SidebarPersistedWidth: SR
+— ReadReceiptSettingsConfirmed: SR
+— sForceSMSSpamFilteringCompleted: SM
+— PendingCleared: SR
+com.apple.preferences.extensions.ShareMenu
+com.apple.mmcs
+— report.LastFailedCheckDate: SR
+— report.sha256: SM
+— report.LastSuccessfulCheckDate: SR
+— report.TTL: SM
+com.apple.appstored
+— BadgeCount: SR
+— ArcadeSubscriptionState: SR
+— ArcadePayoutDeviceID: SM
+— WelcomeNotificationExcludedFromSample: SR
+— ArcadeDeviceID: SM
+— ArcadeDeviceGUID: SM
+— LastOSBuildVersion: MV
+— WelcomeNotificationLastAppStoreConnectionProductVersion: MV
+com.apple.PubSubAgent
+— TigerMigrationCompleted: MV
+com.apple.commcenter.callservices
+— last.known.icloud.id: SM
+— associated.account: SM
+com.apple.print.PrinterProxy
+— IK_Scanner_selectedTag: SR
+com.apple.amsengagementd
+— AMSMetricsIdentifierUserRecordName: SM
+— AMSMetricsIdentifierZoneCreated: SR
+— AMSMetricsIdentifierZoneSubscriptionCreated: SR
+com.apple.iChat
+— PMPrintingExpandedStateForPrint2: SR
+— UnifiedChatWindowControllerSelectionGUIDSet: SR
+— DidCheckForDuplicateChats: SR
+— HasPromptedSMSRelay: SR
+— HasPromptediMessageFTU: SR
+— DidRegenerateGroupID63841559: MV
+— messageTracerSMSSent: SR
+— messageTracerSubmitDate: SR
+— BuddyPictureSetToGenericByUser: SR
+— messageTracerIMessagesSent: SR
+— messageTracerSMSUsed: SR
+— messageTracerNumUpgradeOffers: SR
+— ChatWindowControllerUnifiedIsVisible: SR
+— messageTracerMessagesSent: SR
+— DidMarkGroupPhotosAsUnpurgeable: SR
+— messageTracerUpgradesAccepted: SR
+— messageTracerIMessagesReceived: SR
+— NSNavLastUserSetHideExtensionButtonState: SR
+— DaemonConnectionWaitTime: SM
+— KeepMessagesVersionID: MV
+— messageTracerCharactersSent: SR
+— messageTracerMessagesReceived: SR
+— messageTracerUpgradesDeclined: SR
+— messageTracerSMSReceived: SR
+— messageTracerIMessageUsed: SR
+— DidMigratePersonCentricIDs: MV
+— LastIMDNotificationPostedDate: SR
+— ChatWindowControllerUnifiedChatListWidth: SR
+— LastFailedMessageIMDNotificationPostedDate: SR
+com.apple.TextEdit
+com.apple.HIToolbox
+com.apple.preferences.extensions.FinderSync
+com.apple.coreservices.uiagent
+— CSUIHaveCenteredGatekeeperProgressWindow: SR
+— CSUIHasSafariBeenLaunched: SR
+— CSUIRecommendSafariBackOffInterval: SR
+— CSUILastOSVersionWhereSafariRecommendationWasMade: SR
+com.apple.CharacterPicker
+— version: MV
+com.apple.CharacterPaletteIM
+— version: MV
+com.apple.assistant.backedup
+— Cloud Sync User ID: SM
+com.apple.icloud.fmfd.notbackedup
+— kKeychainUtilMigrationVersionKey: MV
+com.apple.security.cloudkeychainproxy3.keysToRegister
+— EnsurePeerRegistration: SM
+— DSID: SM
+— KeyAccountUUID: SM
+com.apple.mediaaccessibility.public
+com.apple.speech.recognition.AppleSpeechRecognition.prefs
+— DictationIMPresentedOfflineUpgradeSuggestion: SR
+— DictationIMCommandsWindowIsOpen: SR
+— DictationIMCorrectionCount: SR
+— DictationIMUpgradedTo10_16: MV
+— DictationIMUpgradedTo10_15: MV
+— DictationIMMessageTracesSinceLastReport: SR
+com.apple.loginwindow
+— MiniBuddyLaunch: SR
+— oneTimeSSMigrationComplete: MV
+com.apple.preferences.softwareupdate
+— LatestMajorOSSeenByUserBundleIdentifier: MV
+com.apple.accessibility.universalAccessAuthWarn
+— ThirdPartyCount: SR
+com.apple.internetconnect
+— ServiceID: SM
+com.apple.TextInputMenu
+com.apple.messages.nicknames
+— NicknameAppleIDAndiCloudAccountMatchAndExist: SM
+— MeCardPendingNicknamesVersion: MV
+— MeCardSharingVersion: MV
+— MeCardSharingImageForkedFromMeCard: SR
+— MeCardWhitelistBlacklistNicknamesVersion: MV
+— NicknameInfoRequestedFromPeers: SR
+— NicknameScrutinyDoNotHandle: SM
+— ReuploadLocalNicknamesVersion: MV
+com.apple.ProblemReporter
+com.apple.gamed
+— natType: SM
+— GKStoreFrontIdentifier: SM
+— GKActiveEnvironmentKeyV2: SM
+— GKLastPushTokenPlayerID: SM
+— GKLastPushTokenEnvironment: SM
+— GKPushEnvironmentKeyV2: SM
+— GKLastProtocolVersionUsedKeyV2: MV
+— GKLoginCancelled: SR
+com.apple.Safari.SandboxBroker
+— DidMigrateDownloadFolderToSandbox: MV
+— DidMigrateResourcesToSandbox: MV
+— DidMigrateDownloadMetadataToSandboxGroupContainer: MV
+com.apple.preferences.extensions.XcodeSourceEditor
+com.apple.AppleMediaServices.notbackedup
+— AMSDidRetrieveDeviceOffers: SR
+— AMSDidRetrieveDeviceOffersEligibility: SR
+com.apple.imdsmsrecordstore
+— DeleteSequenceNumber: SR
+com.apple.iTunes
+— com.apple.iTunes.WebKit2ShowsToolTipOverTruncatedText: SR
+— doesAccountArtistListHaveSharePermission: SM
+— MacBuddyStoreID: SM
+— com.apple.iTunes.WebKit2ShouldPrintBackgrounds: SR
+— com.apple.iTunes.WebKit2SuppressesIncrementalRendering: SR
+— com.apple.iTunes.WebKit2AsynchronousSpellCheckingEnabled: SR
+— Store Apple ID: SM
+— debugAssertCategoriesVersion: MV
+— com.apple.iTunes.WebKit2UserInterfaceDirectionPolicy: SR
+— com.apple.iTunes.WebKit2EnableInheritURIQueryComponent: SR
+— NSNavLastUserSetHideExtensionButtonState: SR
+— isAccountEnrolledInITunesMatch: SM
+— log-PlayQueue-LastSelectedTab: SR
+— isAccountAdmin: SM
+— NSApplicationCrashOnExceptions: SM
+— WirelessBuddyID: SM
+— Store DSID: SM
+— storefront: SM
+— isAccountEnrolledInAppleMusic: SM
+— log-push: SR
+— debugAssertCategoriesEnabled: SM
+com.apple.textInput.keyboardServices.textReplacement
+— osxMajorVersForCloudKitSync: MV
+— TRCKSyncMaxCountThreshold: SM
+— _KSTRCloudKitMigratable: SM
+— KSDidPushAllLocalRecordsOnce-2: SR
+— osxMinorVersForCloudKitSync: MV
+— internalMigrationPercent: MV
+— KSCKSubscriptionProd-TextReplacements: SM
+— seedMigrationPercent: MV
+— seedMigrationPercent1: MV
+— KSDidPushMigrationStatusOnce-2: MV
+— gmMigrationPercent1: MV
+— KSDidMigrateToCloudKitOnCloud: MV
+— KSCloudKitMigrationDidComplete: MV
+— kTRCKSyncCount: SR
+— KSCKDidSetupRecordZoneProd-TextReplacements: SR
+— iOSMajorVersForCloudKitSync: MV
+— kDidMigrateToUUIDRecordName: MV
+— internalMigrationPercent1: MV
+— kDidInsertSampleShortcutForPeer: SR
+— iOSMinorVersForCloudKitSync: MV
+— gmMigrationPercent: MV
+— userDidFallInMigrationAllowBatch: MV
+— KSSampleShortcutWasImported_CK: SR
+— KSDidPullLegacyEntriesFromPeers: SR
+— TRCKSyncCountHalflifeInHours: SM
+— KSLastKnownUserID-TextReplacements: SM
+— osxMinorSubversionForCloudKitSync: MV
+— KSLSShouldUpdateCache: SR
+com.apple.diagnosticextensionsd
+— directoriesCleanupDone: MV
+com.apple.Messages
+— hasPerformedNewDeviceBringUpSync: MV
+— hasTriedToEnableCKAndSyncAfterFirstImagentConnection: SR
+com.apple.NewDeviceOutreach
+— InitialOutreachActivityScheduled: SR
+— CachedWarrantyValidityDuration: SR
+— PostUpgradeActivityCompleted: MV
+— PostUpgradeOSVersionKey: MV
+— CachedWarrantyLocale: SR
+— CachedWarrantyVersion: MV
+com.apple.icloud.searchpartyuseragent
+— PersistenceLayerVersion: MV
+— LastOSLaunchVersion: MV
+— lastLaunchBootSessionUUID: SR
+— lastLaunchLocale: SR
+— FMIPStateManager.fmipState: SM
+com.apple.cloudpaird
+— MagicCloudPairingAccessorySubscriptionManateeID: SM
+— MagicCloudPairingManateeUpgradedAccount: MV
+— MagicCloudPairingManateeUpgraded: MV
+— MagicCloudPairingProtectedAccessorySubscription: SM
+— UploadedHSA2KeysForLocalDevice: SM
+— MagicCloudPairingAccessorySubscriptionID: SM
+— MagicCloudPairingMasterEncryptionPreferences: SM
+— SecuredAccessoryZoneSubscription: SM
+— MagicCloudPairingMasterSubscriptionManateeID: SM
+— MagicCloudPairingMasterSubscriptionID: SM
+— SecuredZoneSubscription: SM
+— MagicCloudPairingAccessoryEncryptionPreferences: SM
+com.apple.syncserver
+— SyncServicesResetWorldRunOnce: MV
+com.apple.screencaptureui
+— com.apple.AnnotationKit.userDefaultsVersion: MV
+— toolbarOrigin: SR
+com.apple.desktopservices
+com.apple.security.pboxd
+— ILMediaBrowserMediaType: SR
+— ILMediaBrowserSelectedGroupIndex1: SR
+— ILMediaBrowserSelectedGroup1: SR
+com.apple.keychainaccess
+— Last Selected Category: SR
+— VPNSSItemsChecked: SR
+— Item Preview Closed: SR
+— Last Selected Keychain: SR
+— Keychains List Closed: SR
+com.apple.imessage
+— PreviewTranscodingWasInitializedToDefaultValue: MV
+— PreviewTranscodingQualityOnWiFiWasInitializedToDefaultValue: MV
+com.apple.Safari.SafeBrowsing
+— HasMigratedSafeBrowsingEnabledDefaults: MV
+com.apple.AppleMediaServices
+— AMSIncludeFullResponseInHARLogging: SM
+— AMSShowSandboxAccountUI: SM
+— AMSDeviceBiometricsState: SM
+— AMSUserDefaultsincludeFullResponseInHARLogging: SM
+— AMSMigratedToNewAccountStore: MV
+— AMSUserDefaultsIncludeFullRequestInHARLogging: SM
+— AMSLogHARData: SM
+— AMSLastMigratedBuildVersion: MV
+— AMSDidSetUpServerDataCache: SR
+— AMSIncludeFullRequestInHARLogging: SM
+— AMSMigratedStorageToDefaultsForNonAMSInternal: MV
+com.apple.gamecenter
+— GKMaxRecentPlayersCount: SM
+— GKMaxRecentPlayersTime: SM
+com.apple.PhotoBooth
+— PBLaunchedAtLeastOnceOnLion: MV
+— UserCameraUniqueIDPref: SM
+— NSNavLastUserSetHideExtensionButtonState: SR
+com.apple.MobileSMSPreview
+— IMPreviewGenerationScreenScale: SR
+com.apple.ActivityMonitor
+— OpenMainWindow: SR
+— SelectedTab: SR
+— HasSavedState: SR
+com.apple.airplay
+com.apple.messages.facetime
+com.apple.remindd
+— CloudKitAccountStatus: SM
+— preferredDefaultListObjectIDUrl: SR
+— ThrottlingPolicyCurrentBatchCount: SR
+— isDatabaseMigrated: MV
+— preferredDefaultListID: SR
+— cloudKitSchemaCatchUpSyncLastSuccessBuildVersion: MV
+— ThrottlingPolicyCurrentLevelIndex: SR
+— spotlightIndexVersion: MV
+— useExtraneousAlarmBackOffThrottleInterval: SM
+— CloudConfigurationPath: SM
+— lastDatabaseMigrationSystemBuildVersion: MV
+com.apple.ncprefs
+— version: MV
+com.apple.itunesstored
+— AccountsNotificationPlugin.ActiveStorefrontIdentifier: SM
+com.apple.driver.AppleHIDMouse
+com.apple.preferences.extensions.CredentialProvider
+com.apple.itunescloud
+— ICDefaultsKeyLastActiveAccountDSID: SM
+com.apple.stockholm
+— RemoteAdminV2: SM
+— PKWalletShouldAutomaticallyRegisterKey: SM
+com.apple.Siri
+com.apple.sharingd
+— AirDropRandomHashUUIDKey4: SM
+— OneTimeAirDropReset2: MV
+— OneTimeAirDropReset: MV
+— HashManager-StoredDatabaseVersionKey: MV
+— AirDropRandomHashUUIDKey2: SM
+— AutoUnlockPresentedWiFiError: SR
+— AutoUnlockPresentedBluetoothError: SR
+— AirDropRandomHashUUIDKey3: SM
+— AutoUnlockWatchCurrentlyInList: SR
+— AutoUnlockWatchExistedInUnlockList: SR
+— AirDropRandomHashUUIDKey1: SM
+com.apple.AppStoreComponents
+com.apple.DFSLoginPlugin
+— WindowLeft: SR
+— WindowTop: SR
+com.apple.iCal
+— BirthdayEventsGenerationLastLocale: SR
+— last calendar view description: SR
+— BirthdayEventsGenerationVersion: MV
+— icaluuid: SM
+— CalForceTruthFileRestoreHashKey: MV
+— last selected calendar list item: SR
+— NSEventConcurrentProcessingEnabled: SM
+— BirthdayEventsGenerationAttemptsToResetKey: SR
+— iCal version: MV
+— first shown minute of day: SR
+— RemindersLastMigratedSystemVersion: MV
+— LastReminderMigrationCleanupVersion: MV
+— NSNavLastUserSetHideExtensionButtonState: SR
+— privacyPaneHasBeenAcknowledgedVersion: MV
+— CalendarSidebarWidth: SR
+— kLastABCReportTimeKey: SR
+— NSDontMakeMainWindowKey: SM
+com.apple.assistant
+— Experiment Identifierinvocation_feedback_experiment: SM
+— Has Set Up MultiUser Shared Record Subscription: SR
+— Initial Interstitial Delay for VoiceTrigger One-Shot without Audio Ducking: SM
+— Initial Interstitial Delay - stark: SM
+— MultiUser Shared Data Needs Sync: SR
+— Initial Interstitial Delay: SM
+— Myriad Device Delay: SM
+— Myriad Device Class: SM
+— Myriad Device Adjust: SM
+— Has Set Up Account Status Subscription: SR
+— Voice Trigger Needs Sync: SR
+— Myriad Device Trump Delay: SM
+— Experiment Identifier: SM
+— Flush Session Tickets Cache: SR
+— Server Has Provisioned Myriad: SR
+— Myriad VTEndtimeDistanceThreshold: SM
+— Has Set Up Key Value Subscription: SR
+— Borealis Education Header Display Count: SR
+— Experiment Identifiersiri_vox_tap_to_siri_behavior_experiment: SM
+— Has Set Up Voice Trigger Subscription: SR
+— Last Known Analytics Store State: SR
+— Experiment Identifiersiri_vox_sounds_experiment: SM
+com.apple.dt.Xcode
+— IBPreferencesMigrated: MV
+— IDESourceControlPreferencesVersion: MV
+— DVTFontAndColorLastUpdatedToolsVersion: MV
+com.apple.AMPLibraryAgent
+— debugAssertCategoriesVersion: MV
+— have-shown-cloud-UI: SR
+— storeSupportsUPP: SM
+— updateLevel: MV
+— ITUserPrefsMigrated: MV
+— books-migrated: MV
+— storeSupportsPreviousPurchases: SM
+— persistentUserID: SM
+— storeSupportsCloudPurchases: SM
+— imported-media-domains: SR
+— books-persistent-id: SM
+— storeMediaTypeFlags: SM
+— podcasts-migrated: MV
+— storeSupportsPasswordSettings: SM
+— imported-media-domains-modification-date: SR
+— devices-persistent-id: SM
+— debugAssertCategoriesEnabled: SM
+— podcasts-persistent-id: SM
+com.apple.wifi.keychain-format
+— Version: MV
+com.apple.facetime.bag
+— URL: SM
+— CacheTime: SM
+com.apple.TelephonyUtilities
+— GondolaLastAccountsChangedState: SR
+— GondolaGeneratedIdentifier: SM
+— registeredProvidersVersion: MV
+— CachedVCCaps: SM
+— GondolaLatestVersion: MV
+— GondolaSyncedVersion: SR
+com.apple.findmy.fmfcore.notbackedup
+— frontMostWindow: SR
+— publicAPSToken: SM
+— FMFGarbageCollectorIdentityKey: SM
+— windowVisible: SR
+com.apple.AppStore
+— __uniquePageGroupID-9.WebKit2UserInterfaceDirectionPolicy: SR
+— __uniquePageGroupID-12.WebKit2DeveloperExtrasEnabled: SR
+— mostRecentTabIdentifier: SR
+— com.apple.AppStore.WebKit2UserInterfaceDirectionPolicy: SR
+— appStoreBadgeCount: SR
+— __uniquePageGroupID-1.WebKit2ShowsToolTipOverTruncatedText: SR
+— UserSetAutoPlayVideoSetting: SR
+— lastBootstrapTimeZone: SR
+— __uniquePageGroupID-9.WebKit2SuppressesIncrementalRendering: SR
+— ASAcknowledgedOnboardingVersion: MV
+— __uniquePageGroupID-12.WebKit2ShowsToolTipOverTruncatedText: SR
+— __uniquePageGroupID-9.WebKit2ShowsToolTipOverTruncatedText: SR
+— com.apple.AppStore.WebKit2SuppressesIncrementalRendering: SR
+— __uniquePageGroupID-1.WebKit2DeveloperExtrasEnabled: SR
+— __uniquePageGroupID-9.WebKit2DeveloperExtrasEnabled: SR
+— __uniquePageGroupID-12.WebKit2UserInterfaceDirectionPolicy: SR
+— __uniquePageGroupID-12.WebKit2SuppressesIncrementalRendering: SR
+— com.apple.AppStore.WebKit2ShowsToolTipOverTruncatedText: SR
+— com.apple.AppStore.WebKit2DeveloperExtrasEnabled: SR
+— __uniquePageGroupID-1.WebKit2UserInterfaceDirectionPolicy: SR
+— __uniquePageGroupID-1.WebKit2SuppressesIncrementalRendering: SR
+com.apple.AdPlatforms
+— AppStorePAAvailable: SM
+— LatestPAVersion: MV
+— acknowledgedPersonalizedAdsVersion: MV
+com.apple.keyboard
+com.apple.assistant.support
+com.apple.preferences.extensions.QuickLook
+com.apple.internetconfigspec
+com.apple.icloud.fmfd
+— numberOfFriendsFollowersKey: SR
+— kFMFDStoredDataVersion: MV
+— storedDSID: SM
+— lazyInitTimeSecsStoredKey: SM
+— kFMFDlastLoggedInPrsId: SM
+com.apple.newscore
+— com.apple.news.notification_receipt_event_endpoint: SM
+— news_url_resolution_subscription_status: SM
+— com.apple.news.default_event_endpoint: SM
+— notificationAssetPrefetchingRequiresWatch: SM
+— notificationArticleDiversificationSimilarityExpectationStart: SM
+— force_refresh_user_segmentation: SM
+— notificationArticleDiversificationUniquePublisherExpectationYIntercept: SM
+— notificationArticleDiversificationUniquePublisherExpectationSlope: SM
+— com.apple.newsd.download.hasUnfinishedWork: SR
+— notificationArticleDiversificationSimilarityExpectationEnd: SM
+— use_parsec_results_for_widget: SM
+com.apple.AddressBook
+— ABMetaDataChangeCount: SR
+— ABVersion: MV
+— ABLastImportShown: SR
+— ABDefaultSourceID: SR
+— NSNavLastUserSetHideExtensionButtonState: SR
+— NSPreferencesSelectedIndex: SR
+— NSPreferencesContentSize: SR
+com.apple.SpeechRecognitionCore
+com.apple.commerce
+— LastUpdateNotificationOSMajorVersion: MV
+— PurchasesInflight: SR
+com.apple.networkresolutiond
+— _networkDevices: SR
+com.apple.TV
+— persistentUserID: SM
+— miniplayerUserSetHeight: SR
+— storeMediaTypeFlags: SM
+— checkedHLSKeysTime: SR
+— storeSupportsCloudPurchases: SM
+— debugAssertCategoriesVersion: MV
+— com.apple.TV.WebKit2EnableInheritURIQueryComponent: SR
+— cddbPrefsOK: SR
+— com.apple.TV.WebKit2SuppressesIncrementalRendering: SR
+— miniplayerVPos: SR
+— controllableInterfaceGUID: SM
+— videoWindowVPos: SR
+— miniplayerHPos: SR
+— playbackIsFullscreen: SR
+— storeSupportsPasswordSettings: SM
+— com.apple.TV.WebKit2UserInterfaceDirectionPolicy: SR
+— haveAskedToCheckForAvailableDownloads: SR
+— videoWindowHPos: SR
+— storeSupportsUPP: SM
+— showWelcomeScreenState: SR
+— videoWindowVSize: SR
+— updateLevel: MV
+— ITUserPrefsMigrated: MV
+— miniplayerWidthInDesignCoords: SR
+— storeSupportsPreviousPurchases: SM
+— NSApplicationCrashOnExceptions: SM
+— videoWindowHSize: SR
+— debugAssertCategoriesEnabled: SM
+— firstLaunchShowWelcomeScreenState: SR
+— com.apple.TV.WebKit2ShowsToolTipOverTruncatedText: SR
+— userHasActivatedFullScreenVisualizer: SR
+— com.apple.TV.WebKit2AsynchronousSpellCheckingEnabled: SR
+— com.apple.TV.WebKit2ShouldPrintBackgrounds: SR
+com.apple.preference.general
+— version: MV
+com.apple.menuextra.battery
+com.apple.imdpersistence.IMDPersistenceAgent
+— LogAllIOErrors: SM
+com.apple.SafariServices
+— SearchProviderIdentifierMigratedToSystemPreference: MV
+com.apple.siri.shortcuts
+— WFServicesShortcutsMigrated: MV
+— WFDidUnconflictShortcuts: SR
+— LegacyShortcutsZoneSubscriptionUnsubscribed: SR
+— WFDefaultShortcutsVersion: MV
+— WFLastSyncedFlagsHash: SR
+com.apple.SystemProfiler
+— PrefsVersion: MV
+— SPLastDocumentsSize: SR
+com.apple.remindd.babysitter
+— LastSystemVersion: MV
+com.apple.internal.ck
+— DictationOnDeviceSamplingDisabled: SM
+— DictationSamplingRates: SM
+— DefaultCacheKey: SM
+— DefaultWarmupScriptsExtension: SM
+— WarmupScriptIdentifiers: SM
+— HasSetUpRecordZoneSubscription: SR
+— ByteCodeCacheEnabled: SM
+— DefaultBootTimeUpdateScripts: SM
+— WarmupModularScriptIdentifiers: SM
+— DisableFBFForUEI: SM
+com.apple.internetconfigpriv
+com.apple.dock
+— region: SR
+— version: MV
+— mod-count: SR
+— trash-full: SR
+— loc: SR
+com.apple.AdLib
+— adprivacydMaxSegmentSendInterval: SM
+— personalizedAdsMigrated: MV
+— partiality-segment: SM
+— CKDPIDSyncState: SM
+— adprivacydSegmentInterval: SM
+com.apple.amp.mediasharingd
+— home-sharing-sequence-id: SR
+— home-sharing-group-id: SM
+— home-sharing-computer-id: SM
+— shared-library-id: SM
+— shared-library-machine-id: SM
+com.apple.systempreferences
+— com.apple.preferences.sharing.selectedservice: SR
+— ThirdPartyCount: SR
+— SoundTab: SR
+— com.apple.dtandsspref.lastselectedtab: SR
+— trackpad.lastselectedtab: SR
+— ICQ_iCloudFirstRunNotificationShown: SR
+— DisableAutoLoginButtonIsHidden: SM
+— com.apple.preferences.accounts.outline.usersparent: SR
+— mouse.lastselectedtab: SR
+— com.apple.SecurityPref.Privacy.LastSourceSelected: SR
+— SecurityPrefTab: SR
+— com.apple.preference.keyboard.lastselectedtab: SR
+— com.apple.datetimepref.lastselectedtab: SR
+com.apple.UIKit
+— hasAccessibilityBeenMigrated: MV
+com.apple.SafariBookmarksSyncAgent
+— CloudBookmarksSupplementalClientIdentifier: SM
+— NewestLaunchedSafariBookmarksSyncAgentVersion: MV
+com.apple.VoiceOverTraining
+com.apple.newsd
+— FCAppConfigurationBundleShortVersionKey: MV
+com.apple.itunescloud.daemon
+— ICDDefaultsKeyKnownActiveAccountDSID: SM
+com.apple.Image_Capture
+— IK_lastUsedDeviceUUID: SM
+— IK_Camera_selectedTag: SR
+— IK_lastUsedDeviceIsRemote: SR
+— IK_prefsVersion: MV
+— IK_Accessory_selectedTag: SR
+— IK_lastUsedDeviceName: SR
+com.apple.preferences.extensions.SharedLinks
+com.apple.driver.AppleBluetoothMultitouch.mouse
+com.apple.dock.external.extra.x86_64
+com.apple.commcenter.data
+— pw_ver: MV
+com.apple.imagecapture
+— loggingLevel: SM
+com.apple.notificationcenterui
+com.apple.pipagent
+com.apple.AMPDevicesAgent
+— debugAssertCategoriesEnabled: SM
+— persistentUserID: SM
+— updateLevel: MV
+— storeMediaTypeFlags: SM
+— storeSupportsCloudPurchases: SM
+— debugAssertCategoriesVersion: MV
+— ITUserPrefsMigrated: MV
+com.apple.MobileSMS.CKDNDList
+— CatalystDNDMigrationVersion: MV
+— CKDNDMigrationKey: MV
+com.apple.protectedcloudstorage.protectedcloudkeysyncing
+— registrySyncIdentifier: SM
+com.apple.VoiceOver4.local
+— SCRCUserDefaultsUnplannedShutdownCount: SR
+— SCRCUserDefaultsPlannedShutdownSuccessful: SR
+com.apple.suggestions
+— spToLearnMigrationPerformed: MV
+— findToShowMigrationPerformed: MV
+com.apple.NetworkUtility
+— NUTracerouteAddress: SR
+— NUPortScanEnd: SR
+— NUSelectedTabItem: SR
+— NULookupAddress: SR
+— NUFingerPerson: SR
+— NUPortScanAddress: SR
+— NUPingAddress: SR
+— NUPortScanStart: SR
+— NUWhoisAddress: SR
+com.apple.siri.VoiceShortcuts
+— VCLSDatabaseUUIDKey: SM
+— VCLSDataSequenceKey: SR
+com.apple.Safari
+— cloudBookmarksMigrationEligibilityDataInvalidated: MV
+com.apple.accounts
+— ACOneTimeSMTPFixAccountSync: MV
+— ACOneTimeLDAPFixAccountSync: MV
+com.apple.visualintelligence
+— bypassAvailability: SM
+— firstTimeExperience: SR
+— initialized: SR
+com.apple.accountsd
+— com.apple.mail.searchableIndex.lastProcessedAttachmentIDKey: SR
+— LastSystemVersion: MV
+com.apple.fileproviderd
+— com.apple.fileproviderd.did-drop-daemon-corespotlight-index: MV
+com.apple.screencapture
+— last-selection-display: SR
+com.apple.SoftwareUpdate
+com.apple.Preferences
+— UserDictionaryImportedSinceMaintenance: MV
+— UserDictionaryLocalPeerIdentityCurrent: SM
+com.apple.sociallayerd.CloudKit.ckwriter
+— accountLastKnownUserRecordID: SM
+— accountAvailable: SR
+— version: MV
+— writerDone: SR
+com.apple.classroom
+com.apple.CloudKit
+— AccountInfoValidationCounter: SR
+com.apple.findmy.fmipcore.notbackedup
+— publicAPSToken: SM
+— itemLearnMoreURL: SM
+— frontMostWindow: SR
+— windowVisible: SR
+— deviceImageVersion: MV
+— FMIPGarbageCollectorIdentityKey: SM
+com.apple.tipsd
+— TPSWelcomeNotificationViewedVersion: MV
+— TPSTipsAppInstalled: SR
+— TPSOfflineLastProcessedRemoteContentIdentifier: SR
+— DeliveryInfoVersion: MV
+— TPSLastMajorVersion: MV
+— ConsecutiveNotificationsCount: SR
+— TPSWelcomeNotificationReminderState: SR
+com.apple.CoreGraphics
+com.apple.DirectoryUtility
+— FirstLaunch: SR
+com.apple.AvatarUI.Staryu
+— AVTAvatarHasDisplayedAnimojiSplashScreen: SR
+— AVTAvatarHasDisplayedCameraEffectsSplashScreen: SR
+— AVTAvatarHasDisplayedPaddleView: SR
+— AVTAvatarHasDisplayedSplashScreen: SR
+— AVTAvatarUILastCacheVersion: MV
+com.apple.networkConnect
+com.apple.UserAccountUpdater
+— com.apple.HidLibraryFolderAlready: MV
+com.apple.madrid
+— IMCloudKitStartingInitialSync: SR
+— CloudKitIsSyncing: SR
+— CloudKitIsRemovedFromBackup: SR
+— CloudKitIsEligibleForTruthZone: SM
+— CloudKitEligibleToToggleMiCSwitch: SM
+— IMCloudKitSyncControllerSyncTypeKey: SM
+— CloudKitCheckedMiCSwitchEligibilityOnImagentLaunch: SR
+— createdChatZone: SR
+— hasCompletedInitialCKSync: SR
+— IMCloudKitSyncControllerSyncRecordTypeKey: SM
+— initialSyncRecordHasBeenWritten: SR
+— IMCloudKitSyncControllerSyncStateKey: SR
+— IMCloudKitStartingPeriodicSync: SR
+— IMCloudKitSyncPaused: SR
+— RequestPriorityRamp: SM
+— IMCloudKitAccountStatusKey: SM
+— IMCloudKitStartingEnabledSettingChange: SR
+— IMCKFinishedFetchingAttachmentsFromCloudKit: SR
+— CKMOCAccountsMatch: SR
+— IMCloudKitStartingDisableDevices: SR
+— oneTimeMOCAccountCheckV2: MV
+com.apple.rapport
+com.apple.menuextra.clock
+com.apple.imessage.bag
+— URL: SM
+— CacheTime: SM
+com.apple.sms
+— hasBeenApprovedForSMSRelay: SM
+com.apple.Automator
+— NSSplitView AMDocumentMinor Expanded Position: SR
+— NSNavLastUserSetHideExtensionButtonState: SR
+— NSSplitView AMLibraryActionsMajor Expanded Position: SR
+— AMLogTabViewSelectedIndex: SR
+com.apple.weather.internal
+— userId: SM
+com.apple.FaceTime
+— DidMigrateToSixteenByNineAspectRatio: MV
+— PhoneNumberUpgradeShown: SR
+com.apple.AssistiveControl.virtualKeyboard
+— SCLaunchedAsSlave: SR
+com.apple.Accessibility
+— BrailleInputDeviceConnected: SR
+com.apple.ipTelephony
+com.apple.ColorSyncCalibrator
+com.apple.StatusKitAgent
+— reauthCount: SR
+com.apple.AppleMultitouchTrackpad
+— TrackpadThreeFingerDrag: false
+— TrackpadPinch: 1
+— USBMouseStopsTrackpad: 0
+— TrackpadFourFingerVertSwipeGesture: 2
+— ActuationStrength: 1
+— ActuateDetents: 1
+— FirstClickThreshold: 1
+— SecondClickThreshold: 1
+— TrackpadTwoFingerDoubleTapGesture: 1
+— TrackpadHorizScroll: 1
+— TrackpadMomentumScroll: true
+— TrackpadFourFingerPinchGesture: 2
+— TrackpadRotate: 1
+— Clicking: true
+— TrackpadThreeFingerTapGesture: 2
+— TrackpadThreeFingerHorizSwipeGesture: 2
+— TrackpadScroll: true
+— DragLock: false
+— TrackpadFiveFingerPinchGesture: 2
+— ForceSuppressed: true
+— TrackpadThreeFingerVertSwipeGesture: 2
+— TrackpadTwoFingerFromRightEdgeSwipeGesture: 3
+— UserPreferences: true
+— version: 12
+— HIDScrollZoomModifierMask: 0
+— TrackpadHandResting: true
+— TrackpadRightClick: false
+— Dragging: true
+— TrackpadFourFingerHorizSwipeGesture: 2
+— TrackpadCornerSecondaryClick: 2
+com.apple.ImageCaptureService
+— IK_Accessory_selectedTag: SR
+com.apple.screensaver
+com.apple.AppleMultitouchMouse
+— version: MV
+com.apple.universalaccessAuthWarning
+— 2::/Applications/Logi Options.app: SM
+— 2::com.logitech.manager.daemon: SM
+— 3::/Applications/Microsoft Teams (work or school).app: SM
+— 2::com.lightpillar.Mosaic-setapp: SM
+— 1::/Applications/CloudBerry Backup.app: SM
+— 3::com.getcleanshot.app-setapp: SM
+— 2::/Applications/Setapp/Mosaic.app/Contents/MacOS/Mosaic: SM
+— /Applications/Clipy.app/Contents/MacOS/Clipy: SM
+— 3::/Applications: SM
+— 3::/Applications/xScope.app/Contents/MacOS/xScope: SM
+— 3::/Applications/Microsoft Teams.app: SM
+— 1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app/Contents/MacOS/goland: SM
+— 1::/Applications: SM
+— 3::com.microsoft.teams2: SM
+— 3::/Applications/Discord.app: SM
+— 3::/Applications/Microsoft Edge.app: SM
+— 2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app/Contents/MacOS/LogiMgrDaemon: SM
+— 3::/Applications/Skitch.app: SM
+— 3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app: SM
+— /Applications/Alfred 4.app/Contents/MacOS/Alfred: SM
+— 3::/Applications/Toast 19 Pro.app: SM
+— 1::com.vmware.fusion: SM
+— 2::com.lastpass.lastpassmacdesktop: SM
+— com.clipy-app.Clipy: SM
+— 3::com.google.Chrome: SM
+— 1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app: SM
+— 1::/Applications/Microsoft Teams.app: SM
+— 3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app/Contents/MacOS/ScreenFlowHelper: SM
+— 3::/Applications/Microsoft Teams (work or school).app/Contents/MacOS/MSTeams: SM
+— 3::/Applications/RingCentral.app: SM
+— 2::com.amazon.Amazon-Chime: SM
+— com.mutedeck.mac: SM
+— 3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app/Contents/MacOS/Hide Menu Icons: SM
+— 2::/Applications/Snappy.app/Contents/MacOS/Snappy: SM
+— 3::me.waydabber.BetterDummy: SM
+— 3::/Applications/GoToMeeting.app: SM
+— 3::/Applications/Google Chrome.app/Contents/MacOS/Google Chrome: SM
+— 3::WSG985FR47.net.telestream.screenflowhelper: SM
+— 3::/Applications/Slack.app: SM
+— /Applications/Alfred 4.app: SM
+— 1::/Applications/BetterDisplay.app: SM
+— 2::com.logi.cp-dev-mgr: SM
+— com.runningwithcrayons.Alfred: SM
+— 3::/Applications/Xnapper.app: SM
+— 3::/Applications/xScope.app: SM
+— 3::com.microsoft.edgemac: SM
+— /Applications/zoom.us.app: SM
+— /System/Applications/Automator.app/Contents/MacOS/Automator: SM
+— /Applications/Clipy.app: SM
+— 3::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy: SM
+— 3::/Applications/Snip.app: SM
+— 2::ro.nextwave.Snappy: SM
+— 3::com.parallels.toolbox.HideMenuIcons: SM
+— 3::/Applications/Google Chrome.app: SM
+— 1::/Applications/VMware Fusion-8.5.10.app/Contents/MacOS/VMware Fusion: SM
+— 3::com.ringcentral.glip: SM
+— 3::/Applications/Acorn.app: SM
+— /Applications/MuteDeck/MuteDeck.app: SM
+— 2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app: SM
+— 3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app/Contents/MacOS/TimingHelper: SM
+— 2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app: SM
+— 2::/Applications/Setapp/Mosaic.app: SM
+— 1::me.waydabber.BetterDummy: SM
+— 2::/Applications/LastPass.app: SM
+— 3::info.eurocomp.TimingHelper: SM
+— 3::com.amazon.Amazon-Chime: SM
+— 1::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy: SM
+— 1::/Applications/iTerm.app: SM
+— 1::/Applications/OBS.app: SM
+— 1::/Applications/HP RGS Receiver.app: SM
+— 3::J8RPQ294UB.com.skitch.SkitchHelper: SM
+— 2::com.logitech.Logi-Options: SM
+— 2::/Applications/Logi Options.app/Contents/MacOS/Logi Options: SM
+— us.zoom.xos: SM
+— 1::/Applications/Slack.app: SM
+— 2::/Applications/Snappy.app: SM
+— 1::com.jetbrains.goland: SM
+— 3::info.eurocomp.Timing2: SM
+— 3::/Applications/Xnapper.app/Contents/MacOS/Xnapper: SM
+— 3::/Applications/RingCentral.app/Contents/MacOS/RingCentral: SM
+— /Applications/zoom.us.app/Contents/MacOS/zoom.us: SM
+— 3::/Applications/BetterDisplay.app: SM
+— 3::/Applications/zoom.us.app: SM
+— com.apple.Automator: SM
+— 3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app/Contents/MacOS/J8RPQ294UB.com.skitch.SkitchHelper: SM
+— 3::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime: SM
+— 3::/Applications/Setapp/CleanShot X.app/Contents/MacOS/CleanShot X Setapp: SM
+— 3::/Applications/ScreenFlow.app: SM
+— 2::/Applications/Amazon Chime.app: SM
+— 1::/Applications/VirtualBox.app: SM
+— /Applications/MuteDeck/MuteDeck.app/Contents/MacOS/MuteDeck: SM
+— 3::/Applications/Timing.app: SM
+— 2::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime: SM
+— 3::/Applications/Timing.app/Contents/MacOS/Timing: SM
+— 3::/Applications/Amazon Chime.app: SM
+— 3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app: SM
+— 3::com.iconfactory.xScope: SM
+— 2::/Applications/LastPass.app/Contents/MacOS/LastPass: SM
+— /System/Applications/Automator.app: SM
+— 1::/Applications/VMware Fusion-8.5.10.app: SM
+— 3::/Applications/Loom.app: SM
+— 3::/var/tmp/LogMeIn Rescue - 4C61/Support-LogMeInRescue.app: SM
+— 3::/Applications/Setapp/CleanShot X.app: SM
+— 3::com.devuap.beautyshotapp: SM
+— 3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app: SM
+— 3::/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge: SM
+— 3::/var/tmp/LogMeIn Rescue - 4C61: SM
+— 3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app: SM
+— 2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/MacOS/logioptionsplus_agent: SM
+com.apple.findmy
+— restoreState: SR
+— coarseServiceAcknowledged_v1.0: SR
+— onboarding_v2.0: MV
+com.apple.FolderActionsDispatcher
+com.apple.SocialLayer
+com.apple.security.KCN
+— absentCircleWithNoReason: SM
+— lastCircleStatus: SR
+— pendingApplicationReminderInterval: SM
+com.apple.GEO
+— DefaultsSanitizedVersion: MV
+com.apple.SharedWebCredentials
+— recheckVersion: MV
+com.apple.suggestd
+— DeviceIdentifier: SM
+com.apple.CallHistorySyncHelper
+— /Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transaction.log: SR
+— CallHistoryDeviceCount: SR
+— /Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transactions.log: SR
+com.apple.dashboard
+— mcx-disabled: SM
+com.apple.FontRegistry.user
+— Version: MV
+com.apple.imagent
+— Setting.GlobalReadReceiptsVersionID: MV
+— changeToken-syncStoreVersion: MV
+— IMChatVocabularyUpdaterDidPerformInitialUpdateKey: SR
+— attachmentZoneChangeToken-syncStoreVersion: MV
+— messagesChangeToken-syncStoreVersion: MV
+— archivedMessagesChangeToken-syncStoreVersion: MV
+com.apple.preferences.extensions.PhotoProjects
+com.apple.messaging.watchdog
+— watchdogWatermark: SR
+com.apple.preferences.extensions.PhotoEditing
+
+
+
+
+Classification:
+===============
+UC (User-Configurable)
+SM (System-Managed)
+AM (Application-Managed)
+SR (State/Runtime)
+MV (Migration/Version)]

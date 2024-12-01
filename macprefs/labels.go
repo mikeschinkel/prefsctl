@@ -4,17 +4,19 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/mikeschinkel/prefsctl/macosutils"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
-type LabelName Name
+type LabelName macosutils.Name
 type LabelValue string
 
 const (
-	InvalidLabel LabelName = "invalid-label"
-	WhatSetsName LabelName = "what-sets"
-	PrefType     LabelName = "pref-type"
-	OSVersion    LabelName = "os-version"
+	InvalidLabel LabelName = "invalid"
+	Sets         LabelName = "sets"
+	Type         LabelName = "type"
+	MacOS        LabelName = "macos"
+	Class        LabelName = "class"
 )
 
 type Labels []*Label
@@ -40,17 +42,26 @@ func (l Label) GoProperty() string {
 }
 
 var (
-	UnknownSets = Label{WhatSetsName, "unknown-sets"}
-	MacOSSets   = Label{WhatSetsName, "macos-sets"}
-	InstallSets = Label{WhatSetsName, "install-sets"}
+	UserManaged      = Label{Class, "userManaged"}
+	SystemManaged    = Label{Class, "systemManaged"}
+	AppManaged       = Label{Class, "appManaged"}
+	RuntimeState     = Label{Class, "runtimeState"}
+	VersionMigration = Label{Class, "versionMigrate"}
 )
 
 var (
-	StringType   = Label{PrefType, "string"}
-	NumberType   = Label{PrefType, "number"}
-	BoolType     = Label{PrefType, "bool"}
-	LanguageType = Label{PrefType, "language"}
-	LocaleType   = Label{PrefType, "locale"}
+	UnknownSets = Label{Sets, "unknown"}
+	DefaultsSet = Label{Sets, "defaults"}
+	SetupSets   = Label{Sets, "setup"}
+)
+
+var (
+	UnknownType  = Label{Type, "unknown"}
+	StringType   = Label{Type, "string"}
+	NumberType   = Label{Type, "number"}
+	BoolType     = Label{Type, "bool"}
+	LanguageType = Label{Type, "language"}
+	LocaleType   = Label{Type, "locale"}
 )
 
 func GoVarName(value LabelValue) LabelName {
@@ -63,8 +74,8 @@ func GoVarName(value LabelValue) LabelName {
 
 var goVarMap = map[LabelValue]LabelName{
 	UnknownSets.Value: "UnknownSets",
-	MacOSSets.Value:   "MacOSSets",
-	InstallSets.Value: "InstallSets",
+	DefaultsSet.Value: "DefaultsSet",
+	SetupSets.Value:   "SetupSets",
 
 	StringType.Value:   "StringType",
 	NumberType.Value:   "NumberType",

@@ -1,1888 +1,1554 @@
-com.apple.security.sosaccount
-— SOSEnabled: false
-com.apple.SafariCloudHistoryPushAgent
-— AcknowledgedPushNotifications: false
-— UnacknowledgedPushNotifications: false
-com.apple.print.custompresets.forprinter.Canon_MF5900_Series
-— com.apple.print.lastPresetPref: Default Settings
-— com.apple.print.lastPresetPrefType: 1
-com.apple.finder
-— SidebarTagsSctionDisclosedState: true
-— QLEnableTextSelection: true
-— PreviewPaneGalleryWidth: 267
-— FK_ArrangeBy: None
-— NSNavPanelExpandedSizeForOpenMode: {1173, 835}
-— PreferencesWindow.LastSelection: ADVD
-— FXEnableExtensionChangeWarning: false
-— NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow: true
-— FXICloudDriveDesktop: false
-— NSNavPanelExpandedSizeForSaveMode: {841, 448}
-— NSWindow Frame SearchAttributeSheet: 886 532 643 415 0 0 1920 1175
-— ShowMountedServersOnDesktop: false
-— SidebarShowingiCloudDesktop: false
-— FXToolbarUpgradedToTenNine: 2
-— ShowRemovableMediaOnDesktop: false
-— ShowStatusBar: true
-— FXSidebarUpgradedSharedSearchToTwelve: true
-— FXInfoWindowWidth: 400
-— DownloadsFolderListViewSettingsVersion: 1
-— SidebariCloudDriveSectionDisclosedState: true
-— AppleShowAllFiles: true
-— FXICloudDriveDeclinedUpgrade: false
-— FXArrangeGroupViewBy: Name
-— RecentsArrangeGroupViewBy: Date Last Opened
-— FXPreferredSearchViewStyleVersion: %00%00%00%01
-— FXPreferencesWindow.Location: {{-1184, 33}, {377, 380}}
-— PreviewPaneWidth: 267
-— FXAtLeastOneScreenHasBeenInHIDPI: true
-— CopyProgressWindowLocation: {798, 83}
-— SidebarShowingSignedIntoiCloud: true
-— ViewOptionsWindow.Location: {15, 548}
-— ShowHardDrivesOnDesktop: false
-— NSWindow Frame GoToSheet: 1490 763 460 208 0 0 3440 1415
-— FXQuickActionsConfigUpgradeLevel: 2
-— FXPreferredViewStyle: Nlsv
-— QuitMenuItem: true
-— FXConnectToBounds: {{1265, 620}, {486, 231}}
-— FXDefaultSearchScope: SCcf
-— FXPreferredSearchViewStyle: Nlsv
-— DisableAllAnimations: true
-— SidebarWidth: 256
-— ShowSidebar: true
-— TagsCloudSerialNumber: 23
-— NewWindowTarget: PfHm
-— NSNavLastUserSetHideExtensionButtonState: false
-— ShowPathbar: true
-— FXSidebarUpgradedToTenFourteen: true
-— NSWindow Frame NSSpellCheckerSubstitutionsPanel2: 692 407 428 137 0 0 3440 1415
-— LastTrashState: true
-— ShowExternalHardDrivesOnDesktop: false
-— GoToField: /
-— _FXSortFoldersFirstOnDesktop: true
-— FK_AppCentricShowSidebar: true
-— FXSidebarUpgradedToTenTen: true
-— FXConnectToLastURL: smb://synologynas.local
-— FXICloudDriveEnabled: true
-— FXICloudDriveDocuments: false
-— NSWindow Frame Identity Picker: 1302 559 357 285 0 0 2560 1417
-— NSWindow Frame GoToWindow: 1370 1196 460 180 0 0 3200 1775
-— _FXSortFoldersFirst: true
-— _FXShowPosixPathInTitle: true
-— EmptyTrashProgressWindowLocation: {1521, 25}
-— SearchRecentsSavedViewStyle: Nlsv
-— FXDesktopTouchBarUpgradedToTenTwelveOne: 1
-— NSWindow Frame NSNavPanelAutosaveName: -271 -248 841 448 0 0 1920 1175
-— FXICloudDriveFirstSyncDownComplete: true
-— SidebarDevicesSectionDisclosedState: true
-— MountProgressWindowLocation: {1108, 465}
-— FK_SidebarWidth: 238
-— SearchRecentsSavedViewStyleVersion: %00%00%00%01
-— FXPreferredGroupBy: Kind
-— PreviewPaneInfoExpanded: true
-— FXLastSearchScope: SCcf
-— InspectorWindow.Location: {300, 216}
-— SidebarPlacesSectionDisclosedState: true
-— FXToolbarUpgradedToTenEight: 1
-— FXICloudLoggedIn: true
-— NSNavLastRootDirectory: ~/Library/Saved Searches
-— FXToolbarUpgradedToTenSeven: 1
-com.apple.messages.pinning
-— IMPinningPinConfigMigrationKey-v2-r2: true
-com.apple.identityservicesd
-— ReRegisteredForDevicesv56: true
-— hasRegIdentityContainer: 1
-— peer-id-manager-cleanup-interval: 754157681.890141
-— ReRegisteredForDevicesv55: true
-— persister-migration-personal-session-token-cache-v4: true
-— ReRegisteredForDevices: 1550
-— DidCleanLegacyAccountPrefs: true
-— LastKeyGeneration: 1660472607.215028
-— AuthenticationDelegateResponseTime: 739822037.994733
-— ImportedLegacyIMAccounts: true
-— hasUnregIdentityContainer: 0
-— MigratedToNewDisabledState: true
-— triggeredRemoteSessionVersion: 1
-— ReRegisteredForDevicesHash: 6AFC02EE62640065FB6A958CECBF4E4F653D500204D145733D19CCF71195ED5A
-— ImportedLegacyIDSAccounts2: true
-— GDRRequestMadeForRelayRepair: true
-— PurgePreviousIdentityInterval: 755626438.801165
-— persister-migration-com.apple.identityservices.userStore: true
-— ReRegisteredForDevicesv1350: true
-— performed-user-intent-migrate: true
-com.apple.Spotlight
-— NSStatusItem Preferred Position Item-0: 128
-— ModelName: Canned
-— engagementCount-com.apple.Spotlight: 0
-— NSStatusItem Visible Item-0: true
-— lastVisibleScreenRect: {{0, 0}, {1920, 1175}}
-— engagementCount-com.apple.mail: 0
-— lastWindowPosition: {{930, 686}, {680, 430}}
-— SSMessageTracingWindowShowCount: 3065
-— windowHeight: 430
-— version: 7
-— useCount: 3
-— __NSEnableTSMDocumentWindowLevel: true
-— SSMessageTracingWindowHideCount: 3064
-— engagementCount-com.apple.Spotlight.suggestions: 0
-— SPMessageTracingWindowHideCount: 5828
-— showedFTE: true
-— startTime: 753762350.940497
-— SPMessageTracingWindowShowCount: 5833
-— userHasMovedWindow: true
-com.apple.DictionaryServices
-— DCSPreferenceVersion: 7
-com.apple.PTPCamera
-— FilenamePrefix: IMG_
-— NextFilenameCount: 0
-com.apple.imtranscoding.IMTranscoderAgent
-— kCKMediaObjectManagerDefaultsOSVersion: 21G1974
-com.apple.scriptmenu
-— ScriptMenuEnabled: false
-com.apple.TTY
-— RTTSettingsVersionPreference: 2
-— RTTContinuityRTTIsSupportedPreference: true
-— TUSupportsRelayCallingPreference: true
-— TUIsRelayCallingEnabledPreference: false
-— lastCallCountReset: 597557360.9976619
-com.apple.voicetrigger
-— VoiceTrigger Enabled: true
-com.apple.quicklook.ThumbnailsAgent
-— QLMTCacheSizeLastCheckAbsoluteTime: 754100344.501711
-com.apple.DiskUtility
-— OperationProgress ExpandedHeight: 488
-— NSWindow Frame MainWindow: -1429 19 1109 614 -1920 -333 1920 1175
-— DUDebugMenuEnabled: true
-— NSTableView Supports v2 DURAIDInfo: true
-— advanced-image-options: true
-— NSWindow Frame NSNavPanelAutosaveName: 870 517 799 448 0 0 1920 1177
-— NSWindow Frame OperationProgress: 1014 101 475 698 0 0 1920 1175
-— SidebarShowAllDevices: false
-— NSNavPanelExpandedSizeForSaveMode: {841, 448}
-— NSNavLastRootDirectory: ~/Downloads
-— OperationProgress DetailsVisible: true
-— NSNavPanelExpandedSizeForOpenMode: {799, 448}
-— NSNavLastUserSetHideExtensionButtonState: false
-com.apple.photos.shareddefaults
-— CPLDefaultDownload: Default
-— iCloudPhotoLibraryLastResetWelcomePromptDBVersion: 12200
-— downloadAndKeepOriginals: true
-— clearPurgeableResources: true
-— DiskSpaceWasLow: false
-— repushAssetsWithImportedByBundleIdentifier: true
-— repushVideoAssetsMetadata: true
-com.apple.parsecd
-— PARDefaultsVersion: 4
-— PARTestSeed: 56
-com.apple.universalaccess
-— login: false
-— switchCoalescePressesDuration: 0
-— lastNightShiftEnabled: false
-— switchAutoScanPanelInterval: 0.5
-— closeViewZoomedIn: false
-— grayscale: false
-— switchSweepingCursorSpeed: 5
-— sessionChange: false
-— switchHoldBeforeRepeatDuration: 3
-— closeViewZoomFactorBeforeTermination: 1
-— switchHideUITimeout: 15
-— switchAutoScanElementInterval: 0.5
-— lastNightShiftActive: true
-— virtualKeyboardOnOff: false
-— headMouseEnabled: false
-— increaseContrast: false
-— mouseDriverCursorSize: 1.44109
-— selectedTab: 23
-— lastNightShiftDate: 20200519
-— closeViewZoomDisplayID: 0
-— hoverTextIsAlwaysOn: false
-— closeViewSplitScreenRatio: 0.2
-— hoverTextIsHoveringAndVisible: false
-— AssistiveControlType: 2
-— closeViewDesiredZoomFactor: 1.1
-— slowKey: false
-— closeViewScrollWheelToggle: false
-— mouseDriver: false
-— differentiateWithoutColor: false
-— slowKeyDelay: 250
-— switchMinimumPressDuration: 0
-— closeViewZoomFactor: 1
-— switchOnOffKey: false
-— keyboardAccessFocusRingTimeout: 15
-— stickyKey: false
-— reduceTransparency: false
-— dwellHideUITimeout: 15
-— dwellEnabled: false
-— contrast: 0
-— useStickyKeysShortcutKeys: false
-— lastNightShiftMode: 0
-— hoverTextEnabled: false
-— whiteOnBlack: false
-— closeViewHotkeysEnabled: true
-— switchFirstElementDelay: 0
-— voiceOverOnOffKey: false
-com.apple.Terminal
-— HasMigratedDefaults: true
-— NSWindow Frame TTWindow Basic: 1841 753 585 371 0 0 3200 1775
-— SecureKeyboardEntry: false
-— Default Window Settings: Basic
-— NSWindow Frame TTAppPreferences: 627 525 667 533 0 0 1920 1177
-— DefaultProfilesVersion: 1
-— NSWindow Frame TTWindow Man Page: 1559 373 585 701 0 0 2560 1417
-— NSWindow Frame TTWindow: 210 550 1025 913 0 0 1920 1175
-— ProfileCurrentVersion: 2.07
-— TTAppPreferences Selected Tab: 0
-— Startup Window Settings: Basic
-com.apple.coreservices.useractivityd
-— kLocalPasteboardBlobName: /var/folders/fg/1dfmwyrx3wxbhj5lbdqpt7bw0000gn/T/com.apple.useractivityd/shared-pasteboard/F92B7041-E6A1-4A53-B5D3-383A282D5D86
-— kRemotePasteboardBlobName: /var/folders/fg/1dfmwyrx3wxbhj5lbdqpt7bw0000gn/T/com.apple.useractivityd/shared-pasteboard/F1404AE6-A56C-45A1-AC8F-3C6296BA117A
-com.apple.ColorSyncUtility
-— CSUtilitiesContentSize: {600, 520}
-— CSProfsUtilsGroupBy: 0
-— CSUtilitiesSelectedIdentifier: com.apple.ColorSyncUtility.Filters
-com.apple.weather
-— userId: 9AC565E0-31CA-41C7-9821-893A747D97C8
-com.apple.Music
-— dontAskForAllPlaylistItemRemoval: true
-— storeSupportsPasswordSettings: true
-— NSNavPanelExpandedSizeForOpenMode: {799, 679}
-— notifications-warming-last-displayed-time: 749859509
-— miniplayerVPos: -958
-— com.apple.Music.WebKit2ShouldPrintBackgrounds: true
-— storeSupportsPreviousPurchases: true
-— com.apple.Music.WebKit2AsynchronousSpellCheckingEnabled: true
-— miniPlayerQueueVisible: true
-— eqWindowHPos: 1059
-— userWantsPlaybackNotifications: false
-— miniplayerUserSetHeight: 826
-— NSNavPanelExpandedSizeForSaveMode: {841, 448}
-— com.apple.Music.WebKit2ShowsToolTipOverTruncatedText: true
-— soundEnhancerAmount: 191
-— preloadFilesIntoMemory: false
-— updateLevel: 43
-— videoWindowVSize: 1964
-— com.apple.Music.WebKit2EnableInheritURIQueryComponent: true
-— automaticallyDownloadArtwork: true
-— refreshedHLSKeysTime: 3810748166
-— miniplayerWidthInDesignCoords: 534
-— userMaxConcurrentDownloads: 3
-— com.apple.Music.WebKit2SuppressesIncrementalRendering: true
-— miniplayerHPos: 1722
-— videoWindowVPos: 739
-— log-PlayQueue-LastSelectedTab: 0
-— dontWarnDownloadCloudPurchases: true
-— storeSupportsUPP: true
-— showWelcomeScreenState: 2
-— checkedHLSKeysTime: 3811011509
-— storeSupportsCloudPurchases: 1
-— gridViewSearchDoesNotSwitchView: true
-— eqName:
-— ITUserPrefsMigrated: true
-— cddbPrefsOK: true
-— eqPrefsVersion: 1
-— playbackIsFullscreen: false
-— debugAssertCategoriesVersion: 3
-— debugAssertCategoriesEnabled: 0
-— firstLaunchShowWelcomeScreenState: 2
-— NSWindow Frame GoToSheet: 1706 542 460 208 0 0 3440 1415
-— encoderName: AAC Encoder
-— com.apple.Music.WebKit2UserInterfaceDirectionPolicy: 1
-— haveRadioState: 1
-— videoWindowHSize: 3492
-— eqWindowVPos: 617
-— haveAskedToCheckForAvailableDownloads: true
-— musicVideoPlaybackLocation: 2
-— volumeWSG: 0.1204547
-— dontShowRestrictionsPrefs: true
-— NSNavLastUserSetHideExtensionButtonState: false
-— persistentUserID: -396333825804030359
-— NSApplicationCrashOnExceptions: false
-— miniPlayerLargeArtVisible: false
-— searchSavedTab: 2
-— artworkDownloadDSID: 294735135
-— videoWindowHPos: 4025
-— controllableInterfaceGUID: -2521131982380442198
-— userHasActivatedFullScreenVisualizer: true
-— storeMediaTypeFlags: 3422
-— imported-eq-presets: 1
-— NSWindow Frame NSNavPanelAutosaveName: 1536 292 799 679 0 0 3440 1415
-— soundEnhancerEnabled: true
-— miniplayerSnapMode: 5
-— doesStoreSupportCloudMusicLibrary: 1
-— NSNavLastRootDirectory: /Volumes/Music
-— eqEnabled: true
-com.apple.airport.airportutility
-— NSWindow Frame MainWindow: 2581 -827 696 667 1760 -1050 1680 1025
-— dontPerformBaseRestartWarning: false
-— version: 1536
-com.apple.studentd
-— LastDateProviderSessionToken: 1730736769
-— DeviceIdentifier: D308D707-131C-4EB3-888C-D233B3029C7F
-com.apple.systemuiserver
-— NSStatusItem Preferred Position Item-0: 23
-— NSStatusItem Preferred Position com.apple.menuextra.airport: 503
-— last-analytics-stamp: 753854671.799293
-— NSStatusItem Preferred Position com.apple.menuextra.appleuser: 195.5
-— NSStatusItem Visible Item-1: false
-— NSStatusItem Visible com.apple.menuextra.bluetooth: true
-— NSStatusItem Preferred Position com.apple.menuextra.clock: 300.5
-— NSStatusItem Preferred Position com.apple.menuextra.TimeMachine: 538
-— NSStatusItem Visible com.apple.menuextra.airport: true
-— last-messagetrace-stamp: 618468030.833801
-— NSStatusItem Visible com.apple.menuextra.appleuser: true
-— NSStatusItem Visible com.apple.menuextra.TimeMachine: true
-— NSStatusItem Visible com.apple.menuextra.clock: true
-— NSStatusItem Visible Item-2: false
-— NSStatusItem Preferred Position com.apple.menuextra.bluetooth: 672
-— NSNavPanelExpandedSizeForOpenMode: {799, 448}
-— NSWindow Frame NSNavPanelAutosaveName: -1753 -183 799 448 -1920 -321 1920 1177
-— __NSEnableTSMDocumentWindowLevel: true
-— NSStatusItem Visible com.apple.menuextra.volume: true
-— NSStatusItem Preferred Position com.apple.menuextra.battery: 422
-— NSStatusItem Preferred Position Siri: 61
-— NSStatusItem Visible com.apple.menuextra.airplay: true
-— NSStatusItem Visible com.apple.menuextra.battery: true
-— NSNavLastRootDirectory: /Applications
-— NSStatusItem Preferred Position com.apple.menuextra.volume: 473
-com.apple.IMCoreSpotlight
-— IMCSIdxVersion: 21
-— IMCSLastIndexedRowID: 6496
-— IMCSNeedsIndexing: true
-— IMCSIndexTotalRecords: 9496
-— IMCSIdxProductVersion: 12.7.6
-— IMCSBypassIndexVersionCheckV2: true
-com.apple.bird
-— optimize-storage: true
-— icloud-drive.account-migration-status.294735135: 4
-com.apple.xpc.activity2
-— ProductBuildVersion: 21H1320
-com.apple.iPod
-— com.apple.PreferenceSync.ExcludeAllSyncKeys: true
-com.apple.newscore2
-— report_concern_user_id: 713BA925-0FE5-4D72-99D2-2B61DD7BC5D9
-— provider_user_id: 134CA36E-CEAC-45CF-929B-058E9869CEBB
-— instance_identifier: DA370E22-A236-4E1B-BDEB-B148F85FF256
-com.apple.cloudd
-— com.apple.private.cloudkit.shouldUseGeneratedDeviceID: false
-com.apple.driver.AppleBluetoothMultitouch.trackpad
-— TrackpadFourFingerHorizSwipeGesture: 2
-— TrackpadPinch: 1
-— USBMouseStopsTrackpad: 0
-— TrackpadFourFingerVertSwipeGesture: 2
-— TrackpadRotate: 1
-— TrackpadHorizScroll: 1
-— TrackpadTwoFingerDoubleTapGesture: 1
-— version: 5
-— TrackpadMomentumScroll: true
-— TrackpadFourFingerPinchGesture: 2
-— UserPreferences: true
-— Clicking: true
-— TrackpadThreeFingerTapGesture: 2
-— HIDScrollZoomModifierMask: 0
-— TrackpadScroll: true
-— DragLock: false
-— TrackpadFiveFingerPinchGesture: 2
-— TrackpadThreeFingerHorizSwipeGesture: 2
-— TrackpadThreeFingerVertSwipeGesture: 2
-— TrackpadTwoFingerFromRightEdgeSwipeGesture: 3
-— ForceSuppressed: true
-— TrackpadCornerSecondaryClick: 2
-— Dragging: true
-— TrackpadHandResting: true
-— TrackpadRightClick: false
-— TrackpadThreeFingerDrag: false
-com.apple.stocks.account
-— deleteOnNextLaunch: true
-com.apple.preference.trackpad
-— ForceClickSavedState: true
-com.apple.SetupAssistant
-— PreviousSystemVersion: 12.7.4
-— DidSeeSyncSetup2: true
-— SkipExpressSettingsUpdating: false
-— LastSeenDiagnosticsProductVersion: 10.15.6
-— SkipFirstLoginOptimization: false
-— LastSeenCloudProductVersion: 10.14.5
-— DidSeeCloudSetup: true
-— PreviousBuildVersion: 21H1123
-— DidSeeApplePaySetup: false
-— DidSeeTrueTonePrivacy: false
-— DidSeeScreenTime: true
-— MiniBuddyShouldLaunchToResumeSetup: false
-— DidSeeTouchIDSetup: false
-— NSAddServicesToContextMenus: false
-— DidSeeActivationLock: false
-— DidSeeSyncSetup: true
-— DidSeeAvatarSetup: false
-— MiniBuddyLaunchReason: 0
-— DidSeeSiriSetup: true
-— DidSeeTrueTone: false
-— DidSeePrivacy: true
-— LastPrivacyBundleVersion: 2
-— LastSeenSiriProductVersion: 10.15.6
-— DidSeeAppStore: false
-— LastPreLoginTasksPerformedVersion: 10.15.6
-— DidSeeAppearanceSetup: true
-— LastSeenSyncProductVersion: 10.14.6
-— LastSeeniCloudStorageServicesProductVersion: 10.14.5
-— LastPreLoginTasksPerformedBuild: 19G73
-— MiniBuddyLaunchedPostMigration: false
-— DidSeeAccessibility: false
-— LastSeenBuddyBuildVersion: 18F132
-— DidSeeiCloudLoginForStorageServices: true
-com.apple.ScriptEditor2
-— NSNavPanelExpandedSizeForSaveMode: {841, 448}
-— NSNavPanelExpandedSizeForOpenMode: {1207, 700}
-— OSAStandardAdditions ChooseApplication Bounds: -1448 -247 976 1078 -1920 -321 1920 1177
-— NSNavLastRootDirectory: ~/Library/Script Libraries
-— NSWindow Frame NSNavPanelAutosaveName: 676 -723 1207 700 0 0 2560 1417
-— NSNavLastUserSetHideExtensionButtonState: false
-— NSWindow Frame SEEventLogWindow: 919 -826 700 372 309 -1200 1920 1177
-com.apple.preferences.extensions.ServicesWithUI
-— userHasOrdered: true
-com.apple.MobileSMS
-— NSWindow Frame NSSpellCheckerSubstitutionsPanel2: 2341 -702 425 137 1760 -1050 1680 1025
-— TextSize: 4
-— SyndicationOnboardingVersion: 3
-— LegacyAppSidebarPersistedWidth: 284
-— QuickSaveHasBeenUsedBefore: true
-— CatalystPreferenceMigrationVersion: 1
-— PlaySoundsKey: true
-— BusinessChatPrivacyPageDisplayed: 2
-— sForceUnknownFilteringCompleted: false
-— CKLastSelectedItemIdentifier: list-iMessage;-;+19255192019
-— kCKMediaObjectManagerDefaultsOSVersion: 21H1320
-— NSWindow Frame CKChatSceneDelegate: 853 1340 1024 768 -1920 1200 3840 2135
-— CatalystCustomFontMigrationVersion: 1
-— NotifyAboutMessagesFromUnknownContacts: true
-— CKMigratedAutoSpamReports26375262: true
-— SidebarPersistedWidth: 320
-— ReadReceiptSettingsConfirmed: true
-— NSWindow Frame CKMessagesSceneDelegate: 446 -1094 1147 959 0 -1200 1920 1175
-— NSWindow Frame MessagesPreferences: 1286 -992 600 567 626 -1200 1920 1175
-— sForceSMSSpamFilteringCompleted: false
-— KeepMessageForDays: 0
-— PendingCleared: true
-— TextFontSize: 13
-com.apple.preferences.extensions.ShareMenu
-— userHasOrdered: true
-com.apple.mmcs
-— report.LastFailedCheckDate: 12/31/2000, 19:00:00.0000
-— report.LastSuccessfulCheckTime: 753984638.904106
-— report.sha256: fvj0Y/Ybu1pq0r4NxXw3eP51exujUkEAd7LllbkTdK8=
-— report.LastSuccessfulCheckDate: 11/22/2024, 11:10:38.9040
-— report.TTL: 3600
-com.apple.appstored
-— BadgeCount: 0
-— ArcadeSubscriptionState: Unsubscribed
-— ArcadePayoutDeviceID: 8DDB6C74-73A7-4B29-AB0C-EE5327A205A8
-— WelcomeNotificationExcludedFromSample: true
-— ArcadeDeviceID: 7ADC34A6-6C09-4E1B-84DD-38E62FD4AABA
-— ArcadeDeviceGUID: C4B301CE52BF
-— LastOSBuildVersion: 21H1320
-— WelcomeNotificationLastAppStoreConnectionProductVersion: 12.7.6
-com.apple.PubSubAgent
-— TigerMigrationCompleted: true
-com.apple.commcenter.callservices
-— last.known.icloud.id: 0aeec7abaec7f5f1c411d3ac801ecde91bce1cca
-— associated.account: 203a2a70f57349b4364e85ecf34be5416ba36c65
-com.apple.print.PrinterProxy
-— IK_Scanner_downloadURL: ~/Pictures
-— IK_Scanner_selectedTag: 1000
-— IK_Scanner_PostProcessApplication: /System/Applications/Preview.app
-— NSWindow Frame Printer Proxy Frame Canon_MF5900_Series: 111 -411 575 230 0 -1200 1920 1175
-— NSTableView Supports v2 (null): true
-— NSWindow Frame Scanner Proxy Frame Canon_MF5900_Series: 63 -1121 745 435 0 -1200 1920 1175
-com.apple.controlcenter
-— NSStatusItem Visible Item-1: false
-— NSStatusItem Visible UserSwitcher: true
-— NSStatusItem Visible Item-10: false
-— NSStatusItem Preferred Position WiFi: 453
-— NSStatusItem Visible Item-3: false
-— NSStatusItem Visible Item-11: false
-— NSStatusItem Preferred Position Sound: 499
-— NSStatusItem Visible Item-5: false
-— NSStatusItem Preferred Position UserSwitcher: 393
-— NSStatusItem Visible Item-7: false
-— NSStatusItem Visible FocusModes: false
-— NSStatusItem Visible Item-9: false
-— NSStatusItem Visible Sound: true
-— NSStatusItem Visible Item-0: false
-— NSStatusItem Visible NowPlaying: false
-— NSStatusItem Visible Clock: true
-— NSStatusItem Preferred Position Battery: 474
-— NSStatusItem Preferred Position ScreenMirroring: 641
-— NSStatusItem Visible Shortcuts: false
-— NSStatusItem Visible AirDrop: true
-— NSStatusItem Visible Item-2: false
-— NSStatusItem Visible WiFi: true
-— NSStatusItem Visible Item-4: false
-— NSStatusItem Visible BentoBox: true
-— NSStatusItem Visible Battery: true
-— NSStatusItem Visible Item-6: false
-— NSStatusItem Preferred Position AirDrop: 616
-— NSStatusItem Visible Bluetooth: true
-— NSStatusItem Visible Item-8: false
-— NSStatusItem Preferred Position NowPlaying: 606
-— NSStatusItem Preferred Position BentoBox: 323
-— NSStatusItem Preferred Position Bluetooth: 467
-— NSStatusItem Visible ScreenMirroring: false
-— NSStatusItem Preferred Position FocusModes: 618
-com.apple.amsengagementd
-— AMSMetricsIdentifierUserRecordName: _9855a9e858f2e06c41db643338437b57
-— AMSMetricsIdentifierDateLastSynced: 1732456758.046111
-— AMSMetricsIdentifierZoneCreated: true
-— AMSActivityObserverDateLastCheckedIn: 1732509251.929255
-— AMSMetricsIdentifierZoneSubscriptionCreated: true
-com.apple.iChat
-— SaveConversationsOnClose: false
-— PMPrintingExpandedStateForPrint2: false
-— NSWindow Frame NSNavPanelAutosaveName: 3231 -214 841 566 2560 -301 1920 1177
-— NSNavLastRootDirectory: ~/Dropbox (NewClarity)/newclarity-inbox
-— UnifiedChatWindowControllerSelectionGUIDSet: SMS;-;22395
-— DidCheckForDuplicateChats: 3
-— HasPromptedSMSRelay: true
-— HasPromptediMessageFTU: true
-— DidRegenerateGroupID63841559: true
-— messageTracerSMSSent: 0
-— messageTracerSubmitDate: 687647638
-— BuddyPictureSetToGenericByUser: false
-— messageTracerIMessagesSent: 0
-— NSNavPanelExpandedSizeForSaveMode: {841, 736}
-— PlaySoundsKey: true
-— messageTracerSMSUsed: false
-— messageTracerNumUpgradeOffers: 0
-— ChatWindowControllerUnifiedIsVisible: false
-— messageTracerMessagesSent: 0
-— WebIconDatabaseEnabled: false
-— DidMarkGroupPhotosAsUnpurgeable: true
-— messageTracerUpgradesAccepted: 0
-— messageTracerIMessagesReceived: 1
-— NSNavLastUserSetHideExtensionButtonState: false
-— DaemonConnectionWaitTime: 15
-— NotifyAboutMessagesFromUnknownContacts: true
-— KeepMessagesVersionID: 1
-— ChatWindowControllerUnifiedFrame: {{855, 0}, {1045, 679}}
-— messageTracerCharactersSent: 0
-— NSWindow Frame MessagesPreferences: 1040 384 540 522 0 0 2560 1417
-— messageTracerMessagesReceived: 4
-— messageTracerUpgradesDeclined: 0
-— messageTracerSMSReceived: 1469
-— KeepMessageForDays: 0
-— UnifiedChatListViewControllerAutomaticallySortsChats: true
-— messageTracerIMessageUsed: false
-— DidMigratePersonCentricIDs: true
-— LastIMDNotificationPostedDate: 754199681450934016
-— ChatWindowControllerUnifiedChatListWidth: 284
-— LastFailedMessageIMDNotificationPostedDate: 739147261160354048
-— SODefaultTranscriptName: ChatTranscriptViewController
-— imageBrowser.disableOpenGL: true
-com.apple.TextEdit
-— PlainTextEncoding: 4
-— RichText: 0
-— PlainTextEncodingForWrite: 4
-com.apple.HIToolbox
-— AppleFnUsageType: 2
-— AppleCurrentKeyboardLayoutInputSourceID: com.apple.keylayout.US
-— AppleDictationAutoEnable: 0
-com.apple.preferences.extensions.FinderSync
-— userHasOrdered: true
-com.apple.coreservices.uiagent
-— CSUIHaveCenteredGatekeeperProgressWindow: true
-— CSUIHasSafariBeenLaunched: true
-— NSWindow Frame CSUIGatekeeperProgressWindow: 1378 -670 400 70 0 -1200 1920 1175
-— NSNavPanelExpandedSizeForOpenMode: {715, 448}
-— NSWindow Frame NSNavPanelAutosaveName: -1241 2465 715 388 -2803 1200 3840 2135
-— CSUIRecommendSafariBackOffInterval: 259200
-— NSNavLastRootDirectory: /Applications
-— CSUILastOSVersionWhereSafariRecommendationWasMade: 10.15.6
-com.apple.CharacterPicker
-— version: 1
-com.apple.CharacterPaletteIM
-— CVFontSize: 26
-— CVStartAsLargeWindow: false
-— version: 1
-com.apple.assistant.backedup
-— Hands Free Mode: 1
-— Session Language: en-US
-— Cloud Sync Enabled: false
-— Cloud Sync User ID: _44c58d2cbdc7b03bb2cdefc57dcb364d
-— MultiUser VoiceIdentification Enabled: false
-com.apple.icloud.fmfd.notbackedup
-— kKeychainUtilMigrationVersionKey: 1
-com.apple.security.cloudkeychainproxy3.keysToRegister
-— EnsurePeerRegistration: false
-— DSID:
-— KeyAccountUUID: C0E2CA70-34ED-4088-B419-4854ABF22DA8
-com.apple.mediaaccessibility.public
-— MACaptionDisplayType: 2
-com.apple.speech.recognition.AppleSpeechRecognition.prefs
-— DictationIMPresentedOfflineUpgradeSuggestion: true
-— DictationIMCommandsWindowIsOpen: true
-— DictationIMCorrectionCount: 0
-— DictationIMLastCommandRecognizedMessageTrace: 618588433.633144
-— DictationIMUpgradedTo10_16: true
-— DictationIMLastDictationDate: 618589167.3739671
-— DictationIMUpgradedTo10_15: true
-— DictationIMPlaySoundUponRecognition: true
-— DictationIMCommandsWindowRect: {{2299, 1001}, {220, 416}}
-— SRCLastTrainingDate: 617562010.159685
-— DictationIMLocaleIdentifier: en_US
-— DictationIMLastCommandDate: 618589110.695004
-— DictationIMMessageTracesSinceLastReport: 1
-— DictationIMUseOnlyOfflineDictation: false
-— DictationIMMainWindowRect: {{1808, 2}, {110, 121}}
-com.apple.loginwindow
-— NSWindow Frame ProcessPanel: 1392 -1038 338 313 0 -1200 1920 1175
-— TALLogoutSavesState: true
-— MiniBuddyLaunch: false
-— oneTimeSSMigrationComplete: true
-com.apple.preferences.softwareupdate
-— LatestMajorOSSeenByUserBundleIdentifier: com.apple.InstallAssistant.macOSMonterey
+com.apple.Accessibility
+— AccessibilityEnabled: true
+— ApplicationAccessibilityEnabled: 1
+— AutomationEnabled: 0
+— AXSClassicInvertColorsPreference: 0
+— BrailleInputDeviceConnected: 0
+— CommandAndControlEnabled: 0
+— DarkenSystemColors: 0
+— DifferentiateWithoutColor: 0
+— EnhancedBackgroundContrastEnabled: 0
+— FullKeyboardAccessEnabled: 0
+— FullKeyboardAccessFocusRingEnabled: 1
+— GenericAccessibilityClientEnabled: 1
+— GrayscaleDisplay: 0
+— InvertColorsEnabled: 0
+— KeyRepeatDelay: 0.25
+— KeyRepeatEnabled: 1
+— KeyRepeatInterval: 0.03333333299999999
+— ReduceMotionEnabled: 0
+— SpeakThisEnabled: 0
+— VoiceOverTouchEnabled: 0
+— ZoomTouchEnabled: 0
 com.apple.accessibility.universalAccessAuthWarn
 — ThirdPartyCount: 2
-com.apple.internetconnect
-— ServiceID: B2C27ED9-44E0-4E0A-B27B-6D5FFD815E6E
-com.apple.TextInputMenu
-— visible: true
-com.apple.messages.nicknames
-— NicknameAppleIDAndiCloudAccountMatchAndExist: true
-— MeCardPendingNicknamesVersion: 42
-— MeCardSharingVersion: 4
-— MeCardSharingEnabled: true
-— MeCardSharingImageForkedFromMeCard: true
-— MeCardWhitelistBlacklistNicknamesVersion: 39
-— NicknameInfoRequestedFromPeers: true
-— MeCardSharingAudience: 1
-— NicknameScrutinyDoNotHandle: false
-— ReuploadLocalNicknamesVersion: 1
-com.apple.ProblemReporter
-— ShowComments: true
-— NSWindow Frame Problem Report Window: 524 251 1000 800 0 0 1920 1175
-— ShowDetails: 1
-com.apple.gamed
-— natType: 2
-— GKStoreFrontIdentifier: 143441-1,42
-— GKActiveEnvironmentKeyV2: 5
-— GKLastPushTokenPlayerID: U:097e62590e16c6eb3396c6958826eb60
-— GKLastPushTokenEnvironment: 5
-— GKPushEnvironmentKeyV2: 2
-— GKLastProtocolVersionUsedKeyV2: 5.13.20.4.12.19.5.5.2
-— GKLoginCancelled: 0
-com.apple.Safari.SandboxBroker
-— DidMigrateDownloadFolderToSandbox: true
-— NSWindow Frame NSNavPanelAutosaveName: 589 202 743 800 0 0 1920 1175
-— ShowDevelopMenu: true
-— DidMigrateResourcesToSandbox: true
-— DidMigrateDownloadMetadataToSandboxGroupContainer: true
-com.apple.preferences.extensions.XcodeSourceEditor
-— userHasOrdered: true
-com.apple.AppleMediaServices.notbackedup
-— AMSDidRetrieveDeviceOffers: true
-— AMSDidRetrieveDeviceOffersEligibility: true
-com.apple.imdsmsrecordstore
-— DeleteSequenceNumber: 56181
-com.apple.iTunes
-— com.apple.iTunes.WebKit2ShowsToolTipOverTruncatedText: true
-— doesAccountArtistListHaveSharePermission: false
-— NSNavLastRootDirectory: ~/Documents
-— dontAutomaticallySyncIPods: true
-— MacBuddyStoreID: mikeschinkel@gmail.com
-— com.apple.iTunes.WebKit2ShouldPrintBackgrounds: true
-— com.apple.iTunes.WebKit2SuppressesIncrementalRendering: true
-— com.apple.iTunes.WebKit2AsynchronousSpellCheckingEnabled: true
-— AutomaticDeviceBackupsDisabled: true
-— NSNavPanelExpandedSizeForSaveMode: {841, 448}
-— disableRadio: false
-— Store Apple ID: mikeschinkel@gmail.com
-— debugAssertCategoriesVersion: 3
-— com.apple.iTunes.WebKit2UserInterfaceDirectionPolicy: 1
-— com.apple.iTunes.WebKit2EnableInheritURIQueryComponent: true
-— NSNavLastUserSetHideExtensionButtonState: false
-— isAccountEnrolledInITunesMatch: false
-— log-PlayQueue-LastSelectedTab: 0
-— isAccountAdmin: false
-— NSApplicationCrashOnExceptions: false
-— com.apple.iTunes.WebKit2DeveloperExtrasEnabled: true
-— DeviceBackupsDisabled: true
-— disableShareLibraryInfo: false
-— WirelessBuddyID: 5C04AB28-D0D5-4439-A052-8054E18C7DBD
-— Store DSID: 294735135
-— storefront: 143441-1,32
-— isAccountEnrolledInAppleMusic: false
-— log-push: 0
-— debugAssertCategoriesEnabled: 0
-com.apple.textInput.keyboardServices.textReplacement
-— osxMajorVersForCloudKitSync: 10
-— TRCKSyncMaxCountThreshold: 200
-— _KSTRCloudKitMigratable: false
-— KSDidPushAllLocalRecordsOnce-2: true
-— osxMinorVersForCloudKitSync: 13
-— internalMigrationPercent: 0
-— KSCKSubscriptionProd-TextReplacements: true
-— seedMigrationPercent: 0
-— seedMigrationPercent1: 999
-— KSDidPushMigrationStatusOnce-2: true
-— gmMigrationPercent1: 999
-— KSDidMigrateToCloudKitOnCloud: true
-— KSCloudKitMigrationDidComplete: true
-— kTRCKSyncCount: 1
-— KSCKDidSetupRecordZoneProd-TextReplacements: true
-— iOSMajorVersForCloudKitSync: 11
-— kDidMigrateToUUIDRecordName: false
-— internalMigrationPercent1: 999
-— kDidInsertSampleShortcutForPeer: mikeschinkel~6417095A-7147-55D2-80B4-8808A39FA79A-3BDD4949-3BDA-4C9F-A27D-0B0B625F5B60
-— iOSMinorVersForCloudKitSync: 0
-— gmMigrationPercent: 0
-— userDidFallInMigrationAllowBatch: false
-— KSSampleShortcutWasImported_CK: true
-— KSDidPullLegacyEntriesFromPeers: false
-— TRCKSyncCountHalflifeInHours: 10
-— KSLastKnownUserID-TextReplacements: _694927be690dcbcc4d7ebaccd1c628c5
-— osxMinorSubversionForCloudKitSync: 0
-— KSLSShouldUpdateCache: false
-com.apple.diagnosticextensionsd
-— directoriesCleanupDone: true
-com.apple.Messages
-— hasPerformedNewDeviceBringUpSync: true
-— hasTriedToEnableCKAndSyncAfterFirstImagentConnection: true
-com.apple.NewDeviceOutreach
-— InitialOutreachActivityScheduled: true
-— CachedWarrantyValidityDuration: 28800
-— PostUpgradeActivityCompleted: true
-— PostUpgradeOSVersionKey: 12.7.6
-— CachedWarrantyLocale: en_US
-— CachedWarrantyVersion: 2
-com.apple.icloud.searchpartyuseragent
-— PersistenceLayerVersion: 24
-— LastOSLaunchVersion: 21H1320
-— lastLaunchBootSessionUUID: 8262DD4D-56DD-4CCD-A7FA-751A7C2B11A9
-— lastLaunchLocale: en
-— FMIPStateManager.fmipState: false
-com.apple.cloudpaird
-— MagicCloudPairingAccessorySubscriptionManateeID: F9843EBC-4239-40E4-B7A7-9CDC8FBB242F
-— MagicCloudPairingManateeUpgradedAccount: true
-— MagicCloudPairingManateeUpgraded: true
-— MagicCloudPairingProtectedAccessorySubscription: true
-— UploadedHSA2KeysForLocalDevice: E99D3ED4-7A87-4FF7-8D04-A236C2661A53
-— MagicCloudPairingAccessorySubscriptionID: E2CE45F5-1190-4323-BAA5-F850A348EA40
-— MagicCloudPairingMasterEncryptionPreferences: true
-— SecuredAccessoryZoneSubscription: true
-— MagicCloudPairingMasterSubscriptionManateeID: 936CF93D-2E2C-4044-96A6-F287772572B3
-— MagicCloudPairingMasterSubscriptionID: 921E9BD2-B042-4368-AD21-939D36C5ED59
-— SecuredZoneSubscription: true
-— MagicCloudPairingAccessoryEncryptionPreferences: true
-com.apple.syncserver
-— SyncServicesResetWorldRunOnce: true
-— RunCompletelyDisabled: NO
-com.apple.screencaptureui
-— com.apple.AnnotationKit.userDefaultsVersion: 1
-— com.apple.AnnotationKit.arrowHeadStyle: 2
-— com.apple.AnnotationKit.strokeIsDashed: false
-— com.apple.AnnotationKit.hasShadow: false
-— com.apple.AnnotationKit.strokeWidth: 5
-— com.apple.AnnotationKit.highlightStyle: 765200
-— toolbarOrigin: {1015, 12}
-— com.apple.AnnotationKit.brushStyle: 0
-com.apple.desktopservices
-— DSDontWriteNetworkStores: true
-com.apple.security.pboxd
-— NSWindow Frame NSMovePanelAutosaveName: 250 824 334 126 0 0 3440 1415
-— ILMediaBrowserMediaType: 1
-— ILMediaBrowserSelectedGroupIndex1: 1
-— NSWindow Frame ILMBRemoteMediaBrowserPanel: 0 0 290 496 0 0 2560 1417
-— ILMediaBrowserSelectedGroup1: com.apple.PhotoBooth./Users/mikeschinkel/Pictures/Photo Booth Library/Pictures
-com.apple.frameworks.diskimages.diuiagent
-— NSWindow Frame Progress Panel: 1086 -338 366 27 309 -1200 1920 1177
-— NSWindow Frame Progress Panel Frame: 424 -225 393 24 309 -1200 1920 1177
-com.apple.keychainaccess
-— Keychain Item List Sorting: modified-date
-— Keychain Item List Sort Descending: false
-— Last Selected Category: All Items
-— NSNavPanelExpandedSizeForOpenMode: {799, 448}
-— VPNSSItemsChecked: Version 10.15.7 (Build 19H1715)
-— NSWindow Frame Keychain Access Window: 544 164 1136 857 0 0 1920 1175
-— NSWindow Frame NSNavPanelAutosaveName: 1317 618 799 392 0 0 2560 1417
-— Item Preview Closed: false
-— Last Selected Keychain: /System/Library/Keychains/SystemRootCertificates.keychain
-— Keychains List Closed: false
-— NSTableView Supports v2 Item List Settings: true
-— NSWindow Frame Password Editor Window: 757 37 534 353 0 0 1920 1175
-— NSWindow Frame New Password Window: 2855 -654 426 403 2251 -1200 1920 1177
-— NSNavLastRootDirectory: ~/Sites/rep-service-activation-service
-— NSWindow Frame Certificate Viewer Window: 1396 237 513 880 0 0 1920 1175
-com.apple.imessage
-— PreviewTranscodingWasInitializedToDefaultValue: true
-— PreviewTranscodingQualityOnWiFiWasInitializedToDefaultValue: true
-com.apple.Safari.SafeBrowsing
-— HasMigratedSafeBrowsingEnabledDefaults: true
-com.apple.AppleMediaServices
-— AMSIncludeFullResponseInHARLogging: false
-— AMSShowSandboxAccountUI: true
-— AMSDeviceBiometricsState: 0
-— AMSUserDefaultsincludeFullResponseInHARLogging: false
-— AMSMigratedToNewAccountStore: true
-— AMSUserDefaultsIncludeFullRequestInHARLogging: false
-— AMSLogHARData: false
-— AMSLastMigratedBuildVersion: 21H1320
-— AMSDidSetUpServerDataCache: true
-— AMSIncludeFullRequestInHARLogging: false
-— AMSMigratedStorageToDefaultsForNonAMSInternal: true
-com.apple.gamecenter
-— GKMaxRecentPlayersCount: 50
-— GKMaxRecentPlayersTime: 314496000
-com.apple.PhotoBooth
-— NSNavPanelExpandedSizeForSaveMode: {841, 821}
-— NSWindow Frame Main Window: 1333 -1017 1161 862 626 -1200 1920 1175
-— AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey: true
-— PBLaunchedAtLeastOnceOnLion: true
-— NSNavLastRootDirectory: /Volumes/Photos
-— UserCameraUniqueIDPref: CC26373HVV3G1HNBN
-— NSWindow Frame NSNavPanelAutosaveName: 1133 -1007 841 843 366 -1200 1920 1177
-— NSNavLastUserSetHideExtensionButtonState: false
-com.apple.MobileSMSPreview
-— IMPreviewGenerationMaxPxWidth: 300
-— IMPreviewGenerationMinHeight: 50
-— IMPreviewGenerationScreenScale: 1
-— IMPreviewGenerationMinWidth: 50
-com.apple.ActivityMonitor
-— NSTableView Supports v2 cacheTableColumns: true
-— NSTableView Supports v2 ProcessViewerColumns: true
-— OpenMainWindow: true
-— ShowCategoryAppsinLast12Hours: true
-— NSWindow Frame main window: 51 -892 1134 848 0 -1200 1920 1175
-— SelectedTab: 0
-— ShowCategory: 100
-— NSWindow Frame ProcessInspector: 299 174 1397 667 0 0 1920 1175
-— HasSavedState: true
-com.apple.airplay
-— showInMenuBarIfPresent: true
-com.apple.messages.facetime
-— FaceTimeTwoTimeCallthroughEnabled: true
-com.apple.remindd
-— CloudKitAccountStatus: 1
-— preferredDefaultListObjectIDUrl: x-coredata://A2CAF8DB-6448-4E0A-9C2A-90DD4F1FF7FB/REMCDList/p102
-— ThrottlingPolicyCurrentBatchCount: 0
-— isDatabaseMigrated: true
-— preferredDefaultListID: x-apple-reminderkit://REMCDList/F6A64C81-07D3-4256-AE0E-D392EB710A0E
-— cloudKitSchemaCatchUpSyncLastSuccessBuildVersion: 21G115
-— CloudKitLastSyncSinceInternetReachable: 750791142.807587
-— ThrottlingPolicyCurrentLevelIndex: 0
-— spotlightIndexVersion: 6
-— useExtraneousAlarmBackOffThrottleInterval: true
-— ThrottlingPolicyStartTime: 754189649.198151
-— SubscriptionIDsLastModifiedDate: 753471431.03372
-— CloudConfigurationPath: /System/Library/PrivateFrameworks/ReminderKit.framework/Versions/A/Resources/CloudConfigurations/Normal.plist
-— lastDatabaseMigrationSystemBuildVersion: 19G73
-com.apple.ncprefs
-— content_visibility: 2
-— sort_order: 0
-— version: 1
-com.apple.itunesstored
-— AccountsNotificationPlugin.ActiveStorefrontIdentifier: 143441-1,42
-com.apple.print.add
-— NSWindow Frame com.apple.print.add.window: 1316 -631 547 445 689 -1200 1920 1175
-— NSNavLastRootDirectory: ~/Documents
-— NSWindow Frame com.apple.print.ppdpicker: 1434 -588 430 359 689 -1200 1920 1175
-— NSNavPanelExpandedSizeForOpenMode: {799, 448}
-com.apple.driver.AppleHIDMouse
-— Button4Force: 0
-— ScrollH: 1
-— ButtonDominance: 1
-— Button4: 0
-— Button4Click: 0
-— Button3: 0
-— Button1: 1
-— Button2: 1
-— ScrollSSize: 30
-— ScrollV: 1
-— ScrollS: 4
-com.apple.preferences.extensions.CredentialProvider
-— userHasOrdered: true
-com.apple.itunescloud
-— ICDefaultsKeyLastActiveAccountDSID: 294735135
-com.apple.stockholm
-— RemoteAdminV2: true
-— PKWalletShouldAutomaticallyRegisterKey: false
-com.apple.Siri
-— VoiceTriggerUserEnabled: true
-— StatusMenuVisible: true
-com.apple.sharingd
-— AirDropRandomHashUUIDKey4: B98EA1EE-7F65-4C77-B14A-DA91AFC0AA9A
-— OneTimeAirDropReset2: true
-— OneTimeAirDropReset: true
-— HashManager-StoredDatabaseVersionKey: 3
-— AutoUnlockPresentedBluetoothError: false
-— AirDropRandomHashUUIDKey2: 499411FD-D805-4E69-93E6-BA64D073F56E
-— DiscoverableMode: Contacts Only
-— AutoUnlockPresentedWiFiError: false
-— AirDropRandomHashUUIDKey3: 5C58B32D-321A-447A-8978-D279145E070D
-— AutoUnlockWatchCurrentlyInList: false
-— AutoUnlockWatchExistedInUnlockList: false
-— AirDropRandomHashUUIDKey1: F2F1A44F-3965-476F-A130-AB1620895DF6
-com.apple.AppStoreComponents
-— ASCLocaleID: en
-com.apple.DFSLoginPlugin
-— WindowLeft: 313
-— WindowTop: 0
-com.apple.TextInputMenuAgent
-— NSStatusItem Visible Item-0: true
-— NSStatusItem Preferred Position Item-0: 93
-com.apple.iCal
-— NSWindow Frame 20230502T190000Z/44FE310B-A413-44E3-8CF2-0415C6A3A31F: 18 208 315 616 0 0 3200 1775
-— BirthdayEventsGenerationLastLocale: en_US
-— last calendar view description: 7-day
-— NSWindow Frame iCal: 260 -1057 1440 875 0 -1200 1920 1175
-— NSWindow Frame 7B46A3F8-7D80-4BB6-A500-7DC6A0F384F6: -1298 92 315 555 -1920 -321 1920 1177
-— BirthdayEventsGenerationVersion: 10
-— NSNavPanelExpandedSizeForOpenMode: {799, 448}
-— icaluuid: AAD09FD5-A107-46B0-ABC8-048D07DBE161
-— CalendarSidebarShown: true
-— NSWindow Frame 307062AD-5121-4701-8FC1-6AEF5BAD95C7: 1127 -772 315 255 0 -1200 1920 1175
-— NSWindow Frame 41B6A481-E276-4C9C-AC66-1117FD022022: -836 72 315 722 -1920 -321 1920 1177
-— NSWindow Frame 75720207-481E-42B4-8B04-44DB578F4C7D: 1213 341 315 680 0 0 3440 1415
-— NSWindow Frame 2F733335-3F78-46E7-BB0E-62E8743E8112: 18 471 315 320 0 0 2560 1417
-— NSWindow Frame E6D4F577-2588-4B5E-9DBB-35A961A7F621: 1249 520 315 637 0 0 2560 1417
-— AvailabilityShowTwentyFourHours: true
-— NSWindow Frame 49E43031-DBA8-4A23-A832-AB4063D2EF7E: 1452 40 315 1210 0 0 3200 1775
-— CalForceTruthFileRestoreHashKey: 16A1
-— NSWindow Frame 9BC79E73-0EBA-45C1-8ED3-46015D11E412: 688 597 315 314 0 0 2560 1417
-— last selected calendar list item: 369C307E-830B-49B8-9AC3-88A55E1B7D18
-— NSNavPanelExpandedSizeForSaveMode: {841, 448}
-— NSWindow Frame 274C8BAC-18E2-46E7-9C0D-C40D2D46AC63: 18 1016 315 381 0 0 3440 1415
-— NSWindow Frame A29A4AC7-B104-4A09-AA79-DADA5C055395: 2839 22 315 357 2560 -420 1920 1177
-— NSWindow Frame D347C484-A4D2-4DEF-882D-2D89FA03B747: 2343 243 315 711 0 0 3440 1415
-— NSWindow Frame 16496D1E-ACE0-4C11-BF3E-EADB7FBBA3CA: 18 606 315 252 0 0 2560 1417
-— NSWindow Frame 3D87C5A2-8A5C-49BB-9F73-B98F15D33536: 2480 -560 315 359 1760 -1050 1680 1025
-— NSWindow Frame 20220614T160000Z/local_3DF6D360-EAEE-4B2E-BEFA-CB44642D1EC6: 2009 112 315 1082 0 0 2560 1417
-— CalDefaultCalendar: UseLastSelectedAsDefaultCalendar
-— NSWindow Frame 20200325T130000Z/local_FC057681-FA7A-465F-BF7E-C0652EDB92E9: 2247 -266 315 1005 0 0 2560 1417
-— CalAgentNS_Preference_DefaultReminderCalendar: 0CCC33DE-14AC-4867-9CBD-584A0BA31215
-— NSWindow Frame 20220525T163000Z/local_BDF258D8-7CD3-44FB-88C0-397A8B54FF4A: 1155 -1193 315 1077 309 -1200 1920 1177
-— NSWindow Frame 20200315T000000Z/8EB9F0E9-F370-433D-993D-6A6AACFBD120: 18 1073 315 326 0 0 2560 1417
-— display birthdays calendar: true
-— NSWindow Frame local_03912130-863D-42FC-82DF-07CD78251506: 1790 314 315 774 0 0 2560 1417
-— NSEventConcurrentProcessingEnabled: YES
-— NSWindow Frame 20230603T220000Z/274C8BAC-18E2-46E7-9C0D-C40D2D46AC63: 18 995 315 402 0 0 3440 1415
-— NSWindow Frame 6B0DEC00-34CE-4CC4-83F1-1717B050499D: 704 493 315 478 0 0 2560 1417
-— NSWindow Frame 20200911T230000Z/8847C42D-0646-41AE-9690-D941F6B0D8FE: 3146 -294 315 319 2560 -420 1920 1177
-— NSWindow Frame F97F81C1-4835-48E5-94E4-A277F5598C38: 18 510 315 328 0 0 2560 1417
-— NSWindow Frame local_3A6D5C8F-0374-4BDF-BA6B-1CE481F90F51: 18 -388 315 347 -1589 -1200 1920 1177
-— NSWindow Frame 01D093AF-01E4-4DC9-ACC0-0FF9BEACAF69: 1858 -798 315 327 309 -1200 1920 1177
-— BirthdayEventsGenerationAttemptsToResetKey: 0
-— NSWindow Frame E8B92649-A01E-46AA-8D7A-E482C0E26AF3: 1542 22 315 945 0 0 2560 1417
-— NSWindow Frame local_4B0FE283-A377-4B60-9B1C-61A79B41B5FC: 18 399 315 289 0 0 2560 1417
-— NSWindow Frame D40BAB3C-E05B-442D-891A-4F8602B21611: 798 309 315 852 0 0 1920 1177
-— NSWindow Frame local_8E964387-3E9A-41F3-881F-1654EEB326A3: 2573 -427 315 746 2560 -420 1920 1177
-— NSWindow Frame 20191107T170000Z/local_34802133-10E8-43C8-8F34-40BC817C08A0: 1218 444 315 973 0 0 2560 1417
-— TimeZone support enabled: true
-— Show Week Numbers: false
-— iCal version: 134217728
-— first shown minute of day: 444.9658935879945
-— NSWindow Frame CD743651-82AE-4F0F-97A3-C186B976C2B0: 1146 -676 315 513 366 -1200 1920 1177
-— CalendarSidebarView: 1
-— LastCheckForIgnoredPseudoEvents: 754133611.145533
-— RemindersLastMigratedSystemVersion: 21H1320
-— NSWindow Frame 20220604T000000Z/7E23212D-6103-45C7-8FEC-0627FD82591B: 18 1041 315 358 0 0 2560 1417
-— LastReminderMigrationCleanupVersion: 1
-— NSNavLastUserSetHideExtensionButtonState: false
-— AllDayAreaHeight: 60
-— NSWindow Frame 20191215T000000Z/8EB9F0E9-F370-433D-993D-6A6AACFBD120: 18 1089 315 310 0 0 2560 1417
-— NSWindow Frame 20220618T000000Z/7E23212D-6103-45C7-8FEC-0627FD82591B: 17 1089 315 310 0 0 2560 1417
-— NSWindow Frame FA9EC26B-5610-48BF-B178-472D0A9CE108: 5182 542 315 331 3440 -360 3200 1775
-— lastViewsTimeZone: America/New_York
-— NSWindow Frame local_09774321-C73E-4540-9DA1-B25F7A2B83FE: -313 -82 315 788 -1920 -471 1920 1177
-— NSWindow Frame local_111A7243-FC0C-4951-963F-087416DA38B1: 18 879 315 520 0 0 2560 1417
-— NSWindow Frame CEAF674C-3CBC-4589-A2E7-F80A7600D85C: 1440 484 315 347 0 0 3200 1775
-— privacyPaneHasBeenAcknowledgedVersion: 4
-— NSWindow Frame SimpleCalendarInspector: 1083 715 526 329 0 0 2560 1417
-— NSWindow Frame 20210814T010000Z/6FC03F46-FE36-4A30-92B3-FD1393594C75: 18 1099 315 300 0 0 2560 1417
-— NSWindow Frame B414AB24-8E19-4AC4-9C63-37EDEF715D2B: 1528 96 315 718 0 0 3200 1775
-— NSWindow Frame CA5333A5-ACB3-47EB-84D9-F5DAA2899FA8: 18 -973 315 932 309 -1200 1920 1177
-— CalendarSidebarWidth: 205
-— NSWindow Frame Availability: -1793 1875 788 140 -1920 1200 3840 2135
-— last minute of day time range: 1440
-— first minute of day time range: 0
-— NSWindow Frame 20230111T190000Z/09BB37E1-6050-43BA-B4FE-4F634B364C83: 1942 -809 315 676 689 -1200 1920 1175
-— NSWindow Frame 3C385924-1627-4D96-AFC3-4AC1DE9878E5: 1315 635 315 382 0 0 2560 1417
-— NSWindow Frame NSNavPanelAutosaveName: 1125 767 841 470 0 0 2560 1417
-— NSWindow Frame 34BD3C48-2EBE-4082-AFF7-B3BE10DCFC6A: 1741 -831 315 292 579 -1200 1920 1177
-— CalendarListMiniMonthVisibleMonths: 1
-— IncludeDebugMenu: true
-— NSWindow Frame 20210705T000000Z/E00EDA52-5054-4CE5-BE4E-23FFC23F088C: 18 497 315 341 0 0 2560 1417
-— WR_DONT_ASK_FOR_DEFAULT: true
-— NSWindow Frame 2E1D8DCF-1FAD-4948-905B-8F5699645D18: 18 1126 315 273 0 0 2560 1417
-— NSWindow Frame 20220406T163000Z/local_861CDA9D-9014-4FBF-855F-9934FEB8E1F9: 1775 240 315 1073 0 0 2560 1417
-— NSWindow Frame 20210127T000000Z/85F2EA77-00C8-4670-8FF5-FC80268C8F03: 3746 -281 315 462 2560 -301 1920 1177
-— NSWindow Frame A7E278E1-8DE7-4619-AA32-A44785FE063B: 3860 -125 315 796 2560 -301 1920 1177
-— kLastABCReportTimeKey: 841360197134438
-— NSWindow Frame 20230131T000000Z/44B0677F-B412-4907-88EB-CCE5E3CFF139: 1992 1304 315 471 0 0 3200 1775
-— NSWindow Frame 10782B55-6784-4254-A658-743D5679F980: 4020 -363 315 560 2560 -301 1920 1177
-— NSWindow Frame local_2CE4FAF6-A855-4368-9253-8F40EA9612DF: 18 -763 315 722 -1589 -1200 1920 1177
-— NSWindow Frame B4D1B366-5A20-4EFD-8F88-B08B97EADA79: 2391 256 315 388 0 0 3440 1415
-— NSWindow Frame 20210427T230000Z/6FC03F46-FE36-4A30-92B3-FD1393594C75: -581 -210 315 252 -1920 -321 1920 1177
-— NSWindow Frame 20200422T141500Z/local_CC1FFFAE-5D36-475E-A9B2-163078C8EF2E: 18 61 315 678 0 0 2560 1417
-— NSDontMakeMainWindowKey: NO
-— NSWindow Frame 23221372-EBAB-4B2A-9CB0-53DBF8299FDE: 1894 283 315 998 0 0 2560 1417
-— NSNavLastRootDirectory: ~/Downloads
-— NSWindow Frame 20200122T160000Z/local_7E27D2E0-E288-45DE-A8CE-CD9BB00FC94E: 18 -104 315 843 0 0 2560 1417
-— NSWindow Frame local_268BEFF9-D512-47E0-8707-310F3D7C98E5: 3425 44 315 551 2560 -301 1920 1177
-com.apple.assistant
-— Experiment Identifierinvocation_feedback_experiment: 7AB398F2-FB18-4678-8831-E7F44B12211E
-— Has Set Up MultiUser Shared Record Subscription: true
-— Initial Interstitial Delay for VoiceTrigger One-Shot without Audio Ducking: 1.75
-— Initial Interstitial Delay - stark: 5
-— MultiUser Shared Data Needs Sync: true
-— Initial Interstitial Delay: 3.5
-— Myriad Device Delay: 0
-— Myriad Device Class: 9
-— Myriad Device Adjust: -10
-— Has Set Up Account Status Subscription: true
-— Voice Trigger Needs Sync: true
-— Experiment Identifier: 30E5AAAA-5C47-473B-976D-70B28DFE045B
-— Myriad Device Trump Delay: 1.75
-— Flush Session Tickets Cache: false
-— Server Has Provisioned Myriad: true
-— Myriad VTEndtimeDistanceThreshold: 0.5
-— Has Set Up Key Value Subscription: true
-— Borealis Education Header Display Count: 5
-— Experiment Identifiersiri_vox_tap_to_siri_behavior_experiment: F0E5C04E-6DFB-4E61-911E-95AE76076819
-— Has Set Up Voice Trigger Subscription: true
-— Last Known Analytics Store State: 0
-— Experiment Identifiersiri_vox_sounds_experiment: E730544E-9FF9-4E87-BF53-0D9FE04C202E
-— Manual Endpointing Threshold: 2
-com.apple.dt.Xcode
-— IBPreferencesMigrated: true
-— IBAppliesAutoResizingRulesWhileResizing: false
-— XCFontAndColorCurrentTheme: Default (Light).xccolortheme
-— IDEKeyBindingCurrentPreferenceSet: Default.idekeybindings
-— IDESourceControlPreferencesVersion: 201
-— DVTFontAndColorLastUpdatedToolsVersion: 11.0
-— DVTDownloadableAutomaticUpdate: false
-— NSNavLastRootDirectory: ~/go/pkg/mod/github.com/gearboxworks/go-systray@v0.0.0-20190626020534-3518af45bf7c
-— NSNavPanelExpandedSizeForOpenMode: {1071, 716}
-— IDEUserWantsToEnableDeveloperSystemPolicyMode: false
-com.apple.AMPLibraryAgent
-— iTunes-media-folder-url: file:///Users/mikeschinkel/Music/iTunes/iTunes%20Media/
-— debugAssertCategoriesVersion: 3
-— have-shown-cloud-UI: 1
-— storeSupportsUPP: true
-— updateLevel: 43
-— ITUserPrefsMigrated: true
-— books-migrated: 1
-— storeSupportsPreviousPurchases: true
-— persistentUserID: -396333825804030359
-— storeSupportsCloudPurchases: 1
-— imported-media-domains: 15
-— books-persistent-id: -1863604537226022271
-— storeMediaTypeFlags: 3422
-— podcasts-migrated: 1
-— storeSupportsPasswordSettings: true
-— imported-media-domains-modification-date: Sat, 08 Aug 2020 13:44:28 GMT
-— show-home-sharing-turned-on-in-iTunes-warning: 0
-— devices-persistent-id: 4430696658192098201
-— debugAssertCategoriesEnabled: 0
-— podcasts-persistent-id: -3722290722537131329
-com.apple.wifi.keychain-format
-— Version: 2
-com.apple.facetime.bag
-— URL: https://init.ess.apple.com/WebObjects/VCInit.woa/wa/getBag?ix=3
-— Date: 754200380.1641231
-— CacheTime: 3600
-com.apple.TelephonyUtilities
-— GondolaLastAccountsChangedState: true
-— GondolaGeneratedIdentifier: E99D3ED4-7A87-4FF7-8D04-A236C2661A53
-— registeredProvidersVersion: 1
-— CachedVCCaps: 17592188010496
-— relayCallingDisabled: true
-— GondolaLatestVersion: 4
-— GondolaSyncedVersion: 0
-— FaceTimePhotosEnabled: false
-com.apple.findmy.fmfcore.notbackedup
-— frontMostWindow: true
-— publicAPSToken: 7C481D4ED8A611E98C956090592BE84D1AF7A654AE63B9FADCEB9B7D62178664
-— FMFGarbageCollectorIdentityKey: 294735135
-— FMFLimitedPrecisionPrefKey.limitedPrecision: true
-— windowVisible: true
-com.apple.AppStore
-— __uniquePageGroupID-9.WebKit2UserInterfaceDirectionPolicy: 1
-— __uniquePageGroupID-12.WebKit2DeveloperExtrasEnabled: true
-— mostRecentTabIdentifier: search
-— AutoPlayVideoSetting: on
-— com.apple.AppStore.WebKit2UserInterfaceDirectionPolicy: 1
-— appStoreBadgeCount: 2
-— __uniquePageGroupID-1.WebKit2ShowsToolTipOverTruncatedText: true
-— UserSetAutoPlayVideoSetting: false
-— lastBootstrapTimeZone: America/New_York
-— __uniquePageGroupID-9.WebKit2SuppressesIncrementalRendering: true
-— ASAcknowledgedOnboardingVersion: 5
-— __uniquePageGroupID-12.WebKit2ShowsToolTipOverTruncatedText: true
-— __uniquePageGroupID-9.WebKit2ShowsToolTipOverTruncatedText: true
-— com.apple.AppStore.WebKit2SuppressesIncrementalRendering: true
-— __uniquePageGroupID-1.WebKit2DeveloperExtrasEnabled: true
-— __uniquePageGroupID-9.WebKit2DeveloperExtrasEnabled: true
-— AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey: true
-— __uniquePageGroupID-12.WebKit2UserInterfaceDirectionPolicy: 1
-— __uniquePageGroupID-12.WebKit2SuppressesIncrementalRendering: true
-— com.apple.AppStore.WebKit2ShowsToolTipOverTruncatedText: true
-— com.apple.AppStore.WebKit2DeveloperExtrasEnabled: true
-— MetricsSamplingLotteryWindowStart_pageRender: 746879691.918407
-— kAOSUIProfilePictureCropRect: {{0, 0}, {512, 512}}
-— __uniquePageGroupID-1.WebKit2UserInterfaceDirectionPolicy: 1
-— __uniquePageGroupID-1.WebKit2SuppressesIncrementalRendering: true
-— NSWindow Frame AppStoreMainWindow: -1 0 1920 1175 0 0 1920 1175
-— lastBootstrapDate: 746879691.927923
-com.apple.AdPlatforms
-— AppStorePAAvailable: true
-— LatestPAVersion: 1
-— acknowledgedPersonalizedAdsVersion: 1
-com.apple.Ticket-Viewer
-— NSWindow Frame TicketViewerMainWindow: 832 -961 674 323 538 -1200 1920 1177
-com.apple.keyboard
-— KeyboardWordOrSentenceTrackingForPFL: false
-com.apple.assistant.support
-— Siri Data Sharing Opt-In Status: 1
-— Assistant Enabled: true
-— Dictation Enabled: false
-com.apple.preferences.extensions.QuickLook
-— userHasOrdered: true
-com.apple.internetconfigspec
-— WWWHomePage: http://livepage.apple.com/
-com.apple.icloud.fmfd
-— numberOfFriendsFollowersKey: 0
-— kFMFDStoredDataVersion: 1
-— storedDSID: 294735135
-— lazyInitTimeSecsStoredKey: 543600
-— kFMFDlastLoggedInPrsId: 294735135
-com.apple.newscore
-— notificationEnableAssetPrefetching: true
-— com.apple.news.notification_receipt_event_endpoint: https://news-notification-events.apple.com/analyticseventsv2/async
-— news_url_resolution_subscription_status: true
-— com.apple.news.default_event_endpoint: https://news-events.apple.com/analyticseventsv2/async
-— notificationAssetPrefetchingRequiresWatch: true
-— notificationArticleDiversificationSimilarityExpectationStart: 0.2
-— force_refresh_user_segmentation: false
-— notificationArticleDiversificationUniquePublisherExpectationYIntercept: 0.25
-— notificationArticleDiversificationUniquePublisherExpectationSlope: 0.75
-— news_carplay_is_enabled: false
-— com.apple.newsd.download.hasUnfinishedWork: false
-— notificationArticleDiversificationSimilarityExpectationEnd: 0.1
-— use_parsec_results_for_widget: false
-com.apple.AddressBook
-— NSWindow Frame ABCard:009F21E6-6AA8-4D44-81DD-57416EEDC401:ABPerson: 3460 1016 337 379 3440 -360 3200 1775
-— NSWindow Frame ABCard:5708A1A0-19B0-45EB-B95B-3DF53F2634C9:ABPerson: 660 -838 822 746 361 -1200 1920 1177
-— NSWindow Frame ABCard:F76A7B4D-0445-4659-9BED-F5B2EBB7E8B4:ABPerson: 20 897 337 260 0 0 1920 1177
-— NSWindow Frame ABCard:487D2BFC-A2EA-42EA-9AA1-2FFB7E2AE8AA:ABPerson: 1064 -333 337 291 689 -1200 1920 1175
-— ABBirthDayVisible: true
-— NSWindow Frame NSNavPanelAutosaveName: 871 -840 841 470 331 -1200 1920 1177
-— NSWindow Frame ABCard:11D3F694-36CD-43F5-8EDF-5DE79B39B34B:ABPerson: 1343 441 337 291 0 0 3840 2135
-— NSNavLastRootDirectory: ~/Desktop
-— NSWindow Frame ABCard:E458A625-D90F-43AA-9677-D17695CF1AFD:ABPerson: 1572 620 337 291 0 0 3200 1775
-— NSWindow Frame ABCard:ACDBC952-C766-4AEC-9B19-E99792C86EF5:ABPerson: 20 864 337 291 0 0 1920 1175
-— NSWindow Frame Preferences: 1988 1302 524 411 1047 1200 3200 1775
-— NSWindow Frame ABCard:FAC4A26A-04EB-45A5-804D-960763E5B9E2:ABPerson: 20 820 337 335 0 0 1920 1175
-— NSWindow Frame ABCard:9DE971C4-6297-459B-88B6-D2F17FD3C04C:ABPerson: 1603 526 337 291 0 0 3200 1775
-— NSWindow Frame ABCard:38FFC9B9-7C37-4BD5-951B-89565DE42C3F:ABPerson: 351 -595 337 552 331 -1200 1920 1177
-— NSWindow Frame ABCard:EF647C1B-3D59-43F6-BB6F-A0D4ADB0EF15:ABPerson: 1940 -380 337 335 1920 -1200 1920 1175
-— ABMetaDataChangeCount: 36118
-— ABTextSizeIncrement: 2
-— NSWindow Frame ABCard:C65A69C0-1571-4DEA-AD51-55836D7EE3CE:ABPerson: 3460 1104 337 291 3440 -360 3200 1775
-— ABVersion: 1419
-— NSNavPanelExpandedSizeForSaveMode: {841, 448}
-— ABLastImportShown: true
-— NSWindow Frame ABCard:57970DC4-E197-4969-B7CF-891FD082E661:ABPerson: 20 864 337 291 0 0 1920 1175
-— ABDefaultSourceID: DFD9CED6-56DB-4031-816B-50C0756E2017
-— NSWindow Frame ABCard:08A119D8-C815-4785-AF56-1A935ADEF95C:ABPerson: 20 864 337 291 0 0 1920 1175
-— NSWindow Frame ABPersonCardWindow: 1266 81 337 250 0 0 1920 1175
-— NSNavLastUserSetHideExtensionButtonState: false
-— NSWindow Frame ABCard:FE5C1251-5115-4882-A2FB-B1DEFED6D821:ABPerson: 981 271 337 291 0 0 1920 1175
-— NSPreferencesSelectedIndex: 1
-— NSWindow Frame ABCard:330A0863-BAFE-48DA-BCF2-68AD044E0029:ABPerson: 709 -336 337 291 689 -1200 1920 1175
-— NSWindow Frame ABCard:B47BE965-F0AC-4637-8E2D-F892BC36490C:ABPerson: 1066 -336 337 291 689 -1200 1920 1175
-— NSWindow Frame ABCleanWindowController-MainCleanWindow: 551 171 973 812 0 0 1920 1175
-— NSWindow Frame ABCard:DB8126E2-2028-4E8B-BA74-D931978874FB:ABPerson: 1042 294 337 480 0 0 1920 1175
-— AB21vCardEncoding: macintosh
-— NSWindow Frame ABCard:62C841E1-E2F0-4325-BA9E-0E5204693DD5:ABPerson: 20 1398 337 357 0 0 3200 1775
-— NSWindow Frame ABCard:00D41CBF-9D7B-4DE2-9BE0-D522E6CAD871:ABPerson: 20 864 337 291 0 0 1920 1175
-— NSWindow Frame ABCard:C99405A4-FE07-4AF0-B9E4-C6E8E2317C13:ABPerson: 20 897 337 260 0 0 1920 1177
-— NSWindow Frame ABCard:E67029AE-B449-4045-BCD7-C2CA07A0DF65:ABPerson: 709 -373 337 328 689 -1200 1920 1175
-— NSWindow Frame ABCard:E35B1A34-DE63-4F0C-A26B-15471B714B5E:ABPerson: 20 842 337 313 0 0 1920 1175
-— NSWindow Frame ABCard:647A4AA0-097F-42FD-BBE0-D1CB0218D18E:ABPerson: 20 864 337 291 0 0 1920 1175
-— NSWindow Frame smart group panel: 853 -775 648 231 689 -1200 1920 1175
-— NSPreferencesContentSize: {524, 383}
-— NSWindow Frame ABCard:9EA7130F-AD2F-4F8B-BE2B-6D39C51ABB65:ABPerson: 20 864 337 291 0 0 1920 1175
-— ABPrivateVCardFieldsEnabled: true
-com.apple.SpeechRecognitionCore
-— AllowAudioDucking: false
-com.apple.commerce
-— LastUpdateNotificationOSMajorVersion: 10.14
-— PurchasesInflight: false
-com.apple.networkresolutiond
-— _networkDevices: 677.958329721183
-com.apple.TV
-— automaticallyDownloadArtwork: true
-— NSNavPanelExpandedSizeForOpenMode: {799, 448}
-— userWantsPlaybackNotifications: false
-— gridViewSearchDoesNotSwitchView: true
-— persistentUserID: -396333825804030359
-— miniplayerUserSetHeight: 771
-— storeMediaTypeFlags: 3422
-— dontAskForAllPlaylistItemRemoval: true
-— checkedHLSKeysTime: 3724003753
-— storeSupportsCloudPurchases: 1
-— debugAssertCategoriesVersion: 3
-— com.apple.TV.WebKit2EnableInheritURIQueryComponent: true
-— cddbPrefsOK: true
-— NSWindow Frame NSNavPanelAutosaveName: 880 726 799 448 -1920 -471 1920 1177
-— com.apple.TV.WebKit2SuppressesIncrementalRendering: true
-— miniplayerVPos: 821
-— controllableInterfaceGUID: -2521131982380442198
-— automaticallyDeleteVideoAssetsAfterWatching: true
-— videoWindowVPos: 139
-— miniplayerHPos: 2723
-— playbackIsFullscreen: false
-— storeSupportsPasswordSettings: true
-— com.apple.TV.WebKit2UserInterfaceDirectionPolicy: 1
-— haveAskedToCheckForAvailableDownloads: true
-— videoWindowHPos: 461
-— miniplayerSnapMode: 5
-— NSNavLastRootDirectory: ~/Documents
-— storeSupportsUPP: true
-— showWelcomeScreenState: 2
-— videoWindowVSize: 1072
-— updateLevel: 43
-— ITUserPrefsMigrated: true
-— miniplayerWidthInDesignCoords: 288
-— storeSupportsPreviousPurchases: true
-— tabViewMode: 22
-— preloadFilesIntoMemory: false
-— userMaxConcurrentDownloads: 3
-— NSApplicationCrashOnExceptions: false
-— videoWindowHSize: 1906
-— checkForAvailableDownloads: true
-— miniPlayerQueueVisible: true
-— debugAssertCategoriesEnabled: 0
-— firstLaunchShowWelcomeScreenState: 2
-— com.apple.TV.WebKit2ShowsToolTipOverTruncatedText: true
-— musicVideoPlaybackLocation: 2
-— miniPlayerLargeArtVisible: false
-— userHasActivatedFullScreenVisualizer: true
-— com.apple.TV.WebKit2AsynchronousSpellCheckingEnabled: true
-— com.apple.TV.WebKit2ShouldPrintBackgrounds: true
-com.apple.preference.general
-— version: 1
-com.apple.menuextra.battery
-— ShowPercent: YES
-com.apple.imdpersistence.IMDPersistenceAgent
-— LogAllIOErrors: true
-com.apple.SafariServices
-— SearchProviderIdentifierMigratedToSystemPreference: true
-com.apple.siri.shortcuts
-— WFServicesShortcutsMigrated: true
-— WFDidUnconflictShortcuts: true
-— LegacyShortcutsZoneSubscriptionUnsubscribed: true
-— WFDefaultShortcutsVersion: 2
-— WFLastSyncedFlagsHash: 3735928557
-com.apple.SystemProfiler
-— PrefsVersion: 1
-— NSWindow Frame StorageMgmt: 511 153 1271 778 0 0 1920 1175
-— SPLastDocumentsSize: 60455378944
-— NSWindow Frame SystemProfile: 1219 1094 903 602 0 0 3840 2135
-com.apple.remindd.babysitter
-— LastSystemVersion: 21H1320
-com.apple.internal.ck
-— DictationOnDeviceSamplingDisabled: 0
-— DictationSamplingRates: {}
-— DefaultCacheKey: assistantd
-— DefaultWarmupScriptsExtension: .es2017.min.js
-— WarmupScriptIdentifiers: RunWrapper.min.js,tslib.min.js
-— HasSetUpRecordZoneSubscription: true
-— ByteCodeCacheEnabled: 1
-— DefaultBootTimeUpdateScripts: 1
-— WarmupModularScriptIdentifiers:
-— DisableFBFForUEI: false
-com.apple.internetconfigpriv
-— WWWHomePage: http://livepage.apple.com/
-com.apple.dock
-— wvous-br-corner: 14
-— showAppExposeGestureEnabled: true
-— autohide: false
-— tilesize: 70
-— lastShowIndicatorTime: 753502899.7258379
-— no-bouncing: false
-— region: US
-— showhidden: true
-— last-messagetrace-stamp: 687435760.036118
-— launchanim: true
-— showMissionControlGestureEnabled: true
-— version: 1
-— wvous-tr-modifier: 1048576
-— magnification: true
-— largesize: 75
-— mod-count: 16133
-— trash-full: true
-— minimize-to-application: true
-— loc: en_US:US
-— expose-animation-duration: 0.1000000014901161
-— wvous-tr-corner: 1
-— autohide-delay: 0
-com.apple.AdLib
-— adprivacydMaxSegmentSendInterval: 259200
-— personalizedAdsMigrated: true
-— partiality-segment: https://partiality.itunes.apple.com/WebObjects/MZPartiality.woa/wa/IAD/segment
-— CKDPIDSyncState: 0
-— forceLimitAdTracking: true
-— adprivacydSegmentInterval: 73843
-— allowIdentifierForAdvertising: true
-— allowApplePersonalizedAdvertising: false
-com.apple.amp.mediasharingd
-— public-sharing-enabled: 0
-— home-sharing-sequence-id: 1183
-— home-sharing-group-id: 00000000-1191-4d1f-b6f7-3eb99f054aeb
-— home-sharing-computer-id: ad28acd6-dd0c-4864-adbe-fa9e98ffc2d9
-— photo-sharing-enabled: 0
-— shared-library-id: -5343928108010047363
-— shared-library-name: Mike’s MacBook Pro Library
-— public-sharing-is-protected: 0
-— shared-library-machine-id: -4939076028071949738
-— home-sharing-enabled: 1
-com.apple.systempreferences
-— NSWindow Frame NSSpellCheckerSubstitutionsPanel2: -1547 -76 425 137 -1920 -333 1920 1175
-— com.apple.preferences.sharing.selectedservice: 1
-— NSWindow Frame NSNavPanelAutosaveName: 581 -1093 999 668 0 -1200 1920 1175
-— NSNavLastRootDirectory: /Applications/Setapp
-— NSWindow Frame GoToSheet: 269 463 460 236 0 0 1920 1175
-— ThirdPartyCount: 2
-— NSNavPanelExpandedSizeForOpenMode: {999, 640}
-— SoundTab: output
-— com.apple.dtandsspref.lastselectedtab: com.apple.preference.desktopscreeneffect.screeneffects
-— NSFullScreenMenuItemEverywhere: false
-— kAOSUIProfilePictureCropRect: {{0, 0}, {512, 512}}
-— NSWindow Frame Main Window Frame SystemPreferencesApp 8.0: 481 -866 668 490 0 -1200 1920 1175
-— trackpad.lastselectedtab: 2
-— NSWindow Frame Identity Picker: 1571 -722 357 263 331 -1200 1920 1177
-— ShowAllMode: false
-— NSWindow Frame DestinationSheet: -747 2154 450 339 -2803 1200 3840 2135
-— ICQ_iCloudFirstRunNotificationShown: 001794-05-7e3c72e0-68de-4a6b-a51d-5ef3201ca25b
-— DisableAutoLoginButtonIsHidden: true
-— NSTableView Supports v2 LoginItemsColumn2: true
-— com.apple.preferences.accounts.outline.usersparent: true
-— mouse.lastselectedtab: 1
-— NSQuitAlwaysKeepsWindows: false
-— com.apple.SecurityPref.Privacy.LastSourceSelected: 0
-— SecurityPrefTab: General
-— com.apple.preference.keyboard.lastselectedtab: hotkeysTabIdentifier
-— com.apple.datetimepref.lastselectedtab: DateTime
-com.apple.UIKit
-— hasAccessibilityBeenMigrated: true
-com.apple.SafariBookmarksSyncAgent
-— CloudBookmarksSupplementalClientIdentifier: 18B700FD-0099-4375-BD4F-24F3C483110A
-— NewestLaunchedSafariBookmarksSyncAgentVersion: 618.3.11.11.7
-com.apple.VoiceOverTraining
-— doNotShowSplashScreen: true
-com.apple.newsd
-— FCAppConfigurationBundleShortVersionKey: 6.0
-com.apple.itunescloud.daemon
-— ICDDefaultsKeyKnownActiveAccountDSID: 294735135
-com.apple.Image_Capture
-— IK_lastUsedDeviceUUID: 34613831-6362-3362-6534-303866346538
-— NSTableView Supports v2 cameraAutoSave: true
-— IK_Camera_selectedTag: 1100
-— IK_lastUsedDeviceIsRemote: false
-— IK_Scanner_downloadURL: ~/Pictures
-— NSNavPanelExpandedSizeForOpenMode: {799, 448}
-— IKC_sort_ascending: false
-— com.apple.imagekit.cameraviewmode: 0
-— NSWindow Frame NSNavPanelAutosaveName: 955 636 799 448 0 0 2560 1417
-— IK_prefsVersion: 10.112
-— IK_Camera_selectedPathType: 2
-— IKC_sort_key: creationDate
-— IK_Accessory_selectedTag: 1000
-— NSWindow Frame ImageCaptureMainWindow: 845 398 1019 708 0 0 2560 1417
-— IK_Scanner_PostProcessApplication: /Applications/Preview.app
-— IK_Camera_preferPostPocessingApp: false
-— IK_lastUsedDeviceName: Mike's iPhone8
-— NSNavLastRootDirectory: ~/Cloud Files/odrive/OneDrive/pete-mike-share
-com.apple.preferences.extensions.SharedLinks
-— userHasOrdered: true
-com.apple.driver.AppleBluetoothMultitouch.mouse
-— MouseOneFingerDoubleTapGesture: 0
-— MouseTwoFingerHorizSwipeGesture: 2
-— MouseVerticalScroll: true
-— UserPreferences: true
-— MouseHorizontalScroll: true
-— MouseButtonDivision: 55
-— MouseMomentumScroll: true
-— MouseButtonMode: TwoButton
-— MouseTwoFingerDoubleTapGesture: 3
-com.apple.dock.external.extra.x86_64
-— ShowSolidarity: false
-com.apple.commcenter.data
-— pw_ver: 2
-com.apple.imagecapture
-— loggingLevel: 3073
-com.apple.notificationcenterui
-— bannerTime: 100
-— last-messagetrace-stamp: 687435760.036131
-com.apple.pipagent
-— Size: {0.1875, 0.25}
-com.apple.AMPDevicesAgent
-— debugAssertCategoriesEnabled: 0
-— persistentUserID: -396333825804030359
-— dontAutomaticallySyncIPods: true
-— updateLevel: 43
-— storeMediaTypeFlags: 3422
-— AutomaticDeviceBackupsDisabled: true
-— storeSupportsCloudPurchases: 1
-— debugAssertCategoriesVersion: 3
-— ITUserPrefsMigrated: true
-— userMaxConcurrentDownloads: 3
-com.apple.MobileSMS.CKDNDList
-— CatalystDNDMigrationVersion: 2
-— CKDNDMigrationKey: 2
-com.apple.protectedcloudstorage.protectedcloudkeysyncing
-— registrySyncIdentifier: 5A789DB3-7775-4B76-A976-3FFB2CC7503D
-com.apple.QuickLookDaemon
-— QLMTCacheSizeLastCheckAbsoluteTime: 618511596.484386
-com.apple.VoiceOver4.local
-— SCRCUserDefaultsAllowAirPlay: true
-— SCRCUserDefaultsUnplannedShutdownCount: 0
-— SCRCUserDefaultsPlannedShutdownSuccessful: true
-com.apple.suggestions
-— SuggestionsAllowGeocode: true
-— spToLearnMigrationPerformed: true
-— findToShowMigrationPerformed: true
-com.apple.NetworkUtility
-— NUPingCount: 10
-— NUTracerouteAddress: 104.130.122.30
-— NUPortScanEnd:
-— NUSelectedTabItem: NUTraceroute
-— NULookupAddress:
-— NUFingerPerson:
-— NUPortScanAddress: 10.10.10.51
-— NUPingChoice: 1
-— NUPingAddress:
-— NSWindow Frame MainWindow Position: 489 215 711 986 0 0 2560 1417
-— NUNetstatChoice: 0
-— NUPortScanStart:
-— NUWhoisAddress:
-— NUWhoisSelectedServer: whois.internic.net
-— NUPortScanRange: 0
-com.apple.Console
-— NSWindow Frame Console-DashboardWindowController: -1495 1341 1745 1175 -2803 1200 3840 2135
-— NSWindow Frame Console-ReportWindowController: 0 0 1920 1175 0 0 1920 1175
-com.apple.siri.VoiceShortcuts
-— VCLSDatabaseUUIDKey: 050E6B03-D6FC-45C4-9008-B616CD957C22
-— VCLSDataSequenceKey: 61608
-com.apple.Safari
-— ResetCloudHistory: true
-— WebKitHistoryItemLimit: 9999
-— WebKitInitialTimedLayoutDelay: 0.25
-— ShowFullURLInSmartSearchField: true
-— com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled: true
-— cloudBookmarksMigrationEligibilityDataInvalidated: true
-— UniversalSearchEnabled: false
-— WebKitDeveloperExtrasEnabledPreferenceKey: true
-— SuppressSearchSuggestions: true
-— WebKitHistoryAgeInDaysLimit: 360
-— IncludeDebugMenu: true
-— IncludeDevelopMenu: true
-— IncludeInternalDebugMenu: true
 com.apple.accounts
-— ACOneTimeSMTPFixAccountSync: 1
 — ACOneTimeLDAPFixAccountSync: 1
-com.apple.visualintelligence
-— bypassAvailability: false
-— enableBooksDomain: true
-— enableLandmarkDomain: true
-— enableArtDomain: true
-— firstTimeExperience: true
-— enableCoarseClassification: true
-— initialized: true
-— enablePetsDomain: true
-— enableScreenshots: true
-— debugUI: false
-— enableSafariApp: true
-— sendLocationInfo: true
-— enableAlbumsDomain: true
-— enableQuickLook: true
-— enableNatureDomain: true
-— enablePhotosApp: true
-— sendOCRText: true
+— ACOneTimeSMTPFixAccountSync: 1
 com.apple.accountsd
 — com.apple.mail.searchableIndex.lastProcessedAttachmentIDKey: 0
 — LastSystemVersion: 21H1320
-com.apple.installer
-— NSNavPanelExpandedSizeForOpenMode: {712, 448}
-— NSNavLastRootDirectory: ~
-com.apple.coreservices.UASharedPasteboardProgressUI
-— NSWindow Frame continuity-pasteboard-progress-window: 761 559 399 79 0 0 1920 1175
-com.apple.fileproviderd
-— com.apple.fileproviderd.did-drop-daemon-corespotlight-index: 1
-com.apple.screencapture
-— location: /Users/mikeschinkel/Desktop/Screenshots
-— style: display
-— last-analytics-stamp: 753854671.773985
-— captureDelay: 5
-— last-messagetrace-stamp: 618468030.8068219
-— last-selection-display: 0
-— video: false
-com.apple.SoftwareUpdate
-— AutoUpdateMajorOSVersion: 10.15
-com.apple.Preferences
-— UserDictionaryImportedSinceMaintenance: 0
-— UserDictionaryLocalPeerIdentityCurrent: mikeschinkel~6417095A-7147-55D2-80B4-8808A39FA79A
-com.apple.sociallayerd.CloudKit.ckwriter
-— accountLastKnownUserRecordID: _4d72b079e6dd351d59dcdf0b9afd41d6
-— accountAvailable: 1
-— version: 7
-— writerDone: false
-com.apple.classroom
-— allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0: true
-— allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0-ask: false
-— allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0: true
-— allowClassroomOpenURL-ask: false
-— allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0-ask: false
-— allowClassroomOpenURL: true
-— allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0-ask: false
-— allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0-ask: false
-— allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0: true
-— forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0-ask: false
-— allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0: true
-— forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0: true
-— allowClassroomOpenApp: true
-— allowClassroomOpenApp-ask: false
-com.apple.AccessibilityVisualsAgent
-— NSWindow Frame AXVBrailleWindowFrame: 64 102 770 37 0 0 1920 1175
-com.apple.CloudKit
-— AccountInfoValidationCounter: 234
-com.apple.findmy.fmipcore.notbackedup
-— publicAPSToken: 7C481D4ED8A611E98C956090592BE84D1AF7A654AE63B9FADCEB9B7D62178664
-— itemLearnMoreURL: https://support.apple.com/kb/HT211331?viewlocale=en_US
-— frontMostWindow: true
-— windowVisible: true
-— deviceImageVersion: 30
-— FMIPGarbageCollectorIdentityKey: 294735135
-— FMIPLimitedPrecisionPrefKey.limitedPrecision: true
-com.apple.tipsd
-— TPSWelcomeNotificationViewedVersion: 12
-— TPSTipsAppInstalled: true
-— TPSOfflineLastProcessedRemoteContentIdentifier: en-93c6896f754a03411af465c9f2c13f6b7a997aa25af2e6900d25024dc4eeecfe
-— DeliveryInfoVersion: 93c6896f754a03411af465c9f2c13f6b7a997aa25af2e6900d25024dc4eeecfe
-— TPSLastMajorVersion: 12
-— ConsecutiveNotificationsCount: 0
-— TPSWelcomeNotificationReminderState: 1
-com.apple.CoreGraphics
-— DisplayUseForcedGray: false
-— DisplayUseInvertedPolarity: false
-com.apple.DirectoryUtility
-— NSWindow Frame MainWindow1: 1354 -1064 790 622 538 -1200 1920 1177
-— FirstLaunch: false
-— NSWindow Frame DU: 1354 -1064 790 622 538 -1200 1920 1177
+com.apple.ActivityMonitor
+— HasSavedState: true
+— OpenMainWindow: true
+— SelectedTab: 0
+— ShowCategory: 100
+— ShowCategoryAppsinLast12Hours: true
+com.apple.AddressBook
+— AB21vCardEncoding: macintosh
+— ABBirthDayVisible: true
+— ABDefaultSourceID: DFD9CED6-56DB-4031-816B-50C0756E2017
+— ABLastImportShown: true
+— ABMetaDataChangeCount: 36123
+— ABPrivateVCardFieldsEnabled: true
+— ABTextSizeIncrement: 2
+— ABVersion: 1419
+— NSNavLastUserSetHideExtensionButtonState: false
+— NSPreferencesContentSize: {524, 383}
+— NSPreferencesSelectedIndex: 1
+com.apple.AdLib
+— adprivacydMaxSegmentSendInterval: 259200
+— adprivacydSegmentInterval: 73843
+— allowApplePersonalizedAdvertising: false
+— allowIdentifierForAdvertising: true
+— CKDPIDSyncState: 0
+— forceLimitAdTracking: true
+— partiality-segment: https://partiality.itunes.apple.com/WebObjects/MZPartiality.woa/wa/IAD/segment
+— personalizedAdsMigrated: true
+com.apple.AdPlatforms
+— acknowledgedPersonalizedAdsVersion: 1
+— AppStorePAAvailable: true
+— LatestPAVersion: 1
+com.apple.airplay
+— showInMenuBarIfPresent: true
+com.apple.airport.airportutility
+— dontPerformBaseRestartWarning: false
+— version: 1536
+com.apple.amp.mediasharingd
+— home-sharing-computer-id: ad28acd6-dd0c-4864-adbe-fa9e98ffc2d9
+— home-sharing-enabled: 1
+— home-sharing-group-id: 00000000-1191-4d1f-b6f7-3eb99f054aeb
+— home-sharing-sequence-id: 1183
+— photo-sharing-enabled: 0
+— public-sharing-enabled: 0
+— public-sharing-is-protected: 0
+— shared-library-id: -5343928108010047363
+— shared-library-machine-id: -4939076028071949738
+— shared-library-name: Mike’s MacBook Pro Library
+com.apple.AMPDevicesAgent
+— AutomaticDeviceBackupsDisabled: true
+— debugAssertCategoriesEnabled: 0
+— debugAssertCategoriesVersion: 3
+— dontAutomaticallySyncIPods: true
+— ITUserPrefsMigrated: true
+— persistentUserID: -396333825804030359
+— storeMediaTypeFlags: 3422
+— storeSupportsCloudPurchases: 1
+— updateLevel: 43
+— userMaxConcurrentDownloads: 3
+com.apple.AMPLibraryAgent
+— books-migrated: 1
+— books-persistent-id: -1863604537226022271
+— debugAssertCategoriesEnabled: 0
+— debugAssertCategoriesVersion: 3
+— devices-persistent-id: 4430696658192098201
+— have-shown-cloud-UI: 1
+— imported-media-domains-modification-date: Sat, 08 Aug 2020 13:44:28 GMT
+— imported-media-domains: 15
+— iTunes-media-folder-url: file:///Users/mikeschinkel/Music/iTunes/iTunes%20Media/
+— ITUserPrefsMigrated: true
+— persistentUserID: -396333825804030359
+— podcasts-migrated: 1
+— podcasts-persistent-id: -3722290722537131329
+— show-home-sharing-turned-on-in-iTunes-warning: 0
+— storeMediaTypeFlags: 3422
+— storeSupportsCloudPurchases: 1
+— storeSupportsPasswordSettings: true
+— storeSupportsPreviousPurchases: true
+— storeSupportsUPP: true
+— updateLevel: 43
+com.apple.amsengagementd
+— AMSMetricsIdentifierUserRecordName: _9855a9e858f2e06c41db643338437b57
+— AMSMetricsIdentifierZoneCreated: true
+— AMSMetricsIdentifierZoneSubscriptionCreated: true
+com.apple.AppleMediaServices
+— AMSDeviceBiometricsState: 0
+— AMSDidSetUpServerDataCache: true
+— AMSIncludeFullRequestInHARLogging: false
+— AMSIncludeFullResponseInHARLogging: false
+— AMSLastMigratedBuildVersion: 21H1320
+— AMSLogHARData: false
+— AMSMigratedStorageToDefaultsForNonAMSInternal: true
+— AMSMigratedToNewAccountStore: true
+— AMSShowSandboxAccountUI: true
+— AMSUserDefaultsIncludeFullRequestInHARLogging: false
+— AMSUserDefaultsincludeFullResponseInHARLogging: false
+com.apple.AppleMediaServices.notbackedup
+— AMSDidRetrieveDeviceOffers: true
+— AMSDidRetrieveDeviceOffersEligibility: true
+com.apple.AppleMultitouchMouse
+— MouseButtonDivision: 55
+— MouseButtonMode: TwoButton
+— MouseHorizontalScroll: true
+— MouseMomentumScroll: true
+— MouseOneFingerDoubleTapGesture: 0
+— MouseTwoFingerDoubleTapGesture: 3
+— MouseTwoFingerHorizSwipeGesture: 2
+— MouseVerticalScroll: true
+— UserPreferences: true
+— version: 1
+com.apple.AppleMultitouchTrackpad
+— ActuateDetents: 1
+— ActuationStrength: 1
+— Clicking: true
+— Dragging: true
+— DragLock: false
+— FirstClickThreshold: 1
+— ForceSuppressed: true
+— HIDScrollZoomModifierMask: 0
+— SecondClickThreshold: 1
+— TrackpadCornerSecondaryClick: 2
+— TrackpadFiveFingerPinchGesture: 2
+— TrackpadFourFingerHorizSwipeGesture: 2
+— TrackpadFourFingerPinchGesture: 2
+— TrackpadFourFingerVertSwipeGesture: 2
+— TrackpadHandResting: true
+— TrackpadHorizScroll: 1
+— TrackpadMomentumScroll: true
+— TrackpadPinch: 1
+— TrackpadRightClick: false
+— TrackpadRotate: 1
+— TrackpadScroll: true
+— TrackpadThreeFingerDrag: false
+— TrackpadThreeFingerHorizSwipeGesture: 2
+— TrackpadThreeFingerTapGesture: 2
+— TrackpadThreeFingerVertSwipeGesture: 2
+— TrackpadTwoFingerDoubleTapGesture: 1
+— TrackpadTwoFingerFromRightEdgeSwipeGesture: 3
+— USBMouseStopsTrackpad: 0
+— UserPreferences: true
+— version: 12
+com.apple.AppStore
+— __uniquePageGroupID-1.WebKit2DeveloperExtrasEnabled: true
+— __uniquePageGroupID-1.WebKit2ShowsToolTipOverTruncatedText: true
+— __uniquePageGroupID-1.WebKit2SuppressesIncrementalRendering: true
+— __uniquePageGroupID-1.WebKit2UserInterfaceDirectionPolicy: 1
+— __uniquePageGroupID-12.WebKit2DeveloperExtrasEnabled: true
+— __uniquePageGroupID-12.WebKit2ShowsToolTipOverTruncatedText: true
+— __uniquePageGroupID-12.WebKit2SuppressesIncrementalRendering: true
+— __uniquePageGroupID-12.WebKit2UserInterfaceDirectionPolicy: 1
+— __uniquePageGroupID-9.WebKit2DeveloperExtrasEnabled: true
+— __uniquePageGroupID-9.WebKit2ShowsToolTipOverTruncatedText: true
+— __uniquePageGroupID-9.WebKit2SuppressesIncrementalRendering: true
+— __uniquePageGroupID-9.WebKit2UserInterfaceDirectionPolicy: 1
+— appStoreBadgeCount: 2
+— ASAcknowledgedOnboardingVersion: 5
+— AutoPlayVideoSetting: on
+— AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey: true
+— com.apple.AppStore.WebKit2DeveloperExtrasEnabled: true
+— com.apple.AppStore.WebKit2ShowsToolTipOverTruncatedText: true
+— com.apple.AppStore.WebKit2SuppressesIncrementalRendering: true
+— com.apple.AppStore.WebKit2UserInterfaceDirectionPolicy: 1
+— lastBootstrapTimeZone: America/New_York
+— mostRecentTabIdentifier: search
+— UserSetAutoPlayVideoSetting: false
+com.apple.AppStoreComponents
+— ASCLocaleID: en
+com.apple.appstored
+— ArcadeDeviceGUID: C4B301CE52BF
+— ArcadeDeviceID: 7ADC34A6-6C09-4E1B-84DD-38E62FD4AABA
+— ArcadePayoutDeviceID: 8DDB6C74-73A7-4B29-AB0C-EE5327A205A8
+— ArcadeSubscriptionState: Unsubscribed
+— BadgeCount: 0
+— LastOSBuildVersion: 21H1320
+— WelcomeNotificationExcludedFromSample: true
+— WelcomeNotificationLastAppStoreConnectionProductVersion: 12.7.6
+com.apple.assistant
+— Borealis Education Header Display Count: 5
+— Experiment Identifier: 30E5AAAA-5C47-473B-976D-70B28DFE045B
+— Experiment Identifierinvocation_feedback_experiment: 7AB398F2-FB18-4678-8831-E7F44B12211E
+— Experiment Identifiersiri_vox_sounds_experiment: E730544E-9FF9-4E87-BF53-0D9FE04C202E
+— Experiment Identifiersiri_vox_tap_to_siri_behavior_experiment: F0E5C04E-6DFB-4E61-911E-95AE76076819
+— Flush Session Tickets Cache: false
+— Has Set Up Account Status Subscription: true
+— Has Set Up Key Value Subscription: true
+— Has Set Up MultiUser Shared Record Subscription: true
+— Has Set Up Voice Trigger Subscription: true
+— Initial Interstitial Delay - stark: 5
+— Initial Interstitial Delay for VoiceTrigger One-Shot without Audio Ducking: 1.75
+— Initial Interstitial Delay: 3.5
+— Last Known Analytics Store State: 0
+— Manual Endpointing Threshold: 2
+— MultiUser Shared Data Needs Sync: true
+— Myriad Device Adjust: -10
+— Myriad Device Class: 9
+— Myriad Device Delay: 0
+— Myriad Device Trump Delay: 1.75
+— Myriad VTEndtimeDistanceThreshold: 0.5
+— Server Has Provisioned Myriad: true
+— Voice Trigger Needs Sync: true
+com.apple.assistant.backedup
+— Cloud Sync Enabled: false
+— Cloud Sync User ID: _44c58d2cbdc7b03bb2cdefc57dcb364d
+— Hands Free Mode: 1
+— MultiUser VoiceIdentification Enabled: false
+— Session Language: en-US
+com.apple.assistant.support
+— Assistant Enabled: true
+— Dictation Enabled: false
+— Siri Data Sharing Opt-In Status: 1
+com.apple.AssistiveControl.virtualKeyboard
+— DesiredPanelWindowPosition: Absolute
+— PanelPosition: Absolute
+— SCLaunchedAsSlave: false
+com.apple.Automator
+— AMLogTabViewSelectedIndex: 1
+— NSNavLastUserSetHideExtensionButtonState: false
+— NSSplitView AMDocumentMinor Expanded Position: 342.5
+— NSSplitView AMLibraryActionsMajor Expanded Position: 237.5
 com.apple.AvatarUI.Staryu
 — AVTAvatarHasDisplayedAnimojiSplashScreen: true
 — AVTAvatarHasDisplayedCameraEffectsSplashScreen: true
 — AVTAvatarHasDisplayedPaddleView: true
 — AVTAvatarHasDisplayedSplashScreen: true
 — AVTAvatarUILastCacheVersion: 312500
-com.apple.networkConnect
-— VPNShowTime: true
-com.apple.UserAccountUpdater
-— com.apple.HidLibraryFolderAlready: true
-com.apple.madrid
-— IMCloudKitStartingInitialSync: false
-— CloudKitIsSyncing: false
-— CloudKitIsRemovedFromBackup: false
-— CloudKitIsEligibleForTruthZone: true
-— CloudKitEligibleToToggleMiCSwitch: true
-— IMCloudKitSyncControllerSyncTypeKey: 0
-— CloudKitCheckedMiCSwitchEligibilityOnImagentLaunch: true
-— createdChatZone: true
-— hasCompletedInitialCKSync: true
-— CloudKitSyncingEnabled: false
-— IMCloudKitSyncControllerSyncRecordTypeKey: 0
-— initialSyncRecordHasBeenWritten: true
-— IMCloudKitSyncControllerSyncStateKey: 0
-— IMCloudKitStartingPeriodicSync: false
-— IMCloudKitSyncPaused: false
-— RequestPriorityRamp: true
-— IMCloudKitAccountStatusKey: 3
-— IMCloudKitStartingEnabledSettingChange: false
-— IMCKFinishedFetchingAttachmentsFromCloudKit: true
-— CKMOCAccountsMatch: true
-— IMCloudKitStartingDisableDevices: false
-— oneTimeMOCAccountCheckV2: true
-— enableCKSyncingV2: false
-— initialCKSyncStartTime: 582449580.404954
-com.apple.rapport
-— frPruneLastSecs: 754201544.810226
-— familySyncedName: MacBookPro
-— pdFriendSyncStart: 753706149.79206
-com.apple.menuextra.clock
-— DateFormat: EEE MMM d  j:mm a
-com.apple.imessage.bag
-— URL: https://init-p01md.apple.com/bag?ix=2
-— Date: 753871581.6069829
-— CacheTime: 3600
-com.apple.sms
-— hasBeenApprovedForSMSRelay: true
-com.apple.Automator
-— NSSplitView AMDocumentMinor Expanded Position: 342.5
-— NSNavLastUserSetHideExtensionButtonState: false
-— NSWindow Frame AMDocument: 2010 1778 1920 1079 1047 1200 3200 1775
-— NSSplitView AMLibraryActionsMajor Expanded Position: 237.5
-— NSWindow Frame NSNavPanelAutosaveName: 490 261 939 767 0 0 1920 1175
-— AMLogTabViewSelectedIndex: 1
-— NSNavPanelExpandedSizeForSaveMode: {841, 831}
-— NSNavPanelExpandedStateForSaveMode: true
-— NSNavPanelExpandedSizeForOpenMode: {939, 827}
-— NSNavLastRootDirectory: ~/Library/Mobile Documents/com~apple~Automator/Documents
-com.apple.weather.internal
-— userId: 37A055C9-4E5A-488D-BECC-9C510F827BE1
-com.apple.FaceTime
-— DidMigrateToSixteenByNineAspectRatio: true
-— VideoWindowFrame: {{40, 0}, {1880, 1175}}
-— kPromptEnableReadRecipts: false
-— NSWindow Frame preferences: 1719 -1008 382 702 689 -1200 1920 1175
-— CustomRingtone:
-— PhoneNumberUpgradeShown: true
-— PreferredVideoDeviceUID: CC26373HVV3G1HNBN
-com.apple.AssistiveControl.virtualKeyboard
-— SCLaunchedAsSlave: false
-— PanelPosition: Absolute
-— DesiredPanelWindowPosition: Absolute
-— PanelFrame: {{1175, 117}, {598, 323}}
-— DesiredPanelWindowFrame: {{1175, 117}, {598, 323}}
-com.apple.Accessibility
-— InvertColorsEnabled: 0
-— GrayscaleDisplay: 0
-— AXSClassicInvertColorsPreference: 0
-— KeyRepeatInterval: 0.03333333299999999
-— CommandAndControlEnabled: 0
-— ApplicationAccessibilityEnabled: 1
-— DarkenSystemColors: 0
-— FullKeyboardAccessFocusRingEnabled: 1
-— GenericAccessibilityClientEnabled: 1
-— AccessibilityEnabled: true
-— KeyRepeatEnabled: 1
-— KeyRepeatDelay: 0.25
-— ZoomTouchEnabled: 0
-— DifferentiateWithoutColor: 0
-— FullKeyboardAccessEnabled: 0
-— BrailleInputDeviceConnected: 0
-— AutomationEnabled: 0
-— ReduceMotionEnabled: 0
-— SpeakThisEnabled: 0
-— EnhancedBackgroundContrastEnabled: 0
-— VoiceOverTouchEnabled: 0
-com.apple.ipTelephony
-— ImsLoggingEnabled: true
-com.apple.FolderActionsSetup
-— NSWindow Frame NSNavPanelAutosaveName: 781 -825 799 448 538 -1200 1920 1177
-— NSNavPanelExpandedSizeForOpenMode: {799, 448}
-— NSNavLastRootDirectory: ~/Documents
+com.apple.bird
+— icloud-drive.account-migration-status.294735135: 4
+— optimize-storage: true
+com.apple.CallHistorySyncHelper
+— /Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transaction.log: 0
+— /Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transactions.log: 0
+— CallHistoryDeviceCount: 13
+com.apple.CharacterPaletteIM
+— CVFontSize: 26
+— CVStartAsLargeWindow: false
+— version: 1
+com.apple.CharacterPicker
+— version: 1
+com.apple.classroom
+— allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0-ask: false
+— allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0: true
+— allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0-ask: false
+— allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0: true
+— allowClassroomOpenApp-ask: false
+— allowClassroomOpenApp: true
+— allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0-ask: false
+— allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0: true
+— allowClassroomOpenURL-ask: false
+— allowClassroomOpenURL: true
+— allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0-ask: false
+— allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0: true
+— forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0-ask: false
+— forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0: true
+com.apple.cloudd
+— com.apple.private.cloudkit.shouldUseGeneratedDeviceID: false
+com.apple.CloudKit
+— AccountInfoValidationCounter: 234
+com.apple.cloudpaird
+— MagicCloudPairingAccessoryEncryptionPreferences: true
+— MagicCloudPairingAccessorySubscriptionID: E2CE45F5-1190-4323-BAA5-F850A348EA40
+— MagicCloudPairingAccessorySubscriptionManateeID: F9843EBC-4239-40E4-B7A7-9CDC8FBB242F
+— MagicCloudPairingManateeUpgraded: true
+— MagicCloudPairingManateeUpgradedAccount: true
+— MagicCloudPairingMasterEncryptionPreferences: true
+— MagicCloudPairingMasterSubscriptionID: 921E9BD2-B042-4368-AD21-939D36C5ED59
+— MagicCloudPairingMasterSubscriptionManateeID: 936CF93D-2E2C-4044-96A6-F287772572B3
+— MagicCloudPairingProtectedAccessorySubscription: true
+— SecuredAccessoryZoneSubscription: true
+— SecuredZoneSubscription: true
+— UploadedHSA2KeysForLocalDevice: E99D3ED4-7A87-4FF7-8D04-A236C2661A53
 com.apple.ColorSyncCalibrator
+— 722524374X-expertMode: 1
+— 722524374X-name: DELL U3223QE Calibrated
 — 722524374X-shareMode: 0
 — 722524374X-targetTemp: 0
-— 722524374X-name: DELL U3223QE Calibrated
-— 722524374X-expertMode: 1
-com.apple.StatusKitAgent
-— reauthCount: 3
-com.apple.AppleMultitouchTrackpad
-— TrackpadThreeFingerDrag: false
-— TrackpadPinch: 1
-— USBMouseStopsTrackpad: 0
-— TrackpadFourFingerVertSwipeGesture: 2
-— ActuationStrength: 1
-— ActuateDetents: 1
-— FirstClickThreshold: 1
-— SecondClickThreshold: 1
-— TrackpadTwoFingerDoubleTapGesture: 1
-— TrackpadHorizScroll: 1
-— TrackpadMomentumScroll: true
-— TrackpadFourFingerPinchGesture: 2
-— TrackpadRotate: 1
-— Clicking: true
-— TrackpadThreeFingerTapGesture: 2
-— TrackpadThreeFingerHorizSwipeGesture: 2
-— TrackpadScroll: true
-— DragLock: false
-— TrackpadFiveFingerPinchGesture: 2
-— ForceSuppressed: true
-— TrackpadThreeFingerVertSwipeGesture: 2
-— TrackpadTwoFingerFromRightEdgeSwipeGesture: 3
-— UserPreferences: true
-— version: 12
-— HIDScrollZoomModifierMask: 0
-— TrackpadHandResting: true
-— TrackpadRightClick: false
-— Dragging: true
-— TrackpadFourFingerHorizSwipeGesture: 2
-— TrackpadCornerSecondaryClick: 2
-com.apple.ImageCaptureService
-— IK_Accessory_selectedTag: 1000
-com.apple.screensaver
-— tokenRemovalAction: 0
-com.apple.AppleMultitouchMouse
+com.apple.ColorSyncUtility
+— CSProfsUtilsGroupBy: 0
+— CSUtilitiesContentSize: {600, 520}
+— CSUtilitiesSelectedIdentifier: com.apple.ColorSyncUtility.Filters
+com.apple.commcenter.callservices
+— associated.account: 203a2a70f57349b4364e85ecf34be5416ba36c65
+— last.known.icloud.id: 0aeec7abaec7f5f1c411d3ac801ecde91bce1cca
+com.apple.commcenter.data
+— pw_ver: 2
+com.apple.commerce
+— LastUpdateNotificationOSMajorVersion: 10.14
+— PurchasesInflight: false
+com.apple.CoreGraphics
+— DisplayUseForcedGray: false
+— DisplayUseInvertedPolarity: false
+com.apple.coreservices.uiagent
+— CSUIHasSafariBeenLaunched: true
+— CSUIHaveCenteredGatekeeperProgressWindow: true
+— CSUILastOSVersionWhereSafariRecommendationWasMade: 10.15.6
+— CSUIRecommendSafariBackOffInterval: 259200
+com.apple.coreservices.useractivityd
+— kLocalPasteboardBlobName: /var/folders/fg/1dfmwyrx3wxbhj5lbdqpt7bw0000gn/T/com.apple.useractivityd/shared-pasteboard/F92B7041-E6A1-4A53-B5D3-383A282D5D86
+— kRemotePasteboardBlobName: /var/folders/fg/1dfmwyrx3wxbhj5lbdqpt7bw0000gn/T/com.apple.useractivityd/shared-pasteboard/F1404AE6-A56C-45A1-AC8F-3C6296BA117A
+com.apple.dashboard
+— devmode: true
+— mcx-disabled: true
+com.apple.desktopservices
+— DSDontWriteNetworkStores: true
+com.apple.DFSLoginPlugin
+— WindowLeft: 313
+— WindowTop: 0
+com.apple.diagnosticextensionsd
+— directoriesCleanupDone: true
+com.apple.DictionaryServices
+— DCSPreferenceVersion: 7
+com.apple.DirectoryUtility
+— FirstLaunch: false
+com.apple.DiskUtility
+— advanced-image-options: true
+— DUDebugMenuEnabled: true
+— NSNavLastUserSetHideExtensionButtonState: false
+— OperationProgress DetailsVisible: true
+— OperationProgress ExpandedHeight: 488
+— SidebarShowAllDevices: false
+com.apple.dock
+— autohide-delay: 0
+— autohide: false
+— expose-animation-duration: 0.1000000014901161
+— largesize: 75
+— launchanim: true
+— loc: en_US:US
+— magnification: true
+— minimize-to-application: true
+— mod-count: 16133
+— no-bouncing: false
+— region: US
+— showAppExposeGestureEnabled: true
+— showhidden: true
+— showMissionControlGestureEnabled: true
+— tilesize: 70
+— trash-full: true
+— version: 1
+— wvous-br-corner: 14
+— wvous-tr-corner: 1
+— wvous-tr-modifier: 1048576
+com.apple.dock.external.extra.x86_64
+— ShowSolidarity: false
+com.apple.driver.AppleBluetoothMultitouch.mouse
+— MouseButtonDivision: 55
+— MouseButtonMode: TwoButton
+— MouseHorizontalScroll: true
+— MouseMomentumScroll: true
 — MouseOneFingerDoubleTapGesture: 0
+— MouseTwoFingerDoubleTapGesture: 3
 — MouseTwoFingerHorizSwipeGesture: 2
 — MouseVerticalScroll: true
 — UserPreferences: true
-— MouseHorizontalScroll: true
-— MouseButtonDivision: 55
-— MouseMomentumScroll: true
-— version: 1
-— MouseButtonMode: TwoButton
-— MouseTwoFingerDoubleTapGesture: 3
-com.apple.universalaccessAuthWarning
-— 2::/Applications/Logi Options.app: true
-— 2::com.logitech.manager.daemon: true
-— 3::/Applications/Microsoft Teams (work or school).app: true
-— 2::com.lightpillar.Mosaic-setapp: true
-— 1::/Applications/CloudBerry Backup.app: true
-— 3::com.getcleanshot.app-setapp: true
-— 2::/Applications/Setapp/Mosaic.app/Contents/MacOS/Mosaic: true
-— /Applications/Clipy.app/Contents/MacOS/Clipy: true
-— 3::/Applications: true
-— 3::/Applications/xScope.app/Contents/MacOS/xScope: true
-— 3::/Applications/Microsoft Teams.app: true
-— 1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app/Contents/MacOS/goland: true
-— 1::/Applications: true
-— 3::com.microsoft.teams2: true
-— 3::/Applications/Discord.app: true
-— 3::/Applications/Microsoft Edge.app: true
-— 2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app/Contents/MacOS/LogiMgrDaemon: true
-— 3::/Applications/Skitch.app: true
-— 3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app: true
-— /Applications/Alfred 4.app/Contents/MacOS/Alfred: true
-— 3::/Applications/Toast 19 Pro.app: true
-— 1::com.vmware.fusion: true
-— 2::com.lastpass.lastpassmacdesktop: true
-— com.clipy-app.Clipy: true
-— 3::com.google.Chrome: true
-— 1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app: true
-— 1::/Applications/Microsoft Teams.app: true
-— 3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app/Contents/MacOS/ScreenFlowHelper: true
-— 3::/Applications/Microsoft Teams (work or school).app/Contents/MacOS/MSTeams: true
-— 3::/Applications/RingCentral.app: true
-— 2::com.amazon.Amazon-Chime: true
-— com.mutedeck.mac: true
-— 3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app/Contents/MacOS/Hide Menu Icons: true
-— 2::/Applications/Snappy.app/Contents/MacOS/Snappy: true
-— 3::me.waydabber.BetterDummy: true
-— 3::/Applications/GoToMeeting.app: true
-— 3::/Applications/Google Chrome.app/Contents/MacOS/Google Chrome: true
-— 3::WSG985FR47.net.telestream.screenflowhelper: true
-— 3::/Applications/Slack.app: true
-— /Applications/Alfred 4.app: true
-— 1::/Applications/BetterDisplay.app: true
-— 2::com.logi.cp-dev-mgr: true
-— com.runningwithcrayons.Alfred: true
-— 3::/Applications/Xnapper.app: true
-— 3::/Applications/xScope.app: true
-— 3::com.microsoft.edgemac: true
-— /Applications/zoom.us.app: true
-— /System/Applications/Automator.app/Contents/MacOS/Automator: true
-— /Applications/Clipy.app: true
-— 3::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy: true
-— 3::/Applications/Snip.app: true
-— 2::ro.nextwave.Snappy: true
-— 3::com.parallels.toolbox.HideMenuIcons: true
-— 3::/Applications/Google Chrome.app: true
-— 1::/Applications/VMware Fusion-8.5.10.app/Contents/MacOS/VMware Fusion: true
-— 3::com.ringcentral.glip: true
-— 3::/Applications/Acorn.app: true
-— /Applications/MuteDeck/MuteDeck.app: true
-— 2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app: true
-— 3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app/Contents/MacOS/TimingHelper: true
-— 2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app: true
-— 2::/Applications/Setapp/Mosaic.app: true
-— 1::me.waydabber.BetterDummy: true
-— 2::/Applications/LastPass.app: true
-— 3::info.eurocomp.TimingHelper: true
-— 3::com.amazon.Amazon-Chime: true
-— 1::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy: true
-— 1::/Applications/iTerm.app: true
-— 1::/Applications/OBS.app: true
-— 1::/Applications/HP RGS Receiver.app: true
-— 3::J8RPQ294UB.com.skitch.SkitchHelper: true
-— 2::com.logitech.Logi-Options: true
-— 2::/Applications/Logi Options.app/Contents/MacOS/Logi Options: true
-— us.zoom.xos: true
-— 1::/Applications/Slack.app: true
-— 2::/Applications/Snappy.app: true
-— 1::com.jetbrains.goland: true
-— 3::info.eurocomp.Timing2: true
-— 3::/Applications/Xnapper.app/Contents/MacOS/Xnapper: true
-— 3::/Applications/RingCentral.app/Contents/MacOS/RingCentral: true
-— /Applications/zoom.us.app/Contents/MacOS/zoom.us: true
-— 3::/Applications/BetterDisplay.app: true
-— 3::/Applications/zoom.us.app: true
-— com.apple.Automator: true
-— 3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app/Contents/MacOS/J8RPQ294UB.com.skitch.SkitchHelper: true
-— 3::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime: true
-— 3::/Applications/Setapp/CleanShot X.app/Contents/MacOS/CleanShot X Setapp: true
-— 3::/Applications/ScreenFlow.app: true
-— 2::/Applications/Amazon Chime.app: true
-— 1::/Applications/VirtualBox.app: true
-— /Applications/MuteDeck/MuteDeck.app/Contents/MacOS/MuteDeck: true
-— 3::/Applications/Timing.app: true
-— 2::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime: true
-— 3::/Applications/Timing.app/Contents/MacOS/Timing: true
-— 3::/Applications/Amazon Chime.app: true
-— 3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app: true
-— 3::com.iconfactory.xScope: true
-— 2::/Applications/LastPass.app/Contents/MacOS/LastPass: true
-— /System/Applications/Automator.app: true
-— 1::/Applications/VMware Fusion-8.5.10.app: true
-— 3::/Applications/Loom.app: true
-— 3::/var/tmp/LogMeIn Rescue - 4C61/Support-LogMeInRescue.app: true
-— 3::/Applications/Setapp/CleanShot X.app: true
-— 3::com.devuap.beautyshotapp: true
-— 3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app: true
-— 3::/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge: true
-— 3::/var/tmp/LogMeIn Rescue - 4C61: true
-— 3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app: true
-— 2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/MacOS/logioptionsplus_agent: true
+com.apple.driver.AppleBluetoothMultitouch.trackpad
+— Clicking: true
+— Dragging: true
+— DragLock: false
+— ForceSuppressed: true
+— HIDScrollZoomModifierMask: 0
+— TrackpadCornerSecondaryClick: 2
+— TrackpadFiveFingerPinchGesture: 2
+— TrackpadFourFingerHorizSwipeGesture: 2
+— TrackpadFourFingerPinchGesture: 2
+— TrackpadFourFingerVertSwipeGesture: 2
+— TrackpadHandResting: true
+— TrackpadHorizScroll: 1
+— TrackpadMomentumScroll: true
+— TrackpadPinch: 1
+— TrackpadRightClick: false
+— TrackpadRotate: 1
+— TrackpadScroll: true
+— TrackpadThreeFingerDrag: false
+— TrackpadThreeFingerHorizSwipeGesture: 2
+— TrackpadThreeFingerTapGesture: 2
+— TrackpadThreeFingerVertSwipeGesture: 2
+— TrackpadTwoFingerDoubleTapGesture: 1
+— TrackpadTwoFingerFromRightEdgeSwipeGesture: 3
+— USBMouseStopsTrackpad: 0
+— UserPreferences: true
+— version: 5
+com.apple.driver.AppleHIDMouse
+— Button1: 1
+— Button2: 1
+— Button3: 0
+— Button4: 0
+— Button4Click: 0
+— Button4Force: 0
+— ButtonDominance: 1
+— ScrollH: 1
+— ScrollS: 4
+— ScrollSSize: 30
+— ScrollV: 1
+com.apple.dt.Xcode
+— DVTDownloadableAutomaticUpdate: false
+— DVTFontAndColorLastUpdatedToolsVersion: 11.0
+— IBAppliesAutoResizingRulesWhileResizing: false
+— IBPreferencesMigrated: true
+— IDEKeyBindingCurrentPreferenceSet: Default.idekeybindings
+— IDESourceControlPreferencesVersion: 201
+— IDEUserWantsToEnableDeveloperSystemPolicyMode: false
+— XCFontAndColorCurrentTheme: Default (Light).xccolortheme
+com.apple.FaceTime
+— CustomRingtone:
+— DidMigrateToSixteenByNineAspectRatio: true
+— kPromptEnableReadRecipts: false
+— PhoneNumberUpgradeShown: true
+— PreferredVideoDeviceUID: CC26373HVV3G1HNBN
+com.apple.facetime.bag
+— CacheTime: 3600
+— URL: https://init.ess.apple.com/WebObjects/VCInit.woa/wa/getBag?ix=3
+com.apple.fileproviderd
+— com.apple.fileproviderd.did-drop-daemon-corespotlight-index: 1
+com.apple.finder
+— _FXShowPosixPathInTitle: true
+— _FXSortFoldersFirst: true
+— _FXSortFoldersFirstOnDesktop: true
+— AppleShowAllFiles: true
+— CopyProgressWindowLocation: {798, 83}
+— DisableAllAnimations: true
+— DownloadsFolderListViewSettingsVersion: 1
+— EmptyTrashProgressWindowLocation: {1521, 25}
+— FK_AppCentricShowSidebar: true
+— FK_ArrangeBy: None
+— FK_SidebarWidth: 238
+— FXArrangeGroupViewBy: Name
+— FXAtLeastOneScreenHasBeenInHIDPI: true
+— FXConnectToLastURL: smb://synologynas.local
+— FXDefaultSearchScope: SCcf
+— FXDesktopTouchBarUpgradedToTenTwelveOne: 1
+— FXEnableExtensionChangeWarning: false
+— FXICloudDriveDeclinedUpgrade: false
+— FXICloudDriveDesktop: false
+— FXICloudDriveDocuments: false
+— FXICloudDriveEnabled: true
+— FXICloudDriveFirstSyncDownComplete: true
+— FXICloudLoggedIn: true
+— FXInfoWindowWidth: 400
+— FXLastSearchScope: SCcf
+— FXPreferredGroupBy: Kind
+— FXPreferredSearchViewStyle: Nlsv
+— FXPreferredSearchViewStyleVersion: %00%00%00%01
+— FXPreferredViewStyle: Nlsv
+— FXQuickActionsConfigUpgradeLevel: 2
+— FXSidebarUpgradedSharedSearchToTwelve: true
+— FXSidebarUpgradedToTenFourteen: true
+— FXSidebarUpgradedToTenTen: true
+— FXToolbarUpgradedToTenEight: 1
+— FXToolbarUpgradedToTenNine: 2
+— FXToolbarUpgradedToTenSeven: 1
+— GoToField: /
+— InspectorWindow.Location: {300, 216}
+— LastTrashState: true
+— MountProgressWindowLocation: {1108, 465}
+— NewWindowTarget: PfHm
+— NSNavLastUserSetHideExtensionButtonState: false
+— NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow: true
+— PreferencesWindow.LastSelection: ADVD
+— PreviewPaneGalleryWidth: 267
+— PreviewPaneInfoExpanded: true
+— PreviewPaneWidth: 267
+— QLEnableTextSelection: true
+— QuitMenuItem: true
+— RecentsArrangeGroupViewBy: Date Last Opened
+— SearchRecentsSavedViewStyle: Nlsv
+— SearchRecentsSavedViewStyleVersion: %00%00%00%01
+— ShowExternalHardDrivesOnDesktop: false
+— ShowHardDrivesOnDesktop: false
+— ShowMountedServersOnDesktop: false
+— ShowPathbar: true
+— ShowRemovableMediaOnDesktop: false
+— ShowSidebar: true
+— ShowStatusBar: true
+— SidebarDevicesSectionDisclosedState: true
+— SidebariCloudDriveSectionDisclosedState: true
+— SidebarPlacesSectionDisclosedState: true
+— SidebarShowingiCloudDesktop: false
+— SidebarShowingSignedIntoiCloud: true
+— SidebarTagsSctionDisclosedState: true
+— SidebarWidth: 256
+— TagsCloudSerialNumber: 23
+— ViewOptionsWindow.Location: {15, 548}
 com.apple.findmy
-— NSWindow Frame MainSceneWindow: 1267 -944 1024 820 814 -1200 1920 1175
-— restoreState: devices
 — coarseServiceAcknowledged_v1.0: false
 — onboarding_v2.0: true
+— restoreState: devices
+com.apple.findmy.fmfcore.notbackedup
+— FMFGarbageCollectorIdentityKey: 294735135
+— FMFLimitedPrecisionPrefKey.limitedPrecision: true
+— frontMostWindow: true
+— publicAPSToken: 7C481D4ED8A611E98C956090592BE84D1AF7A654AE63B9FADCEB9B7D62178664
+— windowVisible: true
+com.apple.findmy.fmipcore.notbackedup
+— deviceImageVersion: 30
+— FMIPGarbageCollectorIdentityKey: 294735135
+— FMIPLimitedPrecisionPrefKey.limitedPrecision: true
+— frontMostWindow: true
+— itemLearnMoreURL: https://support.apple.com/kb/HT211331?viewlocale=en_US
+— publicAPSToken: 7C481D4ED8A611E98C956090592BE84D1AF7A654AE63B9FADCEB9B7D62178664
+— windowVisible: true
 com.apple.FolderActionsDispatcher
 — folderActionsEnabled: true
-com.apple.SocialLayer
-— SharedWithYouEnabled: true
+com.apple.FontRegistry.user
+— Version: 21H1320
+com.apple.gamecenter
+— GKMaxRecentPlayersCount: 50
+— GKMaxRecentPlayersTime: 314496000
+com.apple.gamed
+— GKActiveEnvironmentKeyV2: 5
+— GKLastProtocolVersionUsedKeyV2: 5.13.20.4.12.19.5.5.2
+— GKLastPushTokenEnvironment: 5
+— GKLastPushTokenPlayerID: U:097e62590e16c6eb3396c6958826eb60
+— GKLoginCancelled: 0
+— GKPushEnvironmentKeyV2: 2
+— GKStoreFrontIdentifier: 143441-1,42
+— natType: 2
+com.apple.GEO
+— DefaultsSanitizedVersion: 20190107
+com.apple.HIToolbox
+— AppleCurrentKeyboardLayoutInputSourceID: com.apple.keylayout.US
+— AppleDictationAutoEnable: 0
+— AppleFnUsageType: 2
+com.apple.iCal
+— AllDayAreaHeight: 60
+— AvailabilityShowTwentyFourHours: true
+— BirthdayEventsGenerationAttemptsToResetKey: 0
+— BirthdayEventsGenerationLastLocale: en_US
+— BirthdayEventsGenerationVersion: 10
+— CalAgentNS_Preference_DefaultReminderCalendar: 0CCC33DE-14AC-4867-9CBD-584A0BA31215
+— CalDefaultCalendar: UseLastSelectedAsDefaultCalendar
+— CalendarListMiniMonthVisibleMonths: 1
+— CalendarSidebarShown: true
+— CalendarSidebarView: 1
+— CalendarSidebarWidth: 205
+— CalForceTruthFileRestoreHashKey: 16A1
+— display birthdays calendar: true
+— first minute of day time range: 0
+— first shown minute of day: 444.9658935879945
+— iCal version: 134217728
+— icaluuid: AAD09FD5-A107-46B0-ABC8-048D07DBE161
+— IncludeDebugMenu: true
+— kLastABCReportTimeKey: 841360197134438
+— last calendar view description: 7-day
+— last minute of day time range: 1440
+— last selected calendar list item: 369C307E-830B-49B8-9AC3-88A55E1B7D18
+— LastReminderMigrationCleanupVersion: 1
+— lastViewsTimeZone: America/New_York
+— NSDontMakeMainWindowKey: NO
+— NSEventConcurrentProcessingEnabled: YES
+— NSNavLastUserSetHideExtensionButtonState: false
+— privacyPaneHasBeenAcknowledgedVersion: 4
+— RemindersLastMigratedSystemVersion: 21H1320
+— Show Week Numbers: false
+— TimeZone support enabled: true
+— WR_DONT_ASK_FOR_DEFAULT: true
+com.apple.iChat
+— BuddyPictureSetToGenericByUser: false
+— ChatWindowControllerUnifiedChatListWidth: 284
+— ChatWindowControllerUnifiedIsVisible: false
+— DaemonConnectionWaitTime: 15
+— DidCheckForDuplicateChats: 3
+— DidMarkGroupPhotosAsUnpurgeable: true
+— DidMigratePersonCentricIDs: true
+— DidRegenerateGroupID63841559: true
+— HasPromptediMessageFTU: true
+— HasPromptedSMSRelay: true
+— imageBrowser.disableOpenGL: true
+— KeepMessageForDays: 0
+— KeepMessagesVersionID: 1
+— LastFailedMessageIMDNotificationPostedDate: 739147261160354048
+— LastIMDNotificationPostedDate: 754199681450934016
+— messageTracerCharactersSent: 0
+— messageTracerIMessagesReceived: 1
+— messageTracerIMessagesSent: 0
+— messageTracerIMessageUsed: false
+— messageTracerMessagesReceived: 4
+— messageTracerMessagesSent: 0
+— messageTracerNumUpgradeOffers: 0
+— messageTracerSMSReceived: 1469
+— messageTracerSMSSent: 0
+— messageTracerSMSUsed: false
+— messageTracerSubmitDate: 687647638
+— messageTracerUpgradesAccepted: 0
+— messageTracerUpgradesDeclined: 0
+— NotifyAboutMessagesFromUnknownContacts: true
+— NSNavLastUserSetHideExtensionButtonState: false
+— PlaySoundsKey: true
+— PMPrintingExpandedStateForPrint2: false
+— SaveConversationsOnClose: false
+— SODefaultTranscriptName: ChatTranscriptViewController
+— UnifiedChatListViewControllerAutomaticallySortsChats: true
+— UnifiedChatWindowControllerSelectionGUIDSet: SMS;-;22395
+— WebIconDatabaseEnabled: false
+com.apple.icloud.fmfd
+— kFMFDlastLoggedInPrsId: 294735135
+— kFMFDStoredDataVersion: 1
+— lazyInitTimeSecsStoredKey: 543600
+— numberOfFriendsFollowersKey: 0
+— storedDSID: 294735135
+com.apple.icloud.fmfd.notbackedup
+— kKeychainUtilMigrationVersionKey: 1
+com.apple.icloud.searchpartyuseragent
+— FMIPStateManager.fmipState: false
+— lastLaunchBootSessionUUID: 8262DD4D-56DD-4CCD-A7FA-751A7C2B11A9
+— lastLaunchLocale: en
+— LastOSLaunchVersion: 21H1320
+— PersistenceLayerVersion: 24
+com.apple.identityservicesd
+— DidCleanLegacyAccountPrefs: true
+— GDRRequestMadeForRelayRepair: true
+— hasRegIdentityContainer: 1
+— hasUnregIdentityContainer: 0
+— ImportedLegacyIDSAccounts2: true
+— ImportedLegacyIMAccounts: true
+— MigratedToNewDisabledState: true
+— performed-user-intent-migrate: true
+— persister-migration-com.apple.identityservices.userStore: true
+— persister-migration-personal-session-token-cache-v4: true
+— ReRegisteredForDevices: 1550
+— ReRegisteredForDevicesHash: 6AFC02EE62640065FB6A958CECBF4E4F653D500204D145733D19CCF71195ED5A
+— ReRegisteredForDevicesv1350: true
+— ReRegisteredForDevicesv55: true
+— ReRegisteredForDevicesv56: true
+— triggeredRemoteSessionVersion: 1
+com.apple.Image_Capture
+— com.apple.imagekit.cameraviewmode: 0
+— IK_Accessory_selectedTag: 1000
+— IK_Camera_preferPostPocessingApp: false
+— IK_Camera_selectedPathType: 2
+— IK_Camera_selectedTag: 1100
+— IK_lastUsedDeviceIsRemote: false
+— IK_lastUsedDeviceName: Mike's iPhone8
+— IK_lastUsedDeviceUUID: 34613831-6362-3362-6534-303866346538
+— IK_prefsVersion: 10.112
+— IK_Scanner_downloadURL: ~/Pictures
+— IK_Scanner_PostProcessApplication: /Applications/Preview.app
+— IKC_sort_ascending: false
+— IKC_sort_key: creationDate
+com.apple.imagecapture
+— loggingLevel: 3073
+com.apple.ImageCaptureService
+— IK_Accessory_selectedTag: 1000
+com.apple.imagent
+— archivedMessagesChangeToken-syncStoreVersion: 1
+— attachmentZoneChangeToken-syncStoreVersion: 1
+— changeToken-syncStoreVersion: 1
+— IMChatVocabularyUpdaterDidPerformInitialUpdateKey: true
+— messagesChangeToken-syncStoreVersion: 1
+— Setting.EnableReadReceipts: false
+— Setting.GlobalReadReceiptsVersionID: 1
+com.apple.IMCoreSpotlight
+— IMCSBypassIndexVersionCheckV2: true
+— IMCSIdxProductVersion: 12.7.6
+— IMCSIdxVersion: 21
+— IMCSIndexTotalRecords: 9496
+— IMCSLastIndexedRowID: 6496
+— IMCSNeedsIndexing: true
+com.apple.imdpersistence.IMDPersistenceAgent
+— LogAllIOErrors: true
+com.apple.imdsmsrecordstore
+— DeleteSequenceNumber: 56181
+com.apple.imessage
+— PreviewTranscodingQualityOnWiFiWasInitializedToDefaultValue: true
+— PreviewTranscodingWasInitializedToDefaultValue: true
+com.apple.imessage.bag
+— CacheTime: 3600
+— URL: https://init-p01md.apple.com/bag?ix=2
+com.apple.imtranscoding.IMTranscoderAgent
+— kCKMediaObjectManagerDefaultsOSVersion: 21G1974
+com.apple.internal.ck
+— ByteCodeCacheEnabled: 1
+— DefaultBootTimeUpdateScripts: 1
+— DefaultCacheKey: assistantd
+— DefaultWarmupScriptsExtension: .es2017.min.js
+— DictationOnDeviceSamplingDisabled: 0
+— DictationSamplingRates: {}
+— DisableFBFForUEI: false
+— HasSetUpRecordZoneSubscription: true
+— WarmupModularScriptIdentifiers:
+— WarmupScriptIdentifiers: RunWrapper.min.js,tslib.min.js
+com.apple.internetconfigpriv
+— WWWHomePage: http://livepage.apple.com/
+com.apple.internetconfigspec
+— WWWHomePage: http://livepage.apple.com/
+com.apple.internetconnect
+— ServiceID: B2C27ED9-44E0-4E0A-B27B-6D5FFD815E6E
+com.apple.iPod
+— com.apple.PreferenceSync.ExcludeAllSyncKeys: true
+com.apple.ipTelephony
+— ImsLoggingEnabled: true
+com.apple.iTunes
+— AutomaticDeviceBackupsDisabled: true
+— com.apple.iTunes.WebKit2AsynchronousSpellCheckingEnabled: true
+— com.apple.iTunes.WebKit2DeveloperExtrasEnabled: true
+— com.apple.iTunes.WebKit2EnableInheritURIQueryComponent: true
+— com.apple.iTunes.WebKit2ShouldPrintBackgrounds: true
+— com.apple.iTunes.WebKit2ShowsToolTipOverTruncatedText: true
+— com.apple.iTunes.WebKit2SuppressesIncrementalRendering: true
+— com.apple.iTunes.WebKit2UserInterfaceDirectionPolicy: 1
+— debugAssertCategoriesEnabled: 0
+— debugAssertCategoriesVersion: 3
+— DeviceBackupsDisabled: true
+— disableRadio: false
+— disableShareLibraryInfo: false
+— doesAccountArtistListHaveSharePermission: false
+— dontAutomaticallySyncIPods: true
+— isAccountAdmin: false
+— isAccountEnrolledInAppleMusic: false
+— isAccountEnrolledInITunesMatch: false
+— log-PlayQueue-LastSelectedTab: 0
+— log-push: 0
+— MacBuddyStoreID: mikeschinkel@gmail.com
+— NSApplicationCrashOnExceptions: false
+— NSNavLastUserSetHideExtensionButtonState: false
+— Store Apple ID: mikeschinkel@gmail.com
+— Store DSID: 294735135
+— storefront: 143441-1,32
+— WirelessBuddyID: 5C04AB28-D0D5-4439-A052-8054E18C7DBD
+com.apple.itunescloud
+— ICDefaultsKeyLastActiveAccountDSID: 294735135
+com.apple.itunescloud.daemon
+— ICDDefaultsKeyKnownActiveAccountDSID: 294735135
+com.apple.itunesstored
+— AccountsNotificationPlugin.ActiveStorefrontIdentifier: 143441-1,42
+com.apple.keyboard
+— KeyboardWordOrSentenceTrackingForPFL: false
+com.apple.keychainaccess
+— Item Preview Closed: false
+— Keychain Item List Sort Descending: false
+— Keychain Item List Sorting: modified-date
+— Keychains List Closed: false
+— Last Selected Category: All Items
+— Last Selected Keychain: /System/Library/Keychains/SystemRootCertificates.keychain
+— VPNSSItemsChecked: Version 10.15.7 (Build 19H1715)
+com.apple.loginwindow
+— MiniBuddyLaunch: false
+— oneTimeSSMigrationComplete: true
+— TALLogoutSavesState: true
+com.apple.madrid
+— CKMOCAccountsMatch: true
+— CloudKitCheckedMiCSwitchEligibilityOnImagentLaunch: true
+— CloudKitEligibleToToggleMiCSwitch: true
+— CloudKitIsEligibleForTruthZone: true
+— CloudKitIsRemovedFromBackup: false
+— CloudKitIsSyncing: false
+— CloudKitSyncingEnabled: false
+— createdChatZone: true
+— enableCKSyncingV2: false
+— hasCompletedInitialCKSync: true
+— IMCKFinishedFetchingAttachmentsFromCloudKit: true
+— IMCloudKitAccountStatusKey: 3
+— IMCloudKitStartingDisableDevices: false
+— IMCloudKitStartingEnabledSettingChange: false
+— IMCloudKitStartingInitialSync: false
+— IMCloudKitStartingPeriodicSync: false
+— IMCloudKitSyncControllerSyncRecordTypeKey: 0
+— IMCloudKitSyncControllerSyncStateKey: 0
+— IMCloudKitSyncControllerSyncTypeKey: 0
+— IMCloudKitSyncPaused: false
+— initialSyncRecordHasBeenWritten: true
+— oneTimeMOCAccountCheckV2: true
+— RequestPriorityRamp: true
+com.apple.mediaaccessibility.public
+— MACaptionDisplayType: 2
+com.apple.menuextra.battery
+— ShowPercent: YES
+com.apple.menuextra.clock
+— DateFormat: EEE MMM d  j:mm a
+com.apple.Messages
+— hasPerformedNewDeviceBringUpSync: true
+— hasTriedToEnableCKAndSyncAfterFirstImagentConnection: true
+com.apple.messages.facetime
+— FaceTimeTwoTimeCallthroughEnabled: true
+com.apple.messages.nicknames
+— MeCardPendingNicknamesVersion: 42
+— MeCardSharingAudience: 1
+— MeCardSharingEnabled: true
+— MeCardSharingImageForkedFromMeCard: true
+— MeCardSharingVersion: 4
+— MeCardWhitelistBlacklistNicknamesVersion: 39
+— NicknameAppleIDAndiCloudAccountMatchAndExist: true
+— NicknameInfoRequestedFromPeers: true
+— NicknameScrutinyDoNotHandle: false
+— ReuploadLocalNicknamesVersion: 1
+com.apple.messages.pinning
+— IMPinningPinConfigMigrationKey-v2-r2: true
+com.apple.messaging.watchdog
+— watchdogWatermark: 7952
+com.apple.mmcs
+— report.LastFailedCheckDate: 12/31/2000, 19:00:00.0000
+— report.LastSuccessfulCheckDate: 11/22/2024, 11:10:38.9040
+— report.sha256: fvj0Y/Ybu1pq0r4NxXw3eP51exujUkEAd7LllbkTdK8=
+— report.TTL: 3600
+com.apple.MobileSMS
+— BusinessChatPrivacyPageDisplayed: 2
+— CatalystCustomFontMigrationVersion: 1
+— CatalystPreferenceMigrationVersion: 1
+— CKLastSelectedItemIdentifier: list-iMessage;-;+19255192019
+— CKMigratedAutoSpamReports26375262: true
+— kCKMediaObjectManagerDefaultsOSVersion: 21H1320
+— KeepMessageForDays: 0
+— LegacyAppSidebarPersistedWidth: 284
+— NotifyAboutMessagesFromUnknownContacts: true
+— PendingCleared: true
+— PlaySoundsKey: true
+— QuickSaveHasBeenUsedBefore: true
+— ReadReceiptSettingsConfirmed: true
+— sForceSMSSpamFilteringCompleted: false
+— sForceUnknownFilteringCompleted: false
+— SidebarPersistedWidth: 320
+— SyndicationOnboardingVersion: 3
+— TextFontSize: 13
+— TextSize: 4
+com.apple.MobileSMS.CKDNDList
+— CatalystDNDMigrationVersion: 2
+— CKDNDMigrationKey: 2
+com.apple.MobileSMSPreview
+— IMPreviewGenerationMaxPxWidth: 300
+— IMPreviewGenerationMinHeight: 50
+— IMPreviewGenerationMinWidth: 50
+— IMPreviewGenerationScreenScale: 1
+com.apple.Music
+— artworkDownloadDSID: 294735135
+— automaticallyDownloadArtwork: true
+— cddbPrefsOK: true
+— checkedHLSKeysTime: 3811011509
+— com.apple.Music.WebKit2AsynchronousSpellCheckingEnabled: true
+— com.apple.Music.WebKit2EnableInheritURIQueryComponent: true
+— com.apple.Music.WebKit2ShouldPrintBackgrounds: true
+— com.apple.Music.WebKit2ShowsToolTipOverTruncatedText: true
+— com.apple.Music.WebKit2SuppressesIncrementalRendering: true
+— com.apple.Music.WebKit2UserInterfaceDirectionPolicy: 1
+— controllableInterfaceGUID: -2521131982380442198
+— debugAssertCategoriesEnabled: 0
+— debugAssertCategoriesVersion: 3
+— doesStoreSupportCloudMusicLibrary: 1
+— dontAskForAllPlaylistItemRemoval: true
+— dontShowRestrictionsPrefs: true
+— dontWarnDownloadCloudPurchases: true
+— encoderName: AAC Encoder
+— eqEnabled: true
+— eqName:
+— eqPrefsVersion: 1
+— eqWindowHPos: 1059
+— eqWindowVPos: 617
+— firstLaunchShowWelcomeScreenState: 2
+— gridViewSearchDoesNotSwitchView: true
+— haveAskedToCheckForAvailableDownloads: true
+— haveRadioState: 1
+— imported-eq-presets: 1
+— ITUserPrefsMigrated: true
+— log-PlayQueue-LastSelectedTab: 0
+— miniplayerHPos: 1722
+— miniPlayerLargeArtVisible: false
+— miniPlayerQueueVisible: true
+— miniplayerSnapMode: 5
+— miniplayerUserSetHeight: 826
+— miniplayerVPos: -958
+— miniplayerWidthInDesignCoords: 534
+— musicVideoPlaybackLocation: 2
+— notifications-warming-last-displayed-time: 749859509
+— NSApplicationCrashOnExceptions: false
+— NSNavLastUserSetHideExtensionButtonState: false
+— persistentUserID: -396333825804030359
+— playbackIsFullscreen: false
+— preloadFilesIntoMemory: false
+— refreshedHLSKeysTime: 3810748166
+— searchSavedTab: 2
+— showWelcomeScreenState: 2
+— soundEnhancerAmount: 191
+— soundEnhancerEnabled: true
+— storeMediaTypeFlags: 3422
+— storeSupportsCloudPurchases: 1
+— storeSupportsPasswordSettings: true
+— storeSupportsPreviousPurchases: true
+— storeSupportsUPP: true
+— updateLevel: 43
+— userHasActivatedFullScreenVisualizer: true
+— userMaxConcurrentDownloads: 3
+— userWantsPlaybackNotifications: false
+— videoWindowHPos: 4025
+— videoWindowHSize: 3492
+— videoWindowVPos: 739
+— videoWindowVSize: 1964
+— volumeWSG: 0.1204547
+com.apple.ncprefs
+— content_visibility: 2
+— sort_order: 0
+— version: 1
+com.apple.networkConnect
+— VPNShowTime: true
+com.apple.networkresolutiond
+— _networkDevices: 677.958329721183
+com.apple.NetworkUtility
+— NUFingerPerson:
+— NULookupAddress:
+— NUNetstatChoice: 0
+— NUPingAddress:
+— NUPingChoice: 1
+— NUPingCount: 10
+— NUPortScanAddress: 10.10.10.51
+— NUPortScanEnd:
+— NUPortScanRange: 0
+— NUPortScanStart:
+— NUSelectedTabItem: NUTraceroute
+— NUTracerouteAddress: 104.130.122.30
+— NUWhoisAddress:
+— NUWhoisSelectedServer: whois.internic.net
+com.apple.NewDeviceOutreach
+— CachedWarrantyLocale: en_US
+— CachedWarrantyValidityDuration: 28800
+— CachedWarrantyVersion: 2
+— InitialOutreachActivityScheduled: true
+— PostUpgradeActivityCompleted: true
+— PostUpgradeOSVersionKey: 12.7.6
+com.apple.newscore
+— com.apple.news.default_event_endpoint: https://news-events.apple.com/analyticseventsv2/async
+— com.apple.news.notification_receipt_event_endpoint: https://news-notification-events.apple.com/analyticseventsv2/async
+— com.apple.newsd.download.hasUnfinishedWork: false
+— force_refresh_user_segmentation: false
+— news_carplay_is_enabled: false
+— news_url_resolution_subscription_status: true
+— notificationArticleDiversificationSimilarityExpectationEnd: 0.1
+— notificationArticleDiversificationSimilarityExpectationStart: 0.2
+— notificationArticleDiversificationUniquePublisherExpectationSlope: 0.75
+— notificationArticleDiversificationUniquePublisherExpectationYIntercept: 0.25
+— notificationAssetPrefetchingRequiresWatch: true
+— notificationEnableAssetPrefetching: true
+— use_parsec_results_for_widget: false
+com.apple.newscore2
+— instance_identifier: DA370E22-A236-4E1B-BDEB-B148F85FF256
+— provider_user_id: 134CA36E-CEAC-45CF-929B-058E9869CEBB
+— report_concern_user_id: 713BA925-0FE5-4D72-99D2-2B61DD7BC5D9
+com.apple.newsd
+— FCAppConfigurationBundleShortVersionKey: 6.0
+com.apple.notificationcenterui
+— bannerTime: 100
+com.apple.parsecd
+— PARDefaultsVersion: 4
+— PARTestSeed: 56
+com.apple.PhotoBooth
+— AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey: true
+— NSNavLastUserSetHideExtensionButtonState: false
+— PBLaunchedAtLeastOnceOnLion: true
+— UserCameraUniqueIDPref: CC26373HVV3G1HNBN
+com.apple.photos.shareddefaults
+— clearPurgeableResources: true
+— CPLDefaultDownload: Default
+— DiskSpaceWasLow: false
+— downloadAndKeepOriginals: true
+— iCloudPhotoLibraryLastResetWelcomePromptDBVersion: 12200
+— repushAssetsWithImportedByBundleIdentifier: true
+— repushVideoAssetsMetadata: true
+com.apple.pipagent
+— Size: {0.1875, 0.25}
+com.apple.preference.general
+— version: 1
+com.apple.preference.trackpad
+— ForceClickSavedState: true
+com.apple.Preferences
+— UserDictionaryImportedSinceMaintenance: 0
+— UserDictionaryLocalPeerIdentityCurrent: mikeschinkel~6417095A-7147-55D2-80B4-8808A39FA79A
+com.apple.preferences.extensions.CredentialProvider
+— userHasOrdered: true
+com.apple.preferences.extensions.FinderSync
+— userHasOrdered: true
+com.apple.preferences.extensions.PhotoEditing
+— userHasOrdered: true
+com.apple.preferences.extensions.PhotoProjects
+— userHasOrdered: true
+com.apple.preferences.extensions.QuickLook
+— userHasOrdered: true
+com.apple.preferences.extensions.ServicesWithUI
+— userHasOrdered: true
+com.apple.preferences.extensions.SharedLinks
+— userHasOrdered: true
+com.apple.preferences.extensions.ShareMenu
+— userHasOrdered: true
+com.apple.preferences.extensions.XcodeSourceEditor
+— userHasOrdered: true
+com.apple.preferences.softwareupdate
+— LatestMajorOSSeenByUserBundleIdentifier: com.apple.InstallAssistant.macOSMonterey
+com.apple.print.custompresets.forprinter.Canon_MF5900_Series
+— com.apple.print.lastPresetPref: Default Settings
+— com.apple.print.lastPresetPrefType: 1
+com.apple.print.PrinterProxy
+— IK_Scanner_downloadURL: ~/Pictures
+— IK_Scanner_PostProcessApplication: /System/Applications/Preview.app
+— IK_Scanner_selectedTag: 1000
+com.apple.ProblemReporter
+— ShowComments: true
+— ShowDetails: 1
+com.apple.protectedcloudstorage.protectedcloudkeysyncing
+— registrySyncIdentifier: 5A789DB3-7775-4B76-A976-3FFB2CC7503D
+com.apple.PTPCamera
+— FilenamePrefix: IMG_
+— NextFilenameCount: 0
+com.apple.PubSubAgent
+— TigerMigrationCompleted: true
+com.apple.rapport
+— familySyncedName: MacBookPro
+com.apple.remindd
+— CloudConfigurationPath: /System/Library/PrivateFrameworks/ReminderKit.framework/Versions/A/Resources/CloudConfigurations/Normal.plist
+— CloudKitAccountStatus: 1
+— cloudKitSchemaCatchUpSyncLastSuccessBuildVersion: 21G115
+— isDatabaseMigrated: true
+— lastDatabaseMigrationSystemBuildVersion: 19G73
+— preferredDefaultListID: x-apple-reminderkit://REMCDList/F6A64C81-07D3-4256-AE0E-D392EB710A0E
+— preferredDefaultListObjectIDUrl: x-coredata://A2CAF8DB-6448-4E0A-9C2A-90DD4F1FF7FB/REMCDList/p102
+— spotlightIndexVersion: 6
+— ThrottlingPolicyCurrentBatchCount: 0
+— ThrottlingPolicyCurrentLevelIndex: 0
+— useExtraneousAlarmBackOffThrottleInterval: true
+com.apple.remindd.babysitter
+— LastSystemVersion: 21H1320
+com.apple.Safari
+— cloudBookmarksMigrationEligibilityDataInvalidated: true
+— com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled: true
+— IncludeDebugMenu: true
+— IncludeDevelopMenu: true
+— IncludeInternalDebugMenu: true
+— ResetCloudHistory: true
+— ShowFullURLInSmartSearchField: true
+— SuppressSearchSuggestions: true
+— UniversalSearchEnabled: false
+— WebKitDeveloperExtrasEnabledPreferenceKey: true
+— WebKitHistoryAgeInDaysLimit: 360
+— WebKitHistoryItemLimit: 9999
+— WebKitInitialTimedLayoutDelay: 0.25
+com.apple.Safari.SafeBrowsing
+— HasMigratedSafeBrowsingEnabledDefaults: true
+com.apple.Safari.SandboxBroker
+— DidMigrateDownloadFolderToSandbox: true
+— DidMigrateDownloadMetadataToSandboxGroupContainer: true
+— DidMigrateResourcesToSandbox: true
+— ShowDevelopMenu: true
+com.apple.SafariBookmarksSyncAgent
+— CloudBookmarksSupplementalClientIdentifier: 18B700FD-0099-4375-BD4F-24F3C483110A
+— NewestLaunchedSafariBookmarksSyncAgentVersion: 618.3.11.11.7
+com.apple.SafariCloudHistoryPushAgent
+— AcknowledgedPushNotifications: false
+— UnacknowledgedPushNotifications: false
+com.apple.SafariServices
+— SearchProviderIdentifierMigratedToSystemPreference: true
+com.apple.screencapture
+— captureDelay: 5
+— last-selection-display: 0
+— location: /Users/mikeschinkel/Desktop/Screenshots
+— style: display
+— video: false
+com.apple.screencaptureui
+— com.apple.AnnotationKit.arrowHeadStyle: 2
+— com.apple.AnnotationKit.brushStyle: 0
+— com.apple.AnnotationKit.hasShadow: false
+— com.apple.AnnotationKit.highlightStyle: 765200
+— com.apple.AnnotationKit.strokeIsDashed: false
+— com.apple.AnnotationKit.strokeWidth: 5
+— com.apple.AnnotationKit.userDefaultsVersion: 1
+— toolbarOrigin: {1015, 12}
+com.apple.screensaver
+— tokenRemovalAction: 0
+com.apple.ScriptEditor2
+— NSNavLastUserSetHideExtensionButtonState: false
+— OSAStandardAdditions ChooseApplication Bounds: -1448 -247 976 1078 -1920 -321 1920 1177
+com.apple.scriptmenu
+— ScriptMenuEnabled: false
+com.apple.security.cloudkeychainproxy3.keysToRegister
+— DSID:
+— EnsurePeerRegistration: false
+— KeyAccountUUID: C0E2CA70-34ED-4088-B419-4854ABF22DA8
 com.apple.security.KCN
 — absentCircleWithNoReason: false
 — lastCircleStatus: 0
 — pendingApplicationReminderInterval: 86400
-com.apple.GEO
-— DefaultsSanitizedVersion: 20190107
+com.apple.security.pboxd
+— ILMediaBrowserMediaType: 1
+— ILMediaBrowserSelectedGroup1: com.apple.PhotoBooth./Users/mikeschinkel/Pictures/Photo Booth Library/Pictures
+— ILMediaBrowserSelectedGroupIndex1: 1
+com.apple.security.sosaccount
+— SOSEnabled: false
+com.apple.SetupAssistant
+— DidSeeAccessibility: false
+— DidSeeActivationLock: false
+— DidSeeAppearanceSetup: true
+— DidSeeApplePaySetup: false
+— DidSeeAppStore: false
+— DidSeeAvatarSetup: false
+— DidSeeCloudSetup: true
+— DidSeeiCloudLoginForStorageServices: true
+— DidSeePrivacy: true
+— DidSeeScreenTime: true
+— DidSeeSiriSetup: true
+— DidSeeSyncSetup: true
+— DidSeeSyncSetup2: true
+— DidSeeTouchIDSetup: false
+— DidSeeTrueTone: false
+— DidSeeTrueTonePrivacy: false
+— LastPreLoginTasksPerformedBuild: 19G73
+— LastPreLoginTasksPerformedVersion: 10.15.6
+— LastPrivacyBundleVersion: 2
+— LastSeenBuddyBuildVersion: 18F132
+— LastSeenCloudProductVersion: 10.14.5
+— LastSeenDiagnosticsProductVersion: 10.15.6
+— LastSeeniCloudStorageServicesProductVersion: 10.14.5
+— LastSeenSiriProductVersion: 10.15.6
+— LastSeenSyncProductVersion: 10.14.6
+— MiniBuddyLaunchedPostMigration: false
+— MiniBuddyLaunchReason: 0
+— MiniBuddyShouldLaunchToResumeSetup: false
+— NSAddServicesToContextMenus: false
+— PreviousBuildVersion: 21H1123
+— PreviousSystemVersion: 12.7.4
+— SkipExpressSettingsUpdating: false
+— SkipFirstLoginOptimization: false
 com.apple.SharedWebCredentials
 — recheckVersion: 180.4
+com.apple.sharingd
+— AirDropRandomHashUUIDKey1: F2F1A44F-3965-476F-A130-AB1620895DF6
+— AirDropRandomHashUUIDKey2: 499411FD-D805-4E69-93E6-BA64D073F56E
+— AirDropRandomHashUUIDKey3: 5C58B32D-321A-447A-8978-D279145E070D
+— AirDropRandomHashUUIDKey4: B98EA1EE-7F65-4C77-B14A-DA91AFC0AA9A
+— AutoUnlockPresentedBluetoothError: false
+— AutoUnlockPresentedWiFiError: false
+— AutoUnlockWatchCurrentlyInList: false
+— AutoUnlockWatchExistedInUnlockList: false
+— DiscoverableMode: Contacts Only
+— HashManager-StoredDatabaseVersionKey: 3
+— OneTimeAirDropReset: true
+— OneTimeAirDropReset2: true
+com.apple.Siri
+— StatusMenuVisible: true
+— VoiceTriggerUserEnabled: true
+com.apple.siri.shortcuts
+— LegacyShortcutsZoneSubscriptionUnsubscribed: true
+— WFDefaultShortcutsVersion: 2
+— WFDidUnconflictShortcuts: true
+— WFLastSyncedFlagsHash: 3735928557
+— WFServicesShortcutsMigrated: true
+com.apple.siri.VoiceShortcuts
+— VCLSDatabaseUUIDKey: 050E6B03-D6FC-45C4-9008-B616CD957C22
+— VCLSDataSequenceKey: 61608
+com.apple.sms
+— hasBeenApprovedForSMSRelay: true
+com.apple.SocialLayer
+— SharedWithYouEnabled: true
+com.apple.sociallayerd.CloudKit.ckwriter
+— accountAvailable: 1
+— accountLastKnownUserRecordID: _4d72b079e6dd351d59dcdf0b9afd41d6
+— version: 7
+— writerDone: false
+com.apple.SoftwareUpdate
+— AutoUpdateMajorOSVersion: 10.15
+com.apple.speech.recognition.AppleSpeechRecognition.prefs
+— DictationIMCommandsWindowIsOpen: true
+— DictationIMCorrectionCount: 0
+— DictationIMLocaleIdentifier: en_US
+— DictationIMMessageTracesSinceLastReport: 1
+— DictationIMPlaySoundUponRecognition: true
+— DictationIMPresentedOfflineUpgradeSuggestion: true
+— DictationIMUpgradedTo10_15: true
+— DictationIMUpgradedTo10_16: true
+— DictationIMUseOnlyOfflineDictation: false
+com.apple.SpeechRecognitionCore
+— AllowAudioDucking: false
+com.apple.Spotlight
+— __NSEnableTSMDocumentWindowLevel: true
+— engagementCount-com.apple.mail: 0
+— engagementCount-com.apple.Spotlight: 0
+— engagementCount-com.apple.Spotlight.suggestions: 0
+— ModelName: Canned
+— showedFTE: true
+— SPMessageTracingWindowHideCount: 5828
+— SPMessageTracingWindowShowCount: 5833
+— SSMessageTracingWindowHideCount: 3064
+— SSMessageTracingWindowShowCount: 3065
+— useCount: 3
+— userHasMovedWindow: true
+— version: 7
+— windowHeight: 430
+com.apple.StatusKitAgent
+— reauthCount: 3
+com.apple.stockholm
+— PKWalletShouldAutomaticallyRegisterKey: false
+— RemoteAdminV2: true
+com.apple.stocks.account
+— deleteOnNextLaunch: true
+com.apple.studentd
+— DeviceIdentifier: D308D707-131C-4EB3-888C-D233B3029C7F
+— LastDateProviderSessionToken: 1730736769
 com.apple.suggestd
 — DeviceIdentifier: 6988999B-841A-4969-9829-05E873862AD7
-com.apple.CallHistorySyncHelper
-— /Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transaction.log: 0
-— CallHistoryDeviceCount: 13
-— /Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transactions.log: 0
-com.apple.dashboard
-— devmode: true
-— mcx-disabled: true
-com.apple.FontRegistry.user
-— Version: 21H1320
-com.apple.imagent
-— Setting.EnableReadReceipts: false
-— Setting.GlobalReadReceiptsVersionID: 1
-— changeToken-syncStoreVersion: 1
-— IMChatVocabularyUpdaterDidPerformInitialUpdateKey: true
-— attachmentZoneChangeToken-syncStoreVersion: 1
-— messagesChangeToken-syncStoreVersion: 1
-— archivedMessagesChangeToken-syncStoreVersion: 1
-com.apple.preferences.extensions.PhotoProjects
-— userHasOrdered: true
-com.apple.messaging.watchdog
-— watchdogWatermark: 7952
-com.apple.preferences.extensions.PhotoEditing
-— userHasOrdered: true
-
-Process finished with the exit code 0
+com.apple.suggestions
+— findToShowMigrationPerformed: true
+— spToLearnMigrationPerformed: true
+— SuggestionsAllowGeocode: true
+com.apple.syncserver
+— RunCompletelyDisabled: NO
+— SyncServicesResetWorldRunOnce: true
+com.apple.systempreferences
+— com.apple.datetimepref.lastselectedtab: DateTime
+— com.apple.dtandsspref.lastselectedtab: com.apple.preference.desktopscreeneffect.screeneffects
+— com.apple.preference.keyboard.lastselectedtab: hotkeysTabIdentifier
+— com.apple.preferences.accounts.outline.usersparent: true
+— com.apple.preferences.sharing.selectedservice: 1
+— com.apple.SecurityPref.Privacy.LastSourceSelected: 0
+— DisableAutoLoginButtonIsHidden: true
+— ICQ_iCloudFirstRunNotificationShown: 001794-05-7e3c72e0-68de-4a6b-a51d-5ef3201ca25b
+— mouse.lastselectedtab: 1
+— NSFullScreenMenuItemEverywhere: false
+— NSQuitAlwaysKeepsWindows: false
+— SecurityPrefTab: General
+— ShowAllMode: false
+— SoundTab: output
+— ThirdPartyCount: 2
+— trackpad.lastselectedtab: 2
+com.apple.SystemProfiler
+— PrefsVersion: 1
+— SPLastDocumentsSize: 60455378944
+com.apple.systemuiserver
+— __NSEnableTSMDocumentWindowLevel: true
+com.apple.TelephonyUtilities
+— CachedVCCaps: 17592188010496
+— FaceTimePhotosEnabled: false
+— GondolaGeneratedIdentifier: E99D3ED4-7A87-4FF7-8D04-A236C2661A53
+— GondolaLastAccountsChangedState: true
+— GondolaLatestVersion: 4
+— GondolaSyncedVersion: 0
+— registeredProvidersVersion: 1
+— relayCallingDisabled: true
+com.apple.Terminal
+— Default Window Settings: Basic
+— DefaultProfilesVersion: 1
+— HasMigratedDefaults: true
+— ProfileCurrentVersion: 2.07
+— SecureKeyboardEntry: false
+— Startup Window Settings: Basic
+— TTAppPreferences Selected Tab: 0
+com.apple.TextEdit
+— PlainTextEncoding: 4
+— PlainTextEncodingForWrite: 4
+— RichText: 0
+com.apple.textInput.keyboardServices.textReplacement
+— _KSTRCloudKitMigratable: false
+— gmMigrationPercent: 0
+— gmMigrationPercent1: 999
+— internalMigrationPercent: 0
+— internalMigrationPercent1: 999
+— iOSMajorVersForCloudKitSync: 11
+— iOSMinorVersForCloudKitSync: 0
+— kDidInsertSampleShortcutForPeer: mikeschinkel~6417095A-7147-55D2-80B4-8808A39FA79A-3BDD4949-3BDA-4C9F-A27D-0B0B625F5B60
+— kDidMigrateToUUIDRecordName: false
+— KSCKDidSetupRecordZoneProd-TextReplacements: true
+— KSCKSubscriptionProd-TextReplacements: true
+— KSCloudKitMigrationDidComplete: true
+— KSDidMigrateToCloudKitOnCloud: true
+— KSDidPullLegacyEntriesFromPeers: false
+— KSDidPushAllLocalRecordsOnce-2: true
+— KSDidPushMigrationStatusOnce-2: true
+— KSLastKnownUserID-TextReplacements: _694927be690dcbcc4d7ebaccd1c628c5
+— KSLSShouldUpdateCache: false
+— KSSampleShortcutWasImported_CK: true
+— kTRCKSyncCount: 1
+— osxMajorVersForCloudKitSync: 10
+— osxMinorSubversionForCloudKitSync: 0
+— osxMinorVersForCloudKitSync: 13
+— seedMigrationPercent: 0
+— seedMigrationPercent1: 999
+— TRCKSyncCountHalflifeInHours: 10
+— TRCKSyncMaxCountThreshold: 200
+— userDidFallInMigrationAllowBatch: false
+com.apple.TextInputMenu
+— visible: true
+com.apple.tipsd
+— ConsecutiveNotificationsCount: 0
+— DeliveryInfoVersion: 93c6896f754a03411af465c9f2c13f6b7a997aa25af2e6900d25024dc4eeecfe
+— TPSLastMajorVersion: 12
+— TPSOfflineLastProcessedRemoteContentIdentifier: en-93c6896f754a03411af465c9f2c13f6b7a997aa25af2e6900d25024dc4eeecfe
+— TPSTipsAppInstalled: true
+— TPSWelcomeNotificationReminderState: 1
+— TPSWelcomeNotificationViewedVersion: 12
+com.apple.TTY
+— RTTContinuityRTTIsSupportedPreference: true
+— RTTSettingsVersionPreference: 2
+— TUIsRelayCallingEnabledPreference: false
+— TUSupportsRelayCallingPreference: true
+com.apple.TV
+— automaticallyDeleteVideoAssetsAfterWatching: true
+— automaticallyDownloadArtwork: true
+— cddbPrefsOK: true
+— checkedHLSKeysTime: 3724003753
+— checkForAvailableDownloads: true
+— com.apple.TV.WebKit2AsynchronousSpellCheckingEnabled: true
+— com.apple.TV.WebKit2EnableInheritURIQueryComponent: true
+— com.apple.TV.WebKit2ShouldPrintBackgrounds: true
+— com.apple.TV.WebKit2ShowsToolTipOverTruncatedText: true
+— com.apple.TV.WebKit2SuppressesIncrementalRendering: true
+— com.apple.TV.WebKit2UserInterfaceDirectionPolicy: 1
+— controllableInterfaceGUID: -2521131982380442198
+— debugAssertCategoriesEnabled: 0
+— debugAssertCategoriesVersion: 3
+— dontAskForAllPlaylistItemRemoval: true
+— firstLaunchShowWelcomeScreenState: 2
+— gridViewSearchDoesNotSwitchView: true
+— haveAskedToCheckForAvailableDownloads: true
+— ITUserPrefsMigrated: true
+— miniplayerHPos: 2723
+— miniPlayerLargeArtVisible: false
+— miniPlayerQueueVisible: true
+— miniplayerSnapMode: 5
+— miniplayerUserSetHeight: 771
+— miniplayerVPos: 821
+— miniplayerWidthInDesignCoords: 288
+— musicVideoPlaybackLocation: 2
+— NSApplicationCrashOnExceptions: false
+— persistentUserID: -396333825804030359
+— playbackIsFullscreen: false
+— preloadFilesIntoMemory: false
+— showWelcomeScreenState: 2
+— storeMediaTypeFlags: 3422
+— storeSupportsCloudPurchases: 1
+— storeSupportsPasswordSettings: true
+— storeSupportsPreviousPurchases: true
+— storeSupportsUPP: true
+— tabViewMode: 22
+— updateLevel: 43
+— userHasActivatedFullScreenVisualizer: true
+— userMaxConcurrentDownloads: 3
+— userWantsPlaybackNotifications: false
+— videoWindowHPos: 461
+— videoWindowHSize: 1906
+— videoWindowVPos: 139
+— videoWindowVSize: 1072
+com.apple.UIKit
+— hasAccessibilityBeenMigrated: true
+com.apple.universalaccess
+— AssistiveControlType: 2
+— closeViewDesiredZoomFactor: 1.1
+— closeViewHotkeysEnabled: true
+— closeViewScrollWheelToggle: false
+— closeViewSplitScreenRatio: 0.2
+— closeViewZoomDisplayID: 0
+— closeViewZoomedIn: false
+— closeViewZoomFactor: 1
+— closeViewZoomFactorBeforeTermination: 1
+— contrast: 0
+— differentiateWithoutColor: false
+— dwellEnabled: false
+— dwellHideUITimeout: 15
+— grayscale: false
+— headMouseEnabled: false
+— hoverTextEnabled: false
+— hoverTextIsAlwaysOn: false
+— hoverTextIsHoveringAndVisible: false
+— increaseContrast: false
+— keyboardAccessFocusRingTimeout: 15
+— lastNightShiftActive: true
+— lastNightShiftDate: 20200519
+— lastNightShiftEnabled: false
+— lastNightShiftMode: 0
+— login: false
+— mouseDriver: false
+— mouseDriverCursorSize: 1.44109
+— reduceTransparency: false
+— selectedTab: 23
+— sessionChange: false
+— slowKey: false
+— slowKeyDelay: 250
+— stickyKey: false
+— switchAutoScanElementInterval: 0.5
+— switchAutoScanPanelInterval: 0.5
+— switchCoalescePressesDuration: 0
+— switchFirstElementDelay: 0
+— switchHideUITimeout: 15
+— switchHoldBeforeRepeatDuration: 3
+— switchMinimumPressDuration: 0
+— switchOnOffKey: false
+— switchSweepingCursorSpeed: 5
+— useStickyKeysShortcutKeys: false
+— virtualKeyboardOnOff: false
+— voiceOverOnOffKey: false
+— whiteOnBlack: false
+com.apple.universalaccessAuthWarning
+— /Applications/Alfred 4.app: true
+— /Applications/Alfred 4.app/Contents/MacOS/Alfred: true
+— /Applications/Clipy.app: true
+— /Applications/Clipy.app/Contents/MacOS/Clipy: true
+— /Applications/MuteDeck/MuteDeck.app: true
+— /Applications/MuteDeck/MuteDeck.app/Contents/MacOS/MuteDeck: true
+— /Applications/zoom.us.app: true
+— /Applications/zoom.us.app/Contents/MacOS/zoom.us: true
+— /System/Applications/Automator.app: true
+— /System/Applications/Automator.app/Contents/MacOS/Automator: true
+— 1::/Applications: true
+— 1::/Applications/BetterDisplay.app: true
+— 1::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy: true
+— 1::/Applications/CloudBerry Backup.app: true
+— 1::/Applications/HP RGS Receiver.app: true
+— 1::/Applications/iTerm.app: true
+— 1::/Applications/Microsoft Teams.app: true
+— 1::/Applications/OBS.app: true
+— 1::/Applications/Slack.app: true
+— 1::/Applications/VirtualBox.app: true
+— 1::/Applications/VMware Fusion-8.5.10.app: true
+— 1::/Applications/VMware Fusion-8.5.10.app/Contents/MacOS/VMware Fusion: true
+— 1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app: true
+— 1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app/Contents/MacOS/goland: true
+— 1::com.jetbrains.goland: true
+— 1::com.vmware.fusion: true
+— 1::me.waydabber.BetterDummy: true
+— 2::/Applications/Amazon Chime.app: true
+— 2::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime: true
+— 2::/Applications/LastPass.app: true
+— 2::/Applications/LastPass.app/Contents/MacOS/LastPass: true
+— 2::/Applications/Logi Options.app: true
+— 2::/Applications/Logi Options.app/Contents/MacOS/Logi Options: true
+— 2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app: true
+— 2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app/Contents/MacOS/LogiMgrDaemon: true
+— 2::/Applications/Setapp/Mosaic.app: true
+— 2::/Applications/Setapp/Mosaic.app/Contents/MacOS/Mosaic: true
+— 2::/Applications/Snappy.app: true
+— 2::/Applications/Snappy.app/Contents/MacOS/Snappy: true
+— 2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app: true
+— 2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/MacOS/logioptionsplus_agent: true
+— 2::com.amazon.Amazon-Chime: true
+— 2::com.lastpass.lastpassmacdesktop: true
+— 2::com.lightpillar.Mosaic-setapp: true
+— 2::com.logi.cp-dev-mgr: true
+— 2::com.logitech.Logi-Options: true
+— 2::com.logitech.manager.daemon: true
+— 2::ro.nextwave.Snappy: true
+— 3::/Applications: true
+— 3::/Applications/Acorn.app: true
+— 3::/Applications/Amazon Chime.app: true
+— 3::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime: true
+— 3::/Applications/BetterDisplay.app: true
+— 3::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy: true
+— 3::/Applications/Discord.app: true
+— 3::/Applications/Google Chrome.app: true
+— 3::/Applications/Google Chrome.app/Contents/MacOS/Google Chrome: true
+— 3::/Applications/GoToMeeting.app: true
+— 3::/Applications/Loom.app: true
+— 3::/Applications/Microsoft Edge.app: true
+— 3::/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge: true
+— 3::/Applications/Microsoft Teams (work or school).app: true
+— 3::/Applications/Microsoft Teams (work or school).app/Contents/MacOS/MSTeams: true
+— 3::/Applications/Microsoft Teams.app: true
+— 3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app: true
+— 3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app/Contents/MacOS/Hide Menu Icons: true
+— 3::/Applications/RingCentral.app: true
+— 3::/Applications/RingCentral.app/Contents/MacOS/RingCentral: true
+— 3::/Applications/ScreenFlow.app: true
+— 3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app: true
+— 3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app/Contents/MacOS/ScreenFlowHelper: true
+— 3::/Applications/Setapp/CleanShot X.app: true
+— 3::/Applications/Setapp/CleanShot X.app/Contents/MacOS/CleanShot X Setapp: true
+— 3::/Applications/Skitch.app: true
+— 3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app: true
+— 3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app/Contents/MacOS/J8RPQ294UB.com.skitch.SkitchHelper: true
+— 3::/Applications/Slack.app: true
+— 3::/Applications/Snip.app: true
+— 3::/Applications/Timing.app: true
+— 3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app: true
+— 3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app/Contents/MacOS/TimingHelper: true
+— 3::/Applications/Timing.app/Contents/MacOS/Timing: true
+— 3::/Applications/Toast 19 Pro.app: true
+— 3::/Applications/Xnapper.app: true
+— 3::/Applications/Xnapper.app/Contents/MacOS/Xnapper: true
+— 3::/Applications/xScope.app: true
+— 3::/Applications/xScope.app/Contents/MacOS/xScope: true
+— 3::/Applications/zoom.us.app: true
+— 3::/var/tmp/LogMeIn Rescue - 4C61: true
+— 3::/var/tmp/LogMeIn Rescue - 4C61/Support-LogMeInRescue.app: true
+— 3::com.amazon.Amazon-Chime: true
+— 3::com.devuap.beautyshotapp: true
+— 3::com.getcleanshot.app-setapp: true
+— 3::com.google.Chrome: true
+— 3::com.iconfactory.xScope: true
+— 3::com.microsoft.edgemac: true
+— 3::com.microsoft.teams2: true
+— 3::com.parallels.toolbox.HideMenuIcons: true
+— 3::com.ringcentral.glip: true
+— 3::info.eurocomp.Timing2: true
+— 3::info.eurocomp.TimingHelper: true
+— 3::J8RPQ294UB.com.skitch.SkitchHelper: true
+— 3::me.waydabber.BetterDummy: true
+— 3::WSG985FR47.net.telestream.screenflowhelper: true
+— com.apple.Automator: true
+— com.clipy-app.Clipy: true
+— com.mutedeck.mac: true
+— com.runningwithcrayons.Alfred: true
+— us.zoom.xos: true
+com.apple.UserAccountUpdater
+— com.apple.HidLibraryFolderAlready: true
+com.apple.visualintelligence
+— bypassAvailability: false
+— debugUI: false
+— enableAlbumsDomain: true
+— enableArtDomain: true
+— enableBooksDomain: true
+— enableCoarseClassification: true
+— enableLandmarkDomain: true
+— enableNatureDomain: true
+— enablePetsDomain: true
+— enablePhotosApp: true
+— enableQuickLook: true
+— enableSafariApp: true
+— enableScreenshots: true
+— firstTimeExperience: true
+— initialized: true
+— sendLocationInfo: true
+— sendOCRText: true
+com.apple.VoiceOver4.local
+— SCRCUserDefaultsAllowAirPlay: true
+— SCRCUserDefaultsPlannedShutdownSuccessful: true
+— SCRCUserDefaultsUnplannedShutdownCount: 0
+com.apple.VoiceOverTraining
+— doNotShowSplashScreen: true
+com.apple.voicetrigger
+— VoiceTrigger Enabled: true
+com.apple.weather
+— userId: 9AC565E0-31CA-41C7-9821-893A747D97C8
+com.apple.weather.internal
+— userId: 37A055C9-4E5A-488D-BECC-9C510F827BE1
+com.apple.wifi.keychain-format
+— Version: 2
+com.apple.xpc.activity2
+— ProductBuildVersion: 21H1320

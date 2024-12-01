@@ -1,4 +1,4 @@
-package macprefs
+package macosutils
 
 /*
 #cgo CFLAGS: -x objective-c
@@ -8,18 +8,47 @@ package macprefs
 // CFPreferencesCopyApplicationList is deprecated but provides cleanest API for our use-case.
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
+//CFArrayRef GetPreferenceDomains() {
+//	return CFPreferencesCopyApplicationList(kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+//}
 CFArrayRef GetPreferenceDomains() {
-	return CFPreferencesCopyApplicationList(kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+    // Get the list of application domains
+    CFArrayRef appDomains = CFPreferencesCopyApplicationList(kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+
+    // Create a mutable array from the application domains
+    CFMutableArrayRef allDomains = CFArrayCreateMutableCopy(kCFAllocatorDefault,
+                                                           CFArrayGetCount(appDomains) + 1,
+                                                           appDomains);
+
+    // Add .GlobalPreferences
+    CFStringRef globalDomain = CFSTR("GlobalPreferences");
+    CFArrayAppendValue(allDomains, globalDomain);
+
+    // Release the original array and the global domain string
+    CFRelease(appDomains);
+    CFRelease(globalDomain);
+
+    return allDomains;
 }
 
+//CFArrayRef GetPrefNamesForDomain(CFStringRef domain) {
+//    return CFPreferencesCopyKeyList(
+//        domain,
+//        kCFPreferencesCurrentUser,
+//        kCFPreferencesAnyHost
+//    );
+//}
 CFArrayRef GetPrefNamesForDomain(CFStringRef domain) {
+    CFStringRef useDomain = domain;
+    if (CFStringCompare(domain, CFSTR("GlobalPreferences"), 0) == kCFCompareEqualTo) {
+        useDomain = kCFPreferencesAnyApplication;
+    }
     return CFPreferencesCopyKeyList(
-        domain,
+        useDomain,
         kCFPreferencesCurrentUser,
         kCFPreferencesAnyHost
     );
 }
-
 int GetArrayLen(CFArrayRef array) {
 	 return (int)CFArrayGetCount(array);
 }
@@ -50,41 +79,30 @@ CFStringRef CreateCFString(const char* str) {
 import "C"
 import (
 	"fmt"
-	"strings"
 	"unsafe"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/logging"
 )
 
-// Domain represents a preference domain in macOS
-type Domain string
+type PreferenceDomain string
 
-func (d Domain) String() string {
-	return string(d)
-}
-func (d Domain) HasPrefix(prefix string) bool {
-	return strings.HasPrefix(string(d), prefix)
-}
-
-// Prefs returns all available preferences for this domain
-func (d Domain) Prefs() (prefs []*Pref, err error) {
-	return GetDomainPrefs(d)
-}
-
-// GetPrefDomains returns a list of all preference domains available
+// GetPreferenceDomains returns a list of all preference domains available
 // for the current user on macOS.
-func GetPrefDomains() ([]Domain, error) {
+func GetPreferenceDomains() (domains []PreferenceDomain, err error) {
+	var count int
+
 	// Get the CFArray of preference domains
 	domainsArray := C.GetPreferenceDomains()
 	if domainsArray == 0 {
-		return nil, fmt.Errorf("failed to get preference domains")
+		err = fmt.Errorf("failed to get preference domains")
+		goto end
 	}
 	defer C.CFRelease(C.CFTypeRef(domainsArray))
 
 	// Get the count of domains
-	count := int(C.GetArrayLen(domainsArray))
-	domains := make([]Domain, 0, count)
+	count = int(C.GetArrayLen(domainsArray))
+	domains = make([]PreferenceDomain, 0, count)
 
 	// Iterate through the array and convert each CFString to Go string
 	for i := 0; i < count; i++ {
@@ -97,17 +115,16 @@ func GetPrefDomains() ([]Domain, error) {
 		if cDomain == nil {
 			continue
 		}
-
-		domains = append(domains, Domain(C.GoString(cDomain)))
+		domains = append(domains, PreferenceDomain(C.GoString(cDomain)))
 
 		C.free(unsafe.Pointer(cDomain))
 	}
-
-	return domains, nil
+end:
+	return domains, err
 }
 
-// GetDomainPrefs returns all available preferences for this domain
-func GetDomainPrefs(d Domain) (prefs []*Pref, err error) {
+// GetDomainPreferences returns all available preferences for this domain
+func GetDomainPreferences(d PreferenceDomain) (prefs []*Preference, err error) {
 	var numPrefs int
 
 	// Convert domain name to CFString
@@ -130,7 +147,7 @@ func GetDomainPrefs(d Domain) (prefs []*Pref, err error) {
 
 	// Get the numPrefs of keys
 	numPrefs = int(C.GetArrayLen(cfaPrefs))
-	prefs = make([]*Pref, 0, numPrefs)
+	prefs = make([]*Preference, 0, numPrefs)
 
 	// Iterate through the array and create Pref objects
 	for i := 0; i < numPrefs; i++ {
@@ -138,21 +155,14 @@ func GetDomainPrefs(d Domain) (prefs []*Pref, err error) {
 		if cfStr == 0 {
 			continue
 		}
-
 		cPref := C.CFStringToCString(cfStr)
 		if cPref == nil {
 			continue
 		}
-		name := C.GoString(cPref)
-		pref := NewPref(PrefArgs{
-			Domain:  d,
-			Name:    name,
-			Value:   "",
-			Default: "",
-			Labels:  Labels{},
-			Kind:    0,
+		prefs = append(prefs, &Preference{
+			Domain: string(d),
+			Name:   C.GoString(cPref),
 		})
-		prefs = append(prefs, pref)
 		C.free(unsafe.Pointer(cPref))
 	}
 

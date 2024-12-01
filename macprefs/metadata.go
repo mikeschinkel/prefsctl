@@ -1,7 +1,11 @@
 package macprefs
 
+import (
+	"github.com/mikeschinkel/prefsctl/macosutils"
+)
+
 type Metadata struct {
-	Name   Name
-	Domain Domain
+	Name   macosutils.Name
+	Domain DomainName
 	Labels []Label
 }
