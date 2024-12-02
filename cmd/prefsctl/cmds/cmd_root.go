@@ -1,7 +1,12 @@
 package cmds
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/mikeschinkel/prefsctl/cliutil"
+	"github.com/mikeschinkel/prefsctl/macprefs"
+	"github.com/mikeschinkel/prefsctl/sliceconv"
 	"github.com/spf13/cobra"
 )
 
@@ -13,7 +18,7 @@ var rootCmd = cliutil.NewCommandFromArgs(cliutil.CommandOpts{
 		Long:  "CLI for managing macOS preferences, especially for use with Ansible",
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			cliutil.SetCalledCmd(cmd)
-			if *GlobalFlags.Quiet {
+			if *macprefs.GlobalFlags.Quiet {
 				cliutil.SetQuiet(cmd)
 			}
 		},
@@ -43,18 +48,22 @@ end:
 	return cfg, err
 }
 
-var GlobalFlags struct {
-	Quiet *bool
-}
-
 func init() {
 	cliutil.SetRootCmd(rootCmd)
 	cliutil.AddInitializer(func(cli *cliutil.CLI) {
-		GlobalFlags.Quiet = rootCmd.PersistentFlags().BoolP(
-			"quiet",
-			"q",
+		macprefs.GlobalFlags.Quiet = rootCmd.PersistentFlags().BoolP(
+			cliutil.QuietFlag,
+			cliutil.QuietFlagShorthand,
 			false,
 			"Disable informational messages to stdOut",
+		)
+		macprefs.GlobalFlags.Output = rootCmd.PersistentFlags().StringP(
+			macprefs.OutputFlag,
+			macprefs.OutputFlagShorthand,
+			string(macprefs.TXTFormat),
+			fmt.Sprintf("Specify the format for output; one of: %s",
+				strings.Join(sliceconv.ToStrings(macprefs.AllFormats), ","),
+			),
 		)
 	})
 }

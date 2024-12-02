@@ -1,4 +1,4 @@
-package macprefs
+package filters
 
 import (
 	"fmt"

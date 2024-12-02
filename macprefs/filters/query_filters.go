@@ -3,6 +3,7 @@ package filters
 import (
 	"errors"
 	"fmt"
+	"slices"
 
 	"github.com/mikeschinkel/prefsctl/logging"
 	"github.com/mikeschinkel/prefsctl/macosutils"
@@ -30,14 +31,14 @@ end:
 	return ff, nil
 }
 
-func GroupsQueryFilters() (ff []Filter, err error) {
+func QueryFiltersForTargets(targets ...Target) (ff []Filter, err error) {
 	qfs, err := QueryFilters()
 	if err != nil {
 		goto end
 	}
 	ff = make([]Filter, 0, len(qfs))
 	for _, f := range qfs {
-		if f.Target() != Groups {
+		if !slices.Contains(targets, f.Target()) {
 			continue
 		}
 		ff = append(ff, f)

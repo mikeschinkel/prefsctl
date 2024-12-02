@@ -16,21 +16,33 @@ type PrefDefault struct {
 	Domain       DomainName
 	Name         PrefName
 	DefaultValue string // raw string value for default
-	Labels       Labels
+	labels       filters.Labels
 	NoDefault    bool
+}
+
+func (pd *PrefDefault) SetLabels(labels []*filters.Label) {
+	pd.labels = labels
+}
+func (pd *PrefDefault) Labels() []*filters.Label {
+	return pd.labels
+}
+
+func (pd *PrefDefault) Valid() bool {
+	//TODO implement me
+	panic("implement me")
 }
 
 func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
 	return &PrefDefault{
 		Domain:    domain,
 		Name:      name,
-		Labels:    make(Labels, 0),
+		labels:    make(filters.Labels, 0),
 		NoDefault: true,
 	}
 }
 
-func (pd *PrefDefault) Valid() bool {
-	return slices.Contains([]*Label(pd.Labels), &UserManaged)
+func (pd *PrefDefault) UserManaged() bool {
+	return slices.Contains([]*filters.Label(pd.labels), &filters.UserManaged)
 }
 
 func (pd *PrefDefault) String() string {
@@ -44,7 +56,7 @@ func (pd *PrefDefault) LogValue() any {
 	return fmt.Sprintf("%s (default=%s,labels=[%s])",
 		GetPrefId(pd.Domain, pd.Name),
 		pd.DefaultValue,
-		pd.Labels,
+		pd.labels,
 	)
 }
 

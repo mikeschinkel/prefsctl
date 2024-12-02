@@ -21,8 +21,12 @@ type Pref struct {
 	invalid     bool
 }
 
+func (p *Pref) Labels() []*filters.Label {
+	return p.PrefDefault.Labels()
+}
+
 func (p *Pref) Valid() bool {
-	return !p.invalid && p.PrefDefault.Valid()
+	return !p.invalid
 }
 
 // PrefArgs are used to pass to NewPref() to set initial struct properties
@@ -31,7 +35,7 @@ type PrefArgs struct {
 	Name    PrefName
 	Value   string // raw string value
 	Default string // raw string value
-	Labels  Labels
+	Labels  filters.Labels
 	Kind    reflect.Kind // kind of the value
 	Invalid bool
 }
@@ -41,8 +45,8 @@ func NewPref(args PrefArgs) *Pref {
 	dv := NewPrefDefault(args.Domain, args.Name)
 	dv.DefaultValue = args.Default
 	dv.NoDefault = args.Default == ""
-	if dv.Labels != nil {
-		dv.Labels = args.Labels
+	if dv.labels != nil {
+		dv.labels = args.Labels
 	}
 	return &Pref{
 		value:       args.Value,

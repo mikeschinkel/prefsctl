@@ -7,6 +7,8 @@ const (
 )
 
 const (
-	FilenameFlag = "filename"
-	OutputFlag   = "output"
+	FilenameFlag          = "filename"
+	FilenameFlagShorthand = "f"
+	OutputFlag            = "output"
+	OutputFlagShorthand   = "o"
 )

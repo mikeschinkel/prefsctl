@@ -4,37 +4,15 @@ import (
 	"errors"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
+	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 
 type QueryArgs struct {
-	Filters []Filter
-	Groups  []Group
-}
-
-func QueryGroups(args QueryArgs) (result []Group, err error) {
-	var errs errutil.MultiErr
-	var mustKeep, omit bool
-
-	result = make([]Group, 0)
-	for _, g := range args.Groups {
-		mustKeep, err = MustKeepGroup(args.Filters, g.Name(), Groups)
-		if err != nil {
-			errs.Add(errors.Join(err, g.ErrorInfo()))
-			continue
-		}
-		if !mustKeep {
-			omit, err = OmitGroup(args.Filters, g.Name(), Groups)
-			if err != nil {
-				errs.Add(errors.Join(err, g.ErrorInfo()))
-				continue
-			}
-			if omit {
-				continue
-			}
-		}
-		result = append(result, g)
-	}
-	return result, errs.Join(err)
+	Filters     []Filter
+	Groups      []Group
+	Labels      []*Label
+	OmitEmpty   bool
+	OmitInvalid bool
 }
 
 func Query(args QueryArgs) (result []Group, err error) {
@@ -52,10 +30,13 @@ func Query(args QueryArgs) (result []Group, err error) {
 	for _, g := range groups {
 		groupAdded = false
 		for _, kv := range g.KeyValues() {
-			if !kv.Valid() {
+			if args.Labels != nil && !stdlibex.SlicesIntersect(args.Labels, kv.Labels()) {
 				continue
 			}
-			if kv.Value() == "" {
+			if args.OmitInvalid && !kv.Valid() {
+				continue
+			}
+			if args.OmitEmpty && kv.Value() == "" {
 				continue
 			}
 			mustKeep, err = MustKeepKeyValue2(args.Filters,
@@ -95,5 +76,31 @@ func Query(args QueryArgs) (result []Group, err error) {
 		}
 	}
 end:
+	return result, errs.Join(err)
+}
+
+func QueryGroups(args QueryArgs) (result []Group, err error) {
+	var errs errutil.MultiErr
+	var mustKeep, omit bool
+
+	result = make([]Group, 0)
+	for _, g := range args.Groups {
+		mustKeep, err = MustKeepGroup(args.Filters, g.Name(), Groups)
+		if err != nil {
+			errs.Add(errors.Join(err, g.ErrorInfo()))
+			continue
+		}
+		if !mustKeep {
+			omit, err = OmitGroup(args.Filters, g.Name(), Groups)
+			if err != nil {
+				errs.Add(errors.Join(err, g.ErrorInfo()))
+				continue
+			}
+			if omit {
+				continue
+			}
+		}
+		result = append(result, g)
+	}
 	return result, errs.Join(err)
 }

@@ -1,7 +1,7 @@
 package cmds
 
 import (
-	"reflect"
+	//"reflect"
 
 	"github.com/mikeschinkel/prefsctl/cliutil"
 	"github.com/mikeschinkel/prefsctl/macprefs"
@@ -16,8 +16,8 @@ var getProps = &GetProps{}
 
 type GetProps struct {
 	cliutil.BaseProps
+	//output macprefs.OutputPtr
 	//filename macprefs.FilenamePtr
-	output macprefs.OutputPtr
 }
 
 var getCmd = cliutil.NewCommandFromArgs(cliutil.CommandOpts{
@@ -29,6 +29,15 @@ var getCmd = cliutil.NewCommandFromArgs(cliutil.CommandOpts{
 	Props: getProps,
 	Flags: []*cliutil.CommandFlag{
 		//{
+		//	Name:      macprefs.OutputFlag,
+		//	Type:      reflect.String,
+		//	Required:  false,
+		//	Shorthand: 'o',
+		//	AssignFunc: func(value any) {
+		//		getProps.output = macprefs.OutputPtr(value.(*string))
+		//	},
+		//},
+		//{
 		//	Name:      macprefs.FilenameFlag,
 		//	Type:      reflect.String,
 		//	Required:  true,
@@ -37,20 +46,11 @@ var getCmd = cliutil.NewCommandFromArgs(cliutil.CommandOpts{
 		//		getProps.filename = macprefs.FilenamePtr(value.(*string))
 		//	},
 		//},
-		{
-			Name:      macprefs.OutputFlag,
-			Type:      reflect.String,
-			Required:  false,
-			Shorthand: 'o',
-			AssignFunc: func(value any) {
-				getProps.output = macprefs.OutputPtr(value.(*string))
-			},
-		},
 	},
 	RunFunc: func(ctx Context, cmd *cliutil.Command, props cliutil.Props) (cliutil.Result, error) {
-		p := props.(*GetProps)
+		//p := props.(*GetProps)
 		return macprefs.Get(ctx, cmd, macprefs.GetArgs{
-			Output: macprefs.OutputFormat(*p.output),
+			//Output: macprefs.OutputFormat(*p.output),
 		})
 	},
 })

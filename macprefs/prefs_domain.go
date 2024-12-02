@@ -27,16 +27,18 @@ var _ filters.Group = (*PrefsDomain)(nil)
 
 // PrefsDomain represents a preference domain in macOS
 type PrefsDomain struct {
-	domain      DomainName
-	prefs       Prefs
-	initialized bool
+	domain               DomainName
+	prefs                Prefs
+	prefsRetrieved       bool
+	prefsValuesRetrieved bool
 }
 
 func (d *PrefsDomain) ShallowCopy() filters.Group {
 	return &PrefsDomain{
-		domain:      d.domain,
-		initialized: d.initialized,
-		prefs:       make(Prefs, 0),
+		domain:               d.domain,
+		prefsRetrieved:       d.prefsRetrieved,
+		prefsValuesRetrieved: d.prefsValuesRetrieved,
+		prefs:                make(Prefs, 0),
 	}
 }
 
@@ -46,31 +48,23 @@ func (d *PrefsDomain) SortPrefs() {
 
 var unsupportedTypes = make(map[string]struct{})
 
-func (d *PrefsDomain) Reinitialize() (err error) {
-	d.initialized = false
-	return d.Initialize()
-}
-
-func (d *PrefsDomain) Initialize() (err error) {
-	var errs errutil.MultiErr
-
-	if d.initialized {
-		goto end
-	}
-
-	if len(d.prefs) == 0 {
-		d.prefs, err = GetDomainPrefs(d.DomainName())
-		if err != nil {
-			errs.Add(err) // TODO Annotate
-		}
-	}
-
+func (d *PrefsDomain) RetrievePrefs() (err error) {
+	d.prefs, err = RetrieveDomainPrefs(d.DomainName())
 	for _, pref := range d.prefs {
 		pd := GetPrefDefault(pref.Id())
 		if pd == nil {
 			pd = NewPrefDefault(d.domain, pref.Name)
 		}
 		pref.PrefDefault = pd
+	}
+	d.prefsRetrieved = true
+	return err
+}
+
+func (d *PrefsDomain) RetrievePrefValues() (err error) {
+	var errs errutil.MultiErr
+
+	for _, pref := range d.prefs {
 		err = pref.Retrieve()
 		if err == nil {
 			continue
@@ -82,18 +76,16 @@ func (d *PrefsDomain) Initialize() (err error) {
 		}
 		errs.Add(err) // TODO Annotate
 	}
-
-	d.initialized = true
-end:
+	d.prefsValuesRetrieved = true
 	return errs.Err()
 }
 
 func NewPrefsDomainFromFiltersGroup(group filters.Group) *PrefsDomain {
 	domain := DomainName(group.Name())
 	return &PrefsDomain{
-		domain:      domain,
-		prefs:       NewDomainPrefsFromFiltersKeyValues(domain, group.KeyValues()),
-		initialized: false,
+		domain:         domain,
+		prefs:          NewDomainPrefsFromFiltersKeyValues(domain, group.KeyValues()),
+		prefsRetrieved: false,
 	}
 }
 
@@ -120,7 +112,11 @@ func NewPrefsDomain(domain DomainName) *PrefsDomain {
 }
 
 func (d *PrefsDomain) KeyValues() (kvs []filters.KeyValue) {
-	d.chkInitialized("macprefs.PrefsDomain.KeyValues()")
+	if !d.prefsRetrieved {
+		panicf("ERROR: Preferences domain '%s' must be retrieved before calling macprefs.PrefsDomain.KeyValues()",
+			d.Name(),
+		)
+	}
 	kvs = make([]filters.KeyValue, len(d.prefs))
 	for i, pref := range d.prefs {
 		kvs[i] = pref
@@ -137,12 +133,6 @@ func (d *PrefsDomain) Name() filters.Name {
 
 func (d *PrefsDomain) Code() filters.Code {
 	return filters.Codify(string(d.domain))
-}
-
-func (d *PrefsDomain) chkInitialized(caller string) {
-	if !d.initialized {
-		panicf("ERROR: Preferences domain '%s' must be initialized before calling %s", d.Name(), caller)
-	}
 }
 
 func (d *PrefsDomain) AddKeyValue(value filters.KeyValue) {
@@ -177,6 +167,10 @@ func (d *PrefsDomain) HasPrefix(prefix string) bool {
 
 // Prefs returns all available preferences for this domain
 func (d *PrefsDomain) Prefs() []*Pref {
-	d.chkInitialized("macprefs.PrefsDomain.Prefs()")
+	if !d.prefsRetrieved {
+		panicf("ERROR: Preferences domain '%s' must be retrieved before calling macprefs.PrefsDomain.Prefs()",
+			d.Name(),
+		)
+	}
 	return d.prefs
 }

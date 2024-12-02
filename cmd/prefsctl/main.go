@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
+	"github.com/mikeschinkel/cmd/prefsctl/cmds"
 	"github.com/mikeschinkel/prefsctl/cliutil"
 	_ "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
-	"prefsctl/cmds"
 )
 
 func main() {

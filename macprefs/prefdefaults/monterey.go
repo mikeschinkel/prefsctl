@@ -1,8778 +1,8774 @@
 package prefdefaults
 
 import (
-	"github.com/mikeschinkel/prefsctl/macprefs"
+	"github.com/mikeschinkel/prefsctl/macprefs/filters"
 )
-
-type DomainDefaults = macprefs.DomainPrefDefaults
-type DomainPrefs = macprefs.PrefDefaultsMap
-type Pref = macprefs.PrefDefault
 
 //goland:noinspection SpellCheckingInspection
 func montereyPrefDefaults() DomainDefaults {
 	return DomainDefaults{
 		"GlobalPreferences": DomainPrefs{
-			"AppleActionOnDoubleClick": &Pref{
+			"AppleActionOnDoubleClick": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleAntiAliasingThreshold": &Pref{
+			"AppleAntiAliasingThreshold": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleAquaColorVariant": &Pref{
+			"AppleAquaColorVariant": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleEnableSwipeNavigateWithScrolls": &Pref{
+			"AppleEnableSwipeNavigateWithScrolls": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleKeyboardUIMode": &Pref{
+			"AppleKeyboardUIMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleMeasurementUnits": &Pref{
+			"AppleMeasurementUnits": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleMetricUnits": &Pref{
+			"AppleMetricUnits": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleMiniaturizeOnDoubleClick": &Pref{
+			"AppleMiniaturizeOnDoubleClick": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleShowAllExtensions": &Pref{
+			"AppleShowAllExtensions": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleShowScrollBars": &Pref{
+			"AppleShowScrollBars": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleTemperatureUnit": &Pref{
+			"AppleTemperatureUnit": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleWindowTabbingMode": &Pref{
+			"AppleWindowTabbingMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.mouse.scaling": &Pref{
+			"com.apple.mouse.scaling": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.sound.beep.flash": &Pref{
+			"com.apple.sound.beep.flash": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.springing.delay": &Pref{
+			"com.apple.springing.delay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.springing.enabled": &Pref{
+			"com.apple.springing.enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.swipescrolldirection": &Pref{
+			"com.apple.swipescrolldirection": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.trackpad.forceClick": &Pref{
+			"com.apple.trackpad.forceClick": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.trackpad.scaling": &Pref{
+			"com.apple.trackpad.scaling": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"InitialKeyRepeat": &Pref{
+			"InitialKeyRepeat": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"KeyRepeat": &Pref{
+			"KeyRepeat": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSAutomaticCapitalizationEnabled": &Pref{
+			"NSAutomaticCapitalizationEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSAutomaticDashSubstitutionEnabled": &Pref{
+			"NSAutomaticDashSubstitutionEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSAutomaticPeriodSubstitutionEnabled": &Pref{
+			"NSAutomaticPeriodSubstitutionEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSAutomaticQuoteSubstitutionEnabled": &Pref{
+			"NSAutomaticQuoteSubstitutionEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSAutomaticSpellingCorrectionEnabled": &Pref{
+			"NSAutomaticSpellingCorrectionEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSAutomaticTextCompletionEnabled": &Pref{
+			"NSAutomaticTextCompletionEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSAutomaticWindowAnimationsEnabled": &Pref{
+			"NSAutomaticWindowAnimationsEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"WebAutomaticSpellingCorrectionEnabled": &Pref{
+			"WebAutomaticSpellingCorrectionEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"WebKitDeveloperExtras": &Pref{
+			"WebKitDeveloperExtras": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleLanguage": &Pref{
+			"AppleLanguage": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
-					&macprefs.SetupSets,
-					&macprefs.StringType,
+				Labels: filters.Labels{
+					&filters.UserManaged,
+					&filters.SetupSets,
+					&filters.StringType,
 				},
 			},
-			"AppleLocale": &Pref{
+			"AppleLocale": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SetupSets,
-					&macprefs.StringType,
+				Labels: filters.Labels{
+					&filters.SetupSets,
+					&filters.StringType,
 				},
 			},
-			"646F6E7A_00000000_00000001_6E7A6361_696D6963:": &Pref{
+			"646F6E7A_00000000_00000001_6E7A6361_696D6963:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AKLastIDMSEnvironment:": &Pref{
+			"AKLastIDMSEnvironment:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AudioQuest inc.AudioQuest DragonFly:": &Pref{
+			"AudioQuest inc.AudioQuest DragonFly:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Blue Microphones Yeti Stereo Microphone:": &Pref{
+			"Blue Microphones Yeti Stereo Microphone:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Canon MF5900 Series:": &Pref{
+			"Canon MF5900 Series:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"ContextMenuGesture:": &Pref{
+			"ContextMenuGesture:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Fujitsu ScanSnap iX500:": &Pref{
+			"Fujitsu ScanSnap iX500:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Yubico YubiKey OTP+FIDO+CCID:": &Pref{
+			"Yubico YubiKey OTP+FIDO+CCID:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AppleLanguagesDidMigrate:": &Pref{
+			"AppleLanguagesDidMigrate:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"NavPanelFileListModeForOpenMode:": &Pref{
+			"NavPanelFileListModeForOpenMode:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"NavPanelFileListModeForSaveMode:": &Pref{
+			"NavPanelFileListModeForSaveMode:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSLinguisticDataAssetsRequestLastInterval:": &Pref{
+			"NSLinguisticDataAssetsRequestLastInterval:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"QLPanelAnimationDuration:": &Pref{
+			"QLPanelAnimationDuration:": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.security.sosaccount": DomainPrefs{
-			"SOSEnabled": &Pref{
+			"SOSEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.SafariCloudHistoryPushAgent": DomainPrefs{
-			"AcknowledgedPushNotifications": &Pref{
+			"AcknowledgedPushNotifications": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"UnacknowledgedPushNotifications": &Pref{
+			"UnacknowledgedPushNotifications": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.print.custompresets.forprinter.Canon_MF5900_Series": DomainPrefs{
-			"com.apple.print.lastPresetPref": &Pref{
+			"com.apple.print.lastPresetPref": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.print.lastPresetPrefType": &Pref{
+			"com.apple.print.lastPresetPrefType": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.finder": DomainPrefs{
-			"SidebarTagsSctionDisclosedState": &Pref{
+			"SidebarTagsSctionDisclosedState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"QLEnableTextSelection": &Pref{
+			"QLEnableTextSelection": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"PreviewPaneGalleryWidth": &Pref{
+			"PreviewPaneGalleryWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FK_ArrangeBy": &Pref{
+			"FK_ArrangeBy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"PreferencesWindow.LastSelection": &Pref{
+			"PreferencesWindow.LastSelection": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXEnableExtensionChangeWarning": &Pref{
+			"FXEnableExtensionChangeWarning": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow": &Pref{
+			"NSWindowTabbingShoudShowTabBarKey-com.apple.finder.TBrowserWindow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXICloudDriveDesktop": &Pref{
+			"FXICloudDriveDesktop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ShowMountedServersOnDesktop": &Pref{
+			"ShowMountedServersOnDesktop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SidebarShowingiCloudDesktop": &Pref{
+			"SidebarShowingiCloudDesktop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXToolbarUpgradedToTenNine": &Pref{
+			"FXToolbarUpgradedToTenNine": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ShowRemovableMediaOnDesktop": &Pref{
+			"ShowRemovableMediaOnDesktop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ShowStatusBar": &Pref{
+			"ShowStatusBar": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXSidebarUpgradedSharedSearchToTwelve": &Pref{
+			"FXSidebarUpgradedSharedSearchToTwelve": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"FXInfoWindowWidth": &Pref{
+			"FXInfoWindowWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DownloadsFolderListViewSettingsVersion": &Pref{
+			"DownloadsFolderListViewSettingsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"SidebariCloudDriveSectionDisclosedState": &Pref{
+			"SidebariCloudDriveSectionDisclosedState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AppleShowAllFiles": &Pref{
+			"AppleShowAllFiles": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXICloudDriveDeclinedUpgrade": &Pref{
+			"FXICloudDriveDeclinedUpgrade": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXArrangeGroupViewBy": &Pref{
+			"FXArrangeGroupViewBy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"RecentsArrangeGroupViewBy": &Pref{
+			"RecentsArrangeGroupViewBy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXPreferredSearchViewStyleVersion": &Pref{
+			"FXPreferredSearchViewStyleVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"PreviewPaneWidth": &Pref{
+			"PreviewPaneWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXAtLeastOneScreenHasBeenInHIDPI": &Pref{
+			"FXAtLeastOneScreenHasBeenInHIDPI": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CopyProgressWindowLocation": &Pref{
+			"CopyProgressWindowLocation": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SidebarShowingSignedIntoiCloud": &Pref{
+			"SidebarShowingSignedIntoiCloud": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ViewOptionsWindow.Location": &Pref{
+			"ViewOptionsWindow.Location": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ShowHardDrivesOnDesktop": &Pref{
+			"ShowHardDrivesOnDesktop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXQuickActionsConfigUpgradeLevel": &Pref{
+			"FXQuickActionsConfigUpgradeLevel": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"FXPreferredViewStyle": &Pref{
+			"FXPreferredViewStyle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"QuitMenuItem": &Pref{
+			"QuitMenuItem": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXDefaultSearchScope": &Pref{
+			"FXDefaultSearchScope": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXPreferredSearchViewStyle": &Pref{
+			"FXPreferredSearchViewStyle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DisableAllAnimations": &Pref{
+			"DisableAllAnimations": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SidebarWidth": &Pref{
+			"SidebarWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ShowSidebar": &Pref{
+			"ShowSidebar": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TagsCloudSerialNumber": &Pref{
+			"TagsCloudSerialNumber": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NewWindowTarget": &Pref{
+			"NewWindowTarget": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ShowPathbar": &Pref{
+			"ShowPathbar": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXSidebarUpgradedToTenFourteen": &Pref{
+			"FXSidebarUpgradedToTenFourteen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastTrashState": &Pref{
+			"LastTrashState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ShowExternalHardDrivesOnDesktop": &Pref{
+			"ShowExternalHardDrivesOnDesktop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"GoToField": &Pref{
+			"GoToField": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"_FXSortFoldersFirstOnDesktop": &Pref{
+			"_FXSortFoldersFirstOnDesktop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FK_AppCentricShowSidebar": &Pref{
+			"FK_AppCentricShowSidebar": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXSidebarUpgradedToTenTen": &Pref{
+			"FXSidebarUpgradedToTenTen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"FXConnectToLastURL": &Pref{
+			"FXConnectToLastURL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXICloudDriveEnabled": &Pref{
+			"FXICloudDriveEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FXICloudDriveDocuments": &Pref{
+			"FXICloudDriveDocuments": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"_FXSortFoldersFirst": &Pref{
+			"_FXSortFoldersFirst": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"_FXShowPosixPathInTitle": &Pref{
+			"_FXShowPosixPathInTitle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"EmptyTrashProgressWindowLocation": &Pref{
+			"EmptyTrashProgressWindowLocation": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SearchRecentsSavedViewStyle": &Pref{
+			"SearchRecentsSavedViewStyle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXDesktopTouchBarUpgradedToTenTwelveOne": &Pref{
+			"FXDesktopTouchBarUpgradedToTenTwelveOne": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"FXICloudDriveFirstSyncDownComplete": &Pref{
+			"FXICloudDriveFirstSyncDownComplete": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SidebarDevicesSectionDisclosedState": &Pref{
+			"SidebarDevicesSectionDisclosedState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"MountProgressWindowLocation": &Pref{
+			"MountProgressWindowLocation": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FK_SidebarWidth": &Pref{
+			"FK_SidebarWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SearchRecentsSavedViewStyleVersion": &Pref{
+			"SearchRecentsSavedViewStyleVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"FXPreferredGroupBy": &Pref{
+			"FXPreferredGroupBy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"PreviewPaneInfoExpanded": &Pref{
+			"PreviewPaneInfoExpanded": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXLastSearchScope": &Pref{
+			"FXLastSearchScope": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"InspectorWindow.Location": &Pref{
+			"InspectorWindow.Location": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SidebarPlacesSectionDisclosedState": &Pref{
+			"SidebarPlacesSectionDisclosedState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXToolbarUpgradedToTenEight": &Pref{
+			"FXToolbarUpgradedToTenEight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"FXICloudLoggedIn": &Pref{
+			"FXICloudLoggedIn": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FXToolbarUpgradedToTenSeven": &Pref{
+			"FXToolbarUpgradedToTenSeven": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.messages.pinning": DomainPrefs{
-			"IMPinningPinConfigMigrationKey-v2-r2": &Pref{
+			"IMPinningPinConfigMigrationKey-v2-r2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.identityservicesd": DomainPrefs{
-			"ReRegisteredForDevicesv56": &Pref{
+			"ReRegisteredForDevicesv56": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"hasRegIdentityContainer": &Pref{
+			"hasRegIdentityContainer": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"ReRegisteredForDevicesv55": &Pref{
+			"ReRegisteredForDevicesv55": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"persister-migration-personal-session-token-cache-v4": &Pref{
+			"persister-migration-personal-session-token-cache-v4": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ReRegisteredForDevices": &Pref{
+			"ReRegisteredForDevices": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"DidCleanLegacyAccountPrefs": &Pref{
+			"DidCleanLegacyAccountPrefs": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ImportedLegacyIMAccounts": &Pref{
+			"ImportedLegacyIMAccounts": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"hasUnregIdentityContainer": &Pref{
+			"hasUnregIdentityContainer": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MigratedToNewDisabledState": &Pref{
+			"MigratedToNewDisabledState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"triggeredRemoteSessionVersion": &Pref{
+			"triggeredRemoteSessionVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ReRegisteredForDevicesHash": &Pref{
+			"ReRegisteredForDevicesHash": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"ImportedLegacyIDSAccounts2": &Pref{
+			"ImportedLegacyIDSAccounts2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"GDRRequestMadeForRelayRepair": &Pref{
+			"GDRRequestMadeForRelayRepair": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"persister-migration-com.apple.identityservices.userStore": &Pref{
+			"persister-migration-com.apple.identityservices.userStore": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ReRegisteredForDevicesv1350": &Pref{
+			"ReRegisteredForDevicesv1350": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"performed-user-intent-migrate": &Pref{
+			"performed-user-intent-migrate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.Spotlight": DomainPrefs{
-			"ModelName": &Pref{
+			"ModelName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.AppManaged,
+				Labels: filters.Labels{
+					&filters.AppManaged,
 				},
 			},
-			"engagementCount-com.apple.Spotlight": &Pref{
+			"engagementCount-com.apple.Spotlight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"engagementCount-com.apple.mail": &Pref{
+			"engagementCount-com.apple.mail": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SSMessageTracingWindowShowCount": &Pref{
+			"SSMessageTracingWindowShowCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"windowHeight": &Pref{
+			"windowHeight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"useCount": &Pref{
+			"useCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__NSEnableTSMDocumentWindowLevel": &Pref{
+			"__NSEnableTSMDocumentWindowLevel": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SSMessageTracingWindowHideCount": &Pref{
+			"SSMessageTracingWindowHideCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"engagementCount-com.apple.Spotlight.suggestions": &Pref{
+			"engagementCount-com.apple.Spotlight.suggestions": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SPMessageTracingWindowHideCount": &Pref{
+			"SPMessageTracingWindowHideCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"showedFTE": &Pref{
+			"showedFTE": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SPMessageTracingWindowShowCount": &Pref{
+			"SPMessageTracingWindowShowCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"userHasMovedWindow": &Pref{
+			"userHasMovedWindow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.DictionaryServices": DomainPrefs{
-			"DCSPreferenceVersion": &Pref{
+			"DCSPreferenceVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.PTPCamera": DomainPrefs{
-			"FilenamePrefix": &Pref{
+			"FilenamePrefix": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NextFilenameCount": &Pref{
+			"NextFilenameCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.imtranscoding.IMTranscoderAgent": DomainPrefs{
-			"kCKMediaObjectManagerDefaultsOSVersion": &Pref{
+			"kCKMediaObjectManagerDefaultsOSVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.scriptmenu": DomainPrefs{
-			"ScriptMenuEnabled": &Pref{
+			"ScriptMenuEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.TTY": DomainPrefs{
-			"RTTSettingsVersionPreference": &Pref{
+			"RTTSettingsVersionPreference": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"RTTContinuityRTTIsSupportedPreference": &Pref{
+			"RTTContinuityRTTIsSupportedPreference": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"TUSupportsRelayCallingPreference": &Pref{
+			"TUSupportsRelayCallingPreference": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"TUIsRelayCallingEnabledPreference": &Pref{
+			"TUIsRelayCallingEnabledPreference": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.voicetrigger": DomainPrefs{
-			"VoiceTrigger Enabled": &Pref{
+			"VoiceTrigger Enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.DiskUtility": DomainPrefs{
-			"OperationProgress ExpandedHeight": &Pref{
+			"OperationProgress ExpandedHeight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DUDebugMenuEnabled": &Pref{
+			"DUDebugMenuEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"advanced-image-options": &Pref{
+			"advanced-image-options": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SidebarShowAllDevices": &Pref{
+			"SidebarShowAllDevices": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"OperationProgress DetailsVisible": &Pref{
+			"OperationProgress DetailsVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.photos.shareddefaults": DomainPrefs{
-			"CPLDefaultDownload": &Pref{
+			"CPLDefaultDownload": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"iCloudPhotoLibraryLastResetWelcomePromptDBVersion": &Pref{
+			"iCloudPhotoLibraryLastResetWelcomePromptDBVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"downloadAndKeepOriginals": &Pref{
+			"downloadAndKeepOriginals": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"clearPurgeableResources": &Pref{
+			"clearPurgeableResources": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DiskSpaceWasLow": &Pref{
+			"DiskSpaceWasLow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"repushAssetsWithImportedByBundleIdentifier": &Pref{
+			"repushAssetsWithImportedByBundleIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.AppManaged,
+				Labels: filters.Labels{
+					&filters.AppManaged,
 				},
 			},
-			"repushVideoAssetsMetadata": &Pref{
+			"repushVideoAssetsMetadata": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.AppManaged,
+				Labels: filters.Labels{
+					&filters.AppManaged,
 				},
 			},
 		},
 		"com.apple.parsecd": DomainPrefs{
-			"PARDefaultsVersion": &Pref{
+			"PARDefaultsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"PARTestSeed": &Pref{
+			"PARTestSeed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.universalaccess": DomainPrefs{
-			"login": &Pref{
+			"login": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"switchCoalescePressesDuration": &Pref{
+			"switchCoalescePressesDuration": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"lastNightShiftEnabled": &Pref{
+			"lastNightShiftEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"switchAutoScanPanelInterval": &Pref{
+			"switchAutoScanPanelInterval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"closeViewZoomedIn": &Pref{
+			"closeViewZoomedIn": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"grayscale": &Pref{
+			"grayscale": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"switchSweepingCursorSpeed": &Pref{
+			"switchSweepingCursorSpeed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"sessionChange": &Pref{
+			"sessionChange": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"switchHoldBeforeRepeatDuration": &Pref{
+			"switchHoldBeforeRepeatDuration": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"closeViewZoomFactorBeforeTermination": &Pref{
+			"closeViewZoomFactorBeforeTermination": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"switchHideUITimeout": &Pref{
+			"switchHideUITimeout": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"switchAutoScanElementInterval": &Pref{
+			"switchAutoScanElementInterval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"lastNightShiftActive": &Pref{
+			"lastNightShiftActive": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"virtualKeyboardOnOff": &Pref{
+			"virtualKeyboardOnOff": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"headMouseEnabled": &Pref{
+			"headMouseEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"increaseContrast": &Pref{
+			"increaseContrast": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"mouseDriverCursorSize": &Pref{
+			"mouseDriverCursorSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"selectedTab": &Pref{
+			"selectedTab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"lastNightShiftDate": &Pref{
+			"lastNightShiftDate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"closeViewZoomDisplayID": &Pref{
+			"closeViewZoomDisplayID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"hoverTextIsAlwaysOn": &Pref{
+			"hoverTextIsAlwaysOn": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"closeViewSplitScreenRatio": &Pref{
+			"closeViewSplitScreenRatio": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"hoverTextIsHoveringAndVisible": &Pref{
+			"hoverTextIsHoveringAndVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AssistiveControlType": &Pref{
+			"AssistiveControlType": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"closeViewDesiredZoomFactor": &Pref{
+			"closeViewDesiredZoomFactor": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"slowKey": &Pref{
+			"slowKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"closeViewScrollWheelToggle": &Pref{
+			"closeViewScrollWheelToggle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"mouseDriver": &Pref{
+			"mouseDriver": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"differentiateWithoutColor": &Pref{
+			"differentiateWithoutColor": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"slowKeyDelay": &Pref{
+			"slowKeyDelay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"switchMinimumPressDuration": &Pref{
+			"switchMinimumPressDuration": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"closeViewZoomFactor": &Pref{
+			"closeViewZoomFactor": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"switchOnOffKey": &Pref{
+			"switchOnOffKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"keyboardAccessFocusRingTimeout": &Pref{
+			"keyboardAccessFocusRingTimeout": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"stickyKey": &Pref{
+			"stickyKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"reduceTransparency": &Pref{
+			"reduceTransparency": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"dwellHideUITimeout": &Pref{
+			"dwellHideUITimeout": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"dwellEnabled": &Pref{
+			"dwellEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"contrast": &Pref{
+			"contrast": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"useStickyKeysShortcutKeys": &Pref{
+			"useStickyKeysShortcutKeys": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"lastNightShiftMode": &Pref{
+			"lastNightShiftMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"hoverTextEnabled": &Pref{
+			"hoverTextEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"whiteOnBlack": &Pref{
+			"whiteOnBlack": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"closeViewHotkeysEnabled": &Pref{
+			"closeViewHotkeysEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"switchFirstElementDelay": &Pref{
+			"switchFirstElementDelay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"voiceOverOnOffKey": &Pref{
+			"voiceOverOnOffKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.Terminal": DomainPrefs{
-			"HasMigratedDefaults": &Pref{
+			"HasMigratedDefaults": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"SecureKeyboardEntry": &Pref{
+			"SecureKeyboardEntry": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Default Window Settings": &Pref{
+			"Default Window Settings": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DefaultProfilesVersion": &Pref{
+			"DefaultProfilesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ProfileCurrentVersion": &Pref{
+			"ProfileCurrentVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"TTAppPreferences Selected Tab": &Pref{
+			"TTAppPreferences Selected Tab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Startup Window Settings": &Pref{
+			"Startup Window Settings": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.coreservices.useractivityd": DomainPrefs{
-			"kLocalPasteboardBlobName": &Pref{
+			"kLocalPasteboardBlobName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"kRemotePasteboardBlobName": &Pref{
+			"kRemotePasteboardBlobName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.ColorSyncUtility": DomainPrefs{
-			"CSUtilitiesContentSize": &Pref{
+			"CSUtilitiesContentSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CSProfsUtilsGroupBy": &Pref{
+			"CSProfsUtilsGroupBy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"CSUtilitiesSelectedIdentifier": &Pref{
+			"CSUtilitiesSelectedIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.weather": DomainPrefs{
-			"userId": &Pref{
+			"userId": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.Music": DomainPrefs{
-			"dontAskForAllPlaylistItemRemoval": &Pref{
+			"dontAskForAllPlaylistItemRemoval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"storeSupportsPasswordSettings": &Pref{
+			"storeSupportsPasswordSettings": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"notifications-warming-last-displayed-time": &Pref{
+			"notifications-warming-last-displayed-time": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"miniplayerVPos": &Pref{
+			"miniplayerVPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.Music.WebKit2ShouldPrintBackgrounds": &Pref{
+			"com.apple.Music.WebKit2ShouldPrintBackgrounds": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"storeSupportsPreviousPurchases": &Pref{
+			"storeSupportsPreviousPurchases": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.apple.Music.WebKit2AsynchronousSpellCheckingEnabled": &Pref{
+			"com.apple.Music.WebKit2AsynchronousSpellCheckingEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"miniPlayerQueueVisible": &Pref{
+			"miniPlayerQueueVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"eqWindowHPos": &Pref{
+			"eqWindowHPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"userWantsPlaybackNotifications": &Pref{
+			"userWantsPlaybackNotifications": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"miniplayerUserSetHeight": &Pref{
+			"miniplayerUserSetHeight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.Music.WebKit2ShowsToolTipOverTruncatedText": &Pref{
+			"com.apple.Music.WebKit2ShowsToolTipOverTruncatedText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"soundEnhancerAmount": &Pref{
+			"soundEnhancerAmount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"preloadFilesIntoMemory": &Pref{
+			"preloadFilesIntoMemory": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"updateLevel": &Pref{
+			"updateLevel": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"videoWindowVSize": &Pref{
+			"videoWindowVSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.Music.WebKit2EnableInheritURIQueryComponent": &Pref{
+			"com.apple.Music.WebKit2EnableInheritURIQueryComponent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"automaticallyDownloadArtwork": &Pref{
+			"automaticallyDownloadArtwork": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"refreshedHLSKeysTime": &Pref{
+			"refreshedHLSKeysTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"miniplayerWidthInDesignCoords": &Pref{
+			"miniplayerWidthInDesignCoords": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"userMaxConcurrentDownloads": &Pref{
+			"userMaxConcurrentDownloads": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.Music.WebKit2SuppressesIncrementalRendering": &Pref{
+			"com.apple.Music.WebKit2SuppressesIncrementalRendering": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"miniplayerHPos": &Pref{
+			"miniplayerHPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"videoWindowVPos": &Pref{
+			"videoWindowVPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"log-PlayQueue-LastSelectedTab": &Pref{
+			"log-PlayQueue-LastSelectedTab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"dontWarnDownloadCloudPurchases": &Pref{
+			"dontWarnDownloadCloudPurchases": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"storeSupportsUPP": &Pref{
+			"storeSupportsUPP": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"showWelcomeScreenState": &Pref{
+			"showWelcomeScreenState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"checkedHLSKeysTime": &Pref{
+			"checkedHLSKeysTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"storeSupportsCloudPurchases": &Pref{
+			"storeSupportsCloudPurchases": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"gridViewSearchDoesNotSwitchView": &Pref{
+			"gridViewSearchDoesNotSwitchView": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"eqName": &Pref{
+			"eqName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ITUserPrefsMigrated": &Pref{
+			"ITUserPrefsMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"cddbPrefsOK": &Pref{
+			"cddbPrefsOK": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"eqPrefsVersion": &Pref{
+			"eqPrefsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"playbackIsFullscreen": &Pref{
+			"playbackIsFullscreen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"debugAssertCategoriesVersion": &Pref{
+			"debugAssertCategoriesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"debugAssertCategoriesEnabled": &Pref{
+			"debugAssertCategoriesEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"firstLaunchShowWelcomeScreenState": &Pref{
+			"firstLaunchShowWelcomeScreenState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"encoderName": &Pref{
+			"encoderName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.Music.WebKit2UserInterfaceDirectionPolicy": &Pref{
+			"com.apple.Music.WebKit2UserInterfaceDirectionPolicy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"haveRadioState": &Pref{
+			"haveRadioState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"videoWindowHSize": &Pref{
+			"videoWindowHSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"eqWindowVPos": &Pref{
+			"eqWindowVPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"haveAskedToCheckForAvailableDownloads": &Pref{
+			"haveAskedToCheckForAvailableDownloads": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"musicVideoPlaybackLocation": &Pref{
+			"musicVideoPlaybackLocation": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"volumeWSG": &Pref{
+			"volumeWSG": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"dontShowRestrictionsPrefs": &Pref{
+			"dontShowRestrictionsPrefs": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"persistentUserID": &Pref{
+			"persistentUserID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"NSApplicationCrashOnExceptions": &Pref{
+			"NSApplicationCrashOnExceptions": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"miniPlayerLargeArtVisible": &Pref{
+			"miniPlayerLargeArtVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"searchSavedTab": &Pref{
+			"searchSavedTab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"artworkDownloadDSID": &Pref{
+			"artworkDownloadDSID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"videoWindowHPos": &Pref{
+			"videoWindowHPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"controllableInterfaceGUID": &Pref{
+			"controllableInterfaceGUID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"userHasActivatedFullScreenVisualizer": &Pref{
+			"userHasActivatedFullScreenVisualizer": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"storeMediaTypeFlags": &Pref{
+			"storeMediaTypeFlags": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"imported-eq-presets": &Pref{
+			"imported-eq-presets": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"soundEnhancerEnabled": &Pref{
+			"soundEnhancerEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"miniplayerSnapMode": &Pref{
+			"miniplayerSnapMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"doesStoreSupportCloudMusicLibrary": &Pref{
+			"doesStoreSupportCloudMusicLibrary": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"eqEnabled": &Pref{
+			"eqEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.airport.airportutility": DomainPrefs{
-			"dontPerformBaseRestartWarning": &Pref{
+			"dontPerformBaseRestartWarning": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.studentd": DomainPrefs{
-			"LastDateProviderSessionToken": &Pref{
+			"LastDateProviderSessionToken": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DeviceIdentifier": &Pref{
+			"DeviceIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.systemuiserver": DomainPrefs{
-			"__NSEnableTSMDocumentWindowLevel": &Pref{
+			"__NSEnableTSMDocumentWindowLevel": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.IMCoreSpotlight": DomainPrefs{
-			"IMCSIdxVersion": &Pref{
+			"IMCSIdxVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"IMCSLastIndexedRowID": &Pref{
+			"IMCSLastIndexedRowID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMCSNeedsIndexing": &Pref{
+			"IMCSNeedsIndexing": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMCSIndexTotalRecords": &Pref{
+			"IMCSIndexTotalRecords": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMCSIdxProductVersion": &Pref{
+			"IMCSIdxProductVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"IMCSBypassIndexVersionCheckV2": &Pref{
+			"IMCSBypassIndexVersionCheckV2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.bird": DomainPrefs{
-			"optimize-storage": &Pref{
+			"optimize-storage": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"icloud-drive.account-migration-status.294735135": &Pref{
+			"icloud-drive.account-migration-status.294735135": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.xpc.activity2": DomainPrefs{
-			"ProductBuildVersion": &Pref{
+			"ProductBuildVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.iPod": DomainPrefs{
-			"com.apple.PreferenceSync.ExcludeAllSyncKeys": &Pref{
+			"com.apple.PreferenceSync.ExcludeAllSyncKeys": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.newscore2": DomainPrefs{
-			"report_concern_user_id": &Pref{
+			"report_concern_user_id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"provider_user_id": &Pref{
+			"provider_user_id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"instance_identifier": &Pref{
+			"instance_identifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.cloudd": DomainPrefs{
-			"com.apple.private.cloudkit.shouldUseGeneratedDeviceID": &Pref{
+			"com.apple.private.cloudkit.shouldUseGeneratedDeviceID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.driver.AppleBluetoothMultitouch.trackpad": DomainPrefs{
-			"TrackpadFourFingerHorizSwipeGesture": &Pref{
+			"TrackpadFourFingerHorizSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadPinch": &Pref{
+			"TrackpadPinch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"USBMouseStopsTrackpad": &Pref{
+			"USBMouseStopsTrackpad": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadFourFingerVertSwipeGesture": &Pref{
+			"TrackpadFourFingerVertSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadRotate": &Pref{
+			"TrackpadRotate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadHorizScroll": &Pref{
+			"TrackpadHorizScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadTwoFingerDoubleTapGesture": &Pref{
+			"TrackpadTwoFingerDoubleTapGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"TrackpadMomentumScroll": &Pref{
+			"TrackpadMomentumScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadFourFingerPinchGesture": &Pref{
+			"TrackpadFourFingerPinchGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"UserPreferences": &Pref{
+			"UserPreferences": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Clicking": &Pref{
+			"Clicking": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadThreeFingerTapGesture": &Pref{
+			"TrackpadThreeFingerTapGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"HIDScrollZoomModifierMask": &Pref{
+			"HIDScrollZoomModifierMask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadScroll": &Pref{
+			"TrackpadScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DragLock": &Pref{
+			"DragLock": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadFiveFingerPinchGesture": &Pref{
+			"TrackpadFiveFingerPinchGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadThreeFingerHorizSwipeGesture": &Pref{
+			"TrackpadThreeFingerHorizSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadThreeFingerVertSwipeGesture": &Pref{
+			"TrackpadThreeFingerVertSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadTwoFingerFromRightEdgeSwipeGesture": &Pref{
+			"TrackpadTwoFingerFromRightEdgeSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ForceSuppressed": &Pref{
+			"ForceSuppressed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"TrackpadCornerSecondaryClick": &Pref{
+			"TrackpadCornerSecondaryClick": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Dragging": &Pref{
+			"Dragging": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadHandResting": &Pref{
+			"TrackpadHandResting": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadRightClick": &Pref{
+			"TrackpadRightClick": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadThreeFingerDrag": &Pref{
+			"TrackpadThreeFingerDrag": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.stocks.account": DomainPrefs{
-			"deleteOnNextLaunch": &Pref{
+			"deleteOnNextLaunch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.preference.trackpad": DomainPrefs{
-			"ForceClickSavedState": &Pref{
+			"ForceClickSavedState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.SetupAssistant": DomainPrefs{
-			"PreviousSystemVersion": &Pref{
+			"PreviousSystemVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeSyncSetup2": &Pref{
+			"DidSeeSyncSetup2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"SkipExpressSettingsUpdating": &Pref{
+			"SkipExpressSettingsUpdating": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"LastSeenDiagnosticsProductVersion": &Pref{
+			"LastSeenDiagnosticsProductVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"SkipFirstLoginOptimization": &Pref{
+			"SkipFirstLoginOptimization": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"LastSeenCloudProductVersion": &Pref{
+			"LastSeenCloudProductVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeCloudSetup": &Pref{
+			"DidSeeCloudSetup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"PreviousBuildVersion": &Pref{
+			"PreviousBuildVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeApplePaySetup": &Pref{
+			"DidSeeApplePaySetup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeTrueTonePrivacy": &Pref{
+			"DidSeeTrueTonePrivacy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeScreenTime": &Pref{
+			"DidSeeScreenTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"MiniBuddyShouldLaunchToResumeSetup": &Pref{
+			"MiniBuddyShouldLaunchToResumeSetup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DidSeeTouchIDSetup": &Pref{
+			"DidSeeTouchIDSetup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"NSAddServicesToContextMenus": &Pref{
+			"NSAddServicesToContextMenus": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DidSeeActivationLock": &Pref{
+			"DidSeeActivationLock": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeSyncSetup": &Pref{
+			"DidSeeSyncSetup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeAvatarSetup": &Pref{
+			"DidSeeAvatarSetup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"MiniBuddyLaunchReason": &Pref{
+			"MiniBuddyLaunchReason": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DidSeeSiriSetup": &Pref{
+			"DidSeeSiriSetup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeTrueTone": &Pref{
+			"DidSeeTrueTone": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeePrivacy": &Pref{
+			"DidSeePrivacy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastPrivacyBundleVersion": &Pref{
+			"LastPrivacyBundleVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastSeenSiriProductVersion": &Pref{
+			"LastSeenSiriProductVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeAppStore": &Pref{
+			"DidSeeAppStore": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastPreLoginTasksPerformedVersion": &Pref{
+			"LastPreLoginTasksPerformedVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeAppearanceSetup": &Pref{
+			"DidSeeAppearanceSetup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastSeenSyncProductVersion": &Pref{
+			"LastSeenSyncProductVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastSeeniCloudStorageServicesProductVersion": &Pref{
+			"LastSeeniCloudStorageServicesProductVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastPreLoginTasksPerformedBuild": &Pref{
+			"LastPreLoginTasksPerformedBuild": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"MiniBuddyLaunchedPostMigration": &Pref{
+			"MiniBuddyLaunchedPostMigration": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DidSeeAccessibility": &Pref{
+			"DidSeeAccessibility": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastSeenBuddyBuildVersion": &Pref{
+			"LastSeenBuddyBuildVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidSeeiCloudLoginForStorageServices": &Pref{
+			"DidSeeiCloudLoginForStorageServices": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.ScriptEditor2": DomainPrefs{
-			"OSAStandardAdditions ChooseApplication Bounds": &Pref{
+			"OSAStandardAdditions ChooseApplication Bounds": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.ServicesWithUI": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.MobileSMS": DomainPrefs{
-			"TextSize": &Pref{
+			"TextSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SyndicationOnboardingVersion": &Pref{
+			"SyndicationOnboardingVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LegacyAppSidebarPersistedWidth": &Pref{
+			"LegacyAppSidebarPersistedWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"QuickSaveHasBeenUsedBefore": &Pref{
+			"QuickSaveHasBeenUsedBefore": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CatalystPreferenceMigrationVersion": &Pref{
+			"CatalystPreferenceMigrationVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"PlaySoundsKey": &Pref{
+			"PlaySoundsKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"BusinessChatPrivacyPageDisplayed": &Pref{
+			"BusinessChatPrivacyPageDisplayed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"sForceUnknownFilteringCompleted": &Pref{
+			"sForceUnknownFilteringCompleted": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"CKLastSelectedItemIdentifier": &Pref{
+			"CKLastSelectedItemIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"kCKMediaObjectManagerDefaultsOSVersion": &Pref{
+			"kCKMediaObjectManagerDefaultsOSVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"CatalystCustomFontMigrationVersion": &Pref{
+			"CatalystCustomFontMigrationVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"NotifyAboutMessagesFromUnknownContacts": &Pref{
+			"NotifyAboutMessagesFromUnknownContacts": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"CKMigratedAutoSpamReports26375262": &Pref{
+			"CKMigratedAutoSpamReports26375262": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"SidebarPersistedWidth": &Pref{
+			"SidebarPersistedWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ReadReceiptSettingsConfirmed": &Pref{
+			"ReadReceiptSettingsConfirmed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"sForceSMSSpamFilteringCompleted": &Pref{
+			"sForceSMSSpamFilteringCompleted": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"KeepMessageForDays": &Pref{
+			"KeepMessageForDays": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"PendingCleared": &Pref{
+			"PendingCleared": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"TextFontSize": &Pref{
+			"TextFontSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.ShareMenu": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.mmcs": DomainPrefs{
-			"report.LastFailedCheckDate": &Pref{
+			"report.LastFailedCheckDate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"report.sha256": &Pref{
+			"report.sha256": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"report.LastSuccessfulCheckDate": &Pref{
+			"report.LastSuccessfulCheckDate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"report.TTL": &Pref{
+			"report.TTL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.appstored": DomainPrefs{
-			"BadgeCount": &Pref{
+			"BadgeCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ArcadeSubscriptionState": &Pref{
+			"ArcadeSubscriptionState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ArcadePayoutDeviceID": &Pref{
+			"ArcadePayoutDeviceID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"WelcomeNotificationExcludedFromSample": &Pref{
+			"WelcomeNotificationExcludedFromSample": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ArcadeDeviceID": &Pref{
+			"ArcadeDeviceID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"ArcadeDeviceGUID": &Pref{
+			"ArcadeDeviceGUID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"LastOSBuildVersion": &Pref{
+			"LastOSBuildVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"WelcomeNotificationLastAppStoreConnectionProductVersion": &Pref{
+			"WelcomeNotificationLastAppStoreConnectionProductVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.PubSubAgent": DomainPrefs{
-			"TigerMigrationCompleted": &Pref{
+			"TigerMigrationCompleted": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.commcenter.callservices": DomainPrefs{
-			"last.known.icloud.id": &Pref{
+			"last.known.icloud.id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"associated.account": &Pref{
+			"associated.account": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.print.PrinterProxy": DomainPrefs{
-			"IK_Scanner_downloadURL": &Pref{
+			"IK_Scanner_downloadURL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IK_Scanner_selectedTag": &Pref{
+			"IK_Scanner_selectedTag": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IK_Scanner_PostProcessApplication": &Pref{
+			"IK_Scanner_PostProcessApplication": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.amsengagementd": DomainPrefs{
-			"AMSMetricsIdentifierUserRecordName": &Pref{
+			"AMSMetricsIdentifierUserRecordName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AMSMetricsIdentifierZoneCreated": &Pref{
+			"AMSMetricsIdentifierZoneCreated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AMSMetricsIdentifierZoneSubscriptionCreated": &Pref{
+			"AMSMetricsIdentifierZoneSubscriptionCreated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.iChat": DomainPrefs{
-			"SaveConversationsOnClose": &Pref{
+			"SaveConversationsOnClose": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"PMPrintingExpandedStateForPrint2": &Pref{
+			"PMPrintingExpandedStateForPrint2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"UnifiedChatWindowControllerSelectionGUIDSet": &Pref{
+			"UnifiedChatWindowControllerSelectionGUIDSet": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DidCheckForDuplicateChats": &Pref{
+			"DidCheckForDuplicateChats": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"HasPromptedSMSRelay": &Pref{
+			"HasPromptedSMSRelay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"HasPromptediMessageFTU": &Pref{
+			"HasPromptediMessageFTU": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DidRegenerateGroupID63841559": &Pref{
+			"DidRegenerateGroupID63841559": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"messageTracerSMSSent": &Pref{
+			"messageTracerSMSSent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerSubmitDate": &Pref{
+			"messageTracerSubmitDate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"BuddyPictureSetToGenericByUser": &Pref{
+			"BuddyPictureSetToGenericByUser": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerIMessagesSent": &Pref{
+			"messageTracerIMessagesSent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"PlaySoundsKey": &Pref{
+			"PlaySoundsKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"messageTracerSMSUsed": &Pref{
+			"messageTracerSMSUsed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerNumUpgradeOffers": &Pref{
+			"messageTracerNumUpgradeOffers": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ChatWindowControllerUnifiedIsVisible": &Pref{
+			"ChatWindowControllerUnifiedIsVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerMessagesSent": &Pref{
+			"messageTracerMessagesSent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"WebIconDatabaseEnabled": &Pref{
+			"WebIconDatabaseEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DidMarkGroupPhotosAsUnpurgeable": &Pref{
+			"DidMarkGroupPhotosAsUnpurgeable": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerUpgradesAccepted": &Pref{
+			"messageTracerUpgradesAccepted": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerIMessagesReceived": &Pref{
+			"messageTracerIMessagesReceived": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DaemonConnectionWaitTime": &Pref{
+			"DaemonConnectionWaitTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"NotifyAboutMessagesFromUnknownContacts": &Pref{
+			"NotifyAboutMessagesFromUnknownContacts": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"KeepMessagesVersionID": &Pref{
+			"KeepMessagesVersionID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"messageTracerCharactersSent": &Pref{
+			"messageTracerCharactersSent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerMessagesReceived": &Pref{
+			"messageTracerMessagesReceived": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerUpgradesDeclined": &Pref{
+			"messageTracerUpgradesDeclined": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"messageTracerSMSReceived": &Pref{
+			"messageTracerSMSReceived": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"KeepMessageForDays": &Pref{
+			"KeepMessageForDays": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"UnifiedChatListViewControllerAutomaticallySortsChats": &Pref{
+			"UnifiedChatListViewControllerAutomaticallySortsChats": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"messageTracerIMessageUsed": &Pref{
+			"messageTracerIMessageUsed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DidMigratePersonCentricIDs": &Pref{
+			"DidMigratePersonCentricIDs": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastIMDNotificationPostedDate": &Pref{
+			"LastIMDNotificationPostedDate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ChatWindowControllerUnifiedChatListWidth": &Pref{
+			"ChatWindowControllerUnifiedChatListWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"LastFailedMessageIMDNotificationPostedDate": &Pref{
+			"LastFailedMessageIMDNotificationPostedDate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SODefaultTranscriptName": &Pref{
+			"SODefaultTranscriptName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"imageBrowser.disableOpenGL": &Pref{
+			"imageBrowser.disableOpenGL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.TextEdit": DomainPrefs{
-			"PlainTextEncoding": &Pref{
+			"PlainTextEncoding": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"RichText": &Pref{
+			"RichText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"PlainTextEncodingForWrite": &Pref{
+			"PlainTextEncodingForWrite": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.HIToolbox": DomainPrefs{
-			"AppleFnUsageType": &Pref{
+			"AppleFnUsageType": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleCurrentKeyboardLayoutInputSourceID": &Pref{
+			"AppleCurrentKeyboardLayoutInputSourceID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AppleDictationAutoEnable": &Pref{
+			"AppleDictationAutoEnable": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.FinderSync": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.coreservices.uiagent": DomainPrefs{
-			"CSUIHaveCenteredGatekeeperProgressWindow": &Pref{
+			"CSUIHaveCenteredGatekeeperProgressWindow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CSUIHasSafariBeenLaunched": &Pref{
+			"CSUIHasSafariBeenLaunched": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CSUIRecommendSafariBackOffInterval": &Pref{
+			"CSUIRecommendSafariBackOffInterval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CSUILastOSVersionWhereSafariRecommendationWasMade": &Pref{
+			"CSUILastOSVersionWhereSafariRecommendationWasMade": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.CharacterPicker": DomainPrefs{
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.CharacterPaletteIM": DomainPrefs{
-			"CVFontSize": &Pref{
+			"CVFontSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"CVStartAsLargeWindow": &Pref{
+			"CVStartAsLargeWindow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.assistant.backedup": DomainPrefs{
-			"Hands Free Mode": &Pref{
+			"Hands Free Mode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Session Language": &Pref{
+			"Session Language": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Cloud Sync Enabled": &Pref{
+			"Cloud Sync Enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Cloud Sync User ID": &Pref{
+			"Cloud Sync User ID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MultiUser VoiceIdentification Enabled": &Pref{
+			"MultiUser VoiceIdentification Enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.icloud.fmfd.notbackedup": DomainPrefs{
-			"kKeychainUtilMigrationVersionKey": &Pref{
+			"kKeychainUtilMigrationVersionKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.security.cloudkeychainproxy3.keysToRegister": DomainPrefs{
-			"EnsurePeerRegistration": &Pref{
+			"EnsurePeerRegistration": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"DSID": &Pref{
+			"DSID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"KeyAccountUUID": &Pref{
+			"KeyAccountUUID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.mediaaccessibility.public": DomainPrefs{
-			"MACaptionDisplayType": &Pref{
+			"MACaptionDisplayType": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.speech.recognition.AppleSpeechRecognition.prefs": DomainPrefs{
-			"DictationIMPresentedOfflineUpgradeSuggestion": &Pref{
+			"DictationIMPresentedOfflineUpgradeSuggestion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DictationIMCommandsWindowIsOpen": &Pref{
+			"DictationIMCommandsWindowIsOpen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DictationIMCorrectionCount": &Pref{
+			"DictationIMCorrectionCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DictationIMUpgradedTo10_16": &Pref{
+			"DictationIMUpgradedTo10_16": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DictationIMUpgradedTo10_15": &Pref{
+			"DictationIMUpgradedTo10_15": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DictationIMPlaySoundUponRecognition": &Pref{
+			"DictationIMPlaySoundUponRecognition": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DictationIMLocaleIdentifier": &Pref{
+			"DictationIMLocaleIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DictationIMMessageTracesSinceLastReport": &Pref{
+			"DictationIMMessageTracesSinceLastReport": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DictationIMUseOnlyOfflineDictation": &Pref{
+			"DictationIMUseOnlyOfflineDictation": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.loginwindow": DomainPrefs{
-			"TALLogoutSavesState": &Pref{
+			"TALLogoutSavesState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MiniBuddyLaunch": &Pref{
+			"MiniBuddyLaunch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"oneTimeSSMigrationComplete": &Pref{
+			"oneTimeSSMigrationComplete": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.preferences.softwareupdate": DomainPrefs{
-			"LatestMajorOSSeenByUserBundleIdentifier": &Pref{
+			"LatestMajorOSSeenByUserBundleIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.accessibility.universalAccessAuthWarn": DomainPrefs{
-			"ThirdPartyCount": &Pref{
+			"ThirdPartyCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.internetconnect": DomainPrefs{
-			"ServiceID": &Pref{
+			"ServiceID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.TextInputMenu": DomainPrefs{
-			"visible": &Pref{
+			"visible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.messages.nicknames": DomainPrefs{
-			"NicknameAppleIDAndiCloudAccountMatchAndExist": &Pref{
+			"NicknameAppleIDAndiCloudAccountMatchAndExist": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MeCardPendingNicknamesVersion": &Pref{
+			"MeCardPendingNicknamesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"MeCardSharingVersion": &Pref{
+			"MeCardSharingVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"MeCardSharingEnabled": &Pref{
+			"MeCardSharingEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MeCardSharingImageForkedFromMeCard": &Pref{
+			"MeCardSharingImageForkedFromMeCard": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"MeCardWhitelistBlacklistNicknamesVersion": &Pref{
+			"MeCardWhitelistBlacklistNicknamesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"NicknameInfoRequestedFromPeers": &Pref{
+			"NicknameInfoRequestedFromPeers": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"MeCardSharingAudience": &Pref{
+			"MeCardSharingAudience": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NicknameScrutinyDoNotHandle": &Pref{
+			"NicknameScrutinyDoNotHandle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"ReuploadLocalNicknamesVersion": &Pref{
+			"ReuploadLocalNicknamesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.ProblemReporter": DomainPrefs{
-			"ShowComments": &Pref{
+			"ShowComments": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ShowDetails": &Pref{
+			"ShowDetails": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.gamed": DomainPrefs{
-			"natType": &Pref{
+			"natType": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"GKStoreFrontIdentifier": &Pref{
+			"GKStoreFrontIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"GKActiveEnvironmentKeyV2": &Pref{
+			"GKActiveEnvironmentKeyV2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"GKLastPushTokenPlayerID": &Pref{
+			"GKLastPushTokenPlayerID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"GKLastPushTokenEnvironment": &Pref{
+			"GKLastPushTokenEnvironment": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"GKPushEnvironmentKeyV2": &Pref{
+			"GKPushEnvironmentKeyV2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"GKLastProtocolVersionUsedKeyV2": &Pref{
+			"GKLastProtocolVersionUsedKeyV2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"GKLoginCancelled": &Pref{
+			"GKLoginCancelled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.Safari.SandboxBroker": DomainPrefs{
-			"DidMigrateDownloadFolderToSandbox": &Pref{
+			"DidMigrateDownloadFolderToSandbox": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ShowDevelopMenu": &Pref{
+			"ShowDevelopMenu": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DidMigrateResourcesToSandbox": &Pref{
+			"DidMigrateResourcesToSandbox": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DidMigrateDownloadMetadataToSandboxGroupContainer": &Pref{
+			"DidMigrateDownloadMetadataToSandboxGroupContainer": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.XcodeSourceEditor": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.AppleMediaServices.notbackedup": DomainPrefs{
-			"AMSDidRetrieveDeviceOffers": &Pref{
+			"AMSDidRetrieveDeviceOffers": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AMSDidRetrieveDeviceOffersEligibility": &Pref{
+			"AMSDidRetrieveDeviceOffersEligibility": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.imdsmsrecordstore": DomainPrefs{
-			"DeleteSequenceNumber": &Pref{
+			"DeleteSequenceNumber": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.iTunes": DomainPrefs{
-			"com.apple.iTunes.WebKit2ShowsToolTipOverTruncatedText": &Pref{
+			"com.apple.iTunes.WebKit2ShowsToolTipOverTruncatedText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"doesAccountArtistListHaveSharePermission": &Pref{
+			"doesAccountArtistListHaveSharePermission": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"dontAutomaticallySyncIPods": &Pref{
+			"dontAutomaticallySyncIPods": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MacBuddyStoreID": &Pref{
+			"MacBuddyStoreID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.apple.iTunes.WebKit2ShouldPrintBackgrounds": &Pref{
+			"com.apple.iTunes.WebKit2ShouldPrintBackgrounds": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.iTunes.WebKit2SuppressesIncrementalRendering": &Pref{
+			"com.apple.iTunes.WebKit2SuppressesIncrementalRendering": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.iTunes.WebKit2AsynchronousSpellCheckingEnabled": &Pref{
+			"com.apple.iTunes.WebKit2AsynchronousSpellCheckingEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AutomaticDeviceBackupsDisabled": &Pref{
+			"AutomaticDeviceBackupsDisabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"disableRadio": &Pref{
+			"disableRadio": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Store Apple ID": &Pref{
+			"Store Apple ID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"debugAssertCategoriesVersion": &Pref{
+			"debugAssertCategoriesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"com.apple.iTunes.WebKit2UserInterfaceDirectionPolicy": &Pref{
+			"com.apple.iTunes.WebKit2UserInterfaceDirectionPolicy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.iTunes.WebKit2EnableInheritURIQueryComponent": &Pref{
+			"com.apple.iTunes.WebKit2EnableInheritURIQueryComponent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"isAccountEnrolledInITunesMatch": &Pref{
+			"isAccountEnrolledInITunesMatch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"log-PlayQueue-LastSelectedTab": &Pref{
+			"log-PlayQueue-LastSelectedTab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"isAccountAdmin": &Pref{
+			"isAccountAdmin": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"NSApplicationCrashOnExceptions": &Pref{
+			"NSApplicationCrashOnExceptions": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.apple.iTunes.WebKit2DeveloperExtrasEnabled": &Pref{
+			"com.apple.iTunes.WebKit2DeveloperExtrasEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DeviceBackupsDisabled": &Pref{
+			"DeviceBackupsDisabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"disableShareLibraryInfo": &Pref{
+			"disableShareLibraryInfo": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"WirelessBuddyID": &Pref{
+			"WirelessBuddyID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Store DSID": &Pref{
+			"Store DSID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"storefront": &Pref{
+			"storefront": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"isAccountEnrolledInAppleMusic": &Pref{
+			"isAccountEnrolledInAppleMusic": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"log-push": &Pref{
+			"log-push": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"debugAssertCategoriesEnabled": &Pref{
+			"debugAssertCategoriesEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.textInput.keyboardServices.textReplacement": DomainPrefs{
-			"osxMajorVersForCloudKitSync": &Pref{
+			"osxMajorVersForCloudKitSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"TRCKSyncMaxCountThreshold": &Pref{
+			"TRCKSyncMaxCountThreshold": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"_KSTRCloudKitMigratable": &Pref{
+			"_KSTRCloudKitMigratable": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"KSDidPushAllLocalRecordsOnce-2": &Pref{
+			"KSDidPushAllLocalRecordsOnce-2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"osxMinorVersForCloudKitSync": &Pref{
+			"osxMinorVersForCloudKitSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"internalMigrationPercent": &Pref{
+			"internalMigrationPercent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"KSCKSubscriptionProd-TextReplacements": &Pref{
+			"KSCKSubscriptionProd-TextReplacements": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"seedMigrationPercent": &Pref{
+			"seedMigrationPercent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"seedMigrationPercent1": &Pref{
+			"seedMigrationPercent1": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"KSDidPushMigrationStatusOnce-2": &Pref{
+			"KSDidPushMigrationStatusOnce-2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"gmMigrationPercent1": &Pref{
+			"gmMigrationPercent1": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"KSDidMigrateToCloudKitOnCloud": &Pref{
+			"KSDidMigrateToCloudKitOnCloud": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"KSCloudKitMigrationDidComplete": &Pref{
+			"KSCloudKitMigrationDidComplete": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"kTRCKSyncCount": &Pref{
+			"kTRCKSyncCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"KSCKDidSetupRecordZoneProd-TextReplacements": &Pref{
+			"KSCKDidSetupRecordZoneProd-TextReplacements": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"iOSMajorVersForCloudKitSync": &Pref{
+			"iOSMajorVersForCloudKitSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"kDidMigrateToUUIDRecordName": &Pref{
+			"kDidMigrateToUUIDRecordName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"internalMigrationPercent1": &Pref{
+			"internalMigrationPercent1": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"kDidInsertSampleShortcutForPeer": &Pref{
+			"kDidInsertSampleShortcutForPeer": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"iOSMinorVersForCloudKitSync": &Pref{
+			"iOSMinorVersForCloudKitSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"gmMigrationPercent": &Pref{
+			"gmMigrationPercent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"userDidFallInMigrationAllowBatch": &Pref{
+			"userDidFallInMigrationAllowBatch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"KSSampleShortcutWasImported_CK": &Pref{
+			"KSSampleShortcutWasImported_CK": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"KSDidPullLegacyEntriesFromPeers": &Pref{
+			"KSDidPullLegacyEntriesFromPeers": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"TRCKSyncCountHalflifeInHours": &Pref{
+			"TRCKSyncCountHalflifeInHours": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"KSLastKnownUserID-TextReplacements": &Pref{
+			"KSLastKnownUserID-TextReplacements": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"osxMinorSubversionForCloudKitSync": &Pref{
+			"osxMinorSubversionForCloudKitSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"KSLSShouldUpdateCache": &Pref{
+			"KSLSShouldUpdateCache": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.diagnosticextensionsd": DomainPrefs{
-			"directoriesCleanupDone": &Pref{
+			"directoriesCleanupDone": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.Messages": DomainPrefs{
-			"hasPerformedNewDeviceBringUpSync": &Pref{
+			"hasPerformedNewDeviceBringUpSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"hasTriedToEnableCKAndSyncAfterFirstImagentConnection": &Pref{
+			"hasTriedToEnableCKAndSyncAfterFirstImagentConnection": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.NewDeviceOutreach": DomainPrefs{
-			"InitialOutreachActivityScheduled": &Pref{
+			"InitialOutreachActivityScheduled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CachedWarrantyValidityDuration": &Pref{
+			"CachedWarrantyValidityDuration": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"PostUpgradeActivityCompleted": &Pref{
+			"PostUpgradeActivityCompleted": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"PostUpgradeOSVersionKey": &Pref{
+			"PostUpgradeOSVersionKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"CachedWarrantyLocale": &Pref{
+			"CachedWarrantyLocale": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CachedWarrantyVersion": &Pref{
+			"CachedWarrantyVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.icloud.searchpartyuseragent": DomainPrefs{
-			"PersistenceLayerVersion": &Pref{
+			"PersistenceLayerVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastOSLaunchVersion": &Pref{
+			"LastOSLaunchVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"lastLaunchBootSessionUUID": &Pref{
+			"lastLaunchBootSessionUUID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"lastLaunchLocale": &Pref{
+			"lastLaunchLocale": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FMIPStateManager.fmipState": &Pref{
+			"FMIPStateManager.fmipState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.cloudpaird": DomainPrefs{
-			"MagicCloudPairingAccessorySubscriptionManateeID": &Pref{
+			"MagicCloudPairingAccessorySubscriptionManateeID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MagicCloudPairingManateeUpgradedAccount": &Pref{
+			"MagicCloudPairingManateeUpgradedAccount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"MagicCloudPairingManateeUpgraded": &Pref{
+			"MagicCloudPairingManateeUpgraded": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"MagicCloudPairingProtectedAccessorySubscription": &Pref{
+			"MagicCloudPairingProtectedAccessorySubscription": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"UploadedHSA2KeysForLocalDevice": &Pref{
+			"UploadedHSA2KeysForLocalDevice": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MagicCloudPairingAccessorySubscriptionID": &Pref{
+			"MagicCloudPairingAccessorySubscriptionID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MagicCloudPairingMasterEncryptionPreferences": &Pref{
+			"MagicCloudPairingMasterEncryptionPreferences": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"SecuredAccessoryZoneSubscription": &Pref{
+			"SecuredAccessoryZoneSubscription": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MagicCloudPairingMasterSubscriptionManateeID": &Pref{
+			"MagicCloudPairingMasterSubscriptionManateeID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MagicCloudPairingMasterSubscriptionID": &Pref{
+			"MagicCloudPairingMasterSubscriptionID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"SecuredZoneSubscription": &Pref{
+			"SecuredZoneSubscription": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MagicCloudPairingAccessoryEncryptionPreferences": &Pref{
+			"MagicCloudPairingAccessoryEncryptionPreferences": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.syncserver": DomainPrefs{
-			"SyncServicesResetWorldRunOnce": &Pref{
+			"SyncServicesResetWorldRunOnce": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"RunCompletelyDisabled": &Pref{
+			"RunCompletelyDisabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.screencaptureui": DomainPrefs{
-			"com.apple.AnnotationKit.userDefaultsVersion": &Pref{
+			"com.apple.AnnotationKit.userDefaultsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"com.apple.AnnotationKit.arrowHeadStyle": &Pref{
+			"com.apple.AnnotationKit.arrowHeadStyle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.AnnotationKit.strokeIsDashed": &Pref{
+			"com.apple.AnnotationKit.strokeIsDashed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.AnnotationKit.hasShadow": &Pref{
+			"com.apple.AnnotationKit.hasShadow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.AnnotationKit.strokeWidth": &Pref{
+			"com.apple.AnnotationKit.strokeWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.AnnotationKit.highlightStyle": &Pref{
+			"com.apple.AnnotationKit.highlightStyle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"toolbarOrigin": &Pref{
+			"toolbarOrigin": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.AnnotationKit.brushStyle": &Pref{
+			"com.apple.AnnotationKit.brushStyle": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.desktopservices": DomainPrefs{
-			"DSDontWriteNetworkStores": &Pref{
+			"DSDontWriteNetworkStores": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.security.pboxd": DomainPrefs{
-			"ILMediaBrowserMediaType": &Pref{
+			"ILMediaBrowserMediaType": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ILMediaBrowserSelectedGroupIndex1": &Pref{
+			"ILMediaBrowserSelectedGroupIndex1": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ILMediaBrowserSelectedGroup1": &Pref{
+			"ILMediaBrowserSelectedGroup1": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.keychainaccess": DomainPrefs{
-			"Keychain Item List Sorting": &Pref{
+			"Keychain Item List Sorting": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Keychain Item List Sort Descending": &Pref{
+			"Keychain Item List Sort Descending": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Last Selected Category": &Pref{
+			"Last Selected Category": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"VPNSSItemsChecked": &Pref{
+			"VPNSSItemsChecked": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Item Preview Closed": &Pref{
+			"Item Preview Closed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Last Selected Keychain": &Pref{
+			"Last Selected Keychain": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Keychains List Closed": &Pref{
+			"Keychains List Closed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.imessage": DomainPrefs{
-			"PreviewTranscodingWasInitializedToDefaultValue": &Pref{
+			"PreviewTranscodingWasInitializedToDefaultValue": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"PreviewTranscodingQualityOnWiFiWasInitializedToDefaultValue": &Pref{
+			"PreviewTranscodingQualityOnWiFiWasInitializedToDefaultValue": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.Safari.SafeBrowsing": DomainPrefs{
-			"HasMigratedSafeBrowsingEnabledDefaults": &Pref{
+			"HasMigratedSafeBrowsingEnabledDefaults": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.AppleMediaServices": DomainPrefs{
-			"AMSIncludeFullResponseInHARLogging": &Pref{
+			"AMSIncludeFullResponseInHARLogging": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AMSShowSandboxAccountUI": &Pref{
+			"AMSShowSandboxAccountUI": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AMSDeviceBiometricsState": &Pref{
+			"AMSDeviceBiometricsState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AMSUserDefaultsincludeFullResponseInHARLogging": &Pref{
+			"AMSUserDefaultsincludeFullResponseInHARLogging": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AMSMigratedToNewAccountStore": &Pref{
+			"AMSMigratedToNewAccountStore": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"AMSUserDefaultsIncludeFullRequestInHARLogging": &Pref{
+			"AMSUserDefaultsIncludeFullRequestInHARLogging": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AMSLogHARData": &Pref{
+			"AMSLogHARData": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AMSLastMigratedBuildVersion": &Pref{
+			"AMSLastMigratedBuildVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"AMSDidSetUpServerDataCache": &Pref{
+			"AMSDidSetUpServerDataCache": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AMSIncludeFullRequestInHARLogging": &Pref{
+			"AMSIncludeFullRequestInHARLogging": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AMSMigratedStorageToDefaultsForNonAMSInternal": &Pref{
+			"AMSMigratedStorageToDefaultsForNonAMSInternal": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.PhotoBooth": DomainPrefs{
-			"AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey": &Pref{
+			"AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"PBLaunchedAtLeastOnceOnLion": &Pref{
+			"PBLaunchedAtLeastOnceOnLion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"UserCameraUniqueIDPref": &Pref{
+			"UserCameraUniqueIDPref": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.MobileSMSPreview": DomainPrefs{
-			"IMPreviewGenerationMaxPxWidth": &Pref{
+			"IMPreviewGenerationMaxPxWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IMPreviewGenerationMinHeight": &Pref{
+			"IMPreviewGenerationMinHeight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IMPreviewGenerationScreenScale": &Pref{
+			"IMPreviewGenerationScreenScale": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMPreviewGenerationMinWidth": &Pref{
+			"IMPreviewGenerationMinWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.ActivityMonitor": DomainPrefs{
-			"OpenMainWindow": &Pref{
+			"OpenMainWindow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ShowCategoryAppsinLast12Hours": &Pref{
+			"ShowCategoryAppsinLast12Hours": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SelectedTab": &Pref{
+			"SelectedTab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ShowCategory": &Pref{
+			"ShowCategory": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"HasSavedState": &Pref{
+			"HasSavedState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.airplay": DomainPrefs{
-			"showInMenuBarIfPresent": &Pref{
+			"showInMenuBarIfPresent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.messages.facetime": DomainPrefs{
-			"FaceTimeTwoTimeCallthroughEnabled": &Pref{
+			"FaceTimeTwoTimeCallthroughEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.remindd": DomainPrefs{
-			"CloudKitAccountStatus": &Pref{
+			"CloudKitAccountStatus": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"preferredDefaultListObjectIDUrl": &Pref{
+			"preferredDefaultListObjectIDUrl": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ThrottlingPolicyCurrentBatchCount": &Pref{
+			"ThrottlingPolicyCurrentBatchCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"isDatabaseMigrated": &Pref{
+			"isDatabaseMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"preferredDefaultListID": &Pref{
+			"preferredDefaultListID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"cloudKitSchemaCatchUpSyncLastSuccessBuildVersion": &Pref{
+			"cloudKitSchemaCatchUpSyncLastSuccessBuildVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ThrottlingPolicyCurrentLevelIndex": &Pref{
+			"ThrottlingPolicyCurrentLevelIndex": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"spotlightIndexVersion": &Pref{
+			"spotlightIndexVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"useExtraneousAlarmBackOffThrottleInterval": &Pref{
+			"useExtraneousAlarmBackOffThrottleInterval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"CloudConfigurationPath": &Pref{
+			"CloudConfigurationPath": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"lastDatabaseMigrationSystemBuildVersion": &Pref{
+			"lastDatabaseMigrationSystemBuildVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.ncprefs": DomainPrefs{
-			"content_visibility": &Pref{
+			"content_visibility": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"sort_order": &Pref{
+			"sort_order": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.itunesstored": DomainPrefs{
-			"AccountsNotificationPlugin.ActiveStorefrontIdentifier": &Pref{
+			"AccountsNotificationPlugin.ActiveStorefrontIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.driver.AppleHIDMouse": DomainPrefs{
-			"Button4Force": &Pref{
+			"Button4Force": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ScrollH": &Pref{
+			"ScrollH": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ButtonDominance": &Pref{
+			"ButtonDominance": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Button4": &Pref{
+			"Button4": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Button4Click": &Pref{
+			"Button4Click": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Button3": &Pref{
+			"Button3": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Button1": &Pref{
+			"Button1": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Button2": &Pref{
+			"Button2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ScrollSSize": &Pref{
+			"ScrollSSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ScrollV": &Pref{
+			"ScrollV": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ScrollS": &Pref{
+			"ScrollS": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.CredentialProvider": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.itunescloud": DomainPrefs{
-			"ICDefaultsKeyLastActiveAccountDSID": &Pref{
+			"ICDefaultsKeyLastActiveAccountDSID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.stockholm": DomainPrefs{
-			"RemoteAdminV2": &Pref{
+			"RemoteAdminV2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"PKWalletShouldAutomaticallyRegisterKey": &Pref{
+			"PKWalletShouldAutomaticallyRegisterKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.Siri": DomainPrefs{
-			"VoiceTriggerUserEnabled": &Pref{
+			"VoiceTriggerUserEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"StatusMenuVisible": &Pref{
+			"StatusMenuVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.sharingd": DomainPrefs{
-			"AirDropRandomHashUUIDKey4": &Pref{
+			"AirDropRandomHashUUIDKey4": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"OneTimeAirDropReset2": &Pref{
+			"OneTimeAirDropReset2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"OneTimeAirDropReset": &Pref{
+			"OneTimeAirDropReset": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"HashManager-StoredDatabaseVersionKey": &Pref{
+			"HashManager-StoredDatabaseVersionKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"AirDropRandomHashUUIDKey2": &Pref{
+			"AirDropRandomHashUUIDKey2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"DiscoverableMode": &Pref{
+			"DiscoverableMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AutoUnlockPresentedWiFiError": &Pref{
+			"AutoUnlockPresentedWiFiError": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AutoUnlockPresentedBluetoothError": &Pref{
+			"AutoUnlockPresentedBluetoothError": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AirDropRandomHashUUIDKey3": &Pref{
+			"AirDropRandomHashUUIDKey3": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AutoUnlockWatchCurrentlyInList": &Pref{
+			"AutoUnlockWatchCurrentlyInList": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AutoUnlockWatchExistedInUnlockList": &Pref{
+			"AutoUnlockWatchExistedInUnlockList": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AirDropRandomHashUUIDKey1": &Pref{
+			"AirDropRandomHashUUIDKey1": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.AppStoreComponents": DomainPrefs{
-			"ASCLocaleID": &Pref{
+			"ASCLocaleID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.DFSLoginPlugin": DomainPrefs{
-			"WindowLeft": &Pref{
+			"WindowLeft": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"WindowTop": &Pref{
+			"WindowTop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.iCal": DomainPrefs{
-			"BirthdayEventsGenerationLastLocale": &Pref{
+			"BirthdayEventsGenerationLastLocale": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"last calendar view description": &Pref{
+			"last calendar view description": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"BirthdayEventsGenerationVersion": &Pref{
+			"BirthdayEventsGenerationVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"icaluuid": &Pref{
+			"icaluuid": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"CalendarSidebarShown": &Pref{
+			"CalendarSidebarShown": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AvailabilityShowTwentyFourHours": &Pref{
+			"AvailabilityShowTwentyFourHours": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"CalForceTruthFileRestoreHashKey": &Pref{
+			"CalForceTruthFileRestoreHashKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"last selected calendar list item": &Pref{
+			"last selected calendar list item": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CalDefaultCalendar": &Pref{
+			"CalDefaultCalendar": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"CalAgentNS_Preference_DefaultReminderCalendar": &Pref{
+			"CalAgentNS_Preference_DefaultReminderCalendar": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"display birthdays calendar": &Pref{
+			"display birthdays calendar": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSEventConcurrentProcessingEnabled": &Pref{
+			"NSEventConcurrentProcessingEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"BirthdayEventsGenerationAttemptsToResetKey": &Pref{
+			"BirthdayEventsGenerationAttemptsToResetKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"TimeZone support enabled": &Pref{
+			"TimeZone support enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Show Week Numbers": &Pref{
+			"Show Week Numbers": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"iCal version": &Pref{
+			"iCal version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"first shown minute of day": &Pref{
+			"first shown minute of day": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CalendarSidebarView": &Pref{
+			"CalendarSidebarView": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"RemindersLastMigratedSystemVersion": &Pref{
+			"RemindersLastMigratedSystemVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"LastReminderMigrationCleanupVersion": &Pref{
+			"LastReminderMigrationCleanupVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AllDayAreaHeight": &Pref{
+			"AllDayAreaHeight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"lastViewsTimeZone": &Pref{
+			"lastViewsTimeZone": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"privacyPaneHasBeenAcknowledgedVersion": &Pref{
+			"privacyPaneHasBeenAcknowledgedVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"CalendarSidebarWidth": &Pref{
+			"CalendarSidebarWidth": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"last minute of day time range": &Pref{
+			"last minute of day time range": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"first minute of day time range": &Pref{
+			"first minute of day time range": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"CalendarListMiniMonthVisibleMonths": &Pref{
+			"CalendarListMiniMonthVisibleMonths": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IncludeDebugMenu": &Pref{
+			"IncludeDebugMenu": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"WR_DONT_ASK_FOR_DEFAULT": &Pref{
+			"WR_DONT_ASK_FOR_DEFAULT": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"kLastABCReportTimeKey": &Pref{
+			"kLastABCReportTimeKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSDontMakeMainWindowKey": &Pref{
+			"NSDontMakeMainWindowKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.assistant": DomainPrefs{
-			"Experiment Identifierinvocation_feedback_experiment": &Pref{
+			"Experiment Identifierinvocation_feedback_experiment": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Has Set Up MultiUser Shared Record Subscription": &Pref{
+			"Has Set Up MultiUser Shared Record Subscription": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Initial Interstitial Delay for VoiceTrigger One-Shot without Audio Ducking": &Pref{
+			"Initial Interstitial Delay for VoiceTrigger One-Shot without Audio Ducking": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Initial Interstitial Delay - stark": &Pref{
+			"Initial Interstitial Delay - stark": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"MultiUser Shared Data Needs Sync": &Pref{
+			"MultiUser Shared Data Needs Sync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Initial Interstitial Delay": &Pref{
+			"Initial Interstitial Delay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Myriad Device Delay": &Pref{
+			"Myriad Device Delay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Myriad Device Class": &Pref{
+			"Myriad Device Class": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Myriad Device Adjust": &Pref{
+			"Myriad Device Adjust": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Has Set Up Account Status Subscription": &Pref{
+			"Has Set Up Account Status Subscription": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Voice Trigger Needs Sync": &Pref{
+			"Voice Trigger Needs Sync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Myriad Device Trump Delay": &Pref{
+			"Myriad Device Trump Delay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Experiment Identifier": &Pref{
+			"Experiment Identifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Flush Session Tickets Cache": &Pref{
+			"Flush Session Tickets Cache": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Server Has Provisioned Myriad": &Pref{
+			"Server Has Provisioned Myriad": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Myriad VTEndtimeDistanceThreshold": &Pref{
+			"Myriad VTEndtimeDistanceThreshold": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Has Set Up Key Value Subscription": &Pref{
+			"Has Set Up Key Value Subscription": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Borealis Education Header Display Count": &Pref{
+			"Borealis Education Header Display Count": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Experiment Identifiersiri_vox_tap_to_siri_behavior_experiment": &Pref{
+			"Experiment Identifiersiri_vox_tap_to_siri_behavior_experiment": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Has Set Up Voice Trigger Subscription": &Pref{
+			"Has Set Up Voice Trigger Subscription": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Last Known Analytics Store State": &Pref{
+			"Last Known Analytics Store State": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"Experiment Identifiersiri_vox_sounds_experiment": &Pref{
+			"Experiment Identifiersiri_vox_sounds_experiment": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"Manual Endpointing Threshold": &Pref{
+			"Manual Endpointing Threshold": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.dt.Xcode": DomainPrefs{
-			"IBPreferencesMigrated": &Pref{
+			"IBPreferencesMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"IBAppliesAutoResizingRulesWhileResizing": &Pref{
+			"IBAppliesAutoResizingRulesWhileResizing": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"XCFontAndColorCurrentTheme": &Pref{
+			"XCFontAndColorCurrentTheme": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IDEKeyBindingCurrentPreferenceSet": &Pref{
+			"IDEKeyBindingCurrentPreferenceSet": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IDESourceControlPreferencesVersion": &Pref{
+			"IDESourceControlPreferencesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DVTFontAndColorLastUpdatedToolsVersion": &Pref{
+			"DVTFontAndColorLastUpdatedToolsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"DVTDownloadableAutomaticUpdate": &Pref{
+			"DVTDownloadableAutomaticUpdate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IDEUserWantsToEnableDeveloperSystemPolicyMode": &Pref{
+			"IDEUserWantsToEnableDeveloperSystemPolicyMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.AMPLibraryAgent": DomainPrefs{
-			"iTunes-media-folder-url": &Pref{
+			"iTunes-media-folder-url": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"debugAssertCategoriesVersion": &Pref{
+			"debugAssertCategoriesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"have-shown-cloud-UI": &Pref{
+			"have-shown-cloud-UI": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"storeSupportsUPP": &Pref{
+			"storeSupportsUPP": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"updateLevel": &Pref{
+			"updateLevel": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ITUserPrefsMigrated": &Pref{
+			"ITUserPrefsMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"books-migrated": &Pref{
+			"books-migrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"storeSupportsPreviousPurchases": &Pref{
+			"storeSupportsPreviousPurchases": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"persistentUserID": &Pref{
+			"persistentUserID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"storeSupportsCloudPurchases": &Pref{
+			"storeSupportsCloudPurchases": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"imported-media-domains": &Pref{
+			"imported-media-domains": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"books-persistent-id": &Pref{
+			"books-persistent-id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"storeMediaTypeFlags": &Pref{
+			"storeMediaTypeFlags": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"podcasts-migrated": &Pref{
+			"podcasts-migrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"storeSupportsPasswordSettings": &Pref{
+			"storeSupportsPasswordSettings": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"imported-media-domains-modification-date": &Pref{
+			"imported-media-domains-modification-date": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"show-home-sharing-turned-on-in-iTunes-warning": &Pref{
+			"show-home-sharing-turned-on-in-iTunes-warning": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"devices-persistent-id": &Pref{
+			"devices-persistent-id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"debugAssertCategoriesEnabled": &Pref{
+			"debugAssertCategoriesEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"podcasts-persistent-id": &Pref{
+			"podcasts-persistent-id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.wifi.keychain-format": DomainPrefs{
-			"Version": &Pref{
+			"Version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.facetime.bag": DomainPrefs{
-			"URL": &Pref{
+			"URL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"CacheTime": &Pref{
+			"CacheTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.TelephonyUtilities": DomainPrefs{
-			"GondolaLastAccountsChangedState": &Pref{
+			"GondolaLastAccountsChangedState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"GondolaGeneratedIdentifier": &Pref{
+			"GondolaGeneratedIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"registeredProvidersVersion": &Pref{
+			"registeredProvidersVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"CachedVCCaps": &Pref{
+			"CachedVCCaps": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"relayCallingDisabled": &Pref{
+			"relayCallingDisabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"GondolaLatestVersion": &Pref{
+			"GondolaLatestVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"GondolaSyncedVersion": &Pref{
+			"GondolaSyncedVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"FaceTimePhotosEnabled": &Pref{
+			"FaceTimePhotosEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.findmy.fmfcore.notbackedup": DomainPrefs{
-			"frontMostWindow": &Pref{
+			"frontMostWindow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"publicAPSToken": &Pref{
+			"publicAPSToken": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"FMFGarbageCollectorIdentityKey": &Pref{
+			"FMFGarbageCollectorIdentityKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"FMFLimitedPrecisionPrefKey.limitedPrecision": &Pref{
+			"FMFLimitedPrecisionPrefKey.limitedPrecision": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"windowVisible": &Pref{
+			"windowVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.AppStore": DomainPrefs{
-			"__uniquePageGroupID-9.WebKit2UserInterfaceDirectionPolicy": &Pref{
+			"__uniquePageGroupID-9.WebKit2UserInterfaceDirectionPolicy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-12.WebKit2DeveloperExtrasEnabled": &Pref{
+			"__uniquePageGroupID-12.WebKit2DeveloperExtrasEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"mostRecentTabIdentifier": &Pref{
+			"mostRecentTabIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AutoPlayVideoSetting": &Pref{
+			"AutoPlayVideoSetting": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.AppStore.WebKit2UserInterfaceDirectionPolicy": &Pref{
+			"com.apple.AppStore.WebKit2UserInterfaceDirectionPolicy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"appStoreBadgeCount": &Pref{
+			"appStoreBadgeCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-1.WebKit2ShowsToolTipOverTruncatedText": &Pref{
+			"__uniquePageGroupID-1.WebKit2ShowsToolTipOverTruncatedText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"UserSetAutoPlayVideoSetting": &Pref{
+			"UserSetAutoPlayVideoSetting": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"lastBootstrapTimeZone": &Pref{
+			"lastBootstrapTimeZone": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-9.WebKit2SuppressesIncrementalRendering": &Pref{
+			"__uniquePageGroupID-9.WebKit2SuppressesIncrementalRendering": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ASAcknowledgedOnboardingVersion": &Pref{
+			"ASAcknowledgedOnboardingVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"__uniquePageGroupID-12.WebKit2ShowsToolTipOverTruncatedText": &Pref{
+			"__uniquePageGroupID-12.WebKit2ShowsToolTipOverTruncatedText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-9.WebKit2ShowsToolTipOverTruncatedText": &Pref{
+			"__uniquePageGroupID-9.WebKit2ShowsToolTipOverTruncatedText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.AppStore.WebKit2SuppressesIncrementalRendering": &Pref{
+			"com.apple.AppStore.WebKit2SuppressesIncrementalRendering": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-1.WebKit2DeveloperExtrasEnabled": &Pref{
+			"__uniquePageGroupID-1.WebKit2DeveloperExtrasEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-9.WebKit2DeveloperExtrasEnabled": &Pref{
+			"__uniquePageGroupID-9.WebKit2DeveloperExtrasEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey": &Pref{
+			"AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"__uniquePageGroupID-12.WebKit2UserInterfaceDirectionPolicy": &Pref{
+			"__uniquePageGroupID-12.WebKit2UserInterfaceDirectionPolicy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-12.WebKit2SuppressesIncrementalRendering": &Pref{
+			"__uniquePageGroupID-12.WebKit2SuppressesIncrementalRendering": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.AppStore.WebKit2ShowsToolTipOverTruncatedText": &Pref{
+			"com.apple.AppStore.WebKit2ShowsToolTipOverTruncatedText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.AppStore.WebKit2DeveloperExtrasEnabled": &Pref{
+			"com.apple.AppStore.WebKit2DeveloperExtrasEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-1.WebKit2UserInterfaceDirectionPolicy": &Pref{
+			"__uniquePageGroupID-1.WebKit2UserInterfaceDirectionPolicy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"__uniquePageGroupID-1.WebKit2SuppressesIncrementalRendering": &Pref{
+			"__uniquePageGroupID-1.WebKit2SuppressesIncrementalRendering": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.AdPlatforms": DomainPrefs{
-			"AppStorePAAvailable": &Pref{
+			"AppStorePAAvailable": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"LatestPAVersion": &Pref{
+			"LatestPAVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"acknowledgedPersonalizedAdsVersion": &Pref{
+			"acknowledgedPersonalizedAdsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.keyboard": DomainPrefs{
-			"KeyboardWordOrSentenceTrackingForPFL": &Pref{
+			"KeyboardWordOrSentenceTrackingForPFL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.assistant.support": DomainPrefs{
-			"Siri Data Sharing Opt-In Status": &Pref{
+			"Siri Data Sharing Opt-In Status": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Assistant Enabled": &Pref{
+			"Assistant Enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Dictation Enabled": &Pref{
+			"Dictation Enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.QuickLook": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.internetconfigspec": DomainPrefs{
-			"WWWHomePage": &Pref{
+			"WWWHomePage": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.icloud.fmfd": DomainPrefs{
-			"numberOfFriendsFollowersKey": &Pref{
+			"numberOfFriendsFollowersKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"kFMFDStoredDataVersion": &Pref{
+			"kFMFDStoredDataVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"storedDSID": &Pref{
+			"storedDSID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"lazyInitTimeSecsStoredKey": &Pref{
+			"lazyInitTimeSecsStoredKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"kFMFDlastLoggedInPrsId": &Pref{
+			"kFMFDlastLoggedInPrsId": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.newscore": DomainPrefs{
-			"notificationEnableAssetPrefetching": &Pref{
+			"notificationEnableAssetPrefetching": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.news.notification_receipt_event_endpoint": &Pref{
+			"com.apple.news.notification_receipt_event_endpoint": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"news_url_resolution_subscription_status": &Pref{
+			"news_url_resolution_subscription_status": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.apple.news.default_event_endpoint": &Pref{
+			"com.apple.news.default_event_endpoint": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"notificationAssetPrefetchingRequiresWatch": &Pref{
+			"notificationAssetPrefetchingRequiresWatch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"notificationArticleDiversificationSimilarityExpectationStart": &Pref{
+			"notificationArticleDiversificationSimilarityExpectationStart": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"force_refresh_user_segmentation": &Pref{
+			"force_refresh_user_segmentation": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"notificationArticleDiversificationUniquePublisherExpectationYIntercept": &Pref{
+			"notificationArticleDiversificationUniquePublisherExpectationYIntercept": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"notificationArticleDiversificationUniquePublisherExpectationSlope": &Pref{
+			"notificationArticleDiversificationUniquePublisherExpectationSlope": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"news_carplay_is_enabled": &Pref{
+			"news_carplay_is_enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.newsd.download.hasUnfinishedWork": &Pref{
+			"com.apple.newsd.download.hasUnfinishedWork": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"notificationArticleDiversificationSimilarityExpectationEnd": &Pref{
+			"notificationArticleDiversificationSimilarityExpectationEnd": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"use_parsec_results_for_widget": &Pref{
+			"use_parsec_results_for_widget": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.AddressBook": DomainPrefs{
-			"ABBirthDayVisible": &Pref{
+			"ABBirthDayVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ABMetaDataChangeCount": &Pref{
+			"ABMetaDataChangeCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ABTextSizeIncrement": &Pref{
+			"ABTextSizeIncrement": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ABVersion": &Pref{
+			"ABVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ABLastImportShown": &Pref{
+			"ABLastImportShown": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ABDefaultSourceID": &Pref{
+			"ABDefaultSourceID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSPreferencesSelectedIndex": &Pref{
+			"NSPreferencesSelectedIndex": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AB21vCardEncoding": &Pref{
+			"AB21vCardEncoding": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSPreferencesContentSize": &Pref{
+			"NSPreferencesContentSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ABPrivateVCardFieldsEnabled": &Pref{
+			"ABPrivateVCardFieldsEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.SpeechRecognitionCore": DomainPrefs{
-			"AllowAudioDucking": &Pref{
+			"AllowAudioDucking": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.commerce": DomainPrefs{
-			"LastUpdateNotificationOSMajorVersion": &Pref{
+			"LastUpdateNotificationOSMajorVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"PurchasesInflight": &Pref{
+			"PurchasesInflight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.networkresolutiond": DomainPrefs{
-			"_networkDevices": &Pref{
+			"_networkDevices": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.TV": DomainPrefs{
-			"automaticallyDownloadArtwork": &Pref{
+			"automaticallyDownloadArtwork": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"userWantsPlaybackNotifications": &Pref{
+			"userWantsPlaybackNotifications": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"gridViewSearchDoesNotSwitchView": &Pref{
+			"gridViewSearchDoesNotSwitchView": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"persistentUserID": &Pref{
+			"persistentUserID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"miniplayerUserSetHeight": &Pref{
+			"miniplayerUserSetHeight": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"storeMediaTypeFlags": &Pref{
+			"storeMediaTypeFlags": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"dontAskForAllPlaylistItemRemoval": &Pref{
+			"dontAskForAllPlaylistItemRemoval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"checkedHLSKeysTime": &Pref{
+			"checkedHLSKeysTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"storeSupportsCloudPurchases": &Pref{
+			"storeSupportsCloudPurchases": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"debugAssertCategoriesVersion": &Pref{
+			"debugAssertCategoriesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"com.apple.TV.WebKit2EnableInheritURIQueryComponent": &Pref{
+			"com.apple.TV.WebKit2EnableInheritURIQueryComponent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"cddbPrefsOK": &Pref{
+			"cddbPrefsOK": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.TV.WebKit2SuppressesIncrementalRendering": &Pref{
+			"com.apple.TV.WebKit2SuppressesIncrementalRendering": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"miniplayerVPos": &Pref{
+			"miniplayerVPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"controllableInterfaceGUID": &Pref{
+			"controllableInterfaceGUID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"automaticallyDeleteVideoAssetsAfterWatching": &Pref{
+			"automaticallyDeleteVideoAssetsAfterWatching": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"videoWindowVPos": &Pref{
+			"videoWindowVPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"miniplayerHPos": &Pref{
+			"miniplayerHPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"playbackIsFullscreen": &Pref{
+			"playbackIsFullscreen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"storeSupportsPasswordSettings": &Pref{
+			"storeSupportsPasswordSettings": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.apple.TV.WebKit2UserInterfaceDirectionPolicy": &Pref{
+			"com.apple.TV.WebKit2UserInterfaceDirectionPolicy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"haveAskedToCheckForAvailableDownloads": &Pref{
+			"haveAskedToCheckForAvailableDownloads": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"videoWindowHPos": &Pref{
+			"videoWindowHPos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"miniplayerSnapMode": &Pref{
+			"miniplayerSnapMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"storeSupportsUPP": &Pref{
+			"storeSupportsUPP": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"showWelcomeScreenState": &Pref{
+			"showWelcomeScreenState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"videoWindowVSize": &Pref{
+			"videoWindowVSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"updateLevel": &Pref{
+			"updateLevel": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ITUserPrefsMigrated": &Pref{
+			"ITUserPrefsMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"miniplayerWidthInDesignCoords": &Pref{
+			"miniplayerWidthInDesignCoords": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"storeSupportsPreviousPurchases": &Pref{
+			"storeSupportsPreviousPurchases": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"tabViewMode": &Pref{
+			"tabViewMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"preloadFilesIntoMemory": &Pref{
+			"preloadFilesIntoMemory": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"userMaxConcurrentDownloads": &Pref{
+			"userMaxConcurrentDownloads": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NSApplicationCrashOnExceptions": &Pref{
+			"NSApplicationCrashOnExceptions": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"videoWindowHSize": &Pref{
+			"videoWindowHSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"checkForAvailableDownloads": &Pref{
+			"checkForAvailableDownloads": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"miniPlayerQueueVisible": &Pref{
+			"miniPlayerQueueVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"debugAssertCategoriesEnabled": &Pref{
+			"debugAssertCategoriesEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"firstLaunchShowWelcomeScreenState": &Pref{
+			"firstLaunchShowWelcomeScreenState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.TV.WebKit2ShowsToolTipOverTruncatedText": &Pref{
+			"com.apple.TV.WebKit2ShowsToolTipOverTruncatedText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"musicVideoPlaybackLocation": &Pref{
+			"musicVideoPlaybackLocation": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"miniPlayerLargeArtVisible": &Pref{
+			"miniPlayerLargeArtVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"userHasActivatedFullScreenVisualizer": &Pref{
+			"userHasActivatedFullScreenVisualizer": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.TV.WebKit2AsynchronousSpellCheckingEnabled": &Pref{
+			"com.apple.TV.WebKit2AsynchronousSpellCheckingEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.TV.WebKit2ShouldPrintBackgrounds": &Pref{
+			"com.apple.TV.WebKit2ShouldPrintBackgrounds": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.preference.general": DomainPrefs{
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.menuextra.battery": DomainPrefs{
-			"ShowPercent": &Pref{
+			"ShowPercent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.imdpersistence.IMDPersistenceAgent": DomainPrefs{
-			"LogAllIOErrors": &Pref{
+			"LogAllIOErrors": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.SafariServices": DomainPrefs{
-			"SearchProviderIdentifierMigratedToSystemPreference": &Pref{
+			"SearchProviderIdentifierMigratedToSystemPreference": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.siri.shortcuts": DomainPrefs{
-			"WFServicesShortcutsMigrated": &Pref{
+			"WFServicesShortcutsMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"WFDidUnconflictShortcuts": &Pref{
+			"WFDidUnconflictShortcuts": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"LegacyShortcutsZoneSubscriptionUnsubscribed": &Pref{
+			"LegacyShortcutsZoneSubscriptionUnsubscribed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"WFDefaultShortcutsVersion": &Pref{
+			"WFDefaultShortcutsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"WFLastSyncedFlagsHash": &Pref{
+			"WFLastSyncedFlagsHash": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.SystemProfiler": DomainPrefs{
-			"PrefsVersion": &Pref{
+			"PrefsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"SPLastDocumentsSize": &Pref{
+			"SPLastDocumentsSize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.remindd.babysitter": DomainPrefs{
-			"LastSystemVersion": &Pref{
+			"LastSystemVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.internal.ck": DomainPrefs{
-			"DictationOnDeviceSamplingDisabled": &Pref{
+			"DictationOnDeviceSamplingDisabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"DictationSamplingRates": &Pref{
+			"DictationSamplingRates": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"DefaultCacheKey": &Pref{
+			"DefaultCacheKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"DefaultWarmupScriptsExtension": &Pref{
+			"DefaultWarmupScriptsExtension": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"WarmupScriptIdentifiers": &Pref{
+			"WarmupScriptIdentifiers": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"HasSetUpRecordZoneSubscription": &Pref{
+			"HasSetUpRecordZoneSubscription": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ByteCodeCacheEnabled": &Pref{
+			"ByteCodeCacheEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"DefaultBootTimeUpdateScripts": &Pref{
+			"DefaultBootTimeUpdateScripts": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"WarmupModularScriptIdentifiers": &Pref{
+			"WarmupModularScriptIdentifiers": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"DisableFBFForUEI": &Pref{
+			"DisableFBFForUEI": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.internetconfigpriv": DomainPrefs{
-			"WWWHomePage": &Pref{
+			"WWWHomePage": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.dock": DomainPrefs{
-			"wvous-br-corner": &Pref{
+			"wvous-br-corner": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"showAppExposeGestureEnabled": &Pref{
+			"showAppExposeGestureEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"autohide": &Pref{
+			"autohide": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"tilesize": &Pref{
+			"tilesize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"no-bouncing": &Pref{
+			"no-bouncing": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"region": &Pref{
+			"region": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"showhidden": &Pref{
+			"showhidden": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"launchanim": &Pref{
+			"launchanim": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"showMissionControlGestureEnabled": &Pref{
+			"showMissionControlGestureEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"wvous-tr-modifier": &Pref{
+			"wvous-tr-modifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"magnification": &Pref{
+			"magnification": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"largesize": &Pref{
+			"largesize": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"mod-count": &Pref{
+			"mod-count": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"trash-full": &Pref{
+			"trash-full": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"minimize-to-application": &Pref{
+			"minimize-to-application": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"loc": &Pref{
+			"loc": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"expose-animation-duration": &Pref{
+			"expose-animation-duration": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"wvous-tr-corner": &Pref{
+			"wvous-tr-corner": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"autohide-delay": &Pref{
+			"autohide-delay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.AdLib": DomainPrefs{
-			"adprivacydMaxSegmentSendInterval": &Pref{
+			"adprivacydMaxSegmentSendInterval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"personalizedAdsMigrated": &Pref{
+			"personalizedAdsMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"partiality-segment": &Pref{
+			"partiality-segment": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"CKDPIDSyncState": &Pref{
+			"CKDPIDSyncState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"forceLimitAdTracking": &Pref{
+			"forceLimitAdTracking": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"adprivacydSegmentInterval": &Pref{
+			"adprivacydSegmentInterval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"allowIdentifierForAdvertising": &Pref{
+			"allowIdentifierForAdvertising": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowApplePersonalizedAdvertising": &Pref{
+			"allowApplePersonalizedAdvertising": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.amp.mediasharingd": DomainPrefs{
-			"public-sharing-enabled": &Pref{
+			"public-sharing-enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"home-sharing-sequence-id": &Pref{
+			"home-sharing-sequence-id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"home-sharing-group-id": &Pref{
+			"home-sharing-group-id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"home-sharing-computer-id": &Pref{
+			"home-sharing-computer-id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"photo-sharing-enabled": &Pref{
+			"photo-sharing-enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"shared-library-id": &Pref{
+			"shared-library-id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"shared-library-name": &Pref{
+			"shared-library-name": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"public-sharing-is-protected": &Pref{
+			"public-sharing-is-protected": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"shared-library-machine-id": &Pref{
+			"shared-library-machine-id": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"home-sharing-enabled": &Pref{
+			"home-sharing-enabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.systempreferences": DomainPrefs{
-			"com.apple.preferences.sharing.selectedservice": &Pref{
+			"com.apple.preferences.sharing.selectedservice": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ThirdPartyCount": &Pref{
+			"ThirdPartyCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SoundTab": &Pref{
+			"SoundTab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.dtandsspref.lastselectedtab": &Pref{
+			"com.apple.dtandsspref.lastselectedtab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSFullScreenMenuItemEverywhere": &Pref{
+			"NSFullScreenMenuItemEverywhere": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"trackpad.lastselectedtab": &Pref{
+			"trackpad.lastselectedtab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"ShowAllMode": &Pref{
+			"ShowAllMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ICQ_iCloudFirstRunNotificationShown": &Pref{
+			"ICQ_iCloudFirstRunNotificationShown": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DisableAutoLoginButtonIsHidden": &Pref{
+			"DisableAutoLoginButtonIsHidden": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.apple.preferences.accounts.outline.usersparent": &Pref{
+			"com.apple.preferences.accounts.outline.usersparent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"mouse.lastselectedtab": &Pref{
+			"mouse.lastselectedtab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSQuitAlwaysKeepsWindows": &Pref{
+			"NSQuitAlwaysKeepsWindows": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.SecurityPref.Privacy.LastSourceSelected": &Pref{
+			"com.apple.SecurityPref.Privacy.LastSourceSelected": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SecurityPrefTab": &Pref{
+			"SecurityPrefTab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.preference.keyboard.lastselectedtab": &Pref{
+			"com.apple.preference.keyboard.lastselectedtab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"com.apple.datetimepref.lastselectedtab": &Pref{
+			"com.apple.datetimepref.lastselectedtab": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.UIKit": DomainPrefs{
-			"hasAccessibilityBeenMigrated": &Pref{
+			"hasAccessibilityBeenMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.SafariBookmarksSyncAgent": DomainPrefs{
-			"CloudBookmarksSupplementalClientIdentifier": &Pref{
+			"CloudBookmarksSupplementalClientIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"NewestLaunchedSafariBookmarksSyncAgentVersion": &Pref{
+			"NewestLaunchedSafariBookmarksSyncAgentVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.VoiceOverTraining": DomainPrefs{
-			"doNotShowSplashScreen": &Pref{
+			"doNotShowSplashScreen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.newsd": DomainPrefs{
-			"FCAppConfigurationBundleShortVersionKey": &Pref{
+			"FCAppConfigurationBundleShortVersionKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.itunescloud.daemon": DomainPrefs{
-			"ICDDefaultsKeyKnownActiveAccountDSID": &Pref{
+			"ICDDefaultsKeyKnownActiveAccountDSID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.Image_Capture": DomainPrefs{
-			"IK_lastUsedDeviceUUID": &Pref{
+			"IK_lastUsedDeviceUUID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"IK_Camera_selectedTag": &Pref{
+			"IK_Camera_selectedTag": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IK_lastUsedDeviceIsRemote": &Pref{
+			"IK_lastUsedDeviceIsRemote": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IK_Scanner_downloadURL": &Pref{
+			"IK_Scanner_downloadURL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IKC_sort_ascending": &Pref{
+			"IKC_sort_ascending": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.imagekit.cameraviewmode": &Pref{
+			"com.apple.imagekit.cameraviewmode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IK_prefsVersion": &Pref{
+			"IK_prefsVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"IK_Camera_selectedPathType": &Pref{
+			"IK_Camera_selectedPathType": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IKC_sort_key": &Pref{
+			"IKC_sort_key": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IK_Accessory_selectedTag": &Pref{
+			"IK_Accessory_selectedTag": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IK_Scanner_PostProcessApplication": &Pref{
+			"IK_Scanner_PostProcessApplication": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IK_Camera_preferPostPocessingApp": &Pref{
+			"IK_Camera_preferPostPocessingApp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IK_lastUsedDeviceName": &Pref{
+			"IK_lastUsedDeviceName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.SharedLinks": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.driver.AppleBluetoothMultitouch.mouse": DomainPrefs{
-			"MouseOneFingerDoubleTapGesture": &Pref{
+			"MouseOneFingerDoubleTapGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseTwoFingerHorizSwipeGesture": &Pref{
+			"MouseTwoFingerHorizSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseVerticalScroll": &Pref{
+			"MouseVerticalScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"UserPreferences": &Pref{
+			"UserPreferences": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseHorizontalScroll": &Pref{
+			"MouseHorizontalScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseButtonDivision": &Pref{
+			"MouseButtonDivision": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseMomentumScroll": &Pref{
+			"MouseMomentumScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseButtonMode": &Pref{
+			"MouseButtonMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseTwoFingerDoubleTapGesture": &Pref{
+			"MouseTwoFingerDoubleTapGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.dock.external.extra.x86_64": DomainPrefs{
-			"ShowSolidarity": &Pref{
+			"ShowSolidarity": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.commcenter.data": DomainPrefs{
-			"pw_ver": &Pref{
+			"pw_ver": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.imagecapture": DomainPrefs{
-			"loggingLevel": &Pref{
+			"loggingLevel": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.notificationcenterui": DomainPrefs{
-			"bannerTime": &Pref{
+			"bannerTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.pipagent": DomainPrefs{
-			"Size": &Pref{
+			"Size": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.AMPDevicesAgent": DomainPrefs{
-			"debugAssertCategoriesEnabled": &Pref{
+			"debugAssertCategoriesEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"persistentUserID": &Pref{
+			"persistentUserID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"dontAutomaticallySyncIPods": &Pref{
+			"dontAutomaticallySyncIPods": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"updateLevel": &Pref{
+			"updateLevel": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"storeMediaTypeFlags": &Pref{
+			"storeMediaTypeFlags": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"AutomaticDeviceBackupsDisabled": &Pref{
+			"AutomaticDeviceBackupsDisabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"storeSupportsCloudPurchases": &Pref{
+			"storeSupportsCloudPurchases": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"debugAssertCategoriesVersion": &Pref{
+			"debugAssertCategoriesVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ITUserPrefsMigrated": &Pref{
+			"ITUserPrefsMigrated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"userMaxConcurrentDownloads": &Pref{
+			"userMaxConcurrentDownloads": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.MobileSMS.CKDNDList": DomainPrefs{
-			"CatalystDNDMigrationVersion": &Pref{
+			"CatalystDNDMigrationVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"CKDNDMigrationKey": &Pref{
+			"CKDNDMigrationKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.protectedcloudstorage.protectedcloudkeysyncing": DomainPrefs{
-			"registrySyncIdentifier": &Pref{
+			"registrySyncIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.VoiceOver4.local": DomainPrefs{
-			"SCRCUserDefaultsAllowAirPlay": &Pref{
+			"SCRCUserDefaultsAllowAirPlay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SCRCUserDefaultsUnplannedShutdownCount": &Pref{
+			"SCRCUserDefaultsUnplannedShutdownCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"SCRCUserDefaultsPlannedShutdownSuccessful": &Pref{
+			"SCRCUserDefaultsPlannedShutdownSuccessful": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.suggestions": DomainPrefs{
-			"SuggestionsAllowGeocode": &Pref{
+			"SuggestionsAllowGeocode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"spToLearnMigrationPerformed": &Pref{
+			"spToLearnMigrationPerformed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"findToShowMigrationPerformed": &Pref{
+			"findToShowMigrationPerformed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.NetworkUtility": DomainPrefs{
-			"NUPingCount": &Pref{
+			"NUPingCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NUTracerouteAddress": &Pref{
+			"NUTracerouteAddress": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NUPortScanEnd": &Pref{
+			"NUPortScanEnd": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NUSelectedTabItem": &Pref{
+			"NUSelectedTabItem": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NULookupAddress": &Pref{
+			"NULookupAddress": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NUFingerPerson": &Pref{
+			"NUFingerPerson": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NUPortScanAddress": &Pref{
+			"NUPortScanAddress": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NUPingChoice": &Pref{
+			"NUPingChoice": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NUPingAddress": &Pref{
+			"NUPingAddress": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NUNetstatChoice": &Pref{
+			"NUNetstatChoice": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NUPortScanStart": &Pref{
+			"NUPortScanStart": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NUWhoisAddress": &Pref{
+			"NUWhoisAddress": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NUWhoisSelectedServer": &Pref{
+			"NUWhoisSelectedServer": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"NUPortScanRange": &Pref{
+			"NUPortScanRange": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.siri.VoiceShortcuts": DomainPrefs{
-			"VCLSDatabaseUUIDKey": &Pref{
+			"VCLSDatabaseUUIDKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"VCLSDataSequenceKey": &Pref{
+			"VCLSDataSequenceKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.Safari": DomainPrefs{
-			"ResetCloudHistory": &Pref{
+			"ResetCloudHistory": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"WebKitHistoryItemLimit": &Pref{
+			"WebKitHistoryItemLimit": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"WebKitInitialTimedLayoutDelay": &Pref{
+			"WebKitInitialTimedLayoutDelay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ShowFullURLInSmartSearchField": &Pref{
+			"ShowFullURLInSmartSearchField": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled": &Pref{
+			"com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"cloudBookmarksMigrationEligibilityDataInvalidated": &Pref{
+			"cloudBookmarksMigrationEligibilityDataInvalidated": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"UniversalSearchEnabled": &Pref{
+			"UniversalSearchEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"WebKitDeveloperExtrasEnabledPreferenceKey": &Pref{
+			"WebKitDeveloperExtrasEnabledPreferenceKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SuppressSearchSuggestions": &Pref{
+			"SuppressSearchSuggestions": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"WebKitHistoryAgeInDaysLimit": &Pref{
+			"WebKitHistoryAgeInDaysLimit": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IncludeDebugMenu": &Pref{
+			"IncludeDebugMenu": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IncludeDevelopMenu": &Pref{
+			"IncludeDevelopMenu": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IncludeInternalDebugMenu": &Pref{
+			"IncludeInternalDebugMenu": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.accounts": DomainPrefs{
-			"ACOneTimeSMTPFixAccountSync": &Pref{
+			"ACOneTimeSMTPFixAccountSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ACOneTimeLDAPFixAccountSync": &Pref{
+			"ACOneTimeLDAPFixAccountSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.visualintelligence": DomainPrefs{
-			"bypassAvailability": &Pref{
+			"bypassAvailability": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"enableBooksDomain": &Pref{
+			"enableBooksDomain": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"enableLandmarkDomain": &Pref{
+			"enableLandmarkDomain": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"enableArtDomain": &Pref{
+			"enableArtDomain": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"firstTimeExperience": &Pref{
+			"firstTimeExperience": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"enableCoarseClassification": &Pref{
+			"enableCoarseClassification": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"initialized": &Pref{
+			"initialized": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"enablePetsDomain": &Pref{
+			"enablePetsDomain": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"enableScreenshots": &Pref{
+			"enableScreenshots": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"debugUI": &Pref{
+			"debugUI": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"enableSafariApp": &Pref{
+			"enableSafariApp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"sendLocationInfo": &Pref{
+			"sendLocationInfo": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"enableAlbumsDomain": &Pref{
+			"enableAlbumsDomain": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"enableQuickLook": &Pref{
+			"enableQuickLook": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"enableNatureDomain": &Pref{
+			"enableNatureDomain": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"enablePhotosApp": &Pref{
+			"enablePhotosApp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"sendOCRText": &Pref{
+			"sendOCRText": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.accountsd": DomainPrefs{
-			"com.apple.mail.searchableIndex.lastProcessedAttachmentIDKey": &Pref{
+			"com.apple.mail.searchableIndex.lastProcessedAttachmentIDKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"LastSystemVersion": &Pref{
+			"LastSystemVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.fileproviderd": DomainPrefs{
-			"com.apple.fileproviderd.did-drop-daemon-corespotlight-index": &Pref{
+			"com.apple.fileproviderd.did-drop-daemon-corespotlight-index": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.screencapture": DomainPrefs{
-			"location": &Pref{
+			"location": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"style": &Pref{
+			"style": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"captureDelay": &Pref{
+			"captureDelay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"last-selection-display": &Pref{
+			"last-selection-display": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"video": &Pref{
+			"video": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.SoftwareUpdate": DomainPrefs{
-			"AutoUpdateMajorOSVersion": &Pref{
+			"AutoUpdateMajorOSVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.Preferences": DomainPrefs{
-			"UserDictionaryImportedSinceMaintenance": &Pref{
+			"UserDictionaryImportedSinceMaintenance": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"UserDictionaryLocalPeerIdentityCurrent": &Pref{
+			"UserDictionaryLocalPeerIdentityCurrent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.sociallayerd.CloudKit.ckwriter": DomainPrefs{
-			"accountLastKnownUserRecordID": &Pref{
+			"accountLastKnownUserRecordID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"accountAvailable": &Pref{
+			"accountAvailable": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"writerDone": &Pref{
+			"writerDone": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.classroom": DomainPrefs{
-			"allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0": &Pref{
+			"allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0-ask": &Pref{
+			"allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0": &Pref{
+			"allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomOpenURL-ask": &Pref{
+			"allowClassroomOpenURL-ask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0-ask": &Pref{
+			"allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomOpenURL": &Pref{
+			"allowClassroomOpenURL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0-ask": &Pref{
+			"allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0-ask": &Pref{
+			"allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0": &Pref{
+			"allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0-ask": &Pref{
+			"forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0": &Pref{
+			"allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0": &Pref{
+			"forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomOpenApp": &Pref{
+			"allowClassroomOpenApp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"allowClassroomOpenApp-ask": &Pref{
+			"allowClassroomOpenApp-ask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.CloudKit": DomainPrefs{
-			"AccountInfoValidationCounter": &Pref{
+			"AccountInfoValidationCounter": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.findmy.fmipcore.notbackedup": DomainPrefs{
-			"publicAPSToken": &Pref{
+			"publicAPSToken": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"itemLearnMoreURL": &Pref{
+			"itemLearnMoreURL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"frontMostWindow": &Pref{
+			"frontMostWindow": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"windowVisible": &Pref{
+			"windowVisible": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"deviceImageVersion": &Pref{
+			"deviceImageVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"FMIPGarbageCollectorIdentityKey": &Pref{
+			"FMIPGarbageCollectorIdentityKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"FMIPLimitedPrecisionPrefKey.limitedPrecision": &Pref{
+			"FMIPLimitedPrecisionPrefKey.limitedPrecision": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.tipsd": DomainPrefs{
-			"TPSWelcomeNotificationViewedVersion": &Pref{
+			"TPSWelcomeNotificationViewedVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"TPSTipsAppInstalled": &Pref{
+			"TPSTipsAppInstalled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"TPSOfflineLastProcessedRemoteContentIdentifier": &Pref{
+			"TPSOfflineLastProcessedRemoteContentIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"DeliveryInfoVersion": &Pref{
+			"DeliveryInfoVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"TPSLastMajorVersion": &Pref{
+			"TPSLastMajorVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"ConsecutiveNotificationsCount": &Pref{
+			"ConsecutiveNotificationsCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"TPSWelcomeNotificationReminderState": &Pref{
+			"TPSWelcomeNotificationReminderState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.CoreGraphics": DomainPrefs{
-			"DisplayUseForcedGray": &Pref{
+			"DisplayUseForcedGray": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DisplayUseInvertedPolarity": &Pref{
+			"DisplayUseInvertedPolarity": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.DirectoryUtility": DomainPrefs{
-			"FirstLaunch": &Pref{
+			"FirstLaunch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.AvatarUI.Staryu": DomainPrefs{
-			"AVTAvatarHasDisplayedAnimojiSplashScreen": &Pref{
+			"AVTAvatarHasDisplayedAnimojiSplashScreen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AVTAvatarHasDisplayedCameraEffectsSplashScreen": &Pref{
+			"AVTAvatarHasDisplayedCameraEffectsSplashScreen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AVTAvatarHasDisplayedPaddleView": &Pref{
+			"AVTAvatarHasDisplayedPaddleView": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AVTAvatarHasDisplayedSplashScreen": &Pref{
+			"AVTAvatarHasDisplayedSplashScreen": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AVTAvatarUILastCacheVersion": &Pref{
+			"AVTAvatarUILastCacheVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.networkConnect": DomainPrefs{
-			"VPNShowTime": &Pref{
+			"VPNShowTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.UserAccountUpdater": DomainPrefs{
-			"com.apple.HidLibraryFolderAlready": &Pref{
+			"com.apple.HidLibraryFolderAlready": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.madrid": DomainPrefs{
-			"IMCloudKitStartingInitialSync": &Pref{
+			"IMCloudKitStartingInitialSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CloudKitIsSyncing": &Pref{
+			"CloudKitIsSyncing": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CloudKitIsRemovedFromBackup": &Pref{
+			"CloudKitIsRemovedFromBackup": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CloudKitIsEligibleForTruthZone": &Pref{
+			"CloudKitIsEligibleForTruthZone": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"CloudKitEligibleToToggleMiCSwitch": &Pref{
+			"CloudKitEligibleToToggleMiCSwitch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"IMCloudKitSyncControllerSyncTypeKey": &Pref{
+			"IMCloudKitSyncControllerSyncTypeKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"CloudKitCheckedMiCSwitchEligibilityOnImagentLaunch": &Pref{
+			"CloudKitCheckedMiCSwitchEligibilityOnImagentLaunch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"createdChatZone": &Pref{
+			"createdChatZone": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"hasCompletedInitialCKSync": &Pref{
+			"hasCompletedInitialCKSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CloudKitSyncingEnabled": &Pref{
+			"CloudKitSyncingEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"IMCloudKitSyncControllerSyncRecordTypeKey": &Pref{
+			"IMCloudKitSyncControllerSyncRecordTypeKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"initialSyncRecordHasBeenWritten": &Pref{
+			"initialSyncRecordHasBeenWritten": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMCloudKitSyncControllerSyncStateKey": &Pref{
+			"IMCloudKitSyncControllerSyncStateKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMCloudKitStartingPeriodicSync": &Pref{
+			"IMCloudKitStartingPeriodicSync": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMCloudKitSyncPaused": &Pref{
+			"IMCloudKitSyncPaused": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"RequestPriorityRamp": &Pref{
+			"RequestPriorityRamp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"IMCloudKitAccountStatusKey": &Pref{
+			"IMCloudKitAccountStatusKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"IMCloudKitStartingEnabledSettingChange": &Pref{
+			"IMCloudKitStartingEnabledSettingChange": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMCKFinishedFetchingAttachmentsFromCloudKit": &Pref{
+			"IMCKFinishedFetchingAttachmentsFromCloudKit": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CKMOCAccountsMatch": &Pref{
+			"CKMOCAccountsMatch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"IMCloudKitStartingDisableDevices": &Pref{
+			"IMCloudKitStartingDisableDevices": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"oneTimeMOCAccountCheckV2": &Pref{
+			"oneTimeMOCAccountCheckV2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"enableCKSyncingV2": &Pref{
+			"enableCKSyncingV2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.rapport": DomainPrefs{
-			"familySyncedName": &Pref{
+			"familySyncedName": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.menuextra.clock": DomainPrefs{
-			"DateFormat": &Pref{
+			"DateFormat": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.imessage.bag": DomainPrefs{
-			"URL": &Pref{
+			"URL": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"CacheTime": &Pref{
+			"CacheTime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.sms": DomainPrefs{
-			"hasBeenApprovedForSMSRelay": &Pref{
+			"hasBeenApprovedForSMSRelay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.Automator": DomainPrefs{
-			"NSSplitView AMDocumentMinor Expanded Position": &Pref{
+			"NSSplitView AMDocumentMinor Expanded Position": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSNavLastUserSetHideExtensionButtonState": &Pref{
+			"NSNavLastUserSetHideExtensionButtonState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"NSSplitView AMLibraryActionsMajor Expanded Position": &Pref{
+			"NSSplitView AMLibraryActionsMajor Expanded Position": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AMLogTabViewSelectedIndex": &Pref{
+			"AMLogTabViewSelectedIndex": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.weather.internal": DomainPrefs{
-			"userId": &Pref{
+			"userId": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.FaceTime": DomainPrefs{
-			"DidMigrateToSixteenByNineAspectRatio": &Pref{
+			"DidMigrateToSixteenByNineAspectRatio": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"kPromptEnableReadRecipts": &Pref{
+			"kPromptEnableReadRecipts": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"CustomRingtone": &Pref{
+			"CustomRingtone": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"PhoneNumberUpgradeShown": &Pref{
+			"PhoneNumberUpgradeShown": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"PreferredVideoDeviceUID": &Pref{
+			"PreferredVideoDeviceUID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.AssistiveControl.virtualKeyboard": DomainPrefs{
-			"SCLaunchedAsSlave": &Pref{
+			"SCLaunchedAsSlave": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"PanelPosition": &Pref{
+			"PanelPosition": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DesiredPanelWindowPosition": &Pref{
+			"DesiredPanelWindowPosition": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.Accessibility": DomainPrefs{
-			"InvertColorsEnabled": &Pref{
+			"InvertColorsEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"GrayscaleDisplay": &Pref{
+			"GrayscaleDisplay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AXSClassicInvertColorsPreference": &Pref{
+			"AXSClassicInvertColorsPreference": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"KeyRepeatInterval": &Pref{
+			"KeyRepeatInterval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"CommandAndControlEnabled": &Pref{
+			"CommandAndControlEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ApplicationAccessibilityEnabled": &Pref{
+			"ApplicationAccessibilityEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DarkenSystemColors": &Pref{
+			"DarkenSystemColors": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FullKeyboardAccessFocusRingEnabled": &Pref{
+			"FullKeyboardAccessFocusRingEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"GenericAccessibilityClientEnabled": &Pref{
+			"GenericAccessibilityClientEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"AccessibilityEnabled": &Pref{
+			"AccessibilityEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"KeyRepeatEnabled": &Pref{
+			"KeyRepeatEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"KeyRepeatDelay": &Pref{
+			"KeyRepeatDelay": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ZoomTouchEnabled": &Pref{
+			"ZoomTouchEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DifferentiateWithoutColor": &Pref{
+			"DifferentiateWithoutColor": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FullKeyboardAccessEnabled": &Pref{
+			"FullKeyboardAccessEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"BrailleInputDeviceConnected": &Pref{
+			"BrailleInputDeviceConnected": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"AutomationEnabled": &Pref{
+			"AutomationEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ReduceMotionEnabled": &Pref{
+			"ReduceMotionEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SpeakThisEnabled": &Pref{
+			"SpeakThisEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"EnhancedBackgroundContrastEnabled": &Pref{
+			"EnhancedBackgroundContrastEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"VoiceOverTouchEnabled": &Pref{
+			"VoiceOverTouchEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.ipTelephony": DomainPrefs{
-			"ImsLoggingEnabled": &Pref{
+			"ImsLoggingEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.ColorSyncCalibrator": DomainPrefs{
-			"722524374X-shareMode": &Pref{
+			"722524374X-shareMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"722524374X-targetTemp": &Pref{
+			"722524374X-targetTemp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"722524374X-name": &Pref{
+			"722524374X-name": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"722524374X-expertMode": &Pref{
+			"722524374X-expertMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.StatusKitAgent": DomainPrefs{
-			"reauthCount": &Pref{
+			"reauthCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.AppleMultitouchTrackpad": DomainPrefs{
-			"TrackpadThreeFingerDrag": &Pref{
+			"TrackpadThreeFingerDrag": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadPinch": &Pref{
+			"TrackpadPinch": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"USBMouseStopsTrackpad": &Pref{
+			"USBMouseStopsTrackpad": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadFourFingerVertSwipeGesture": &Pref{
+			"TrackpadFourFingerVertSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ActuationStrength": &Pref{
+			"ActuationStrength": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ActuateDetents": &Pref{
+			"ActuateDetents": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"FirstClickThreshold": &Pref{
+			"FirstClickThreshold": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"SecondClickThreshold": &Pref{
+			"SecondClickThreshold": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadTwoFingerDoubleTapGesture": &Pref{
+			"TrackpadTwoFingerDoubleTapGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadHorizScroll": &Pref{
+			"TrackpadHorizScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadMomentumScroll": &Pref{
+			"TrackpadMomentumScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadFourFingerPinchGesture": &Pref{
+			"TrackpadFourFingerPinchGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadRotate": &Pref{
+			"TrackpadRotate": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Clicking": &Pref{
+			"Clicking": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadThreeFingerTapGesture": &Pref{
+			"TrackpadThreeFingerTapGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadThreeFingerHorizSwipeGesture": &Pref{
+			"TrackpadThreeFingerHorizSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadScroll": &Pref{
+			"TrackpadScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"DragLock": &Pref{
+			"DragLock": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadFiveFingerPinchGesture": &Pref{
+			"TrackpadFiveFingerPinchGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"ForceSuppressed": &Pref{
+			"ForceSuppressed": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"TrackpadThreeFingerVertSwipeGesture": &Pref{
+			"TrackpadThreeFingerVertSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadTwoFingerFromRightEdgeSwipeGesture": &Pref{
+			"TrackpadTwoFingerFromRightEdgeSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"UserPreferences": &Pref{
+			"UserPreferences": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"HIDScrollZoomModifierMask": &Pref{
+			"HIDScrollZoomModifierMask": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadHandResting": &Pref{
+			"TrackpadHandResting": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadRightClick": &Pref{
+			"TrackpadRightClick": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Dragging": &Pref{
+			"Dragging": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadFourFingerHorizSwipeGesture": &Pref{
+			"TrackpadFourFingerHorizSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"TrackpadCornerSecondaryClick": &Pref{
+			"TrackpadCornerSecondaryClick": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.ImageCaptureService": DomainPrefs{
-			"IK_Accessory_selectedTag": &Pref{
+			"IK_Accessory_selectedTag": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.screensaver": DomainPrefs{
-			"tokenRemovalAction": &Pref{
+			"tokenRemovalAction": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.AppleMultitouchMouse": DomainPrefs{
-			"MouseOneFingerDoubleTapGesture": &Pref{
+			"MouseOneFingerDoubleTapGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseTwoFingerHorizSwipeGesture": &Pref{
+			"MouseTwoFingerHorizSwipeGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseVerticalScroll": &Pref{
+			"MouseVerticalScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"UserPreferences": &Pref{
+			"UserPreferences": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseHorizontalScroll": &Pref{
+			"MouseHorizontalScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseButtonDivision": &Pref{
+			"MouseButtonDivision": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseMomentumScroll": &Pref{
+			"MouseMomentumScroll": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"version": &Pref{
+			"version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"MouseButtonMode": &Pref{
+			"MouseButtonMode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"MouseTwoFingerDoubleTapGesture": &Pref{
+			"MouseTwoFingerDoubleTapGesture": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.universalaccessAuthWarning": DomainPrefs{
-			"2::/Applications/Logi Options.app": &Pref{
+			"2::/Applications/Logi Options.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::com.logitech.manager.daemon": &Pref{
+			"2::com.logitech.manager.daemon": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Microsoft Teams (work or school).app": &Pref{
+			"3::/Applications/Microsoft Teams (work or school).app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::com.lightpillar.Mosaic-setapp": &Pref{
+			"2::com.lightpillar.Mosaic-setapp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/CloudBerry Backup.app": &Pref{
+			"1::/Applications/CloudBerry Backup.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.getcleanshot.app-setapp": &Pref{
+			"3::com.getcleanshot.app-setapp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Setapp/Mosaic.app/Contents/MacOS/Mosaic": &Pref{
+			"2::/Applications/Setapp/Mosaic.app/Contents/MacOS/Mosaic": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/Applications/Clipy.app/Contents/MacOS/Clipy": &Pref{
+			"/Applications/Clipy.app/Contents/MacOS/Clipy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications": &Pref{
+			"3::/Applications": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/xScope.app/Contents/MacOS/xScope": &Pref{
+			"3::/Applications/xScope.app/Contents/MacOS/xScope": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Microsoft Teams.app": &Pref{
+			"3::/Applications/Microsoft Teams.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app/Contents/MacOS/goland": &Pref{
+			"1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app/Contents/MacOS/goland": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications": &Pref{
+			"1::/Applications": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.microsoft.teams2": &Pref{
+			"3::com.microsoft.teams2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Discord.app": &Pref{
+			"3::/Applications/Discord.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Microsoft Edge.app": &Pref{
+			"3::/Applications/Microsoft Edge.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app/Contents/MacOS/LogiMgrDaemon": &Pref{
+			"2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app/Contents/MacOS/LogiMgrDaemon": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Skitch.app": &Pref{
+			"3::/Applications/Skitch.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app": &Pref{
+			"3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/Applications/Alfred 4.app/Contents/MacOS/Alfred": &Pref{
+			"/Applications/Alfred 4.app/Contents/MacOS/Alfred": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Toast 19 Pro.app": &Pref{
+			"3::/Applications/Toast 19 Pro.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::com.vmware.fusion": &Pref{
+			"1::com.vmware.fusion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::com.lastpass.lastpassmacdesktop": &Pref{
+			"2::com.lastpass.lastpassmacdesktop": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.clipy-app.Clipy": &Pref{
+			"com.clipy-app.Clipy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.google.Chrome": &Pref{
+			"3::com.google.Chrome": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app": &Pref{
+			"1::/Users/mikeschinkel/Library/Application Support/JetBrains/Toolbox/apps/Goland/ch-0/232.8660.185/GoLand.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/Microsoft Teams.app": &Pref{
+			"1::/Applications/Microsoft Teams.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app/Contents/MacOS/ScreenFlowHelper": &Pref{
+			"3::/Applications/ScreenFlow.app/Contents/Library/LoginItems/ScreenFlowHelper.app/Contents/MacOS/ScreenFlowHelper": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Microsoft Teams (work or school).app/Contents/MacOS/MSTeams": &Pref{
+			"3::/Applications/Microsoft Teams (work or school).app/Contents/MacOS/MSTeams": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/RingCentral.app": &Pref{
+			"3::/Applications/RingCentral.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::com.amazon.Amazon-Chime": &Pref{
+			"2::com.amazon.Amazon-Chime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.mutedeck.mac": &Pref{
+			"com.mutedeck.mac": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app/Contents/MacOS/Hide Menu Icons": &Pref{
+			"3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app/Contents/MacOS/Hide Menu Icons": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Snappy.app/Contents/MacOS/Snappy": &Pref{
+			"2::/Applications/Snappy.app/Contents/MacOS/Snappy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::me.waydabber.BetterDummy": &Pref{
+			"3::me.waydabber.BetterDummy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/GoToMeeting.app": &Pref{
+			"3::/Applications/GoToMeeting.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Google Chrome.app/Contents/MacOS/Google Chrome": &Pref{
+			"3::/Applications/Google Chrome.app/Contents/MacOS/Google Chrome": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::WSG985FR47.net.telestream.screenflowhelper": &Pref{
+			"3::WSG985FR47.net.telestream.screenflowhelper": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Slack.app": &Pref{
+			"3::/Applications/Slack.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/Applications/Alfred 4.app": &Pref{
+			"/Applications/Alfred 4.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/BetterDisplay.app": &Pref{
+			"1::/Applications/BetterDisplay.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::com.logi.cp-dev-mgr": &Pref{
+			"2::com.logi.cp-dev-mgr": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.runningwithcrayons.Alfred": &Pref{
+			"com.runningwithcrayons.Alfred": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Xnapper.app": &Pref{
+			"3::/Applications/Xnapper.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/xScope.app": &Pref{
+			"3::/Applications/xScope.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.microsoft.edgemac": &Pref{
+			"3::com.microsoft.edgemac": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/Applications/zoom.us.app": &Pref{
+			"/Applications/zoom.us.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/System/Applications/Automator.app/Contents/MacOS/Automator": &Pref{
+			"/System/Applications/Automator.app/Contents/MacOS/Automator": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/Applications/Clipy.app": &Pref{
+			"/Applications/Clipy.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy": &Pref{
+			"3::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Snip.app": &Pref{
+			"3::/Applications/Snip.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::ro.nextwave.Snappy": &Pref{
+			"2::ro.nextwave.Snappy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.parallels.toolbox.HideMenuIcons": &Pref{
+			"3::com.parallels.toolbox.HideMenuIcons": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Google Chrome.app": &Pref{
+			"3::/Applications/Google Chrome.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/VMware Fusion-8.5.10.app/Contents/MacOS/VMware Fusion": &Pref{
+			"1::/Applications/VMware Fusion-8.5.10.app/Contents/MacOS/VMware Fusion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.ringcentral.glip": &Pref{
+			"3::com.ringcentral.glip": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Acorn.app": &Pref{
+			"3::/Applications/Acorn.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/Applications/MuteDeck/MuteDeck.app": &Pref{
+			"/Applications/MuteDeck/MuteDeck.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app": &Pref{
+			"2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app/Contents/MacOS/TimingHelper": &Pref{
+			"3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app/Contents/MacOS/TimingHelper": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app": &Pref{
+			"2::/Applications/Logi Options.app/Contents/Support/LogiMgrDaemon.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Setapp/Mosaic.app": &Pref{
+			"2::/Applications/Setapp/Mosaic.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::me.waydabber.BetterDummy": &Pref{
+			"1::me.waydabber.BetterDummy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/LastPass.app": &Pref{
+			"2::/Applications/LastPass.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::info.eurocomp.TimingHelper": &Pref{
+			"3::info.eurocomp.TimingHelper": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.amazon.Amazon-Chime": &Pref{
+			"3::com.amazon.Amazon-Chime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy": &Pref{
+			"1::/Applications/BetterDisplay.app/Contents/MacOS/BetterDummy": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/iTerm.app": &Pref{
+			"1::/Applications/iTerm.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/OBS.app": &Pref{
+			"1::/Applications/OBS.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/HP RGS Receiver.app": &Pref{
+			"1::/Applications/HP RGS Receiver.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::J8RPQ294UB.com.skitch.SkitchHelper": &Pref{
+			"3::J8RPQ294UB.com.skitch.SkitchHelper": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::com.logitech.Logi-Options": &Pref{
+			"2::com.logitech.Logi-Options": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Logi Options.app/Contents/MacOS/Logi Options": &Pref{
+			"2::/Applications/Logi Options.app/Contents/MacOS/Logi Options": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"us.zoom.xos": &Pref{
+			"us.zoom.xos": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/Slack.app": &Pref{
+			"1::/Applications/Slack.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Snappy.app": &Pref{
+			"2::/Applications/Snappy.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::com.jetbrains.goland": &Pref{
+			"1::com.jetbrains.goland": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::info.eurocomp.Timing2": &Pref{
+			"3::info.eurocomp.Timing2": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Xnapper.app/Contents/MacOS/Xnapper": &Pref{
+			"3::/Applications/Xnapper.app/Contents/MacOS/Xnapper": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/RingCentral.app/Contents/MacOS/RingCentral": &Pref{
+			"3::/Applications/RingCentral.app/Contents/MacOS/RingCentral": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/Applications/zoom.us.app/Contents/MacOS/zoom.us": &Pref{
+			"/Applications/zoom.us.app/Contents/MacOS/zoom.us": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/BetterDisplay.app": &Pref{
+			"3::/Applications/BetterDisplay.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/zoom.us.app": &Pref{
+			"3::/Applications/zoom.us.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"com.apple.Automator": &Pref{
+			"com.apple.Automator": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app/Contents/MacOS/J8RPQ294UB.com.skitch.SkitchHelper": &Pref{
+			"3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app/Contents/MacOS/J8RPQ294UB.com.skitch.SkitchHelper": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime": &Pref{
+			"3::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Setapp/CleanShot X.app/Contents/MacOS/CleanShot X Setapp": &Pref{
+			"3::/Applications/Setapp/CleanShot X.app/Contents/MacOS/CleanShot X Setapp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/ScreenFlow.app": &Pref{
+			"3::/Applications/ScreenFlow.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Amazon Chime.app": &Pref{
+			"2::/Applications/Amazon Chime.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/VirtualBox.app": &Pref{
+			"1::/Applications/VirtualBox.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/Applications/MuteDeck/MuteDeck.app/Contents/MacOS/MuteDeck": &Pref{
+			"/Applications/MuteDeck/MuteDeck.app/Contents/MacOS/MuteDeck": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Timing.app": &Pref{
+			"3::/Applications/Timing.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime": &Pref{
+			"2::/Applications/Amazon Chime.app/Contents/MacOS/Amazon Chime": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Timing.app/Contents/MacOS/Timing": &Pref{
+			"3::/Applications/Timing.app/Contents/MacOS/Timing": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Amazon Chime.app": &Pref{
+			"3::/Applications/Amazon Chime.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app": &Pref{
+			"3::/Applications/Skitch.app/Contents/Library/LoginItems/J8RPQ294UB.com.skitch.SkitchHelper.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.iconfactory.xScope": &Pref{
+			"3::com.iconfactory.xScope": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Applications/LastPass.app/Contents/MacOS/LastPass": &Pref{
+			"2::/Applications/LastPass.app/Contents/MacOS/LastPass": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"/System/Applications/Automator.app": &Pref{
+			"/System/Applications/Automator.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"1::/Applications/VMware Fusion-8.5.10.app": &Pref{
+			"1::/Applications/VMware Fusion-8.5.10.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Loom.app": &Pref{
+			"3::/Applications/Loom.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/var/tmp/LogMeIn Rescue - 4C61/Support-LogMeInRescue.app": &Pref{
+			"3::/var/tmp/LogMeIn Rescue - 4C61/Support-LogMeInRescue.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Setapp/CleanShot X.app": &Pref{
+			"3::/Applications/Setapp/CleanShot X.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::com.devuap.beautyshotapp": &Pref{
+			"3::com.devuap.beautyshotapp": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app": &Pref{
+			"3::/Applications/Timing.app/Contents/Library/LoginItems/TimingHelper.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge": &Pref{
+			"3::/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/var/tmp/LogMeIn Rescue - 4C61": &Pref{
+			"3::/var/tmp/LogMeIn Rescue - 4C61": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app": &Pref{
+			"3::/Applications/Parallels Toolbox.app/Contents/Applications/Hide Menu Icons.app": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/MacOS/logioptionsplus_agent": &Pref{
+			"2::/Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/MacOS/logioptionsplus_agent": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.findmy": DomainPrefs{
-			"restoreState": &Pref{
+			"restoreState": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"coarseServiceAcknowledged_v1.0": &Pref{
+			"coarseServiceAcknowledged_v1.0": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"onboarding_v2.0": &Pref{
+			"onboarding_v2.0": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.FolderActionsDispatcher": DomainPrefs{
-			"folderActionsEnabled": &Pref{
+			"folderActionsEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.SocialLayer": DomainPrefs{
-			"SharedWithYouEnabled": &Pref{
+			"SharedWithYouEnabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.security.KCN": DomainPrefs{
-			"absentCircleWithNoReason": &Pref{
+			"absentCircleWithNoReason": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
-			"lastCircleStatus": &Pref{
+			"lastCircleStatus": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"pendingApplicationReminderInterval": &Pref{
+			"pendingApplicationReminderInterval": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.GEO": DomainPrefs{
-			"DefaultsSanitizedVersion": &Pref{
+			"DefaultsSanitizedVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.SharedWebCredentials": DomainPrefs{
-			"recheckVersion": &Pref{
+			"recheckVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.suggestd": DomainPrefs{
-			"DeviceIdentifier": &Pref{
+			"DeviceIdentifier": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.CallHistorySyncHelper": DomainPrefs{
-			"/Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transaction.log": &Pref{
+			"/Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transaction.log": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"CallHistoryDeviceCount": &Pref{
+			"CallHistoryDeviceCount": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"/Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transactions.log": &Pref{
+			"/Users/mikeschinkel/Library/Application Support/CallHistoryTransactions/transactions.log": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.dashboard": DomainPrefs{
-			"devmode": &Pref{
+			"devmode": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"mcx-disabled": &Pref{
+			"mcx-disabled": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.SystemManaged,
+				Labels: filters.Labels{
+					&filters.SystemManaged,
 				},
 			},
 		},
 		"com.apple.FontRegistry.user": DomainPrefs{
-			"Version": &Pref{
+			"Version": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.imagent": DomainPrefs{
-			"Setting.EnableReadReceipts": &Pref{
+			"Setting.EnableReadReceipts": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
-			"Setting.GlobalReadReceiptsVersionID": &Pref{
+			"Setting.GlobalReadReceiptsVersionID": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"changeToken-syncStoreVersion": &Pref{
+			"changeToken-syncStoreVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"IMChatVocabularyUpdaterDidPerformInitialUpdateKey": &Pref{
+			"IMChatVocabularyUpdaterDidPerformInitialUpdateKey": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
-			"attachmentZoneChangeToken-syncStoreVersion": &Pref{
+			"attachmentZoneChangeToken-syncStoreVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"messagesChangeToken-syncStoreVersion": &Pref{
+			"messagesChangeToken-syncStoreVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
-			"archivedMessagesChangeToken-syncStoreVersion": &Pref{
+			"archivedMessagesChangeToken-syncStoreVersion": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.VersionMigration,
+				Labels: filters.Labels{
+					&filters.VersionMigration,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.PhotoProjects": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},
 		"com.apple.messaging.watchdog": DomainPrefs{
-			"watchdogWatermark": &Pref{
+			"watchdogWatermark": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.RuntimeState,
+				Labels: filters.Labels{
+					&filters.RuntimeState,
 				},
 			},
 		},
 		"com.apple.preferences.extensions.PhotoEditing": DomainPrefs{
-			"userHasOrdered": &Pref{
+			"userHasOrdered": DomainPref{
 				NoDefault: true,
-				Labels: macprefs.Labels{
-					&macprefs.UserManaged,
+				Labels: filters.Labels{
+					&filters.UserManaged,
 				},
 			},
 		},

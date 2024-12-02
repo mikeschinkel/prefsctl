@@ -87,9 +87,9 @@ import (
 
 type PreferenceDomain string
 
-// GetPreferenceDomains returns a list of all preference domains available
+// RetrievePreferenceDomains returns a list of all preference domains available
 // for the current user on macOS.
-func GetPreferenceDomains() (domains []PreferenceDomain, err error) {
+func RetrievePreferenceDomains() (domains []PreferenceDomain, err error) {
 	var count int
 
 	// Get the CFArray of preference domains
@@ -123,8 +123,8 @@ end:
 	return domains, err
 }
 
-// GetDomainPreferences returns all available preferences for this domain
-func GetDomainPreferences(d PreferenceDomain) (prefs []*Preference, err error) {
+// Retrieve returns all available preferences for this domain
+func Retrieve(d PreferenceDomain) (prefs []*Preference, err error) {
 	var numPrefs int
 
 	// Convert domain name to CFString

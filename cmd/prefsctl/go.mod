@@ -1,11 +1,10 @@
-module prefsctl
+module github.com/mikeschinkel/cmd/prefsctl
 
 go 1.22.3
 
 require (
 	github.com/mikeschinkel/prefsctl v0.0.0-20241118023524-c8cd02749f50
 	github.com/spf13/cobra v1.8.1
-	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (

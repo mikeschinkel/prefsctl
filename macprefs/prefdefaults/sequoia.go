@@ -1,9 +1,5 @@
 package prefdefaults
 
-import (
-	"github.com/mikeschinkel/prefsctl/macprefs"
-)
-
-func sequoiaPrefDefaults() macprefs.DomainPrefDefaults {
+func sequoiaPrefDefaults() DomainDefaults {
 	return montereyPrefDefaults()
 }

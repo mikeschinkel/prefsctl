@@ -20,7 +20,6 @@ type Group interface {
 	AddKeyValue(KeyValue)
 	LogArgs() []any
 	ErrorInfo() error
-	Initialize() error
 	ShallowCopy() Group
 	fmt.Stringer
 }

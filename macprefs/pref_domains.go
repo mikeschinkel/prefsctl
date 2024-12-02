@@ -1,6 +1,7 @@
 package macprefs
 
 import (
+	"fmt"
 	"io"
 	"slices"
 	"strings"
@@ -22,12 +23,34 @@ func GetPrefDefault(id PrefId) *PrefDefault {
 	return pd
 }
 
-type PrefDomains []*PrefsDomain
+type PrefDomains struct {
+	domains        []*PrefsDomain
+	initialized    bool
+	prefsRetrieved bool
+}
+
+func (dd *PrefDomains) String() string {
+	return fmt.Sprintf("Domains: %d, Initialized: %t, PrefsRetrieved: %t",
+		len(dd.domains),
+		dd.initialized,
+		dd.prefsRetrieved,
+	)
+}
+
+func NewPrefDomains(domains []*PrefsDomain) *PrefDomains {
+	return &PrefDomains{
+		domains: domains,
+	}
+}
 
 func (dd *PrefDomains) Initialize() (err error) {
 	var osCode macosutils.Code
 	var dmf DefaultsMapFunc
 	var errs errutil.MultiErr
+
+	if dd.initialized {
+		goto end
+	}
 
 	osCode, err = macosutils.VersionCode()
 	if err != nil {
@@ -50,30 +73,59 @@ func (dd *PrefDomains) Initialize() (err error) {
 			prefDefaultsLookup[PrefId(id)] = dv
 		}
 	}
-	for _, domain := range *dd {
-		err = domain.Initialize()
-		if err != nil {
-			errs.Add(err) // TODO: Annotate
-		}
-	}
+	dd.initialized = true
 end:
 	return errs.Err()
 }
 
+func (dd *PrefDomains) RetrievePrefs() (err error) {
+	if !dd.initialized {
+		panic("ERROR: Preferences domains must be initialized before calling " +
+			"macprefs.PrefDomains.RetrievePrefs().",
+		)
+	}
+	var errs errutil.MultiErr
+	for _, domain := range dd.domains {
+		err = domain.RetrievePrefs()
+		if err != nil {
+			errs.Add(err) // TODO: Annotate
+		}
+	}
+	dd.prefsRetrieved = true
+	return errs.Err()
+}
+
+func (dd *PrefDomains) RetrievePrefValues() (err error) {
+	if !dd.prefsRetrieved {
+		panicf("ERROR: Domain preferences must be retrieved with " +
+			"macprefs.PrefDomains.RetrievePref() before calling " +
+			"macprefs.PrefDomains.RetrievePrefValues()",
+		)
+	}
+	var errs errutil.MultiErr
+	for _, domain := range dd.domains {
+		err = domain.RetrievePrefValues()
+		if err != nil {
+			errs.Add(err) // TODO: Annotate
+		}
+	}
+	return errs.Err()
+}
+
 func (dd *PrefDomains) Sort() {
-	slices.SortFunc(*dd, func(a, b *PrefsDomain) int {
+	slices.SortFunc(dd.domains, func(a, b *PrefsDomain) int {
 		return strings.Compare(
 			strings.ToLower(a.String()),
 			strings.ToLower(b.String()),
 		)
 	})
-	for _, domain := range *dd {
+	for _, domain := range dd.domains {
 		domain.SortPrefs()
 	}
 }
 
 func (dd *PrefDomains) Describe(w io.Writer) {
-	for _, domain := range *dd {
+	for _, domain := range dd.domains {
 		writeString(w, string(domain.Name()))
 		writeByte(w, '\n')
 		for _, pref := range domain.KeyValues() {
@@ -89,29 +141,32 @@ func (dd *PrefDomains) Describe(w io.Writer) {
 		}
 	}
 }
-
-func (dd *PrefDomains) AsFilterGroups() (groups []filters.Group) {
-	groups = make([]filters.Group, len(*dd))
-	for i, domain := range *dd {
+func (dd *PrefDomains) ToFiltersGroups() (groups []filters.Group) {
+	groups = make([]filters.Group, len(dd.domains))
+	for i, domain := range dd.domains {
 		groups[i] = domain
 	}
 	return groups
 }
 
-func GetPrefDomains() (pds PrefDomains, err error) {
-	domains, err := macosutils.GetPreferenceDomains()
+// RetrievePrefDomains retrieves the list of macOS preference domains available
+// currently on the system via macOS.
+func RetrievePrefDomains() (pds *PrefDomains, err error) {
+	domains, err := macosutils.RetrievePreferenceDomains()
 	if err != nil {
 		goto end
 	}
-	pds = sliceconv.Func(domains, func(pd macosutils.PreferenceDomain) *PrefsDomain {
+	pds = NewPrefDomains(sliceconv.Func(domains, func(pd macosutils.PreferenceDomain) *PrefsDomain {
 		return NewPrefsDomain(DomainName(pd))
-	})
+	}))
 end:
 	return pds, err
 }
 
-func GetDomainPrefs(domain DomainName) (pp Prefs, err error) {
-	prefs, err := macosutils.GetDomainPreferences(macosutils.PreferenceDomain(domain))
+// RetrieveDomainPrefs retrieves the macOS preferences for the specified
+// preference domain from macOS.
+func RetrieveDomainPrefs(domain DomainName) (pp Prefs, err error) {
+	prefs, err := macosutils.Retrieve(macosutils.PreferenceDomain(domain))
 	if err != nil {
 		goto end
 	}

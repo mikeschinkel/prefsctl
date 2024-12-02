@@ -215,3 +215,18 @@ func FilterSlices[E comparable](s []E) []E {
 	}
 	return filtered
 }
+
+func SlicesIntersect[T comparable](s1, s2 []T) (intersects bool) {
+	lookup := make(map[T]struct{}, len(s1))
+	for _, x1 := range s1 {
+		lookup[x1] = struct{}{}
+	}
+	for _, x2 := range s2 {
+		_, intersects = lookup[x2]
+		if intersects {
+			goto end
+		}
+	}
+end:
+	return intersects
+}
