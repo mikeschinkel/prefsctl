@@ -15,19 +15,29 @@ var (
 
 func OSVersionLabel(code macosutils.Code) kvfilters.Label {
 	return kvfilters.Label{
-		Name:  kvfilters.LabelName(kvfilters.MacOS),
+		Name:  kvfilters.LabelName(macprefs.MacOS),
 		Value: kvfilters.LabelValue(code),
 	}
 }
 
+type Labels = kvfilters.Labels
+
+var (
+	UserManaged   = macprefs.UserManaged
+	RuntimeState  = macprefs.RuntimeState
+	SystemManaged = macprefs.SystemManaged
+	SetupSets     = macprefs.SetupSets
+	StringType    = macprefs.StringType
+)
+
 type DomainDefaults = map[string]DomainPrefs
 type DomainPrefs = map[string]DomainPref
 type DomainPref struct {
-	Domain       string
-	Name         string
-	DefaultValue string // raw string value for default
-	Labels       kvfilters.Labels
-	NoDefault    bool
+	Domain    string
+	Name      string
+	Default   string // raw string value for default
+	Labels    kvfilters.Labels
+	NoDefault bool
 }
 
 func init() {
@@ -55,7 +65,7 @@ func convertDomainDefaultsToMacprefsDomainPrefDefaults(defaults DomainDefaults) 
 			pd := &macprefs.PrefDefault{
 				Domain:       macprefs.DomainName(domain),
 				Name:         macprefs.PrefName(name),
-				DefaultValue: pref.DefaultValue,
+				DefaultValue: pref.Default,
 				NoDefault:    pref.NoDefault,
 			}
 			pd.SetLabels(pref.Labels)

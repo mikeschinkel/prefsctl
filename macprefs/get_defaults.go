@@ -60,7 +60,7 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
 		Filters: nameFilters,
 		Groups:  domains.ToFiltersGroups(),
-		Labels:  []*kvfilters.Label{&kvfilters.UserManaged},
+		Labels:  []*kvfilters.Label{&UserManaged},
 	})
 	if err != nil {
 		err = errors.Join(ErrFailedToQueryGroups, err)
@@ -82,7 +82,7 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
 		Filters:     valueFilters,
 		Groups:      domains.ToFiltersGroups(),
-		Labels:      []*kvfilters.Label{&kvfilters.UserManaged},
+		Labels:      []*kvfilters.Label{&UserManaged},
 		OmitEmpty:   true,
 		OmitInvalid: true,
 	})

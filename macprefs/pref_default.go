@@ -42,7 +42,7 @@ func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
 }
 
 func (pd *PrefDefault) UserManaged() bool {
-	return slices.Contains([]*kvfilters.Label(pd.labels), &kvfilters.UserManaged)
+	return slices.Contains([]*kvfilters.Label(pd.labels), &UserManaged)
 }
 
 func (pd *PrefDefault) String() string {
