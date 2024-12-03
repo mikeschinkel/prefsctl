@@ -82,7 +82,7 @@ import (
 	"unsafe"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/logging"
+	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
 )
 
 type PreferenceDomain string
@@ -132,7 +132,7 @@ func Retrieve(d PreferenceDomain) (prefs []*Preference, err error) {
 	// TODO Set type here instead of calling func
 	var cfaPrefs = C.GetPrefNamesForDomain(cfDomain)
 	if cfDomain == 0 {
-		err = errutil.AnnotateErr(ErrFailedToCreateCFString, "%s=%s", logging.PrefsDomainLogArg, d)
+		err = errutil.AnnotateErr(ErrFailedToCreateCFString, "%s=%s", logargs.PrefsDomainLogArg, d)
 		goto end
 	}
 	defer C.CFRelease(C.CFTypeRef(cfDomain))
@@ -140,7 +140,7 @@ func Retrieve(d PreferenceDomain) (prefs []*Preference, err error) {
 	// Get the array of keys
 	cfaPrefs = C.GetPrefNamesForDomain(cfDomain)
 	if cfaPrefs == 0 {
-		err = errutil.AnnotateErr(ErrFailedToGetPrefNames, "%s=%s", logging.PrefsDomainLogArg, d)
+		err = errutil.AnnotateErr(ErrFailedToGetPrefNames, "%s=%s", logargs.PrefsDomainLogArg, d)
 		goto end
 	}
 	defer C.CFRelease(C.CFTypeRef(cfaPrefs))

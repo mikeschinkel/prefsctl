@@ -3,7 +3,7 @@ package prefdefaults
 import (
 	"github.com/mikeschinkel/prefsctl/macosutils"
 	"github.com/mikeschinkel/prefsctl/macprefs"
-	"github.com/mikeschinkel/prefsctl/macprefs/filters"
+	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
 )
 
 var register = macprefs.RegisterDefaultsMapFunc
@@ -13,10 +13,10 @@ var (
 	MontereyLabel = OSVersionLabel(macosutils.Monterey)
 )
 
-func OSVersionLabel(code macosutils.Code) filters.Label {
-	return filters.Label{
-		Name:  filters.LabelName(filters.MacOS),
-		Value: filters.LabelValue(code),
+func OSVersionLabel(code macosutils.Code) kvfilters.Label {
+	return kvfilters.Label{
+		Name:  kvfilters.LabelName(kvfilters.MacOS),
+		Value: kvfilters.LabelValue(code),
 	}
 }
 
@@ -26,7 +26,7 @@ type DomainPref struct {
 	Domain       string
 	Name         string
 	DefaultValue string // raw string value for default
-	Labels       filters.Labels
+	Labels       kvfilters.Labels
 	NoDefault    bool
 }
 
@@ -46,7 +46,7 @@ func init() {
 // The impetus for creating two data structures and converting was to allow
 // `DomainDefaults` to have a `Labels` property and then allow
 // `macprefs.PrefDefaults` to support the `Labels` method required by the
-// `filters.KeyValue` interface.
+// `kvfilters.KeyValue` interface.
 func convertDomainDefaultsToMacprefsDomainPrefDefaults(defaults DomainDefaults) (dpd macprefs.DomainPrefDefaults) {
 	dpd = make(macprefs.DomainPrefDefaults, len(defaults))
 	for domain, prefs := range defaults {

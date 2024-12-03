@@ -3,10 +3,10 @@ package macprefs
 import (
 	"fmt"
 
-	"github.com/mikeschinkel/prefsctl/cliutil"
+	"github.com/mikeschinkel/prefsctl/cobrautil"
 )
 
-var _ cliutil.Result = (*Result)(nil)
+var _ cobrautil.Result = (*Result)(nil)
 
 func NewResult(a any) *Result {
 	return &Result{Output: a}

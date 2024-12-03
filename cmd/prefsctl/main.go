@@ -3,23 +3,22 @@ package main
 import (
 	"os"
 
-	"github.com/mikeschinkel/cmd/prefsctl/cmds"
-	"github.com/mikeschinkel/prefsctl/cliutil"
+	"github.com/mikeschinkel/prefsctl/cobrautil"
 	_ "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
 )
 
 func main() {
-	var outcome *cliutil.Outcome
+	var outcome *cobrautil.Outcome
 	var err error
-	var cfg *cliutil.Config
-	var cli *cliutil.CLI
+	var cfg *cobrautil.Config
+	var cli *cobrautil.CLI
 
-	ctx := cliutil.DefaultContext()
-	cfg, err = cmds.GetConfig(ctx)
+	ctx := cobrautil.DefaultContext()
+	cfg, err = GetConfig(ctx)
 	if err != nil {
 		goto end
 	}
-	cli = cliutil.NewCLI(cfg, os.Args[1:])
+	cli = cobrautil.NewCLI(cfg, os.Args[1:])
 	err = cli.Initialize(ctx)
 	if err != nil {
 		goto end
@@ -27,7 +26,7 @@ func main() {
 	outcome = cli.Execute(ctx, cli.Args)
 end:
 	if err != nil {
-		outcome = cliutil.NewErrorOutcome(err)
+		outcome = cobrautil.NewErrorOutcome(err)
 	}
 	if outcome.WasError() {
 		//goland:noinspection GoDfaNilDereference

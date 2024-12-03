@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mikeschinkel/prefsctl/cliutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/filters"
+	"github.com/mikeschinkel/prefsctl/cobrautil"
+	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
@@ -14,7 +14,7 @@ type GetDefaultsArgs struct {
 	Dummy string
 }
 
-func GetDefaults(ctx Context, ptr Printer, args GetDefaultsArgs) (result cliutil.Result, err error) {
+func GetDefaults(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
 	switch OutputFormat(*GlobalFlags.Output) {
 	case YAMLFormat:
 		result, err = getDefaultsYAML(ctx, ptr, args)
@@ -31,11 +31,11 @@ func GetDefaults(ctx Context, ptr Printer, args GetDefaultsArgs) (result cliutil
 }
 
 func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, err error) {
-	var nameFilters, valueFilters []filters.Filter
-	var filtered []filters.Group
+	var nameFilters, valueFilters []kvfilters.Filter
+	var filtered []kvfilters.Group
 
-	toDomains := func(domains *PrefDomains, group []filters.Group) []*PrefsDomain {
-		return sliceconv.Func(group, func(g filters.Group) *PrefsDomain {
+	toDomains := func(domains *PrefDomains, group []kvfilters.Group) []*PrefsDomain {
+		return sliceconv.Func(group, func(g kvfilters.Group) *PrefsDomain {
 			return g.(*PrefsDomain)
 		})
 	}
@@ -52,15 +52,15 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 	if err != nil {
 		goto end
 	}
-	nameFilters, err = filters.QueryFiltersForTargets(filters.Groups, filters.Keys)
+	nameFilters, err = kvfilters.QueryFiltersForTargets(kvfilters.Groups, kvfilters.Keys)
 	if err != nil {
 		goto end
 	}
 
-	filtered, err = filters.Query(filters.QueryArgs{
+	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
 		Filters: nameFilters,
 		Groups:  domains.ToFiltersGroups(),
-		Labels:  []*filters.Label{&filters.UserManaged},
+		Labels:  []*kvfilters.Label{&kvfilters.UserManaged},
 	})
 	if err != nil {
 		err = errors.Join(ErrFailedToQueryGroups, err)
@@ -74,15 +74,15 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 		goto end
 	}
 
-	valueFilters, err = filters.QueryFiltersForTargets(filters.Values, filters.KeyValues)
+	valueFilters, err = kvfilters.QueryFiltersForTargets(kvfilters.Values, kvfilters.KeyValues)
 	if err != nil {
 		goto end
 	}
 
-	filtered, err = filters.Query(filters.QueryArgs{
+	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
 		Filters:     valueFilters,
 		Groups:      domains.ToFiltersGroups(),
-		Labels:      []*filters.Label{&filters.UserManaged},
+		Labels:      []*kvfilters.Label{&kvfilters.UserManaged},
 		OmitEmpty:   true,
 		OmitInvalid: true,
 	})
@@ -98,7 +98,7 @@ end:
 	return domains, err
 }
 
-func getDefaultsText(ctx Context, ptr Printer, args GetDefaultsArgs) (result cliutil.Result, err error) {
+func getDefaultsText(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
 	domains, err := retrieveDefaults(ctx, args)
 	if err != nil {
 		goto end
@@ -114,13 +114,13 @@ end:
 	return result, err
 }
 
-func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (result cliutil.Result, err error) {
+func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
 	return result, err
 }
 
-func getDefaultsYAML(ctx Context, ptr Printer, args GetDefaultsArgs) (result cliutil.Result, err error) {
+func getDefaultsYAML(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
 	return result, err
 }
-func GetDefaultsJSON(ctx Context, ptr Printer, args GetDefaultsArgs) (result cliutil.Result, err error) {
+func GetDefaultsJSON(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
 	return result, err
 }

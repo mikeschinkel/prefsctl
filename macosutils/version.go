@@ -32,7 +32,7 @@ import (
 	"strconv"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/logging"
+	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
 )
 
 var versionNumberCodeMap = map[NumericVersion]Code{
@@ -133,7 +133,7 @@ func VersionCode() (code Code, _ error) {
 		n, err := strconv.ParseInt(v, 10, 0)
 		if err != nil {
 			err = errors.Join(ErrFailedParsingMajorVersion,
-				fmt.Errorf("%v=%v", logging.VersionLogArg, v),
+				fmt.Errorf("%v=%v", logargs.VersionLogArg, v),
 			)
 		}
 		return int(n), err
@@ -147,7 +147,7 @@ func VersionCode() (code Code, _ error) {
 	matches = semVerRegex.FindStringSubmatch(v)
 	if matches == nil {
 		err = errors.Join(ErrUnrecognizedMacOSVersionFormat,
-			fmt.Errorf("%s=%s", logging.VersionLogArg, v),
+			fmt.Errorf("%s=%s", logargs.VersionLogArg, v),
 		)
 		goto end
 	}
@@ -159,7 +159,7 @@ func VersionCode() (code Code, _ error) {
 	case n < 10:
 		// We support nothing before OS-X, and mostly nothing before Sierra, really.
 		err = errors.Join(ErrUnrecognizedMacOSVersion,
-			fmt.Errorf("%s=%s", logging.VersionLogArg, v),
+			fmt.Errorf("%s=%s", logargs.VersionLogArg, v),
 		)
 	case n > 10:
 		// Version of macOS Big Sur thru Sequoia are 11.0 thru 15.0
@@ -177,7 +177,7 @@ func VersionCode() (code Code, _ error) {
 	versionCode, ok = versionNumberCodeMap[NumericVersion(v)]
 	if !ok {
 		err = errors.Join(ErrUnrecognizedMacOSVersion,
-			fmt.Errorf("%s=%s", logging.VersionLogArg, v),
+			fmt.Errorf("%s=%s", logargs.VersionLogArg, v),
 		)
 		goto end
 	}

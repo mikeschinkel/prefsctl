@@ -1,7 +1,8 @@
 package macprefs
 
 import (
-	"github.com/mikeschinkel/prefsctl/logging"
+	"github.com/mikeschinkel/prefsctl/logutil"
+	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
 )
 
-var slog = logging.Logger().With(logging.GoPackageLogArg, "macprefs")
+var slog = logutil.Logger().With(logargs.GoPackageLogArg, "macprefs")

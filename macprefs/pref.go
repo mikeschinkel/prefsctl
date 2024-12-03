@@ -6,10 +6,10 @@ import (
 	"strconv"
 
 	"github.com/mikeschinkel/prefsctl/macosutils"
-	"github.com/mikeschinkel/prefsctl/macprefs/filters"
+	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
 )
 
-var _ filters.KeyValue = (*Pref)(nil)
+var _ kvfilters.KeyValue = (*Pref)(nil)
 
 // Pref represents a preference with its Domain and name
 type Pref struct {
@@ -21,7 +21,7 @@ type Pref struct {
 	invalid     bool
 }
 
-func (p *Pref) Labels() []*filters.Label {
+func (p *Pref) Labels() []*kvfilters.Label {
 	return p.PrefDefault.Labels()
 }
 
@@ -35,7 +35,7 @@ type PrefArgs struct {
 	Name    PrefName
 	Value   string // raw string value
 	Default string // raw string value
-	Labels  filters.Labels
+	Labels  kvfilters.Labels
 	Kind    reflect.Kind // kind of the value
 	Invalid bool
 }

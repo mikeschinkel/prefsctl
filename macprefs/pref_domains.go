@@ -9,7 +9,7 @@ import (
 
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/macosutils"
-	"github.com/mikeschinkel/prefsctl/macprefs/filters"
+	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
@@ -141,8 +141,8 @@ func (dd *PrefDomains) Describe(w io.Writer) {
 		}
 	}
 }
-func (dd *PrefDomains) ToFiltersGroups() (groups []filters.Group) {
-	groups = make([]filters.Group, len(dd.domains))
+func (dd *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
+	groups = make([]kvfilters.Group, len(dd.domains))
 	for i, domain := range dd.domains {
 		groups[i] = domain
 	}

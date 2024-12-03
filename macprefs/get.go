@@ -1,7 +1,7 @@
 package macprefs
 
 import (
-	"github.com/mikeschinkel/prefsctl/cliutil"
+	"github.com/mikeschinkel/prefsctl/cobrautil"
 )
 
 type GetArgs struct {
@@ -9,7 +9,7 @@ type GetArgs struct {
 	Output   OutputFormat
 }
 
-func Get(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err error) {
+func Get(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
 	switch args.Output {
 	case YAMLFormat:
 		result, err = getYAML(ctx, ptr, args)
@@ -25,17 +25,17 @@ func Get(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err err
 	return result, err
 }
 
-func getText(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err error) {
+func getText(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
 	return result, err
 }
 
-func getGo(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err error) {
+func getGo(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
 	return result, err
 }
 
-func getYAML(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err error) {
+func getYAML(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
 	return result, err
 }
-func GetJSON(ctx Context, ptr Printer, args GetArgs) (result cliutil.Result, err error) {
+func GetJSON(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
 	return result, err
 }

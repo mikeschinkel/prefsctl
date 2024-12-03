@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/logging"
-	"github.com/mikeschinkel/prefsctl/macprefs/filters"
+	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
 )
 
 type DomainName string
@@ -23,7 +23,7 @@ func (pp *Prefs) Sort() {
 	})
 }
 
-var _ filters.Group = (*PrefsDomain)(nil)
+var _ kvfilters.Group = (*PrefsDomain)(nil)
 
 // PrefsDomain represents a preference domain in macOS
 type PrefsDomain struct {
@@ -33,7 +33,7 @@ type PrefsDomain struct {
 	prefsValuesRetrieved bool
 }
 
-func (d *PrefsDomain) ShallowCopy() filters.Group {
+func (d *PrefsDomain) ShallowCopy() kvfilters.Group {
 	return &PrefsDomain{
 		domain:               d.domain,
 		prefsRetrieved:       d.prefsRetrieved,
@@ -80,7 +80,7 @@ func (d *PrefsDomain) RetrievePrefValues() (err error) {
 	return errs.Err()
 }
 
-func NewPrefsDomainFromFiltersGroup(group filters.Group) *PrefsDomain {
+func NewPrefsDomainFromFiltersGroup(group kvfilters.Group) *PrefsDomain {
 	domain := DomainName(group.Name())
 	return &PrefsDomain{
 		domain:         domain,
@@ -89,7 +89,7 @@ func NewPrefsDomainFromFiltersGroup(group filters.Group) *PrefsDomain {
 	}
 }
 
-func NewDomainPrefsFromFiltersKeyValues(domain DomainName, kvs []filters.KeyValue) (prefs []*Pref) {
+func NewDomainPrefsFromFiltersKeyValues(domain DomainName, kvs []kvfilters.KeyValue) (prefs []*Pref) {
 	prefs = make([]*Pref, len(kvs))
 	for i, kv := range kvs {
 		prefs[i] = NewPref(PrefArgs{
@@ -111,13 +111,13 @@ func NewPrefsDomain(domain DomainName) *PrefsDomain {
 	}
 }
 
-func (d *PrefsDomain) KeyValues() (kvs []filters.KeyValue) {
+func (d *PrefsDomain) KeyValues() (kvs []kvfilters.KeyValue) {
 	if !d.prefsRetrieved {
 		panicf("ERROR: Preferences domain '%s' must be retrieved before calling macprefs.PrefsDomain.KeyValues()",
 			d.Name(),
 		)
 	}
-	kvs = make([]filters.KeyValue, len(d.prefs))
+	kvs = make([]kvfilters.KeyValue, len(d.prefs))
 	for i, pref := range d.prefs {
 		kvs[i] = pref
 	}
@@ -127,15 +127,15 @@ func (d *PrefsDomain) KeyValues() (kvs []filters.KeyValue) {
 func (d *PrefsDomain) DomainName() DomainName {
 	return d.domain
 }
-func (d *PrefsDomain) Name() filters.Name {
-	return filters.Name(d.domain)
+func (d *PrefsDomain) Name() kvfilters.Name {
+	return kvfilters.Name(d.domain)
 }
 
-func (d *PrefsDomain) Code() filters.Code {
-	return filters.Codify(string(d.domain))
+func (d *PrefsDomain) Code() kvfilters.Code {
+	return kvfilters.Codify(string(d.domain))
 }
 
-func (d *PrefsDomain) AddKeyValue(value filters.KeyValue) {
+func (d *PrefsDomain) AddKeyValue(value kvfilters.KeyValue) {
 	pref, ok := value.(*Pref)
 	if !ok {
 		panicf("Cannot add type '%T' with value %#v to macprefs.PrefsDomain %#v",
@@ -149,7 +149,7 @@ func (d *PrefsDomain) AddKeyValue(value filters.KeyValue) {
 
 func (d *PrefsDomain) LogArgs() []any {
 	return []any{
-		logging.PrefsDomainLogArg,
+		logargs.PrefsDomainLogArg,
 		d.Name(),
 	}
 }
@@ -158,7 +158,7 @@ func (d *PrefsDomain) String() string {
 	return string(d.Name())
 }
 func (d *PrefsDomain) ErrorInfo() error {
-	return fmt.Errorf("%s=%s", logging.PrefsDomainLogArg, d)
+	return fmt.Errorf("%s=%s", logargs.PrefsDomainLogArg, d)
 }
 
 func (d *PrefsDomain) HasPrefix(prefix string) bool {
