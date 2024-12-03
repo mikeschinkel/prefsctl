@@ -1,4 +1,4 @@
-package logutil
+package slogutil
 
 import (
 	"log/slog"
@@ -44,7 +44,7 @@ func Initialize() {
 	logger = newLogger(LogFormat(), &Options{
 		Level: LogLevel(),
 	})
-	packageSlog = logger.With(logargs.GoPackageLogArg, "logutil")
+	packageSlog = logger.With(logargs.GoPackageLogArg, "slogutil")
 	slog.SetDefault(logger)
 	loggerMutex.Unlock()
 }

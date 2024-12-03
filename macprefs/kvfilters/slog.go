@@ -1,8 +1,8 @@
 package kvfilters
 
 import (
-	"github.com/mikeschinkel/prefsctl/logutil"
 	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/slogutil"
 )
 
-var slog = logutil.Logger().With(logargs.GoPackageLogArg, "kvfilters")
+var slog = slogutil.Logger().With(logargs.GoPackageLogArg, "kvfilters")

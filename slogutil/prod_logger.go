@@ -1,6 +1,6 @@
 //go:build !test
 
-package logutil
+package slogutil
 
 import (
 	"os"

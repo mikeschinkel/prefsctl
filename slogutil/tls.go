@@ -1,4 +1,4 @@
-package logutil
+package slogutil
 
 import (
 	"crypto/tls"
