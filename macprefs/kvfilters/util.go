@@ -23,3 +23,5 @@ func Codify(s string) Code {
 	}
 	return Code(strings.Join(ss, ""))
 }
+
+func noop(any) {}

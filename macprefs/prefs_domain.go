@@ -33,6 +33,20 @@ type PrefsDomain struct {
 	prefsValuesRetrieved bool
 }
 
+//func (d *PrefsDomain) TemplateDefaults() (defaults []*preftemplates.Default) {
+//	defaults = make([]*preftemplates.Default, 0)
+//	for _, pref := range d.Prefs() {
+//		defaults = append(defaults, &preftemplates.Default{
+//			Domain:    d,
+//			Name:      preftemplates.PrefName(pref.Name),
+//			Value:     pref.DefaultValue,
+//			Labels:    pref.Labels(),
+//			NoDefault: pref.NoDefault,
+//		})
+//	}
+//	return defaults
+//}
+
 func (d *PrefsDomain) ShallowCopy() kvfilters.Group {
 	return &PrefsDomain{
 		domain:               d.domain,
@@ -51,7 +65,7 @@ var unsupportedTypes = make(map[string]struct{})
 func (d *PrefsDomain) RetrievePrefs() (err error) {
 	d.prefs, err = RetrieveDomainPrefs(d.DomainName())
 	for _, pref := range d.prefs {
-		pd := GetPrefDefault(pref.Id())
+		pd := LookupPrefDefault(pref.Id())
 		if pd == nil {
 			pd = NewPrefDefault(d.domain, pref.Name)
 		}

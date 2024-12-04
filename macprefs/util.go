@@ -15,3 +15,5 @@ func writeString(w io.Writer, s string) {
 func writeByte(w io.Writer, b byte) {
 	_, _ = w.Write([]byte{b})
 }
+
+func noop(any) {}

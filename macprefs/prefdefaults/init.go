@@ -23,11 +23,13 @@ func OSVersionLabel(code macosutils.Code) kvfilters.Label {
 type Labels = kvfilters.Labels
 
 var (
-	UserManaged   = macprefs.UserManaged
-	RuntimeState  = macprefs.RuntimeState
-	SystemManaged = macprefs.SystemManaged
-	SetupSets     = macprefs.SetupSets
-	StringType    = macprefs.StringType
+	AppManaged       = &macprefs.AppManaged
+	UserManaged      = &macprefs.UserManaged
+	VersionMigration = &macprefs.VersionMigration
+	RuntimeState     = &macprefs.RuntimeState
+	SystemManaged    = &macprefs.SystemManaged
+	SetupSets        = &macprefs.SetupSets
+	StringType       = &macprefs.StringType
 )
 
 type DomainDefaults = map[string]DomainPrefs
@@ -35,6 +37,7 @@ type DomainPrefs = map[string]DomainPref
 type DomainPref struct {
 	Domain    string
 	Name      string
+	Type      string
 	Default   string // raw string value for default
 	Labels    kvfilters.Labels
 	NoDefault bool

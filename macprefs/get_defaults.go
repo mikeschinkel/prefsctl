@@ -6,7 +6,9 @@ import (
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/cobrautil"
+	"github.com/mikeschinkel/prefsctl/macosutils"
 	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
@@ -33,6 +35,7 @@ func GetDefaults(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobraut
 func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, err error) {
 	var nameFilters, valueFilters []kvfilters.Filter
 	var filtered []kvfilters.Group
+	var pds []*PrefDefault
 
 	toDomains := func(domains *PrefDomains, group []kvfilters.Group) []*PrefsDomain {
 		return sliceconv.Func(group, func(g kvfilters.Group) *PrefsDomain {
@@ -56,6 +59,8 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 	if err != nil {
 		goto end
 	}
+	pds = domains.UserManagedPrefDefaults()
+	noop(pds)
 
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
 		Filters: nameFilters,
@@ -115,6 +120,31 @@ end:
 }
 
 func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
+	var tmpl *preftemplates.DefaultsGoTemplate
+	var output string
+
+	code, err := macosutils.VersionCode()
+	domains, err := retrieveDefaults(ctx, args)
+	if err != nil {
+		goto end
+	}
+	tmpl = preftemplates.NewDefaultsGoTemplate(
+		preftemplates.OSVersion(code),
+		domains.TemplateDomains(),
+	)
+	tmpl.ShowValueFunc = func(d *preftemplates.Default) bool {
+		return d.Labels.Contains(&UserManaged)
+	}
+	output, err = tmpl.Generate()
+	if err != nil {
+		goto end
+	}
+	ptr.Print(output)
+	result = NewResult("Success")
+end:
+	if err != nil {
+		result = NewResult("Failure!")
+	}
 	return result, err
 }
 

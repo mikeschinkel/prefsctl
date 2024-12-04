@@ -21,7 +21,7 @@ type Pref struct {
 	invalid     bool
 }
 
-func (p *Pref) Labels() []*kvfilters.Label {
+func (p *Pref) Labels() kvfilters.Labels {
 	return p.PrefDefault.Labels()
 }
 
@@ -42,10 +42,12 @@ type PrefArgs struct {
 
 // NewPref creates a new Pref instance
 func NewPref(args PrefArgs) *Pref {
-	dv := NewPrefDefault(args.Domain, args.Name)
-	dv.DefaultValue = args.Default
-	dv.NoDefault = args.Default == ""
-	if dv.labels != nil {
+	dv := GetPrefDefault(args.Domain, args.Name)
+	if args.Default != "" {
+		dv.DefaultValue = args.Default
+	}
+	dv.NoDefault = dv.DefaultValue == ""
+	if dv.labels == nil {
 		dv.labels = args.Labels
 	}
 	return &Pref{

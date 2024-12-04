@@ -23,7 +23,7 @@ type PrefDefault struct {
 func (pd *PrefDefault) SetLabels(labels []*kvfilters.Label) {
 	pd.labels = labels
 }
-func (pd *PrefDefault) Labels() []*kvfilters.Label {
+func (pd *PrefDefault) Labels() kvfilters.Labels {
 	return pd.labels
 }
 
@@ -40,6 +40,13 @@ func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
 		NoDefault: true,
 	}
 }
+func GetPrefDefault(domain DomainName, name PrefName) (d *PrefDefault) {
+	d = LookupPrefDefault(NewPrefId(domain, name))
+	if d == nil {
+		d = NewPrefDefault(domain, name)
+	}
+	return d
+}
 
 func (pd *PrefDefault) UserManaged() bool {
 	return slices.Contains([]*kvfilters.Label(pd.labels), &UserManaged)
@@ -50,7 +57,7 @@ func (pd *PrefDefault) String() string {
 }
 
 func (pd *PrefDefault) Id() PrefId {
-	return GetPrefId(pd.Domain, pd.Name)
+	return NewPrefIdFromDefault(pd)
 }
 func (pd *PrefDefault) LogValue() any {
 	return fmt.Sprintf("%s (default=%s,labels=[%s])",
@@ -61,7 +68,7 @@ func (pd *PrefDefault) LogValue() any {
 }
 
 func GetPrefId(domain DomainName, name PrefName) PrefId {
-	return PrefId(string(domain) + "/" + string(name))
+	return NewPrefId(domain, name)
 }
 
 func (pd *PrefDefault) Key() kvfilters.Code {

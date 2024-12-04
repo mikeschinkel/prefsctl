@@ -10,6 +10,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/macosutils"
 	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
@@ -18,7 +19,7 @@ type PrefDefaultsLookup map[PrefId]*PrefDefault
 var prefDefaultsLookup = make(PrefDefaultsLookup)
 var prefDefaultsLookupMutex sync.Mutex
 
-func GetPrefDefault(id PrefId) *PrefDefault {
+func LookupPrefDefault(id PrefId) *PrefDefault {
 	pd, _ := prefDefaultsLookup[id]
 	return pd
 }
@@ -27,6 +28,65 @@ type PrefDomains struct {
 	domains        []*PrefsDomain
 	initialized    bool
 	prefsRetrieved bool
+}
+
+func (dd *PrefDomains) UserManagedPrefDefaults() (pds []*PrefDefault) {
+	pds = make([]*PrefDefault, 0)
+	dd.Sort()
+	for _, domain := range dd.domains {
+		for _, pref := range domain.Prefs() {
+			if !pref.Labels().Contains(pref.Labels()...) {
+				continue
+			}
+			pds = append(pds, pref.PrefDefault)
+		}
+	}
+	return pds
+}
+
+//	func (dd *PrefDomains) TemplatePrefs() (prefs []*preftemplates.Pref) {
+//		prefs = make([]*preftemplates.Pref, 0)
+//		dd.Sort()
+//		for _, domain := range dd.domains {
+//			for _, pref := range domain.Prefs() {
+//				prefs = append(prefs, &preftemplates.Pref{
+//					Domain:    preftemplates.DomainName(pref.Domain),
+//					Name:      preftemplates.PrefName(pref.Name),
+//					Default:   pref.DefaultValue,
+//					Labels:    pref.Labels(),
+//					NoDefault: pref.NoDefault,
+//				})
+//			}
+//		}
+//		return prefs
+//	}
+func (dd *PrefDomains) TemplateDomains() (domains []*preftemplates.Domain) {
+	domains = make([]*preftemplates.Domain, len(dd.domains))
+	dd.Sort()
+	for i, domain := range dd.domains {
+		d := &preftemplates.Domain{
+			Name:     preftemplates.DomainName(domain.DomainName()),
+			Defaults: nil,
+			MacOS:    nil,
+		}
+		defaults := make([]*preftemplates.Default, len(domain.Prefs()))
+		for j, pref := range domain.Prefs() {
+			defaults[j] = &preftemplates.Default{
+				Domain:    d,
+				Name:      preftemplates.PrefName(pref.Name),
+				Value:     pref.DefaultValue,
+				Labels:    pref.Labels(),
+				NoDefault: pref.NoDefault,
+			}
+		}
+		d.Defaults = defaults
+		domains[i] = d
+	}
+	return domains
+}
+
+func (dd *PrefDomains) Domains() []*PrefsDomain {
+	return dd.domains
 }
 
 func (dd *PrefDomains) String() string {
@@ -69,8 +129,7 @@ func (dd *PrefDomains) Initialize() (err error) {
 		for name, dv := range dvs {
 			dv.Domain = domain
 			dv.Name = name
-			id := string(domain) + "/" + string(name)
-			prefDefaultsLookup[PrefId(id)] = dv
+			prefDefaultsLookup[NewPrefId(domain, name)] = dv
 		}
 	}
 	dd.initialized = true

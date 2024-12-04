@@ -15,7 +15,6 @@ type Spec interface {
 	Spec()
 }
 
-type PrefId string
 type PrefName string
 
 type PrefDefaultsMap map[PrefName]*PrefDefault

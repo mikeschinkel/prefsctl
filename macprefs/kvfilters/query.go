@@ -30,6 +30,8 @@ func Query(args QueryArgs) (result []Group, err error) {
 	for _, g := range groups {
 		groupAdded = false
 		for _, kv := range g.KeyValues() {
+			name := g.Name()
+			noop(name)
 			if args.Labels != nil && !stdlibex.SlicesIntersect(args.Labels, kv.Labels()) {
 				continue
 			}
