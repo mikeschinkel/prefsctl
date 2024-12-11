@@ -2,40 +2,49 @@ package macprefs
 
 import (
 	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 )
+
+type Verified = preftemplates.Verified
 
 const (
 	InvalidLabel kvfilters.LabelName = "invalid"
 	Sets         kvfilters.LabelName = "sets"
 	Type         kvfilters.LabelName = "type"
-	MacOS        kvfilters.LabelName = "macos"
+	MacOS        kvfilters.LabelName = "macOS"
 	Class        kvfilters.LabelName = "class"
 )
 
 //goland:noinspection GoStructInitializationWithoutFieldNames
 var (
-	UserManaged      = kvfilters.Label{Class, "userManaged"}
-	SystemManaged    = kvfilters.Label{Class, "systemManaged"}
-	AppManaged       = kvfilters.Label{Class, "appManaged"}
-	RuntimeState     = kvfilters.Label{Class, "runtimeState"}
-	VersionMigration = kvfilters.Label{Class, "versionMigrate"}
+	UserManaged      = kvfilters.NewLabel(Class, "userManaged")
+	SystemManaged    = kvfilters.NewLabel(Class, "systemManaged")
+	AppManaged       = kvfilters.NewLabel(Class, "appManaged")
+	RuntimeState     = kvfilters.NewLabel(Class, "runtimeState")
+	VersionMigration = kvfilters.NewLabel(Class, "versionMigrate")
 )
 
 //goland:noinspection GoStructInitializationWithoutFieldNames
 var (
-	UnknownSets = kvfilters.Label{Sets, "unknown"}
-	DefaultsSet = kvfilters.Label{Sets, "defaults"}
-	SetupSets   = kvfilters.Label{Sets, "setup"}
+	UnknownSets = kvfilters.NewUnknownLabel(Sets, "unknownSets")
+	DefaultsSet = kvfilters.NewLabel(Sets, "defaultsSet")
+	SetupSets   = kvfilters.NewLabel(Sets, "setupSets")
 )
 
 //goland:noinspection GoStructInitializationWithoutFieldNames
 var (
-	UnknownType  = kvfilters.Label{Type, "unknown"}
-	StringType   = kvfilters.Label{Type, "string"}
-	NumberType   = kvfilters.Label{Type, "number"}
-	BoolType     = kvfilters.Label{Type, "bool"}
-	LanguageType = kvfilters.Label{Type, "language"}
-	LocaleType   = kvfilters.Label{Type, "locale"}
+	UnknownType = kvfilters.NewUnknownLabel(Type, "unknownType")
+	StringType  = kvfilters.NewLabel(Type, "stringType")
+	NumberType  = kvfilters.NewLabel(Type, "numberType")
+	IntType     = kvfilters.NewLabel(Type, "intType")
+	FloatType   = kvfilters.NewLabel(Type, "floatType")
+	BoolType    = kvfilters.NewLabel(Type, "boolType")
+
+	IntBoolType = kvfilters.NewLabel(Type, "intBoolType")
+
+	LanguageType = kvfilters.NewLabel(Type, "languageType")
+	LocaleType   = kvfilters.NewLabel(Type, "localeType")
+	YesNoType    = kvfilters.NewLabel(Type, "yesNoType")
 )
 
 func GoVarName(value kvfilters.LabelValue) kvfilters.LabelName {

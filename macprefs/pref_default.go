@@ -3,7 +3,7 @@ package macprefs
 import (
 	"errors"
 	"fmt"
-	"slices"
+	"reflect"
 
 	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
@@ -15,16 +15,35 @@ var _ kvfilters.KeyValue = (*PrefDefault)(nil)
 type PrefDefault struct {
 	Domain       DomainName
 	Name         PrefName
-	DefaultValue string // raw string value for default
-	labels       kvfilters.Labels
-	NoDefault    bool
+	DefaultValue string       // raw string value for default
+	Kind         reflect.Kind // kind of the value
+	typeName     TypeName
+	labels       *kvfilters.Labels
+	Verified     Verified
 }
 
-func (pd *PrefDefault) SetLabels(labels []*kvfilters.Label) {
-	pd.labels = labels
+func (pd *PrefDefault) HasLabel(label *kvfilters.Label) bool {
+	return pd.labels.Contains(label)
 }
-func (pd *PrefDefault) Labels() kvfilters.Labels {
+
+//	func (pd *PrefDefault) SetTypeName(name TypeName) {
+//		pd.typeName = name
+//	}
+func (pd *PrefDefault) SetLabels(labels *kvfilters.Labels) {
+	pd.labels = labels
+	pd.labels.SyncMap()
+	typeLabel := pd.GetNamedLabel(Type)
+	if typeLabel != nil {
+		pd.typeName = TypeName(typeLabel.Value)
+	}
+}
+
+func (pd *PrefDefault) Labels() *kvfilters.Labels {
 	return pd.labels
+}
+
+func (pd *PrefDefault) GetNamedLabel(name kvfilters.LabelName) (label *kvfilters.Label) {
+	return pd.labels.GetNamedLabel(name)
 }
 
 func (pd *PrefDefault) Valid() bool {
@@ -34,10 +53,22 @@ func (pd *PrefDefault) Valid() bool {
 
 func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
 	return &PrefDefault{
-		Domain:    domain,
-		Name:      name,
-		labels:    make(kvfilters.Labels, 0),
-		NoDefault: true,
+		Domain: domain,
+		Name:   name,
+		Kind:   reflect.Invalid,
+		labels: kvfilters.NewLabels(
+			&UnknownType,
+			// 'defaults' is a reasonable default as the alternate is 'setup'
+			// so we'll discover issues when comparing to current settings and
+			// realize we need to manually change it.
+			&DefaultsSet,
+			// 'userManaged' is a reasonable default as we'll discover issues
+			// when comparing to current settings and realize we need to manually
+			// change it.
+			&UserManaged,
+		),
+		Verified: Verified{},
+		typeName: TypeName(UnknownType.Value),
 	}
 }
 func GetPrefDefault(domain DomainName, name PrefName) (d *PrefDefault) {
@@ -49,7 +80,7 @@ func GetPrefDefault(domain DomainName, name PrefName) (d *PrefDefault) {
 }
 
 func (pd *PrefDefault) UserManaged() bool {
-	return slices.Contains([]*kvfilters.Label(pd.labels), &UserManaged)
+	return pd.HasLabel(&UserManaged)
 }
 
 func (pd *PrefDefault) String() string {
@@ -82,6 +113,6 @@ func (pd *PrefDefault) Value() string {
 func (pd *PrefDefault) ErrorInfo() error {
 	return errors.Join(
 		fmt.Errorf("%s=%s", logargs.KeyLogArg, pd.Name),
-		fmt.Errorf("%s=%s", logargs.ValueLogArg, pd.Value),
+		fmt.Errorf("%s=%s", logargs.ValueLogArg, pd.Value()),
 	)
 }

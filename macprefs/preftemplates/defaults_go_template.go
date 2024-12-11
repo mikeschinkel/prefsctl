@@ -16,16 +16,18 @@ func {{.OSVersion}}PrefDefaults() DomainDefaults {
 		"{{$domain.Name}}": DomainPrefs{
 			{{- range $i, $dflt := $domain.Defaults}}
 				"{{$dflt.Name}}": DomainPref{
-					Type:      "{{$dflt.TypeName}}",
-					NoDefault: {{$dflt.NoDefault}},
+					Verified: {{$dflt.Verified}},
+					Type:     "{{$dflt.TypeName}}",
 					{{- if $.ShowPrefDefault $dflt }}
-					Default:   "{{$dflt.Value}}",
+					Default:  "{{$dflt.Value}}",
 					{{- end}}
-					Labels: Labels{
-					{{- range $i, $label := .Labels}}
+					Labels: NewLabels(
+					{{- range $i, $label := .Labels.LabelPtrs}}
+						{{- if ne $label.Name "type" }}
 						{{firstUp $label.Value.String}},
+						{{- end}}
 					{{- end}}
-					},
+					),
 				},
 			{{- end}}
 		},
@@ -42,7 +44,8 @@ type DefaultsGoTemplate struct {
 }
 
 func (t DefaultsGoTemplate) ShowPrefDefault(d *Default) bool {
-	return d.Value != "" && t.ShowValueFunc(d)
+	//return d.Value != "" && t.ShowValueFunc(d)
+	return t.ShowValueFunc(d)
 }
 
 func NewDefaultsGoTemplate(name OSVersion, domains []*Domain) *DefaultsGoTemplate {
@@ -72,5 +75,5 @@ func (t DefaultsGoTemplate) Generate() (output string, err error) {
 		goto end
 	}
 end:
-	return buf.String(), nil
+	return buf.String(), err
 }

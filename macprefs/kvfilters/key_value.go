@@ -11,7 +11,7 @@ type KeyValue interface {
 	fmt.Stringer
 	Key() Code
 	Value() string
-	Labels() Labels
+	Labels() *Labels
 	ErrorInfo() error
 	Valid() bool
 }
@@ -25,11 +25,11 @@ var _ KeyValue = (*keyValue)(nil)
 type keyValue struct {
 	key     Code
 	value   string
-	labels  []*Label
+	labels  *Labels
 	invalid bool
 }
 
-func (kv *keyValue) Labels() Labels {
+func (kv *keyValue) Labels() *Labels {
 	return kv.labels
 }
 

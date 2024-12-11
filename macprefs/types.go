@@ -16,6 +16,7 @@ type Spec interface {
 }
 
 type PrefName string
+type TypeName string
 
 type PrefDefaultsMap map[PrefName]*PrefDefault
 type DomainPrefDefaults map[DomainName]PrefDefaultsMap

@@ -35,7 +35,7 @@ func (dd *PrefDomains) UserManagedPrefDefaults() (pds []*PrefDefault) {
 	dd.Sort()
 	for _, domain := range dd.domains {
 		for _, pref := range domain.Prefs() {
-			if !pref.Labels().Contains(pref.Labels()...) {
+			if !pref.HasLabel(&UserManaged) {
 				continue
 			}
 			pds = append(pds, pref.PrefDefault)
@@ -54,7 +54,7 @@ func (dd *PrefDomains) UserManagedPrefDefaults() (pds []*PrefDefault) {
 //					Name:      preftemplates.PrefName(pref.Name),
 //					Default:   pref.DefaultValue,
 //					Labels:    pref.Labels(),
-//					NoDefault: pref.NoDefault,
+//					Verified:  pref.Verified,
 //				})
 //			}
 //		}
@@ -72,11 +72,12 @@ func (dd *PrefDomains) TemplateDomains() (domains []*preftemplates.Domain) {
 		defaults := make([]*preftemplates.Default, len(domain.Prefs()))
 		for j, pref := range domain.Prefs() {
 			defaults[j] = &preftemplates.Default{
-				Domain:    d,
-				Name:      preftemplates.PrefName(pref.Name),
-				Value:     pref.DefaultValue,
-				Labels:    pref.Labels(),
-				NoDefault: pref.NoDefault,
+				Domain:   d,
+				Name:     preftemplates.PrefName(pref.Name),
+				Type:     preftemplates.TypeName(pref.typeName),
+				Value:    pref.DefaultValue,
+				Labels:   pref.Labels(),
+				Verified: pref.Verified,
 			}
 		}
 		d.Defaults = defaults
@@ -89,7 +90,7 @@ func (dd *PrefDomains) Domains() []*PrefsDomain {
 	return dd.domains
 }
 
-func (dd *PrefDomains) String() string {
+func (dd *PrefDomains) DebugString() string {
 	return fmt.Sprintf("Domains: %d, Initialized: %t, PrefsRetrieved: %t",
 		len(dd.domains),
 		dd.initialized,
@@ -122,19 +123,67 @@ func (dd *PrefDomains) Initialize() (err error) {
 		errs.Add(err)
 		goto end
 	}
-	prefDefaultsLookupMutex.Lock()
-	defer prefDefaultsLookupMutex.Unlock()
-
 	for domain, dvs := range dmf() {
 		for name, dv := range dvs {
 			dv.Domain = domain
 			dv.Name = name
-			prefDefaultsLookup[NewPrefId(domain, name)] = dv
+			//dv.AddLabel()
+			SetPrefDefault(dv)
 		}
 	}
 	dd.initialized = true
 end:
 	return errs.Err()
+}
+
+//func SetPrefDefault_NEW(pd *PrefDefault) {
+//	var typeLabel *kvfilters.Label
+//	dn := DomainName(pd.Domain)
+//	pn := PrefName(pd.Name)
+//	pd = GetPrefDefault(dn, pn)
+//	if pd == nil {
+//		pd = NewPrefDefault(dn, pn)
+//	}
+//	if def.Default != "" {
+//		pd.DefaultValue = def.Default
+//		pd.Verified = def.Verified
+//		//pd.Kind = def.Kind()
+//	} else {
+//		p, err := macosutils.RetrievePreference(def.Domain, def.Name)
+//		if err == nil {
+//			pd.DefaultValue = p.Value
+//			pd.Kind = p.Kind
+//		}
+//		pd.Verified = false
+//	}
+//	pd.Kind, typeLabel = GetPrefKindAndTypeLabel(pd.Kind, TypeName(def.Type), pd.DefaultValue)
+//
+//	//_, _ = fmt.Fprintf(file, "{\n")
+//	//_, _ = fmt.Fprintf(file, "\t"+"id:        \"%s/%s\",\n", pd.Domain, pd.Name)
+//	//_, _ = fmt.Fprintf(file, "\t"+"name:      \"xxx kind xxx type xxx value\",\n")
+//	//_, _ = fmt.Fprintf(file, "\t"+"kind:      reflect.%s,\n", fixCase(pd.Kind.String()))
+//	//_, _ = fmt.Fprintf(file, "\t"+"typ:       prefdefaults.%s.Value,\n", fixCase(string(typeLabel.Value)))
+//	//_, _ = fmt.Fprintf(file, "\t"+"value:     \"%s\",\n", pd.DefaultValue)
+//	//_, _ = fmt.Fprintf(file, "\t"+"wantKind:  reflect.%s,\n", fixCase(pd.Kind.String()))
+//	//_, _ = fmt.Fprintf(file, "\t"+"wantLabel: prefdefaults.%s,\n", fixCase(string(typeLabel.Value)))
+//	//_, _ = fmt.Fprintf(file, "},\n")
+//
+//	def.Labels.Add(typeLabel)
+//	if !def.Labels.HasNamedLabel(&SetupSets) {
+//		def.Labels.Add(&DefaultsSet)
+//	}
+//	if def.Labels.GetNamedLabel(Class) == nil {
+//		def.Labels.Add(&UserManaged)
+//	}
+//	pd.SetLabels(def.Labels)
+//	SetPrefDefault(pd)
+//	return pd
+//}
+
+func SetPrefDefault(dv *PrefDefault) {
+	prefDefaultsLookupMutex.Lock()
+	prefDefaultsLookup[dv.Id()] = dv
+	prefDefaultsLookupMutex.Unlock()
 }
 
 func (dd *PrefDomains) RetrievePrefs() (err error) {

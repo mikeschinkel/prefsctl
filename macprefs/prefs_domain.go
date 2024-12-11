@@ -41,7 +41,7 @@ type PrefsDomain struct {
 //			Name:      preftemplates.PrefName(pref.Name),
 //			Value:     pref.DefaultValue,
 //			Labels:    pref.Labels(),
-//			NoDefault: pref.NoDefault,
+//			Verified:  pref.Verified,
 //		})
 //	}
 //	return defaults
@@ -92,30 +92,6 @@ func (d *PrefsDomain) RetrievePrefValues() (err error) {
 	}
 	d.prefsValuesRetrieved = true
 	return errs.Err()
-}
-
-func NewPrefsDomainFromFiltersGroup(group kvfilters.Group) *PrefsDomain {
-	domain := DomainName(group.Name())
-	return &PrefsDomain{
-		domain:         domain,
-		prefs:          NewDomainPrefsFromFiltersKeyValues(domain, group.KeyValues()),
-		prefsRetrieved: false,
-	}
-}
-
-func NewDomainPrefsFromFiltersKeyValues(domain DomainName, kvs []kvfilters.KeyValue) (prefs []*Pref) {
-	prefs = make([]*Pref, len(kvs))
-	for i, kv := range kvs {
-		prefs[i] = NewPref(PrefArgs{
-			Domain:  domain,
-			Name:    PrefName(kv.Key()),
-			Value:   kv.Value(),
-			Default: "",  // TODO
-			Labels:  nil, // TODO
-			Kind:    0,   // TODO
-		})
-	}
-	return prefs
 }
 
 func NewPrefsDomain(domain DomainName) *PrefsDomain {

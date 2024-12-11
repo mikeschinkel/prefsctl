@@ -2,7 +2,6 @@ package macprefs
 
 import (
 	"fmt"
-	"reflect"
 	"strconv"
 
 	"github.com/mikeschinkel/prefsctl/macosutils"
@@ -14,15 +13,22 @@ var _ kvfilters.KeyValue = (*Pref)(nil)
 // Pref represents a preference with its Domain and name
 type Pref struct {
 	*PrefDefault
-	value       string       // raw string value
-	Kind        reflect.Kind // kind of the value
-	err         error        // last error encountered
+	value       string // raw string value
+	err         error  // last error encountered
 	Description string
 	invalid     bool
 }
 
-func (p *Pref) Labels() kvfilters.Labels {
-	return p.PrefDefault.Labels()
+func (p *Pref) HasLabel(label *kvfilters.Label) bool {
+	return p.PrefDefault.Labels().Contains(label)
+}
+func (p *Pref) HasLabels(ll ...*kvfilters.Label) bool {
+	labelPtrs := make([]*kvfilters.Label, len(ll))
+	labels := p.PrefDefault.Labels()
+	for i, label := range labels.LabelPtrs() {
+		labelPtrs[i] = label
+	}
+	return labels.Contains(labelPtrs...)
 }
 
 func (p *Pref) Valid() bool {
@@ -35,8 +41,8 @@ type PrefArgs struct {
 	Name    PrefName
 	Value   string // raw string value
 	Default string // raw string value
-	Labels  kvfilters.Labels
-	Kind    reflect.Kind // kind of the value
+	Labels  *kvfilters.Labels
+	//Kind    reflect.Kind // kind of the value
 	Invalid bool
 }
 
@@ -46,13 +52,12 @@ func NewPref(args PrefArgs) *Pref {
 	if args.Default != "" {
 		dv.DefaultValue = args.Default
 	}
-	dv.NoDefault = dv.DefaultValue == ""
 	if dv.labels == nil {
 		dv.labels = args.Labels
 	}
 	return &Pref{
-		value:       args.Value,
-		Kind:        args.Kind,
+		value: args.Value,
+		//Kind:        args.Kind,
 		invalid:     args.Invalid,
 		PrefDefault: dv,
 	}
@@ -71,7 +76,7 @@ func (p *Pref) Retrieve() error {
 	if err == nil {
 		p.value = mp.Value
 		p.Description = mp.Description
-		p.Kind = mp.Kind
+		p.PrefDefault = GetPrefDefault(p.Domain, p.Name)
 		p.invalid = !mp.Valid()
 	}
 	return p.err
@@ -143,4 +148,11 @@ func (p *Pref) Int() int {
 // Err returns the last error encountered
 func (p *Pref) Err() error {
 	return p.err
+}
+
+func (p *Pref) DebugString() string {
+	if p.PrefDefault == nil {
+		return "nil"
+	}
+	return fmt.Sprintf("%s=%s", p.Id(), p.value)
 }

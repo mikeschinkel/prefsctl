@@ -10,7 +10,8 @@ package macosutils
 typedef enum {
 	 KIND_INVALID = 0,
 	 KIND_BOOL = 1,
-	 KIND_INT = 2,
+	 KIND_INT = 6,
+	 KIND_FLOAT = 14,
 	 KIND_STRING = 24
 } PreferenceKind;
 
@@ -102,6 +103,7 @@ void freePreferenceResult(PreferenceResult result) {
 import "C"
 import (
 	"reflect"
+	"sync"
 	"unsafe"
 )
 
@@ -112,34 +114,54 @@ type Preference struct {
 	Description string
 	Kind        reflect.Kind
 	invalid     bool
+	err         error
 }
 
 func (p Preference) Valid() bool {
 	return !p.invalid
 }
 
+type cacheId string
+
+func getCacheId(domain string, name string) cacheId {
+	return cacheId(domain + "|" + name)
+}
+
+var preferenceCache = make(map[cacheId]*Preference)
+var preferenceCacheMutex sync.Mutex
+
 // RetrievePreference fetches the preference value from the system
 func RetrievePreference(domain string, name string) (dp *Preference, err error) {
-	cDomain := C.CString(domain)
-	cName := C.CString(name)
+	var ok bool
+	var cDomain, cName *C.char
+	var cResult C.PreferenceResult
+
+	preferenceCacheMutex.Lock()
+	prefId := getCacheId(domain, name)
+	if dp, ok = preferenceCache[prefId]; ok {
+		goto end
+	}
+	cDomain = C.CString(domain)
+	cName = C.CString(name)
+
 	defer C.free(unsafe.Pointer(cDomain))
 	defer C.free(unsafe.Pointer(cName))
 
-	result := C.getPreferenceResult(cDomain, cName)
-	defer C.freePreferenceResult(result)
+	cResult = C.getPreferenceResult(cDomain, cName)
+	defer C.freePreferenceResult(cResult)
 
 	dp = &Preference{
 		Domain: domain,
 		Name:   name,
 	}
 
-	if result.error == C.PREF_SUCCESS {
-		dp.Kind = reflect.Kind(result.kind)
+	if cResult.error == C.PREF_SUCCESS {
+		dp.Kind = reflect.Kind(cResult.kind)
 	} else {
-		dp.Value = C.GoString(result.value) // Save error message
-		dp.Description = C.GoString(result.descr)
+		dp.Value = C.GoString(cResult.value) // Save error message
+		dp.Description = C.GoString(cResult.descr)
 		dp.invalid = true
-		switch result.error {
+		switch cResult.error {
 		case C.PREF_INVALID_INPUT:
 			err = ErrInvalidInput
 		case C.PREF_NOT_FOUND:
@@ -151,8 +173,9 @@ func RetrievePreference(domain string, name string) (dp *Preference, err error) 
 		}
 		goto end
 	}
-	dp.Value = C.GoString(result.value)
-
+	dp.Value = C.GoString(cResult.value)
+	preferenceCache[prefId] = dp
 end:
+	preferenceCacheMutex.Unlock()
 	return dp, err
 }

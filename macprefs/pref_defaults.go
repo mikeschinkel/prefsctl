@@ -16,7 +16,7 @@ type DefaultsMapFuncs map[macosutils.Code]DefaultsMapFunc
 
 var defaultsMapFuncs = make(DefaultsMapFuncs)
 
-func RegisterDefaultsMapFunc(os kvfilters.Label, f DefaultsMapFunc) {
+func RegisterDefaultsMapFunc(os *kvfilters.Label, f DefaultsMapFunc) {
 	defaultsMapFuncs[macosutils.Code(os.Value)] = f
 }
 func GetDefaultsMapFunc(os macosutils.Code) (f DefaultsMapFunc, err error) {

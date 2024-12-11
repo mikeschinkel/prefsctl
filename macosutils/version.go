@@ -58,6 +58,7 @@ var versionNumberCodeMap = map[NumericVersion]Code{
 	"10.1":  Puma,
 	"10.0":  Cheetah,
 }
+
 var versionCodeNameMap = map[Code]Name{
 	Sequoia:      "Sequoia",
 	Sonoma:       "Sonoma",
@@ -117,34 +118,50 @@ func VersionName() (name Name, _ error) {
 	}
 	name, ok = versionCodeNameMap[code]
 	if !ok {
-		panicf("Version code '%s' has no associated macOS version name. Did the programmer forget to add that into the code?")
+		panicf("Version code '%s' has no associated MacOS version name. "+
+			"Is this a new macOS Version which `prefsctl` does not yet support? "+
+			"(Or if you are the developer of `prefsctl` have you not added that "+
+			"version into the code yet?)", code)
 	}
 end:
 	return name, err
 }
 
-func VersionCode() (code Code, _ error) {
+func parseVersion(v string) (int, error) {
+	n, err := strconv.ParseInt(v, 10, 0)
+	if err != nil {
+		err = errors.Join(ErrFailedParsingMajorVersion,
+			fmt.Errorf("%v=%v", logargs.VersionLogArg, v),
+		)
+	}
+	return int(n), err
+}
+
+var versionCode Code
+
+func MustGetVersionCode() Code {
+	if versionCode == "" {
+		panic("Must call macosutils.VersionCode() before calling MustGetVersionCode()")
+	}
+	return versionCode
+}
+
+func VersionCode() (_ Code, err error) {
 	var ok bool
 	var matches []string
 	var n int
-	var versionCode Code
+	var v VersionNumber
 
-	parseVersion := func(v string) (int, error) {
-		n, err := strconv.ParseInt(v, 10, 0)
-		if err != nil {
-			err = errors.Join(ErrFailedParsingMajorVersion,
-				fmt.Errorf("%v=%v", logargs.VersionLogArg, v),
-			)
-		}
-		return int(n), err
+	if versionCode != "" {
+		goto end
 	}
 
-	v, err := Version()
+	v, err = GetVersionNumber()
 	if err != nil {
 		err = errors.Join(ErrFailedToGetMacOSVersionName, err)
 		goto end
 	}
-	matches = semVerRegex.FindStringSubmatch(v)
+	matches = semVerRegex.FindStringSubmatch(string(v))
 	if matches == nil {
 		err = errors.Join(ErrUnrecognizedMacOSVersionFormat,
 			fmt.Errorf("%s=%s", logargs.VersionLogArg, v),
@@ -165,14 +182,14 @@ func VersionCode() (code Code, _ error) {
 		// Version of macOS Big Sur thru Sequoia are 11.0 thru 15.0
 		// After Sequoia hopefully Apple follows the pattern. If not,
 		// this will probably break and need revision.
-		v = strconv.Itoa(n)
+		v = VersionNumber(strconv.Itoa(n))
 	default: // n==10
 		// Handle versions 10.0 (Cheetah) through 10.15 (Catalina)
 		n, err = parseVersion(matches[2])
 		if err != nil {
 			goto end
 		}
-		v = fmt.Sprintf("10.%d", n)
+		v = VersionNumber(fmt.Sprintf("10.%d", n))
 	}
 	versionCode, ok = versionNumberCodeMap[NumericVersion(v)]
 	if !ok {
@@ -181,12 +198,13 @@ func VersionCode() (code Code, _ error) {
 		)
 		goto end
 	}
-	code = versionCode
 end:
-	return code, err
+	return versionCode, err
 }
 
-func Version() (v string, err error) {
+type VersionNumber string
+
+func GetVersionNumber() (v VersionNumber, err error) {
 	var cVer *C.char
 	if runtime.GOOS != "darwin" {
 		err = errutil.AnnotateErr(ErrNotMacOS, "os="+runtime.GOOS)
@@ -200,7 +218,7 @@ func Version() (v string, err error) {
 	}
 	defer C.freeMacOSVersion(cVer)
 
-	v = C.GoString(cVer)
+	v = VersionNumber(C.GoString(cVer))
 end:
 	return v, err
 }
