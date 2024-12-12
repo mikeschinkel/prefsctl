@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
+	"github.com/mikeschinkel/prefsctl/logargs"
 )
 
 var _ kvfilters.KeyValue = (*PrefDefault)(nil)
@@ -20,35 +20,6 @@ type PrefDefault struct {
 	typeName     TypeName
 	labels       *kvfilters.Labels
 	Verified     Verified
-}
-
-func (pd *PrefDefault) HasLabel(label *kvfilters.Label) bool {
-	return pd.labels.Contains(label)
-}
-
-//	func (pd *PrefDefault) SetTypeName(name TypeName) {
-//		pd.typeName = name
-//	}
-func (pd *PrefDefault) SetLabels(labels *kvfilters.Labels) {
-	pd.labels = labels
-	pd.labels.SyncMap()
-	typeLabel := pd.GetNamedLabel(Type)
-	if typeLabel != nil {
-		pd.typeName = TypeName(typeLabel.Value)
-	}
-}
-
-func (pd *PrefDefault) Labels() *kvfilters.Labels {
-	return pd.labels
-}
-
-func (pd *PrefDefault) GetNamedLabel(name kvfilters.LabelName) (label *kvfilters.Label) {
-	return pd.labels.GetNamedLabel(name)
-}
-
-func (pd *PrefDefault) Valid() bool {
-	//TODO implement me
-	panic("implement me")
 }
 
 func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
@@ -78,6 +49,38 @@ func GetPrefDefault(domain DomainName, name PrefName) (d *PrefDefault) {
 	}
 	return d
 }
+func GetPrefId(domain DomainName, name PrefName) PrefId {
+	return NewPrefId(domain, name)
+}
+
+func (pd *PrefDefault) Labels() *kvfilters.Labels {
+	return pd.labels
+}
+
+//	func (pd *PrefDefault) SetTypeName(name TypeName) {
+//		pd.typeName = name
+//	}
+func (pd *PrefDefault) SetLabels(labels *kvfilters.Labels) {
+	pd.labels = labels
+	pd.labels.SyncMap()
+	typeLabel := pd.GetNamedLabel(Type)
+	if typeLabel != nil {
+		pd.typeName = TypeName(typeLabel.Value)
+	}
+}
+
+func (pd *PrefDefault) HasLabel(label *kvfilters.Label) bool {
+	return pd.labels.Contains(label)
+}
+
+func (pd *PrefDefault) GetNamedLabel(name kvfilters.LabelName) (label *kvfilters.Label) {
+	return pd.labels.GetNamedLabel(name)
+}
+
+func (pd *PrefDefault) Valid() bool {
+	//TODO implement me
+	panic("implement me")
+}
 
 func (pd *PrefDefault) UserManaged() bool {
 	return pd.HasLabel(&UserManaged)
@@ -90,16 +93,13 @@ func (pd *PrefDefault) String() string {
 func (pd *PrefDefault) Id() PrefId {
 	return NewPrefIdFromDefault(pd)
 }
+
 func (pd *PrefDefault) LogValue() any {
 	return fmt.Sprintf("%s (default=%s,labels=[%s])",
 		GetPrefId(pd.Domain, pd.Name),
 		pd.DefaultValue,
 		pd.labels,
 	)
-}
-
-func GetPrefId(domain DomainName, name PrefName) PrefId {
-	return NewPrefId(domain, name)
 }
 
 func (pd *PrefDefault) Key() kvfilters.Code {

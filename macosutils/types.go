@@ -1,6 +1,10 @@
 package macosutils
 
-type OSName string
-type NumericVersion string
-type Code string
-type Name string
+import (
+	"github.com/mikeschinkel/prefsctl/types"
+)
+
+type VersionNumber string
+
+type VersionName = types.Name
+type VersionCode = types.Code

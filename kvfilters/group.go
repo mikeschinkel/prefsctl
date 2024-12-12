@@ -3,15 +3,16 @@ package kvfilters
 import (
 	"fmt"
 
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/logargs"
+	"github.com/mikeschinkel/prefsctl/types"
 )
 
 // Name for the group or key-value pair, or anything else that needs a name.
-type Name string
+type Name = types.Name
 
 // Code is the camel-cased version of name without spaces used for comparison,
 // e.g. "userManaged" instead of "User Managed."
-type Code string
+type Code = types.Code
 
 type Group interface {
 	Name() Name

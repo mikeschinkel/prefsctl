@@ -8,8 +8,8 @@ import (
 	"sync"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutils"
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
@@ -44,22 +44,6 @@ func (dd *PrefDomains) UserManagedPrefDefaults() (pds []*PrefDefault) {
 	return pds
 }
 
-//	func (dd *PrefDomains) TemplatePrefs() (prefs []*preftemplates.Pref) {
-//		prefs = make([]*preftemplates.Pref, 0)
-//		dd.Sort()
-//		for _, domain := range dd.domains {
-//			for _, pref := range domain.Prefs() {
-//				prefs = append(prefs, &preftemplates.Pref{
-//					Domain:    preftemplates.DomainName(pref.Domain),
-//					Name:      preftemplates.PrefName(pref.Name),
-//					Default:   pref.DefaultValue,
-//					Labels:    pref.Labels(),
-//					Verified:  pref.Verified,
-//				})
-//			}
-//		}
-//		return prefs
-//	}
 func (dd *PrefDomains) TemplateDomains() (domains []*preftemplates.Domain) {
 	domains = make([]*preftemplates.Domain, len(dd.domains))
 	dd.Sort()
@@ -74,7 +58,7 @@ func (dd *PrefDomains) TemplateDomains() (domains []*preftemplates.Domain) {
 			defaults[j] = &preftemplates.Default{
 				Domain:   d,
 				Name:     preftemplates.PrefName(pref.Name),
-				Type:     preftemplates.TypeName(pref.typeName),
+				Type:     pref.TypeName(),
 				Value:    pref.DefaultValue,
 				Labels:   pref.Labels(),
 				Verified: pref.Verified,
@@ -105,7 +89,7 @@ func NewPrefDomains(domains []*PrefsDomain) *PrefDomains {
 }
 
 func (dd *PrefDomains) Initialize() (err error) {
-	var osCode macosutils.Code
+	var osCode Code
 	var dmf DefaultsMapFunc
 	var errs errutil.MultiErr
 
@@ -113,7 +97,7 @@ func (dd *PrefDomains) Initialize() (err error) {
 		goto end
 	}
 
-	osCode, err = macosutils.VersionCode()
+	osCode, err = macOSUtils.VersionCode()
 	if err != nil {
 		errs.Add(err)
 		goto end
@@ -149,7 +133,7 @@ end:
 //		pd.Verified = def.Verified
 //		//pd.Kind = def.Kind()
 //	} else {
-//		p, err := macosutils.RetrievePreference(def.Domain, def.Name)
+//		p, err := macOSUtils.RetrievePreference(def.Domain, def.Name)
 //		if err == nil {
 //			pd.DefaultValue = p.Value
 //			pd.Kind = p.Kind
@@ -260,7 +244,7 @@ func (dd *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
 // RetrievePrefDomains retrieves the list of macOS preference domains available
 // currently on the system via macOS.
 func RetrievePrefDomains() (pds *PrefDomains, err error) {
-	domains, err := macosutils.RetrievePreferenceDomains()
+	domains, err := macOSUtils.RetrievePreferenceDomains()
 	if err != nil {
 		goto end
 	}
@@ -274,7 +258,7 @@ end:
 // RetrieveDomainPrefs retrieves the macOS preferences for the specified
 // preference domain from macOS.
 func RetrieveDomainPrefs(domain DomainName) (pp Prefs, err error) {
-	prefs, err := macosutils.Retrieve(macosutils.PreferenceDomain(domain))
+	prefs, err := macOSUtils.RetrievePreferences(macosutils.PreferenceDomain(domain))
 	if err != nil {
 		goto end
 	}

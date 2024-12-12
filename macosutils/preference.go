@@ -130,8 +130,8 @@ func getCacheId(domain string, name string) cacheId {
 var preferenceCache = make(map[cacheId]*Preference)
 var preferenceCacheMutex sync.Mutex
 
-// RetrievePreference fetches the preference value from the system
-func RetrievePreference(domain string, name string) (dp *Preference, err error) {
+// retrievePreference fetches the preference value from the system
+func retrievePreference(domain string, name string) (dp *Preference, err error) {
 	var ok bool
 	var cDomain, cName *C.char
 	var cResult C.PreferenceResult

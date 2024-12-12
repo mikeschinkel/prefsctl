@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
+	"github.com/mikeschinkel/prefsctl/logargs"
 )
 
 type DomainName string
@@ -32,20 +32,6 @@ type PrefsDomain struct {
 	prefsRetrieved       bool
 	prefsValuesRetrieved bool
 }
-
-//func (d *PrefsDomain) TemplateDefaults() (defaults []*preftemplates.Default) {
-//	defaults = make([]*preftemplates.Default, 0)
-//	for _, pref := range d.Prefs() {
-//		defaults = append(defaults, &preftemplates.Default{
-//			Domain:    d,
-//			Name:      preftemplates.PrefName(pref.Name),
-//			Value:     pref.DefaultValue,
-//			Labels:    pref.Labels(),
-//			Verified:  pref.Verified,
-//		})
-//	}
-//	return defaults
-//}
 
 func (d *PrefsDomain) ShallowCopy() kvfilters.Group {
 	return &PrefsDomain{

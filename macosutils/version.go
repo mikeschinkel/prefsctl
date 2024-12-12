@@ -32,10 +32,10 @@ import (
 	"strconv"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/logargs"
 )
 
-var versionNumberCodeMap = map[NumericVersion]Code{
+var versionNumberCodeMap = map[VersionNumber]VersionCode{
 	"15":    Sequoia,
 	"14":    Sonoma,
 	"13":    Ventura,
@@ -59,7 +59,7 @@ var versionNumberCodeMap = map[NumericVersion]Code{
 	"10.0":  Cheetah,
 }
 
-var versionCodeNameMap = map[Code]Name{
+var versionCodeNameMap = map[VersionCode]VersionName{
 	Sequoia:      "Sequoia",
 	Sonoma:       "Sonoma",
 	Ventura:      "Ventura",
@@ -84,35 +84,35 @@ var versionCodeNameMap = map[Code]Name{
 }
 
 var (
-	Sequoia      Code = "sequoia"
-	Sonoma       Code = "sonoma"
-	Ventura      Code = "ventura"
-	Monterey     Code = "monterey"
-	BigSur       Code = "bigSur"
-	Catalina     Code = "catalina"
-	Mojave       Code = "mojave"
-	HighSierra   Code = "highSierra"
-	Sierra       Code = "sierra"
-	ElCapitan    Code = "elCapitan"
-	Yosemite     Code = "yosemite"
-	Mavericks    Code = "mavericks"
-	MountainLion Code = "mountainLion"
-	Lion         Code = "lion"
-	SnowLeopard  Code = "snowLeopard"
-	Leopard      Code = "leopard"
-	Tiger        Code = "tiger"
-	Panther      Code = "panther"
-	Jaguar       Code = "jaguar"
-	Puma         Code = "puma"
-	Cheetah      Code = "cheetah"
+	Sequoia      VersionCode = "sequoia"
+	Sonoma       VersionCode = "sonoma"
+	Ventura      VersionCode = "ventura"
+	Monterey     VersionCode = "monterey"
+	BigSur       VersionCode = "bigSur"
+	Catalina     VersionCode = "catalina"
+	Mojave       VersionCode = "mojave"
+	HighSierra   VersionCode = "highSierra"
+	Sierra       VersionCode = "sierra"
+	ElCapitan    VersionCode = "elCapitan"
+	Yosemite     VersionCode = "yosemite"
+	Mavericks    VersionCode = "mavericks"
+	MountainLion VersionCode = "mountainLion"
+	Lion         VersionCode = "lion"
+	SnowLeopard  VersionCode = "snowLeopard"
+	Leopard      VersionCode = "leopard"
+	Tiger        VersionCode = "tiger"
+	Panther      VersionCode = "panther"
+	Jaguar       VersionCode = "jaguar"
+	Puma         VersionCode = "puma"
+	Cheetah      VersionCode = "cheetah"
 )
 
 var semVerRegex = regexp.MustCompile(`(\d+)\.(\d+)\.\d+`)
 
-func VersionName() (name Name, _ error) {
+func versionName() (name VersionName, _ error) {
 	var ok bool
 
-	code, err := VersionCode()
+	code, err := versionCode()
 	if err != nil {
 		goto end
 	}
@@ -137,26 +137,27 @@ func parseVersion(v string) (int, error) {
 	return int(n), err
 }
 
-var versionCode Code
+// code is cached by versionCode()
+var code VersionCode
 
-func MustGetVersionCode() Code {
-	if versionCode == "" {
-		panic("Must call macosutils.VersionCode() before calling MustGetVersionCode()")
+func mustGetVersionCode() VersionCode {
+	if code == "" {
+		panic("Must call VersionCode() in macosutils package before calling MustGetVersionCode()")
 	}
-	return versionCode
+	return code
 }
 
-func VersionCode() (_ Code, err error) {
+func versionCode() (_ VersionCode, err error) {
 	var ok bool
 	var matches []string
 	var n int
 	var v VersionNumber
 
-	if versionCode != "" {
+	if code != "" {
 		goto end
 	}
 
-	v, err = GetVersionNumber()
+	v, err = getVersionNumber()
 	if err != nil {
 		err = errors.Join(ErrFailedToGetMacOSVersionName, err)
 		goto end
@@ -191,7 +192,7 @@ func VersionCode() (_ Code, err error) {
 		}
 		v = VersionNumber(fmt.Sprintf("10.%d", n))
 	}
-	versionCode, ok = versionNumberCodeMap[NumericVersion(v)]
+	code, ok = versionNumberCodeMap[v]
 	if !ok {
 		err = errors.Join(ErrUnrecognizedMacOSVersion,
 			fmt.Errorf("%s=%s", logargs.VersionLogArg, v),
@@ -199,12 +200,10 @@ func VersionCode() (_ Code, err error) {
 		goto end
 	}
 end:
-	return versionCode, err
+	return code, err
 }
 
-type VersionNumber string
-
-func GetVersionNumber() (v VersionNumber, err error) {
+func getVersionNumber() (v VersionNumber, err error) {
 	var cVer *C.char
 	if runtime.GOOS != "darwin" {
 		err = errutil.AnnotateErr(ErrNotMacOS, "os="+runtime.GOOS)

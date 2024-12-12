@@ -5,7 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
+	"github.com/mikeschinkel/prefsctl/macprefs"
 	"github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
 )
 
@@ -3756,7 +3757,7 @@ func TestGetPrefKindAndTypeLabel(t *testing.T) {
 		t.Run(testName(), func(t *testing.T) {
 			gotKind, gotLabel := prefdefaults.GetPrefKindAndTypeLabel(
 				tt.kind,
-				prefdefaults.TypeName(tt.typ),
+				macprefs.TypeName(tt.typ),
 				tt.value,
 			)
 			if gotKind != tt.wantKind {

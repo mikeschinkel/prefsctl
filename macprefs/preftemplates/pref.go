@@ -1,7 +1,7 @@
 package preftemplates
 
 import (
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 )
 
 type Pref struct {

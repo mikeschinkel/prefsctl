@@ -3,7 +3,7 @@ package preftemplates
 import (
 	"strings"
 
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )

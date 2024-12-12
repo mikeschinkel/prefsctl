@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 

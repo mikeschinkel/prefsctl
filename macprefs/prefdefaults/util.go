@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macprefs"
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
 )
 
 var floatPattern = regexp.MustCompile(`^([-+])?((\d*)\.?(\d+)|(\d+)\.?(\d*))$`)
@@ -38,8 +38,6 @@ end:
 	}
 	return prec, err
 }
-
-type TypeName string
 
 func ParsePrefValue(value string) (kind reflect.Kind, label *kvfilters.Label) {
 	switch value {

@@ -6,8 +6,7 @@ import (
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/cobrautil"
-	"github.com/mikeschinkel/prefsctl/macosutils"
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
@@ -55,7 +54,7 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 	if err != nil {
 		goto end
 	}
-	nameFilters, err = kvfilters.QueryFiltersForTargets(kvfilters.Groups, kvfilters.Keys)
+	nameFilters, err = QueryFiltersForTargets(kvfilters.Groups, kvfilters.Keys)
 	if err != nil {
 		goto end
 	}
@@ -79,7 +78,7 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 		goto end
 	}
 
-	valueFilters, err = kvfilters.QueryFiltersForTargets(kvfilters.Values, kvfilters.KeyValues)
+	valueFilters, err = QueryFiltersForTargets(kvfilters.Values, kvfilters.KeyValues)
 	if err != nil {
 		goto end
 	}
@@ -123,7 +122,7 @@ func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobra
 	var tmpl *preftemplates.DefaultsGoTemplate
 	var output string
 
-	code, err := macosutils.VersionCode()
+	code, err := macOSUtils.VersionCode()
 	domains, err := retrieveDefaults(ctx, args)
 	if err != nil {
 		goto end

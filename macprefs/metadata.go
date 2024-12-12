@@ -1,12 +1,11 @@
 package macprefs
 
 import (
-	"github.com/mikeschinkel/prefsctl/macosutils"
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 )
 
 type Metadata struct {
-	Name   macosutils.Name
+	Name   Name
 	Domain DomainName
 	Labels []kvfilters.Label
 }

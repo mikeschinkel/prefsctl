@@ -1,7 +1,7 @@
 package macprefs
 
 import (
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 )
 

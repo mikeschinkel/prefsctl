@@ -4,8 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/mikeschinkel/prefsctl/macosutils"
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 )
 
 var _ kvfilters.KeyValue = (*Pref)(nil)
@@ -17,6 +16,14 @@ type Pref struct {
 	err         error  // last error encountered
 	Description string
 	invalid     bool
+}
+
+func (p *Pref) TypeName() TypeName {
+	label := p.labels.GetNamedLabel(Type)
+	if label == nil {
+		label = &UnknownType
+	}
+	return TypeName(label.Value)
 }
 
 func (p *Pref) HasLabel(label *kvfilters.Label) bool {
@@ -72,7 +79,7 @@ func NewPrefFromDefault(pd *PrefDefault) *Pref {
 
 // Retrieve fetches the preference value from the system
 func (p *Pref) Retrieve() error {
-	mp, err := macosutils.RetrievePreference(string(p.Domain), string(p.Name))
+	mp, err := macOSUtils.RetrievePreference(string(p.Domain), string(p.Name))
 	if err == nil {
 		p.value = mp.Value
 		p.Description = mp.Description

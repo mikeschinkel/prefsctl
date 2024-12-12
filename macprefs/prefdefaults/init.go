@@ -5,10 +5,11 @@ import (
 	"reflect"
 	"strings"
 
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutils"
 	"github.com/mikeschinkel/prefsctl/macprefs"
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
 	"github.com/mikeschinkel/prefsctl/mapsutils"
+
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -24,7 +25,7 @@ var (
 	MontereyLabel = OSVersionLabel(macosutils.Monterey)
 )
 
-func OSVersionLabel(code macosutils.Code) *kvfilters.Label {
+func OSVersionLabel(code Code) *kvfilters.Label {
 	return &kvfilters.Label{
 		Name:  kvfilters.LabelName(macprefs.MacOS),
 		Value: kvfilters.LabelValue(code),
@@ -153,9 +154,8 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 	if def.Default != "" {
 		pd.DefaultValue = def.Default
 		pd.Verified = def.Verified
-		//pd.Kind = def.Kind()
 	} else {
-		p, err := macosutils.RetrievePreference(def.Domain, def.Name)
+		p, err := macOSUtils.RetrievePreference(def.Domain, def.Name)
 		if err == nil {
 			pd.DefaultValue = p.Value
 			pd.Kind = p.Kind
@@ -166,7 +166,8 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 
 	def.Labels.Add(typeLabel)
 
-	sets := pd.Labels().GetNamedLabel(macprefs.Sets)
+	pdLabels := pd.Labels()
+	sets := pdLabels.GetNamedLabel(macprefs.Sets)
 	switch {
 	case sets != nil:
 		def.Labels.Add(sets)
@@ -174,7 +175,7 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 		def.Labels.Add(&macprefs.DefaultsSet)
 	}
 
-	class := pd.Labels().GetNamedLabel(macprefs.Class)
+	class := pdLabels.GetNamedLabel(macprefs.Class)
 	switch {
 	case class != nil:
 		def.Labels.Add(class)

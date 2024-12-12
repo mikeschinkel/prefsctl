@@ -1,7 +1,7 @@
 package macosutils
 
 import (
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/slogutil"
 )
 

@@ -6,11 +6,10 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/mikeschinkel/prefsctl/macosutils"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
-type LabelName macosutils.Name
+type LabelName Name
 
 func (name LabelName) String() string {
 	return string(name)

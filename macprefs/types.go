@@ -2,6 +2,8 @@ package macprefs
 
 import (
 	"context"
+
+	"github.com/mikeschinkel/prefsctl/types"
 )
 
 type (
@@ -16,7 +18,9 @@ type Spec interface {
 }
 
 type PrefName string
-type TypeName string
+type TypeName = types.TypeName
+type Name = types.Name
+type Code = types.Code
 
 type PrefDefaultsMap map[PrefName]*PrefDefault
 type DomainPrefDefaults map[DomainName]PrefDefaultsMap

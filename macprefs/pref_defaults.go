@@ -4,22 +4,21 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/mikeschinkel/prefsctl/macosutils"
-	"github.com/mikeschinkel/prefsctl/macprefs/kvfilters"
+	"github.com/mikeschinkel/prefsctl/kvfilters"
 )
 
 const prefDefaultsGoImport = "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
 
 type DefaultsMapFunc func() DomainPrefDefaults
 
-type DefaultsMapFuncs map[macosutils.Code]DefaultsMapFunc
+type DefaultsMapFuncs map[Code]DefaultsMapFunc
 
 var defaultsMapFuncs = make(DefaultsMapFuncs)
 
 func RegisterDefaultsMapFunc(os *kvfilters.Label, f DefaultsMapFunc) {
-	defaultsMapFuncs[macosutils.Code(os.Value)] = f
+	defaultsMapFuncs[Code(os.Value)] = f
 }
-func GetDefaultsMapFunc(os macosutils.Code) (f DefaultsMapFunc, err error) {
+func GetDefaultsMapFunc(os Code) (f DefaultsMapFunc, err error) {
 	var ok bool
 	f, ok = defaultsMapFuncs[os]
 	if !ok {

@@ -4,7 +4,7 @@ import (
 	"crypto/tls"
 	"fmt"
 
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/logargs"
 )
 
 // TLSLogArgs returns a human-readable representation of the TLS state, omitting zero-value fields.

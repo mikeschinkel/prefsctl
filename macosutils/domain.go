@@ -82,14 +82,14 @@ import (
 	"unsafe"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/logargs"
 )
 
 type PreferenceDomain string
 
-// RetrievePreferenceDomains returns a list of all preference domains available
+// retrievePreferenceDomains returns a list of all preference domains available
 // for the current user on macOS.
-func RetrievePreferenceDomains() (domains []PreferenceDomain, err error) {
+func retrievePreferenceDomains() (domains []PreferenceDomain, err error) {
 	var count int
 
 	// Get the CFArray of preference domains
@@ -123,8 +123,8 @@ end:
 	return domains, err
 }
 
-// Retrieve returns all available preferences for this domain
-func Retrieve(d PreferenceDomain) (prefs []*Preference, err error) {
+// retrievePreferences returns all available preferences for this domain
+func retrievePreferences(d PreferenceDomain) (prefs []*Preference, err error) {
 	var numPrefs int
 
 	// Convert domain name to CFString

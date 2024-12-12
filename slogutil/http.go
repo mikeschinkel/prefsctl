@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/mikeschinkel/prefsctl/macprefs/logargs"
+	"github.com/mikeschinkel/prefsctl/logargs"
 )
 
 func HTTPRequestLogArgs(r *http.Request) []any {

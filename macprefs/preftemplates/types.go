@@ -1,6 +1,11 @@
 package preftemplates
 
-type TypeName string
+import (
+	"github.com/mikeschinkel/prefsctl/types"
+)
+
+type TypeName = types.TypeName
+
 type OSVersion string
 type DomainName string
 type PrefName string
