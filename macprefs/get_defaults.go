@@ -7,6 +7,7 @@ import (
 
 	"github.com/mikeschinkel/prefsctl/cobrautil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
+	"github.com/mikeschinkel/prefsctl/macosutils"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
@@ -122,7 +123,7 @@ func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobra
 	var tmpl *preftemplates.DefaultsGoTemplate
 	var output string
 
-	code, err := macOSUtils.VersionCode()
+	code, err := macosutils.VersionCode()
 	domains, err := retrieveDefaults(ctx, args)
 	if err != nil {
 		goto end
@@ -132,7 +133,7 @@ func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobra
 		domains.TemplateDomains(),
 	)
 	tmpl.ShowValueFunc = func(d *preftemplates.Default) bool {
-		return d.Labels.Contains(&UserManaged)
+		return d.Labels.HasLabel(&UserManaged)
 	}
 	output, err = tmpl.Generate()
 	if err != nil {

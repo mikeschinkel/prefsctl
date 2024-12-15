@@ -5,10 +5,12 @@ type MacOSUtils interface {
 	RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error)
 	RetrievePreference(domain string, name string) (dp *Preference, err error)
 	GetVersionNumber() (v VersionNumber, err error)
-	VersionName() (name VersionName, err error)
-	VersionCode() (code VersionCode, err error)
-	MustGetVersionCode() VersionCode
+	VersionName() (name Name, err error)
+	VersionCode() (code Code, err error)
+	MustGetVersionCode() Code
 }
+
+var instance MacOSUtils = New()
 
 func New() MacOSUtils {
 	return &macOSUtils{}
@@ -18,30 +20,30 @@ var _ MacOSUtils = (*macOSUtils)(nil)
 
 type macOSUtils struct{}
 
-func (macOSUtils) RetrievePreferenceDomains() (domains []PreferenceDomain, err error) {
-	return retrievePreferenceDomains()
+func RetrievePreferenceDomains() (domains []PreferenceDomain, err error) {
+	return instance.RetrievePreferenceDomains()
 }
 
-func (macOSUtils) RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error) {
-	return retrievePreferences(d)
+func RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error) {
+	return instance.RetrievePreferences(d)
 }
 
-func (macOSUtils) RetrievePreference(domain string, name string) (dp *Preference, err error) {
-	return retrievePreference(domain, name)
+func RetrievePreference(domain string, name string) (dp *Preference, err error) {
+	return instance.RetrievePreference(domain, name)
 }
 
-func (macOSUtils) GetVersionNumber() (v VersionNumber, err error) {
-	return getVersionNumber()
+func GetVersionNumber() (v VersionNumber, err error) {
+	return instance.GetVersionNumber()
 }
 
-func (macOSUtils) VersionName() (name VersionName, err error) {
-	return versionName()
+func VersionName() (name Name, err error) {
+	return instance.VersionName()
 }
 
-func (macOSUtils) VersionCode() (code VersionCode, err error) {
-	return versionCode()
+func VersionCode() (code Code, err error) {
+	return instance.VersionCode()
 }
 
-func (u macOSUtils) MustGetVersionCode() VersionCode {
-	return mustGetVersionCode()
+func MustGetVersionCode() Code {
+	return instance.MustGetVersionCode()
 }

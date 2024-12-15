@@ -6,5 +6,5 @@ import (
 
 type VersionNumber string
 
-type VersionName = types.Name
-type VersionCode = types.Code
+type Name = types.Name
+type Code = types.Code

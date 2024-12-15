@@ -27,7 +27,7 @@ var (
 
 func OSVersionLabel(code Code) *kvfilters.Label {
 	return &kvfilters.Label{
-		Name:  kvfilters.LabelName(macprefs.MacOS),
+		Name:  macprefs.MacOS,
 		Value: kvfilters.LabelValue(code),
 	}
 }
@@ -155,7 +155,7 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 		pd.DefaultValue = def.Default
 		pd.Verified = def.Verified
 	} else {
-		p, err := macOSUtils.RetrievePreference(def.Domain, def.Name)
+		p, err := macosutils.RetrievePreference(def.Domain, def.Name)
 		if err == nil {
 			pd.DefaultValue = p.Value
 			pd.Kind = p.Kind
@@ -164,23 +164,23 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 	}
 	pd.Kind, typeLabel = GetPrefKindAndTypeLabel(pd.Kind, def.TypeName(), pd.DefaultValue)
 
-	def.Labels.Add(typeLabel)
+	def.Labels.SetLabel(typeLabel)
 
 	pdLabels := pd.Labels()
 	sets := pdLabels.GetNamedLabel(macprefs.Sets)
 	switch {
 	case sets != nil:
-		def.Labels.Add(sets)
+		def.Labels.SetLabel(sets)
 	case def.Labels.GetNamedLabel(macprefs.Sets) == nil:
-		def.Labels.Add(&macprefs.DefaultsSet)
+		def.Labels.SetLabel(&macprefs.DefaultsSet)
 	}
 
 	class := pdLabels.GetNamedLabel(macprefs.Class)
 	switch {
 	case class != nil:
-		def.Labels.Add(class)
+		def.Labels.SetLabel(class)
 	case def.Labels.GetNamedLabel(macprefs.Class) == nil:
-		def.Labels.Add(&macprefs.UserManaged)
+		def.Labels.SetLabel(&macprefs.UserManaged)
 	}
 
 	pd.SetLabels(def.Labels)

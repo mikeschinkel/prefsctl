@@ -35,7 +35,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/logargs"
 )
 
-var versionNumberCodeMap = map[VersionNumber]VersionCode{
+var versionNumberCodeMap = map[VersionNumber]Code{
 	"15":    Sequoia,
 	"14":    Sonoma,
 	"13":    Ventura,
@@ -59,7 +59,7 @@ var versionNumberCodeMap = map[VersionNumber]VersionCode{
 	"10.0":  Cheetah,
 }
 
-var versionCodeNameMap = map[VersionCode]VersionName{
+var versionCodeNameMap = map[Code]Name{
 	Sequoia:      "Sequoia",
 	Sonoma:       "Sonoma",
 	Ventura:      "Ventura",
@@ -84,35 +84,35 @@ var versionCodeNameMap = map[VersionCode]VersionName{
 }
 
 var (
-	Sequoia      VersionCode = "sequoia"
-	Sonoma       VersionCode = "sonoma"
-	Ventura      VersionCode = "ventura"
-	Monterey     VersionCode = "monterey"
-	BigSur       VersionCode = "bigSur"
-	Catalina     VersionCode = "catalina"
-	Mojave       VersionCode = "mojave"
-	HighSierra   VersionCode = "highSierra"
-	Sierra       VersionCode = "sierra"
-	ElCapitan    VersionCode = "elCapitan"
-	Yosemite     VersionCode = "yosemite"
-	Mavericks    VersionCode = "mavericks"
-	MountainLion VersionCode = "mountainLion"
-	Lion         VersionCode = "lion"
-	SnowLeopard  VersionCode = "snowLeopard"
-	Leopard      VersionCode = "leopard"
-	Tiger        VersionCode = "tiger"
-	Panther      VersionCode = "panther"
-	Jaguar       VersionCode = "jaguar"
-	Puma         VersionCode = "puma"
-	Cheetah      VersionCode = "cheetah"
+	Sequoia      Code = "sequoia"
+	Sonoma       Code = "sonoma"
+	Ventura      Code = "ventura"
+	Monterey     Code = "monterey"
+	BigSur       Code = "bigSur"
+	Catalina     Code = "catalina"
+	Mojave       Code = "mojave"
+	HighSierra   Code = "highSierra"
+	Sierra       Code = "sierra"
+	ElCapitan    Code = "elCapitan"
+	Yosemite     Code = "yosemite"
+	Mavericks    Code = "mavericks"
+	MountainLion Code = "mountainLion"
+	Lion         Code = "lion"
+	SnowLeopard  Code = "snowLeopard"
+	Leopard      Code = "leopard"
+	Tiger        Code = "tiger"
+	Panther      Code = "panther"
+	Jaguar       Code = "jaguar"
+	Puma         Code = "puma"
+	Cheetah      Code = "cheetah"
 )
 
 var semVerRegex = regexp.MustCompile(`(\d+)\.(\d+)\.\d+`)
 
-func versionName() (name VersionName, _ error) {
+func (m *macOSUtils) VersionName() (name Name, _ error) {
 	var ok bool
 
-	code, err := versionCode()
+	code, err := m.VersionCode()
 	if err != nil {
 		goto end
 	}
@@ -138,16 +138,16 @@ func parseVersion(v string) (int, error) {
 }
 
 // code is cached by versionCode()
-var code VersionCode
+var code Code
 
-func mustGetVersionCode() VersionCode {
+func (*macOSUtils) MustGetVersionCode() Code {
 	if code == "" {
-		panic("Must call VersionCode() in macosutils package before calling MustGetVersionCode()")
+		panic("Must call Code() in macosutils package before calling MustGetVersionCode()")
 	}
 	return code
 }
 
-func versionCode() (_ VersionCode, err error) {
+func (m *macOSUtils) VersionCode() (_ Code, err error) {
 	var ok bool
 	var matches []string
 	var n int
@@ -157,7 +157,7 @@ func versionCode() (_ VersionCode, err error) {
 		goto end
 	}
 
-	v, err = getVersionNumber()
+	v, err = m.GetVersionNumber()
 	if err != nil {
 		err = errors.Join(ErrFailedToGetMacOSVersionName, err)
 		goto end
@@ -203,7 +203,7 @@ end:
 	return code, err
 }
 
-func getVersionNumber() (v VersionNumber, err error) {
+func (m *macOSUtils) GetVersionNumber() (v VersionNumber, err error) {
 	var cVer *C.char
 	if runtime.GOOS != "darwin" {
 		err = errutil.AnnotateErr(ErrNotMacOS, "os="+runtime.GOOS)

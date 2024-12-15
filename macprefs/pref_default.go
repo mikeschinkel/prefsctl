@@ -70,7 +70,7 @@ func (pd *PrefDefault) SetLabels(labels *kvfilters.Labels) {
 }
 
 func (pd *PrefDefault) HasLabel(label *kvfilters.Label) bool {
-	return pd.labels.Contains(label)
+	return pd.labels.HasLabel(label)
 }
 
 func (pd *PrefDefault) GetNamedLabel(name kvfilters.LabelName) (label *kvfilters.Label) {

@@ -18,7 +18,7 @@ var queryFiltersByOS = map[types.Code][]kvfilters.Filter{
 
 func QueryFilters() (ff []kvfilters.Filter, err error) {
 	var ok bool
-	code, err := macOSUtils.VersionCode()
+	code, err := macosutils.VersionCode()
 	if err != nil {
 		goto end
 	}
