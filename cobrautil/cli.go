@@ -36,10 +36,10 @@ func NewCLI(cfg *Config, args []string) *CLI {
 	}
 }
 
-func (cli *CLI) Execute(_ Context, args []string) *Outcome {
+func (cli *CLI) Execute(_ Context, args []string) (*Outcome, error) {
 	rootCmd.SetArgs(args)
 	err := rootCmd.Execute()
-	return NewCmdOutcome(err, calledCmd)
+	return NewCmdOutcome(err, calledCmd), err
 }
 
 func DefaultContext() Context {

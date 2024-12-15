@@ -23,7 +23,8 @@ func main() {
 	if err != nil {
 		goto end
 	}
-	outcome = cli.Execute(ctx, cli.Args)
+	// TODO: Resolve result vs. outcome in the following code
+	outcome, err = cli.Execute(ctx, cli.Args)
 end:
 	if err != nil {
 		outcome = cobrautil.NewErrorOutcome(err)
@@ -34,10 +35,3 @@ end:
 		os.Exit(1)
 	}
 }
-
-//func main2() {
-//	if err := rootCmd.Execute(); err != nil {
-//		fmt.Println(err)
-//		os.Exit(1)
-//	}
-//}
