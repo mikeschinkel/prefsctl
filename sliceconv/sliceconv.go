@@ -67,7 +67,7 @@ func ToMapFunc[K comparable, V, T any](slice []T, fn func(T) (bool, K, V, error)
 func ToStringsFunc[T any](slice []T, fn func(T) (bool, string, error)) ([]string, error) {
 	var errs errutil.MultiErr
 	items := make([]string, len(slice))
-	for _, item := range slice {
+	for i, item := range slice {
 		include, s, err := fn(item)
 		if !include {
 			continue
@@ -75,7 +75,7 @@ func ToStringsFunc[T any](slice []T, fn func(T) (bool, string, error)) ([]string
 		if err != nil {
 			errs.Add(err)
 		}
-		items = append(items, s)
+		items[i] = s
 	}
 	return items, errs.Err()
 }
