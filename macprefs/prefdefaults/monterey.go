@@ -6068,6 +6068,15 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"reloadShortcuts": DomainPref{
+				Verified: Verified{},
+				Type:     "unknown",
+				Default:  "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"showedFTE": DomainPref{
 				Verified: Verified{},
 				Type:     "bool",
