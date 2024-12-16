@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"net/http/httptest"
 
-	"github.com/mikeschinkel/prefsctl/logging"
+	"github.com/mikeschinkel/prefsctl/slogutil"
 )
 
 type Test interface {
@@ -21,7 +21,7 @@ func AddInitializer(initFunc InitializerFunc) {
 
 func InitializeTest(c4t ContextForTests, test Test) {
 	c4t.Helper()
-	logging.TestLogOutput = bytes.Buffer{}
+	slogutil.TestLogOutput = bytes.Buffer{}
 	c4t.Update(ContextForTestArgs{
 		Test:     test,
 		Recorder: httptest.NewRecorder(),
