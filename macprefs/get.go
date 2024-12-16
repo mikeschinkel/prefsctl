@@ -1,41 +1,37 @@
 package macprefs
 
-import (
-	"github.com/mikeschinkel/prefsctl/cobrautil"
-)
-
 type GetArgs struct {
 	Filename Filename
 	Output   OutputFormat
 }
 
-func Get(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
+func Get(ctx Context, ptr Printer, args GetArgs) (err error) {
 	switch args.Output {
 	case YAMLFormat:
-		result, err = getYAML(ctx, ptr, args)
+		err = getYAML(ctx, ptr, args)
 	case JSONFormat:
-		result, err = GetJSON(ctx, ptr, args)
+		err = GetJSON(ctx, ptr, args)
 	case GoFormat:
-		result, err = getGo(ctx, ptr, args)
+		err = getGo(ctx, ptr, args)
 	case TXTFormat:
 		fallthrough
 	default:
-		result, err = getText(ctx, ptr, args)
+		err = getText(ctx, ptr, args)
 	}
-	return result, err
+	return err
 }
 
-func getText(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
-	return result, err
+func getText(ctx Context, ptr Printer, args GetArgs) (err error) {
+	return err
 }
 
-func getGo(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
-	return result, err
+func getGo(ctx Context, ptr Printer, args GetArgs) (err error) {
+	return err
 }
 
-func getYAML(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
-	return result, err
+func getYAML(ctx Context, ptr Printer, args GetArgs) (err error) {
+	return err
 }
-func GetJSON(ctx Context, ptr Printer, args GetArgs) (result cobrautil.Result, err error) {
-	return result, err
+func GetJSON(ctx Context, ptr Printer, args GetArgs) (err error) {
+	return err
 }

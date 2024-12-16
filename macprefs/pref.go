@@ -137,12 +137,6 @@ func (p *Pref) Message() string {
 	return ""
 }
 
-func init() {
-	p := &Pref{PrefDefault: &PrefDefault{}}
-	// Ensure it is linked in
-	p.LogValue()
-}
-
 func (p *Pref) Bool() bool {
 	return p.value == "true"
 }

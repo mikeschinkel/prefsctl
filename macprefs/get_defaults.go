@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mikeschinkel/prefsctl/cobrautil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutils"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
@@ -16,20 +15,20 @@ type GetDefaultsArgs struct {
 	Dummy string
 }
 
-func GetDefaults(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
+func GetDefaults(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
 	switch OutputFormat(*GlobalFlags.Output) {
 	case YAMLFormat:
-		result, err = getDefaultsYAML(ctx, ptr, args)
+		err = getDefaultsYAML(ctx, ptr, args)
 	case JSONFormat:
-		result, err = GetDefaultsJSON(ctx, ptr, args)
+		err = GetDefaultsJSON(ctx, ptr, args)
 	case GoFormat:
-		result, err = getDefaultsGo(ctx, ptr, args)
+		err = getDefaultsGo(ctx, ptr, args)
 	case TXTFormat:
 		fallthrough
 	default:
-		result, err = getDefaultsText(ctx, ptr, args)
+		err = getDefaultsText(ctx, ptr, args)
 	}
-	return result, err
+	return err
 }
 
 func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, err error) {
@@ -103,7 +102,7 @@ end:
 	return domains, err
 }
 
-func getDefaultsText(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
+func getDefaultsText(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
 	domains, err := retrieveDefaults(ctx, args)
 	if err != nil {
 		goto end
@@ -113,13 +112,11 @@ func getDefaultsText(ctx Context, ptr Printer, args GetDefaultsArgs) (result cob
 	for ut := range unsupportedTypes {
 		fmt.Printf("— %s\n", ut)
 	}
-	result = NewResult("Success")
-
 end:
-	return result, err
+	return err
 }
 
-func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
+func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
 	var tmpl *preftemplates.DefaultsGoTemplate
 	var output string
 
@@ -140,17 +137,13 @@ func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobra
 		goto end
 	}
 	ptr.Print(output)
-	result = NewResult("Success")
 end:
-	if err != nil {
-		result = NewResult("Failure!")
-	}
-	return result, err
+	return err
 }
 
-func getDefaultsYAML(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
-	return result, err
+func getDefaultsYAML(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
+	return err
 }
-func GetDefaultsJSON(ctx Context, ptr Printer, args GetDefaultsArgs) (result cobrautil.Result, err error) {
-	return result, err
+func GetDefaultsJSON(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
+	return err
 }
