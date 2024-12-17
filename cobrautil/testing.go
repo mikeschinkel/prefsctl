@@ -26,14 +26,18 @@ type OnCLITestSuccessFunc func(CmdResult) any
 type CLICommandTest struct {
 	Name                string   // Test case name
 	Args                []string // CLI arguments
-	ErrExpected         bool     // Expected error
-	ErrMessage          string
+	SuccessResult       string
+	ErrorResult         string
 	BeforeTestFunc      BeforeCLITestFunc
 	CheckTestErrorsFunc CheckTestErrorsFunc
 	AfterTestFunc       AfterCLITestFunc
 	Config              Config
-	OutWriter           io.Writer
-	ErrWriter           io.Writer
+	OutBuffer           io.Writer
+	ErrBuffer           io.Writer
+}
+
+func (t CLICommandTest) ErrorExpected() bool {
+	return t.ErrorResult != ""
 }
 
 var BeforeTests BeforeCLITestsFunc = func(testutil.ContextForTests) error {
@@ -59,8 +63,8 @@ func RunCLICommandTestsWithSuccessFunc(c4t testutil.ContextForTests, successFunc
 		goto end
 	}
 	for _, tt := range tests {
-		tt.OutWriter = &bytes.Buffer{}
-		tt.ErrWriter = &bytes.Buffer{}
+		tt.OutBuffer = &bytes.Buffer{}
+		tt.ErrBuffer = &bytes.Buffer{}
 		c4t.TestingT().Run(tt.Name, func(t *testing.T) {
 			result, err := RunCLICommandTest(c4t, successFunc, tt)
 			if err != nil {
@@ -93,12 +97,17 @@ func RunCLICommandTest(c4t testutil.ContextForTests, successFunc OnCLITestSucces
 	cmdResult, err = Execute(rootCmd, ExecuteArgs{
 		Config:    test.Config,
 		CLIArgs:   test.Args,
-		OutWriter: test.OutWriter,
-		ErrWriter: test.ErrWriter,
+		OutWriter: test.OutBuffer,
+		ErrWriter: test.ErrBuffer,
 	})
-	if runTestErrorChecksFail(c4t, test, &err) {
+	result = cmdResult
+	if runTestSuccessChecksFails(c4t, test, &err) {
 		goto end
 	}
+	if runTestErrorChecksFails(c4t, test, &err) {
+		goto end
+	}
+	// Check tt.OutBuffer
 	if runAfterTestFails(c4t, test, cmdResult, &err) {
 		goto end
 	}
@@ -110,7 +119,18 @@ end:
 	return result, err
 }
 
-func runTestErrorChecksFail(c4t testutil.ContextForTests, test CLICommandTest, err *error) bool {
+func runTestSuccessChecksFails(c4t testutil.ContextForTests, test CLICommandTest, err *error) (failed bool) {
+	c4t.Helper()
+	got := test.OutBuffer.(*bytes.Buffer).String()
+	want := test.SuccessResult
+	if got != want {
+		c4t.Errorf("Output not as expected:\n\tWant '%s'\n\t Got: '%s'", want, got)
+		failed = true
+	}
+	return failed
+}
+
+func runTestErrorChecksFails(c4t testutil.ContextForTests, test CLICommandTest, err *error) bool {
 	var errs errutil.MultiErr
 	var got error
 	var want string
@@ -120,18 +140,18 @@ func runTestErrorChecksFail(c4t testutil.ContextForTests, test CLICommandTest, e
 	// Check to see if error was expected and if expectations were met
 	switch {
 	case *err != nil:
-		if !test.ErrExpected {
+		if !test.ErrorExpected() {
 			errs.Add(fmt.Errorf("error DID occur but was NOT expected"))
 		}
 	default:
-		if test.ErrExpected {
+		if test.ErrorExpected() {
 			errs.Add(fmt.Errorf("error did NOT occur but WAS expected"))
 		}
 	}
 
 	// Check is expected error message matches or not
 	got = *err
-	want = test.ErrMessage
+	want = test.ErrorResult
 	switch {
 	case got == nil:
 		if want != "" {
@@ -156,7 +176,7 @@ func onCLITestSuccess(test CLICommandTest, result CmdResult, onSuccessFunc OnCLI
 	if result.IsErr() {
 		return nil
 	}
-	if test.ErrExpected {
+	if test.ErrorExpected() {
 		return nil
 	}
 	return onSuccessFunc(result)

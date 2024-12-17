@@ -30,14 +30,9 @@ func TestGetDefaults(t *testing.T) {
 
 	cobrautil.RunCLICommandTests(c4t, []cobrautil.CLICommandTest{
 		{
-			Name:                "Get Defaults Go code",
-			Args:                cmd{"get", "defaults", "-o", "go"},
-			ErrExpected:         false,
-			ErrMessage:          "",
-			BeforeTestFunc:      nil,
-			CheckTestErrorsFunc: nil,
-			AfterTestFunc:       nil,
-			Config:              nil,
+			Name:          "Get Defaults Go code",
+			Args:          cmd{"get", "defaults", "-o", "go"},
+			SuccessResult: "TODO",
 		},
 	})
 }
