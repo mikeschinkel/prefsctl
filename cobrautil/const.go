@@ -1,6 +1,10 @@
 package cobrautil
 
 const (
-	QuietFlag          = "quiet"
-	QuietFlagShorthand = "q"
+	QuietFlagName         = "quiet"
+	QuietFlagShorthand    = 'q'
+	FilenameFlagName      = "filename"
+	FilenameFlagShorthand = 'f'
+	OutputFlagName        = "output"
+	OutputFlagShorthand   = 'o'
 )

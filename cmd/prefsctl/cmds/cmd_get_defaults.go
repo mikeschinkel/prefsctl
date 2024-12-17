@@ -1,31 +1,30 @@
-package main
+package cmds
 
 import (
-	"github.com/mikeschinkel/prefsctl/cobrautil"
 	"github.com/mikeschinkel/prefsctl/macprefs"
 	"github.com/spf13/cobra"
 )
 
 func init() {
-	getCmd.AddCommand(getDefaultsCmd)
+	getCmd.AddCmd(getDefaultsCmd)
 }
 
 var getDefaultsProps = &GetDefaultsProps{}
 
 type GetDefaultsProps struct {
-	cobrautil.BaseProps
+	BaseProps
 	//filename macprefs.FilenamePtr
 	//dummy *string
 }
 
-var getDefaultsCmd = cobrautil.NewCommandFromArgs(cobrautil.CommandOpts{
+var getDefaultsCmd = NewCmdFromOpts(CmdOpts{
 	Parent: getCmd,
 	Command: &cobra.Command{
 		Use:   "defaults",
 		Short: "Get preference defaults",
 	},
 	Props: getDefaultsProps,
-	Flags: []*cobrautil.CommandFlag{
+	Flags: []*CmdFlag{
 		//{
 		//	Name:      macprefs.FilenameFlag,
 		//	Type:      reflect.String,
@@ -45,10 +44,12 @@ var getDefaultsCmd = cobrautil.NewCommandFromArgs(cobrautil.CommandOpts{
 		//	},
 		//},
 	},
-	RunFunc: func(ctx Context, cmd *cobrautil.Command, props cobrautil.Props) (cobrautil.Result, error) {
-		//p := props.(*GetDefaultsProps)
-		return macprefs.GetDefaults(ctx, cmd, macprefs.GetDefaultsArgs{
-			//Dummy: *p.dummy,
-		})
-	},
+	RunFunc: runGetDefaultsFunc,
 })
+
+func runGetDefaultsFunc(ctx Context, cmd Cmd) error {
+	//p := cmd.Props.(*GetDefaultsProps)
+	return macprefs.GetDefaults(ctx, cmd, macprefs.GetDefaultsArgs{
+		//Dummy: *p.dummy,
+	})
+}

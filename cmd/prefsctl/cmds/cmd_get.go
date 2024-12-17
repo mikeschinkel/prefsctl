@@ -1,33 +1,30 @@
-package main
+package cmds
 
 import (
-	//"reflect"
-
-	"github.com/mikeschinkel/prefsctl/cobrautil"
 	"github.com/mikeschinkel/prefsctl/macprefs"
 	"github.com/spf13/cobra"
 )
 
 func init() {
-	rootCmd.AddCommand(getCmd)
+	RootCmd.AddCmd(getCmd)
 }
 
 var getProps = &GetProps{}
 
 type GetProps struct {
-	cobrautil.BaseProps
+	BaseProps
 	//output macprefs.OutputPtr
 	//filename macprefs.FilenamePtr
 }
 
-var getCmd = cobrautil.NewCommandFromArgs(cobrautil.CommandOpts{
-	Parent: rootCmd,
+var getCmd = NewCmdFromOpts(CmdOpts{
+	Parent: RootCmd,
 	Command: &cobra.Command{
 		Use:   "get",
 		Short: "Get preferences",
 	},
 	Props: getProps,
-	Flags: []*cobrautil.CommandFlag{
+	Flags: []*CmdFlag{
 		//{
 		//	Name:      macprefs.OutputFlag,
 		//	Type:      reflect.String,
@@ -47,10 +44,12 @@ var getCmd = cobrautil.NewCommandFromArgs(cobrautil.CommandOpts{
 		//	},
 		//},
 	},
-	RunFunc: func(ctx Context, cmd *cobrautil.Command, props cobrautil.Props) (cobrautil.Result, error) {
-		//p := props.(*GetProps)
-		return macprefs.Get(ctx, cmd, macprefs.GetArgs{
-			//Output: macprefs.OutputFormat(*p.output),
-		})
-	},
+	RunFunc: runGetFunc,
 })
+
+func runGetFunc(ctx Context, cmd Cmd) error {
+	//p := cmd.Props.(*GetProps)
+	return macprefs.Get(ctx, cmd, macprefs.GetArgs{
+		//Output: macprefs.OutputFormat(*p.output),
+	})
+}

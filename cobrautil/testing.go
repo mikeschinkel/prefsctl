@@ -1,24 +1,28 @@
-package testutil
+//go:build test
+
+package cobrautil
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
+	"io"
 	"testing"
 
-	"github.com/mikeschinkel/prefsctl/cobrautil"
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
+	"github.com/mikeschinkel/prefsctl/testutil"
 )
+
+type ContextForTests = testutil.ContextForTests
 
 type BeforeCLITestsFunc func(ContextForTests) error
 type BeforeCLITestFunc func(ContextForTests, CLICommandTest) error
-type AfterCLITestFunc func(ContextForTests, CLICommandTest, *cobrautil.Outcome) error
+type AfterCLITestFunc func(ContextForTests, CLICommandTest, CmdResult) error
 type AfterCLITestsFunc func(ContextForTests) error
 type CheckTestErrorsFunc func(ContextForTests, CLICommandTest, *error) error
 
-type OnCLITestSuccessFunc func(*cobrautil.Outcome) any
+type OnCLITestSuccessFunc func(CmdResult) any
 type CLICommandTest struct {
 	Name                string   // Test case name
 	Args                []string // CLI arguments
@@ -27,28 +31,36 @@ type CLICommandTest struct {
 	BeforeTestFunc      BeforeCLITestFunc
 	CheckTestErrorsFunc CheckTestErrorsFunc
 	AfterTestFunc       AfterCLITestFunc
+	Config              Config
+	OutWriter           io.Writer
+	ErrWriter           io.Writer
 }
 
-var BeforeTests BeforeCLITestsFunc = func(ContextForTests) error {
+var BeforeTests BeforeCLITestsFunc = func(testutil.ContextForTests) error {
 	return nil
 }
-var AfterTests AfterCLITestsFunc = func(ContextForTests) error {
+
+var AfterTests AfterCLITestsFunc = func(testutil.ContextForTests) error {
 	return nil
 }
+
 var TestNameLogArg = "test_name"
 
-func RunCLICommandTests(c4t ContextForTests, tests []CLICommandTest) any {
+func RunCLICommandTests(c4t testutil.ContextForTests, tests []CLICommandTest) any {
 	return RunCLICommandTestsWithSuccessFunc(c4t, nil, tests)
 }
-func RunCLICommandTestsWithSuccessFunc(c4t ContextForTests, successFunc OnCLITestSuccessFunc, tests []CLICommandTest) any {
+
+func RunCLICommandTestsWithSuccessFunc(c4t testutil.ContextForTests, successFunc OnCLITestSuccessFunc, tests []CLICommandTest) any {
 	var errs errutil.MultiErr
 	results := make([]any, 0)
 	err := BeforeTests(c4t)
 	if err != nil {
-		c4t.Error("Failed to run pre-tests func: %v", err)
+		c4t.Errorf("Failed to run pre-tests func: %v", err)
 		goto end
 	}
 	for _, tt := range tests {
+		tt.OutWriter = &bytes.Buffer{}
+		tt.ErrWriter = &bytes.Buffer{}
 		c4t.TestingT().Run(tt.Name, func(t *testing.T) {
 			result, err := RunCLICommandTest(c4t, successFunc, tt)
 			if err != nil {
@@ -59,46 +71,46 @@ func RunCLICommandTestsWithSuccessFunc(c4t ContextForTests, successFunc OnCLITes
 	}
 	err = AfterTests(c4t)
 	if err != nil {
-		c4t.Error("Failed to run pre-tests func: %v", err)
+		c4t.Errorf("Failed to run pre-tests func: %v", err)
 		goto end
 	}
 end:
 	return results
 }
 
-func RunCLICommandTest(c4t ContextForTests, successFunc OnCLITestSuccessFunc, test CLICommandTest) (output any, err error) {
-	var cli *cobrautil.CLI
-	var outcome *cobrautil.Outcome
+func RunCLICommandTest(c4t testutil.ContextForTests, successFunc OnCLITestSuccessFunc, test CLICommandTest) (result any, err error) {
+	var cmdResult CmdResult
 
-	ctx := cobrautil.DefaultContext()
-	cfg := cobrautil.NewConfig(&cobrautil.ConfigArgs{
-		Filepath: stdlibex.Must(cobrautil.ConfigFilepath()),
-	})
-	err = cfg.Initialize(ctx)
-	if err != nil {
-		c4t.Fatalf("Failed to initialize CLI config: %v", err)
+	if test.Config == nil {
+		test.Config = NewConfig(&ConfigArgs{
+			Filepath: c4t.ConfigFilepath(),
+		})
 	}
+
 	if runBeforeTestFails(c4t, test, &err) {
 		goto end
 	}
-	cli = cobrautil.NewCLI(cfg, test.Args)
-	err = cli.Initialize(ctx)
-	outcome, err = cli.Execute(ctx, cli.Args)
+	cmdResult, err = Execute(rootCmd, ExecuteArgs{
+		Config:    test.Config,
+		CLIArgs:   test.Args,
+		OutWriter: test.OutWriter,
+		ErrWriter: test.ErrWriter,
+	})
 	if runTestErrorChecksFail(c4t, test, &err) {
 		goto end
 	}
-	if runAfterTestFails(c4t, test, outcome, &err) {
+	if runAfterTestFails(c4t, test, cmdResult, &err) {
 		goto end
 	}
 	if successFunc != nil {
-		output = onCLITestSuccess(test, outcome, successFunc)
+		result = onCLITestSuccess(test, cmdResult, successFunc)
 		goto end
 	}
 end:
-	return output, err
+	return result, err
 }
 
-func runTestErrorChecksFail(c4t ContextForTests, test CLICommandTest, err *error) bool {
+func runTestErrorChecksFail(c4t testutil.ContextForTests, test CLICommandTest, err *error) bool {
 	var errs errutil.MultiErr
 	var got error
 	var want string
@@ -134,24 +146,23 @@ func runTestErrorChecksFail(c4t ContextForTests, test CLICommandTest, err *error
 	}
 
 	if errs.IsError() {
-		titler := cases.Title(language.English)
 		*err = errs.Err()
-		c4t.Errorf(titler.String((*err).Error()))
+		c4t.Errorf(stdlibex.Title((*err).Error()))
 	}
 	return *err != nil
 }
 
-func onCLITestSuccess(test CLICommandTest, outcome *cobrautil.Outcome, onSuccessFunc OnCLITestSuccessFunc) any {
-	if outcome.WasError() {
+func onCLITestSuccess(test CLICommandTest, result CmdResult, onSuccessFunc OnCLITestSuccessFunc) any {
+	if result.IsErr() {
 		return nil
 	}
 	if test.ErrExpected {
 		return nil
 	}
-	return onSuccessFunc(outcome)
+	return onSuccessFunc(result)
 }
 
-func runBeforeTestFails(c4t ContextForTests, test CLICommandTest, errPtr *error) bool {
+func runBeforeTestFails(c4t testutil.ContextForTests, test CLICommandTest, errPtr *error) bool {
 	var err error
 
 	if test.BeforeTestFunc == nil {
@@ -165,13 +176,13 @@ end:
 	return err != nil
 }
 
-func runAfterTestFails(c4t ContextForTests, test CLICommandTest, outcome *cobrautil.Outcome, errPtr *error) bool {
+func runAfterTestFails(c4t testutil.ContextForTests, test CLICommandTest, result CmdResult, errPtr *error) bool {
 	var err error
 
 	if test.AfterTestFunc == nil {
 		goto end
 	}
-	err = test.AfterTestFunc(c4t, test, outcome)
+	err = test.AfterTestFunc(c4t, test, result)
 	if err != nil {
 		errPtr = &err
 	}

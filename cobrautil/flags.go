@@ -6,7 +6,7 @@ import (
 
 type Flags struct {
 	*flag.FlagSet
-	Command *Command
+	Cmd Cmd
 }
 type FlagOpts struct {
 	Default  any
@@ -22,7 +22,7 @@ func (f *Flags) StringFlagWithOpts(name, shorthand, usage string, opts FlagOpts)
 	def, _ := opts.Default.(string)
 	fs := f.FlagSet.StringP(name, shorthand, def, usage)
 	if def == "" && opts.Required {
-		err = f.Command.MarkFlagRequired(name)
+		err = f.Cmd.Command().MarkFlagRequired(name)
 	}
 	if err != nil {
 		panic(err)
@@ -38,7 +38,7 @@ func (f *Flags) IntFlagWithOpts(name, shorthand, usage string, opts FlagOpts) *i
 	def, _ := opts.Default.(int)
 	fs := f.FlagSet.IntP(name, shorthand, def, usage)
 	if def == 0 && opts.Required {
-		err = f.Command.MarkFlagRequired(name)
+		err = f.Cmd.Command().MarkFlagRequired(name)
 	}
 	if err != nil {
 		panic(err)
@@ -54,7 +54,7 @@ func (f *Flags) BoolFlagWithOpts(name, shorthand, usage string, opts FlagOpts) *
 	def, _ := opts.Default.(bool)
 	fs := f.FlagSet.BoolP(name, shorthand, def, usage)
 	if def == false && opts.Required {
-		err = f.Command.MarkFlagRequired(name)
+		err = f.Cmd.Command().MarkFlagRequired(name)
 	}
 	if err != nil {
 		panic(err)
@@ -62,10 +62,10 @@ func (f *Flags) BoolFlagWithOpts(name, shorthand, usage string, opts FlagOpts) *
 	return fs
 }
 
-func GetFlags(cmd *Command) *Flags {
+func GetFlags(cmd Cmd) *Flags {
 	var cobraFlags = cmd.Flags()
 	return &Flags{
 		FlagSet: cobraFlags,
-		Command: cmd,
+		Cmd:     cmd,
 	}
 }

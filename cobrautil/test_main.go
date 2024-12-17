@@ -1,13 +1,14 @@
-package testutil
+//go:build test
+
+package cobrautil
 
 import (
 	"fmt"
-	"io"
 	"os"
 	"strings"
 	"testing"
 
-	"github.com/mikeschinkel/prefsctl/cobrautil"
+	"github.com/mikeschinkel/prefsctl/testutil"
 )
 
 const (
@@ -17,16 +18,17 @@ const (
 var testMain *TestMain
 
 type TestMain struct {
-	contextForTests ContextForTests
+	contextForTests testutil.ContextForTests
 	OnSetupFunc     func(*TestMain) error
 	OnTeardownFunc  func(*TestMain) error
+	RootCmd         Cmd
 }
 
 func NewTestMain() *TestMain {
 	return &TestMain{}
 }
 
-func GetCurrentContextForTests() ContextForTests {
+func GetCurrentContextForTests() testutil.ContextForTests {
 	return testMain.contextForTests
 }
 
@@ -48,12 +50,12 @@ func (tm *TestMain) Run(m *testing.M) int {
 func (tm *TestMain) Initialize() {
 	// Create a ContextForTests but one that has a mostly invalid *testing.T because
 	// it was only designed to be instantiated inside of tests vs. in a TestMain.
-	tm.contextForTests = NewContextForTests(&testing.T{})
+	tm.contextForTests = testutil.NewContextForTests(&testing.T{})
 
-	disableTestInfo := strings.ToLower(os.Getenv(DisableDebugInfoVar)) != ""
+	disableTestInfo := strings.ToLower(os.Getenv(testutil.DisableDebugInfoVar)) != ""
 	if !disableTestInfo {
-		SetDebugOutput(true)
-		Infof("Debug output for testing is ENABLED. To disable it, set %s to 'yes'", DisableDebugInfoVar)
+		testutil.SetDebugOutput(true)
+		testutil.Infof("Debug output for testing is ENABLED. To disable it, set %s to 'yes'", testutil.DisableDebugInfoVar)
 	}
 }
 
@@ -68,12 +70,15 @@ func (tm *TestMain) Setup() (err error) {
 	// Disable testutil.Debugf() output when DISABLE_TEST_INFO is set to "yes"
 	// (or anything, actually)
 	tm.Initialize()
-	c4t := tm.contextForTests
-	c4t.Debug("Beginning global setup")
 
-	// For CLI tests, disable output
-	// TODO: Implement Writer that uses testutil.Debugf() instead
-	cobrautil.RootCmd().SetOut(io.Discard)
+	c4t := tm.contextForTests
+
+	if tm.RootCmd == nil {
+		c4t.Fatalf("RootCmd not set in TestMain")
+	}
+	SetRootCmd(tm.RootCmd)
+
+	c4t.Debug("Beginning global setup")
 
 	if tm.OnSetupFunc != nil {
 		err = tm.OnSetupFunc(tm)

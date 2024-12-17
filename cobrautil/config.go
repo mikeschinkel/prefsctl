@@ -5,83 +5,70 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 
-const (
+var (
 	ConfigName    = "prefs"
 	ConfigFileExt = "yaml"
 )
 
+const (
+	ConfigFilepathLogArg    = "config_filepath"
+	ConfigOptionsLogArg     = "config_options"
+	ConfigInitializedLogArg = "config_initialized"
+)
+
 type ConfigArgs struct {
-	Username string
-	Password string
 	Filepath string
 	Options  OptionsMap
 }
 
-type Config struct {
-	InternalUsername string                    `json:"username"`
-	ServerHost       string                    `json:"server_host"`
-	ServerPort       int                       `json:"server_port"`
-	ExtraInfo        map[string]map[string]any `json:"extra_info"`
-	listenAddress    string
-	password         string
-	filepath         string
-	project          string
-	dnsProvider      string
-	options          OptionsMap
-	initialized      bool
+type Config interface {
+	Initialize(Context) error
+	Filepath() string
+	Options() OptionsMap
 }
 
-func ConfigLogArgs(c Config) []any {
+var _ Config = (*config)(nil)
+
+type config struct {
+	filepath    string
+	options     OptionsMap
+	initialized bool
+}
+
+func ConfigLogArgs(c config) []any {
 	return []any{
-		logargs.OptionsLogArg, c.Options(),
-		logargs.InitializedLogArg, c.Initialized(),
-		logargs.CacheAuthLogArg, c.CacheAuth(),
+		ConfigFilepathLogArg, c.Filepath(),
+		ConfigOptionsLogArg, c.Options(),
+		ConfigInitializedLogArg, c.Initialized(),
 	}
 }
 
-func (c *Config) Options() OptionsMap {
+func (c *config) Options() OptionsMap {
 	return c.options
 }
 
-func (c *Config) Filepath() string {
+func (c *config) Filepath() string {
 	return c.filepath
 }
 
-func NewConfig(args *ConfigArgs) *Config {
-	if args == nil {
-		args = &ConfigArgs{}
+func NewConfig(args *ConfigArgs) Config {
+	if args.Options == nil {
+		args.Options = make(OptionsMap)
 	}
-	return &Config{
-		options:          args.Options,
-		InternalUsername: args.Username,
-		password:         args.Password,
-		filepath:         args.Filepath,
-		ExtraInfo:        make(map[string]map[string]any),
+	return &config{
+		filepath: args.Filepath,
+		options:  args.Options,
 	}
 }
 
-func (c *Config) ServerUsername() string {
-	return c.InternalUsername
-}
-
-func (c *Config) ServerPassword() string {
-	return c.password
-}
-
-func (c *Config) Initialized() bool {
+func (c *config) Initialized() bool {
 	return c.initialized
 }
 
-// CacheAuth returns true as auth should be caches for the CLI
-func (c *Config) CacheAuth() bool {
-	return true
-}
-
-func (c *Config) Initialize(_ Context) (err error) {
+func (c *config) Initialize(_ Context) (err error) {
 	if c.initialized {
 		goto end
 	}
@@ -90,37 +77,13 @@ end:
 	return nil
 }
 
-func (c *Config) GetExtraInfo(group string) map[string]any {
-	values, ok := c.ExtraInfo[group]
-	if !ok {
-		values = make(map[string]any)
-	}
-	return values
-}
-
-func (c *Config) AddExtraInfo(group string, value fmt.Stringer) {
-	_, ok := c.ExtraInfo[group]
-	if !ok {
-		c.ExtraInfo[group] = make(map[string]any)
-	}
-	c.ExtraInfo[group][value.String()] = value
-}
-func (c *Config) DeleteExtraInfo(group string, value fmt.Stringer) {
-	values, ok := c.ExtraInfo[group]
-	if !ok {
-		goto end
-	}
-	delete(values, value.String())
-end:
-}
-
-func SaveConfig(ctx Context, cfg *Config, file string) error {
+func SaveConfig(ctx Context, cfg Config, file string) error {
 	return stdlibex.MarshalJSONFile(ctx, file, cfg)
 }
 
 type OnErrFunc func(string, error)
 
-func SaveConfigWithOnErr(ctx Context, cfg *Config, onErr OnErrFunc) (err error) {
+func SaveConfigWithOnErr(ctx Context, cfg Config, onErr OnErrFunc) (err error) {
 	fp := cfg.Filepath()
 	err = SaveConfig(ctx, cfg, fp)
 	if err != nil {

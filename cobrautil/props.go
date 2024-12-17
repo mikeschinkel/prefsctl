@@ -5,13 +5,13 @@ type Props interface {
 }
 
 type propsParser interface {
-	Parse(*Config) Props
+	Parse(Config) Props
 }
 type propsValidator interface {
-	Validate(*Config) error
+	Validate(Config) error
 }
 
-func ProcessProps[P Props](cfg *Config, props P) (_ P, err error) {
+func ProcessProps[P Props](cfg Config, props P) (_ P, err error) {
 	var parser propsParser
 
 	anyProps := any(props)

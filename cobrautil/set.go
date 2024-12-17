@@ -14,7 +14,7 @@ func SetCalledCmd(cmd *cobra.Command) {
 	calledCmd = cmd
 	calledCmdMutex.Unlock()
 }
-func SetRootCmd(cmd *Command) {
+func SetRootCmd(cmd Cmd) {
 	rootCmdMutex.Lock()
 	rootCmd = cmd
 	rootCmdMutex.Unlock()

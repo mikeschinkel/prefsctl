@@ -4,8 +4,15 @@ import (
 	"reflect"
 )
 
-type CommandFlag struct {
-	Command    *Command
+type CmdFlagArgs struct {
+	Name      string
+	Shorthand byte
+	Required  bool
+	Default   any
+	Usage     string
+}
+type CmdFlag struct {
+	Cmd        Cmd
 	Name       string
 	Type       reflect.Kind
 	Required   bool
@@ -15,15 +22,15 @@ type CommandFlag struct {
 	AssignFunc func(any)
 }
 
-func (f *CommandFlag) panicFunc(typ string) {
+func (f *CmdFlag) panicFunc(typ string) {
 	panicf("ERROR: Default value for command '%s' flag '%s' is not a %s",
-		f.Command.Use,
+		f.Cmd.Command().Use,
 		f.Name,
 		typ,
 	)
 }
 
-func (f *CommandFlag) DefaultString() string {
+func (f *CmdFlag) DefaultString() string {
 	var d string
 	var ok bool
 	if f.Default == nil {
@@ -37,7 +44,7 @@ end:
 	return d
 }
 
-func (f *CommandFlag) DefaultInt() int {
+func (f *CmdFlag) DefaultInt() int {
 	var d int
 	var ok bool
 	if f.Default == nil {
@@ -51,7 +58,7 @@ end:
 	return d
 }
 
-func (f *CommandFlag) DefaultBool() bool {
+func (f *CmdFlag) DefaultBool() bool {
 	var d bool
 	var ok bool
 	if f.Default == nil {
