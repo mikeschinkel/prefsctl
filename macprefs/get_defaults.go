@@ -2,7 +2,6 @@ package macprefs
 
 import (
 	"errors"
-	"fmt"
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
@@ -108,9 +107,9 @@ func getDefaultsText(ctx Context, ptr Printer, args GetDefaultsArgs) (err error)
 		goto end
 	}
 	domains.Describe(os.Stdout)
-	fmt.Println("\nUnsupported Types:")
+	ptr.Println("\nUnsupported Types:")
 	for ut := range unsupportedTypes {
-		fmt.Printf("— %s\n", ut)
+		ptr.Printf("— %s\n", ut)
 	}
 end:
 	return err
