@@ -27,6 +27,7 @@ type ContextForTests interface {
 	Common() *TestCommon
 	Update(ContextForTestArgs)
 	Recorder() *httptest.ResponseRecorder
+	ConfigFilepath() string
 }
 
 var _ ContextForTests = (*contextForTests)(nil)
@@ -38,6 +39,10 @@ type contextForTests struct {
 	common   *TestCommon
 	recorder *httptest.ResponseRecorder
 	depth    int
+}
+
+func (c4t *contextForTests) ConfigFilepath() string {
+	return "./config.json"
 }
 
 func (c4t *contextForTests) Depth() int {
