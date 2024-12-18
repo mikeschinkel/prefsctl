@@ -167,5 +167,5 @@ func (*macOSUtils) RetrievePreferences(d PreferenceDomain) (prefs []*Preference,
 	}
 
 end:
-	return prefs, nil
+	return prefs, err
 }
