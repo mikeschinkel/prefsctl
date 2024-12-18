@@ -25,11 +25,14 @@ char* getMacOSVersion() {
 */
 import "C"
 import (
+	"cmp"
 	"errors"
 	"fmt"
 	"regexp"
 	"runtime"
+	"slices"
 	"strconv"
+	"strings"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/logargs"
@@ -58,6 +61,12 @@ var versionNumberCodeMap = map[VersionNumber]Code{
 	"10.1":  Puma,
 	"10.0":  Cheetah,
 }
+
+// MajorNeedsMinor is the version of macOS — "10" — where Apple released new
+// named versions incrementing by 0.1, e.g. 10.0, 10.1, 10.2, etc. After this
+// version Apple released new named versions incrementing macOS by 1.0, eg. 11,
+// 12, 13, etc.
+var MajorNeedsMinor = "10"
 
 var versionCodeNameMap = map[Code]Name{
 	Sequoia:      "Sequoia",
@@ -220,4 +229,60 @@ func (m *macOSUtils) GetVersionNumber() (v VersionNumber, err error) {
 	v = VersionNumber(C.GoString(cVer))
 end:
 	return v, err
+}
+
+func (m *macOSUtils) ValidVersionNumbers() []VersionNumber {
+	nums := make([]VersionNumber, 0, len(versionNumberCodeMap))
+	for num := range versionNumberCodeMap {
+		nums = append(nums, num)
+	}
+	slices.SortFunc(nums, func(vn1, vn2 VersionNumber) int {
+		var f1, f2 float64
+		var err1, err2 error
+		f1, err1 = strconv.ParseFloat(string(vn1), 64)
+		f2, err2 = strconv.ParseFloat(string(vn2), 64)
+		switch {
+		case err1 != nil && err2 != nil:
+			return 0
+		case err1 != nil:
+			return 1
+		case err2 != nil:
+			return -1
+		}
+		return cmp.Compare(f1, f2)
+	})
+	return nums
+}
+
+// ValidateVersionNumber accepts a version number string and compares to keys in
+// the map versionNumberCodeMap to see if they are a valid version.
+func (m *macOSUtils) ValidateVersionNumber(num VersionNumber) (valid bool) {
+	parts := strings.SplitN(string(num), ".", 2)
+	ver := parts[0]
+	if parts[0] == MajorNeedsMinor {
+		ver = strings.Join(parts, ".")
+	}
+	_, valid = versionNumberCodeMap[VersionNumber(ver)]
+	return valid
+}
+
+func (m *macOSUtils) ValidateVersionName(name Name) (valid bool) {
+	for _, vn := range versionCodeNameMap {
+		if vn == name {
+			valid = true
+			goto end
+		}
+	}
+end:
+	return valid
+}
+
+func (m *macOSUtils) GetVersionName(code Code) (name Name) {
+	name, _ = versionCodeNameMap[code]
+	return name
+}
+
+func (m *macOSUtils) GetVersionCode(num VersionNumber) (code Code) {
+	code, _ = versionNumberCodeMap[num]
+	return code
 }
