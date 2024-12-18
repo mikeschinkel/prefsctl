@@ -98,6 +98,7 @@ PreferenceResult getPreferenceResult(const char* domain, const char* name) {
 
 void freePreferenceResult(PreferenceResult result) {
 	 if (result.value) free((void*)result.value);
+   if (result.descr) free((void*)result.descr);
 }
 */
 import "C"
