@@ -22,6 +22,31 @@ var _ MacOSUtils = (*macOSUtilsMock)(nil)
 
 type macOSUtilsMock struct{}
 
+func (m *macOSUtilsMock) GetVersionName(code macosutils.Code) (name macosutils.Name) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (m *macOSUtilsMock) GetVersionCode(num macosutils.VersionNumber) (code macosutils.Code) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (m *macOSUtilsMock) ValidateVersionNumber(number macosutils.VersionNumber) bool {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (m *macOSUtilsMock) ValidateVersionName(name macosutils.Name) bool {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (m *macOSUtilsMock) ValidVersionNumbers() []macosutils.VersionNumber {
+	//TODO implement me
+	panic("implement me")
+}
+
 func (m *macOSUtilsMock) MustGetVersionCode() VersionCode {
 	code, _ := m.VersionCode()
 	return code
