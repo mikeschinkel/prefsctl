@@ -14,8 +14,8 @@ var (
 
 	ErrUnknownPreferenceError = errors.New("unknown preference error")
 	ErrInvalidInput           = errors.New("invalid preference")
-	ErrNotFound               = errors.New("preference not found")
 	ErrUnsupportedType        = errors.New("unsupported preference type")
+	ErrPreferenceNotFound      = errors.New("preference not found")
 
 	ErrFailedToCreateCFString = errors.New("failed to create CFString")
 	ErrFailedToGetPrefNames   = errors.New("failed to get preference names")
