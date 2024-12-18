@@ -12,9 +12,10 @@ var (
 	ErrUnrecognizedMacOSVersion       = errors.New("unrecognized macOS version")
 	ErrUnrecognizedMacOSVersionFormat = errors.New("unrecognized macOS version format")
 
-	ErrUnknownPreferenceError = errors.New("unknown preference error")
-	ErrInvalidInput           = errors.New("invalid preference")
-	ErrUnsupportedType        = errors.New("unsupported preference type")
+	ErrUnknownPreferenceError  = errors.New("unknown preference error")
+	ErrInvalidInput            = errors.New("invalid preference")
+	ErrInvalidPreferenceDomain = errors.New("invalid preference domain")
+	ErrUnsupportedType         = errors.New("unsupported preference type")
 	ErrPreferenceNotFound      = errors.New("preference not found")
 
 	ErrFailedToCreateCFString = errors.New("failed to create CFString")
