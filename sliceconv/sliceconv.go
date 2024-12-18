@@ -79,3 +79,11 @@ func ToStringsFunc[T any](slice []T, fn func(T) (bool, string, error)) ([]string
 	}
 	return items, errs.Err()
 }
+
+func ToIndexMap[S []T, T comparable](ss S) map[T]int {
+	m := make(map[T]int, len(ss))
+	for i, s := range ss {
+		m[s] = i
+	}
+	return m
+}
