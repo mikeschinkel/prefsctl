@@ -18,8 +18,9 @@ typedef enum {
 // Error codes
 int PREF_SUCCESS = 0;
 int PREF_INVALID_INPUT = 1;
-int PREF_NOT_FOUND = 2;
-int PREF_UNSUPPORTED_TYPE = 3;
+int PREF_INVALID_DOMAIN = 2;
+int PREF_NOT_FOUND = 3;
+int PREF_UNSUPPORTED_TYPE = 4;
 
 typedef struct {
 	 const char* value;     // UTF-8 string current value, or error message
@@ -30,6 +31,23 @@ typedef struct {
 
 PreferenceResult getPreferenceResult(const char* domain, const char* name);
 void freePreferenceResult(PreferenceResult result);
+
+bool isDomainValid(CFStringRef domain) {
+    CFArrayRef keyList = CFPreferencesCopyKeyList(domain, kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+    if (keyList != NULL) {
+        CFRelease(keyList);
+        return true;
+    }
+
+    // Try with any user to catch system domains
+    keyList = CFPreferencesCopyKeyList(domain, kCFPreferencesAnyUser, kCFPreferencesCurrentHost);
+    if (keyList != NULL) {
+        CFRelease(keyList);
+        return true;
+    }
+
+    return false;
+}
 
 PreferenceResult getPreferenceResult(const char* domain, const char* name) {
 	 PreferenceResult result = {NULL, NULL, PREF_SUCCESS, KIND_INVALID};
@@ -44,14 +62,18 @@ PreferenceResult getPreferenceResult(const char* domain, const char* name) {
 			 NSString* domainStr = [NSString stringWithUTF8String:domain];
 			 NSString* keyStr = [NSString stringWithUTF8String:name];
 
+        // Check if domain exists
+        if (!isDomainValid((__bridge CFStringRef)domainStr)) {
+            result.value = strdup("invalid preference domain");
+            result.error = PREF_INVALID_DOMAIN;
+            return result;
+        }
+
 			// Get current value
 			id value = CFBridgingRelease(CFPreferencesCopyAppValue(
 				 (__bridge CFStringRef)keyStr,
 				 (__bridge CFStringRef)domainStr
 			));
-
-			// Try different methods to get default value
-			id defaultValue = NULL;
 
 			if (!value) {
 					 result.value = strdup("preference not found");
@@ -165,9 +187,12 @@ func (*macOSUtils) RetrievePreference(domain string, name string) (dp *Preferenc
 		switch cResult.error {
 		case C.PREF_INVALID_INPUT:
 			err = ErrInvalidInput
+		case C.PREF_INVALID_DOMAIN:
+			err = ErrInvalidPreferenceDomain
 		case C.PREF_NOT_FOUND:
-			err = ErrNotFound
+			err = ErrPreferenceNotFound
 		case C.PREF_UNSUPPORTED_TYPE:
+			err = ErrUnsupportedType
 			err = ErrUnsupportedType
 		default:
 			err = ErrUnknownPreferenceError
