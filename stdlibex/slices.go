@@ -3,6 +3,8 @@ package stdlibex
 import (
 	"cmp"
 	"slices"
+
+	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
 //goland:noinspection GoUnusedExportedFunction
@@ -217,16 +219,52 @@ func FilterSlices[E comparable](s []E) []E {
 }
 
 func SlicesIntersect[T comparable](s1, s2 []T) (intersects bool) {
-	lookup := make(map[T]struct{}, len(s1))
-	for _, x1 := range s1 {
-		lookup[x1] = struct{}{}
-	}
+	index := sliceconv.ToIndexMap(s1)
 	for _, x2 := range s2 {
-		_, intersects = lookup[x2]
+		_, intersects = index[x2]
 		if intersects {
 			goto end
 		}
 	}
 end:
 	return intersects
+}
+
+// IntersectSlice returns a slice containing all the elements that are in both s1 and s2.
+func IntersectSlice[T comparable](s1, s2 []T) (intersect []T) {
+	index := sliceconv.ToIndexMap(s1)
+	intersect = make([]T, 0, len(s1))
+	for _, x2 := range s2 {
+		if _, ok := index[x2]; !ok {
+			continue
+		}
+		intersect = append(intersect, x2)
+	}
+	return intersect
+}
+
+func AllInSlice[S []T, T comparable](s1, s2 S) bool {
+	var notAllIn bool
+	m := sliceconv.ToIndexMap(s2)
+	for _, item := range s1 {
+		_, ok := m[item]
+		if !ok {
+			notAllIn = true
+			goto end
+		}
+	}
+end:
+	return !notAllIn
+}
+func AnyInSlice[S []T, T comparable](s1, s2 S) (anyIn bool) {
+	m := sliceconv.ToIndexMap(s2)
+	for _, item := range s1 {
+		_, ok := m[item]
+		if ok {
+			anyIn = true
+			goto end
+		}
+	}
+end:
+	return anyIn
 }
