@@ -5,27 +5,31 @@ import (
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
-	"github.com/mikeschinkel/prefsctl/macosutils"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
 type GetDefaultsArgs struct {
-	Dummy string
+	Printer Printer
 }
 
-func GetDefaults(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
+func GetDefaults(ctx Context, args GetDefaultsArgs) (err error) {
+	if args.Printer == nil {
+		args.Printer = StandardPrinter{}
+	}
+
 	switch OutputFormat(*GlobalFlags.Output) {
 	case YAMLFormat:
-		err = getDefaultsYAML(ctx, ptr, args)
+		err = getDefaultsYAML(ctx, args)
 	case JSONFormat:
-		err = GetDefaultsJSON(ctx, ptr, args)
+		err = GetDefaultsJSON(ctx, args)
 	case GoFormat:
-		err = getDefaultsGo(ctx, ptr, args)
+		err = getDefaultsGo(ctx, args)
 	case TXTFormat:
 		fallthrough
 	default:
-		err = getDefaultsText(ctx, ptr, args)
+		err = getDefaultsText(ctx, args)
 	}
 	return err
 }
@@ -49,7 +53,9 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 	if err != nil {
 		goto end
 	}
-	err = domains.RetrievePrefs()
+	err = domains.RetrievePrefs(RetrievePrefArgs{
+		IgnoreMissingDomains: true,
+	})
 	if err != nil {
 		goto end
 	}
@@ -101,25 +107,25 @@ end:
 	return domains, err
 }
 
-func getDefaultsText(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
+func getDefaultsText(ctx Context, args GetDefaultsArgs) (err error) {
 	domains, err := retrieveDefaults(ctx, args)
 	if err != nil {
 		goto end
 	}
 	domains.Describe(os.Stdout)
-	ptr.Println("\nUnsupported Types:")
+	args.Printer.Println("\nUnsupported Types:")
 	for ut := range unsupportedTypes {
-		ptr.Printf("— %s\n", ut)
+		args.Printer.Printf("— %s\n", ut)
 	}
 end:
 	return err
 }
 
-func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
+func getDefaultsGo(ctx Context, args GetDefaultsArgs) (err error) {
 	var tmpl *preftemplates.DefaultsGoTemplate
 	var output string
 
-	code, err := macosutils.VersionCode()
+	code, err := macosutil.VersionCode()
 	domains, err := retrieveDefaults(ctx, args)
 	if err != nil {
 		goto end
@@ -135,14 +141,14 @@ func getDefaultsGo(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
 	if err != nil {
 		goto end
 	}
-	ptr.Print(output)
+	args.Printer.Print(output)
 end:
 	return err
 }
 
-func getDefaultsYAML(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
+func getDefaultsYAML(ctx Context, args GetDefaultsArgs) (err error) {
 	return err
 }
-func GetDefaultsJSON(ctx Context, ptr Printer, args GetDefaultsArgs) (err error) {
+func GetDefaultsJSON(ctx Context, args GetDefaultsArgs) (err error) {
 	return err
 }

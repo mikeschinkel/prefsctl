@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
-	"github.com/mikeschinkel/prefsctl/macosutils"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 )
 
 var _ kvfilters.KeyValue = (*Pref)(nil)
@@ -80,7 +80,7 @@ func NewPrefFromDefault(pd *PrefDefault) *Pref {
 
 // Retrieve fetches the preference value from the system
 func (p *Pref) Retrieve() error {
-	mp, err := macosutils.RetrievePreference(string(p.Domain), string(p.Name))
+	mp, err := macosutil.RetrievePreference(string(p.Domain), string(p.Name))
 	if err == nil {
 		p.value = mp.Value
 		p.Description = mp.Description

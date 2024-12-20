@@ -35,8 +35,13 @@ func Query(args QueryArgs) (result []Group, err error) {
 			if args.Labels != nil && !stdlibex.SlicesIntersect(args.Labels, kv.Labels().labels) {
 				continue
 			}
-			if args.OmitInvalid && !kv.Valid() {
-				continue
+			if args.OmitInvalid {
+				if !g.Valid() {
+					continue
+				}
+				if !kv.Valid() {
+					continue
+				}
 			}
 			if args.OmitEmpty && kv.Value() == "" {
 				continue

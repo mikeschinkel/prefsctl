@@ -1,4 +1,4 @@
-package macosutils
+package macosutil
 
 import (
 	"errors"
@@ -19,5 +19,5 @@ var (
 	ErrPreferenceNotFound      = errors.New("preference not found")
 
 	ErrFailedToCreateCFString = errors.New("failed to create CFString")
-	ErrFailedToGetPrefNames   = errors.New("failed to get preference names")
+	ErrFailedToGetPrefDomains = errors.New("failed to get preference domains")
 )

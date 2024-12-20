@@ -1,7 +1,6 @@
 package cmds
 
 import (
-	"github.com/mikeschinkel/prefsctl/macprefs"
 	"github.com/spf13/cobra"
 )
 
@@ -44,12 +43,12 @@ var getCmd = NewCmdFromOpts(CmdOpts{
 		//	},
 		//},
 	},
-	RunFunc: runGetFunc,
+	//RunFunc: runGetFunc,
 })
 
-func runGetFunc(ctx Context, cmd Cmd) error {
-	//p := cmd.Props.(*GetProps)
-	return macprefs.Get(ctx, cmd, macprefs.GetArgs{
-		//Output: macprefs.OutputFormat(*p.output),
-	})
-}
+//func runGetFunc(ctx Context, cmd Cmd) error {
+//	//p := cmd.Props.(*GetProps)
+//	return macprefs.Get(ctx, cmd, macprefs.GetArgs{
+//		//Output: macprefs.OutputFormat(*p.output),
+//	})
+//}

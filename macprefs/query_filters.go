@@ -7,18 +7,18 @@ import (
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/logargs"
-	"github.com/mikeschinkel/prefsctl/macosutils"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/types"
 )
 
 var queryFiltersByOS = map[types.Code][]kvfilters.Filter{
-	macosutils.Monterey: kvfilters.MontereyQueryFilters(),
-	macosutils.Sequoia:  kvfilters.SequoiaQueryFilters(),
+	macosutil.Monterey: kvfilters.MontereyQueryFilters(),
+	macosutil.Sequoia:  kvfilters.SequoiaQueryFilters(),
 }
 
 func QueryFilters() (ff []kvfilters.Filter, err error) {
 	var ok bool
-	code, err := macosutils.VersionCode()
+	code, err := macosutil.VersionCode()
 	if err != nil {
 		goto end
 	}

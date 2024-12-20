@@ -28,14 +28,20 @@ var _ kvfilters.Group = (*PrefsDomain)(nil)
 // PrefsDomain represents a preference domain in macOS
 type PrefsDomain struct {
 	domain               DomainName
+	invalid              bool
 	prefs                Prefs
 	prefsRetrieved       bool
 	prefsValuesRetrieved bool
 }
 
+func (d *PrefsDomain) Valid() bool {
+	return !d.invalid
+}
+
 func (d *PrefsDomain) ShallowCopy() kvfilters.Group {
 	return &PrefsDomain{
 		domain:               d.domain,
+		invalid:              d.invalid,
 		prefsRetrieved:       d.prefsRetrieved,
 		prefsValuesRetrieved: d.prefsValuesRetrieved,
 		prefs:                make(Prefs, 0),
@@ -49,7 +55,13 @@ func (d *PrefsDomain) SortPrefs() {
 var unsupportedTypes = make(map[string]struct{})
 
 func (d *PrefsDomain) RetrievePrefs() (err error) {
+	d.prefsRetrieved = true
 	d.prefs, err = RetrieveDomainPrefs(d.DomainName())
+	if err != nil {
+		d.invalid = true
+		d.prefs = make(Prefs, 0)
+		goto end
+	}
 	for _, pref := range d.prefs {
 		pd := LookupPrefDefault(pref.Id())
 		if pd == nil {
@@ -57,7 +69,7 @@ func (d *PrefsDomain) RetrievePrefs() (err error) {
 		}
 		pref.PrefDefault = pd
 	}
-	d.prefsRetrieved = true
+end:
 	return err
 }
 

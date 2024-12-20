@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
-	"github.com/mikeschinkel/prefsctl/macosutils"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs"
 	"github.com/mikeschinkel/prefsctl/maputils"
 
@@ -21,8 +21,8 @@ const (
 var register = macprefs.RegisterDefaultsMapFunc
 
 var (
-	SequoiaLabel  = OSVersionLabel(macosutils.Sequoia)
-	MontereyLabel = OSVersionLabel(macosutils.Monterey)
+	SequoiaLabel  = OSVersionLabel(macosutil.Sequoia)
+	MontereyLabel = OSVersionLabel(macosutil.Monterey)
 )
 
 func OSVersionLabel(code Code) *kvfilters.Label {
@@ -155,7 +155,7 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 		pd.DefaultValue = def.Default
 		pd.Verified = def.Verified
 	} else {
-		p, err := macosutils.RetrievePreference(def.Domain, def.Name)
+		p, err := macosutil.RetrievePreference(def.Domain, def.Name)
 		if err == nil {
 			pd.DefaultValue = p.Value
 			pd.Kind = p.Kind

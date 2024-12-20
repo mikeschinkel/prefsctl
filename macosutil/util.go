@@ -1,4 +1,4 @@
-package macosutils
+package macosutil
 
 import (
 	"fmt"

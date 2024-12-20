@@ -1,4 +1,4 @@
-package macosutils
+package macosutil
 
 type MacOSUtils interface {
 	RetrievePreferenceDomains() (domains []PreferenceDomain, err error)

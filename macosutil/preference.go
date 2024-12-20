@@ -1,4 +1,4 @@
-package macosutils
+package macosutil
 
 /*
 #cgo CFLAGS: -x objective-c

@@ -1,15 +1,15 @@
 package macosutilsmock
 
 import (
-	"github.com/mikeschinkel/prefsctl/macosutils"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/types"
 )
 
-type MacOSUtils = macosutils.MacOSUtils
+type MacOSUtils = macosutil.MacOSUtils
 
-type Preference = macosutils.Preference
-type PreferenceDomain = macosutils.PreferenceDomain
-type VersionNumber = macosutils.VersionNumber
+type Preference = macosutil.Preference
+type PreferenceDomain = macosutil.PreferenceDomain
+type VersionNumber = macosutil.VersionNumber
 
 type VersionCode = types.Code
 type VersionName = types.Name
@@ -22,27 +22,27 @@ var _ MacOSUtils = (*macOSUtilsMock)(nil)
 
 type macOSUtilsMock struct{}
 
-func (m *macOSUtilsMock) GetVersionName(code macosutils.Code) (name macosutils.Name) {
+func (m *macOSUtilsMock) GetVersionName(code macosutil.Code) (name macosutil.Name) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (m *macOSUtilsMock) GetVersionCode(num macosutils.VersionNumber) (code macosutils.Code) {
+func (m *macOSUtilsMock) GetVersionCode(num macosutil.VersionNumber) (code macosutil.Code) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (m *macOSUtilsMock) ValidateVersionNumber(number macosutils.VersionNumber) bool {
+func (m *macOSUtilsMock) ValidateVersionNumber(number macosutil.VersionNumber) bool {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (m *macOSUtilsMock) ValidateVersionName(name macosutils.Name) bool {
+func (m *macOSUtilsMock) ValidateVersionName(name macosutil.Name) bool {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (m *macOSUtilsMock) ValidVersionNumbers() []macosutils.VersionNumber {
+func (m *macOSUtilsMock) ValidVersionNumbers() []macosutil.VersionNumber {
 	//TODO implement me
 	panic("implement me")
 }

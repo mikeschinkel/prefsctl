@@ -1,22 +1,22 @@
-package macosutils_test
+package macosutil_test
 
 import (
 	"strings"
 	"testing"
 
-	"github.com/mikeschinkel/prefsctl/macosutils"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
 var (
-	GetVersionNumber      = macosutils.GetVersionNumber
-	ValidateVersionNumber = macosutils.ValidateVersionNumber
-	ValidateVersionName   = macosutils.ValidateVersionName
-	ValidVersionNumbers   = macosutils.ValidVersionNumbers
-	GetVersionCode        = macosutils.GetVersionCode
-	VersionCode           = macosutils.VersionCode
-	VersionName           = macosutils.VersionName
-	GetVersionName        = macosutils.GetVersionName
+	GetVersionNumber      = macosutil.GetVersionNumber
+	ValidateVersionNumber = macosutil.ValidateVersionNumber
+	ValidateVersionName   = macosutil.ValidateVersionName
+	ValidVersionNumbers   = macosutil.ValidVersionNumbers
+	GetVersionCode        = macosutil.GetVersionCode
+	VersionCode           = macosutil.VersionCode
+	VersionName           = macosutil.VersionName
+	GetVersionName        = macosutil.GetVersionName
 )
 
 func Test_macOSUtils_GetVersionNumber(t *testing.T) {
@@ -68,13 +68,13 @@ func Test_macOSUtils_ValidVersionNumbers(t *testing.T) {
 		t.Error("ValidVersionNumbers() expected many version numbers, got none")
 		return
 	}
-	if GetVersionCode(nums[0]) != macosutils.Cheetah {
-		t.Errorf("ValidVersionNumbers() expected first version number '%s' to be for macOS %s", nums[0], macosutils.Cheetah)
+	if GetVersionCode(nums[0]) != macosutil.Cheetah {
+		t.Errorf("ValidVersionNumbers() expected first version number '%s' to be for macOS %s", nums[0], macosutil.Cheetah)
 		return
 	}
 	num := nums[len(nums)-1]
-	if GetVersionCode(num) != macosutils.Sequoia {
-		t.Errorf("ValidVersionNumbers() expected last version number '%s' to be for macOS %s", num, macosutils.Sequoia)
+	if GetVersionCode(num) != macosutil.Sequoia {
+		t.Errorf("ValidVersionNumbers() expected last version number '%s' to be for macOS %s", num, macosutil.Sequoia)
 		return
 	}
 }

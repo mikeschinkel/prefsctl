@@ -1,26 +1,25 @@
-package macosutils_test
+package macosutil_test
 
 import (
-	"errors"
 	"testing"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/macosutils"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 
 var (
-	RetrievePreferences = macosutils.RetrievePreferences
+	RetrievePreferences = macosutil.RetrievePreferences
 )
 
 type (
-	PreferenceDomain = macosutils.PreferenceDomain
-	Preference       = macosutils.Preference
+	PreferenceDomain = macosutil.PreferenceDomain
+	Preference       = macosutil.Preference
 )
 
 func Test_macOSUtils_RetrievePreferenceDomains(t *testing.T) {
-	gotDomains, err := macosutils.RetrievePreferenceDomains()
+	gotDomains, err := macosutil.RetrievePreferenceDomains()
 	if err != nil {
 		t.Errorf("RetrievePreferenceDomains() error = %v", err)
 		return
@@ -44,7 +43,7 @@ func Test_macOSUtils_RetrievePreferences(t *testing.T) {
 		{
 			name:      "Bad domain - baz.bar.foo",
 			domain:    "baz.bar.foo",
-			errWanted: macosutils.ErrFailedToGetPrefNames,
+			errWanted: macosutil.ErrFailedToGetPrefDomains,
 		},
 		{
 			name:   "com.apple.finder — Match all",
@@ -73,7 +72,7 @@ func Test_macOSUtils_RetrievePreferences(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			gotPrefs, err := RetrievePreferences(PreferenceDomain(tt.domain))
-			if errCheckFails(t, "RetrievePreferences()", tt.errWanted, err) {
+			if errutil.ErrorCheckFails(t, "RetrievePreferences()", tt.errWanted, err) {
 				return
 			}
 
@@ -113,25 +112,4 @@ func chkPrefs(prefs []*Preference, names []string) (found, missing []string) {
 		}
 	}
 	return found, missing
-}
-
-func errCheckFails(t *testing.T, testName string, errWanted, errGot error) (failed bool) {
-	switch {
-	case errWanted == nil && errGot != nil:
-		t.Errorf("%s: did not want error, got '%v'", testName, errutil.CleanErrString(errGot))
-		failed = true
-	case errWanted != nil:
-		switch {
-		case errGot == nil:
-			t.Errorf("%s: want error, got nil", testName)
-		case !errors.Is(errGot, errWanted):
-			t.Errorf("%s: wanted error but wrong message:\n\tExpected: %s\n\tReceived: %s",
-				testName,
-				errutil.CleanErrString(errWanted),
-				errutil.CleanErrString(errGot),
-			)
-		}
-		failed = true
-	}
-	return failed
 }

@@ -1,4 +1,4 @@
-package macosutils
+package macosutil
 
 /*
 #cgo CFLAGS: -x objective-c
@@ -151,7 +151,7 @@ var code Code
 
 func (*macOSUtils) MustGetVersionCode() Code {
 	if code == "" {
-		panic("Must call Code() in macosutils package before calling MustGetVersionCode()")
+		panic("Must call Code() in macosutil package before calling MustGetVersionCode()")
 	}
 	return code
 }

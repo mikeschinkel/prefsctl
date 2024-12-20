@@ -1,4 +1,4 @@
-package macosutils
+package macosutil
 
 /*
 #cgo CFLAGS: -x objective-c
@@ -8,9 +8,6 @@ package macosutils
 // CFPreferencesCopyApplicationList is deprecated but provides cleanest API for our use-case.
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
-//CFArrayRef GetPreferenceDomains() {
-//	return CFPreferencesCopyApplicationList(kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
-//}
 CFArrayRef GetPreferenceDomains() {
     // Get the list of application domains
     CFArrayRef appDomains = CFPreferencesCopyApplicationList(kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
@@ -19,25 +16,16 @@ CFArrayRef GetPreferenceDomains() {
     CFMutableArrayRef allDomains = CFArrayCreateMutableCopy(kCFAllocatorDefault,
                                                            CFArrayGetCount(appDomains) + 1,
                                                            appDomains);
-
     // Add .GlobalPreferences
-    CFStringRef globalDomain = CFSTR("GlobalPreferences");
+		CFStringRef globalDomain = CFSTR("GlobalPreferences");
     CFArrayAppendValue(allDomains, globalDomain);
 
-    // Release the original array and the global domain string
+    // Release the original array
     CFRelease(appDomains);
-    CFRelease(globalDomain);
 
     return allDomains;
 }
 
-//CFArrayRef GetPrefNamesForDomain(CFStringRef domain) {
-//    return CFPreferencesCopyKeyList(
-//        domain,
-//        kCFPreferencesCurrentUser,
-//        kCFPreferencesAnyHost
-//    );
-//}
 CFArrayRef GetPrefNamesForDomain(CFStringRef domain) {
     CFStringRef useDomain = domain;
     if (CFStringCompare(domain, CFSTR("GlobalPreferences"), 0) == kCFCompareEqualTo) {
@@ -78,7 +66,6 @@ CFStringRef CreateCFString(const char* str) {
 */
 import "C"
 import (
-	"fmt"
 	"unsafe"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
@@ -95,7 +82,7 @@ func (*macOSUtils) RetrievePreferenceDomains() (domains []PreferenceDomain, err 
 	// Get the CFArray of preference domains
 	domainsArray := C.GetPreferenceDomains()
 	if domainsArray == 0 {
-		err = fmt.Errorf("failed to get preference domains")
+		err = ErrFailedToGetPrefDomains
 		goto end
 	}
 	defer C.CFRelease(C.CFTypeRef(domainsArray))
@@ -106,12 +93,12 @@ func (*macOSUtils) RetrievePreferenceDomains() (domains []PreferenceDomain, err 
 
 	// Iterate through the array and convert each CFString to Go string
 	for i := 0; i < count; i++ {
-		domain := C.GetArrayValueAtIndex(domainsArray, C.int(i))
-		if domain == 0 {
+		cDomainPtr := C.GetArrayValueAtIndex(domainsArray, C.int(i))
+		if cDomainPtr == 0 {
 			continue
 		}
 
-		cDomain := C.CFStringToCString(domain)
+		cDomain := C.CFStringToCString(cDomainPtr)
 		if cDomain == nil {
 			continue
 		}
@@ -140,7 +127,7 @@ func (*macOSUtils) RetrievePreferences(d PreferenceDomain) (prefs []*Preference,
 	// Get the array of keys
 	cfaPrefs = C.GetPrefNamesForDomain(cfDomain)
 	if cfaPrefs == 0 {
-		err = errutil.AnnotateErr(ErrFailedToGetPrefNames, "%s=%s", logargs.PrefsDomainLogArg, d)
+		err = errutil.AnnotateErr(ErrFailedToGetPrefDomains, "%s=%s", logargs.PrefsDomainLogArg, d)
 		goto end
 	}
 	defer C.CFRelease(C.CFTypeRef(cfaPrefs))

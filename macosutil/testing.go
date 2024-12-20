@@ -1,6 +1,6 @@
 //go:build test
 
-package macosutils
+package macosutil
 
 func SetInstance(i MacOSUtils) {
 	instance = i

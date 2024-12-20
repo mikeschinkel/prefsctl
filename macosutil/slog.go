@@ -1,8 +1,8 @@
-package macosutils
+package macosutil
 
 import (
 	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/slogutil"
 )
 
-var slog = slogutil.Logger().With(logargs.GoPackageLogArg, "macosutils")
+var slog = slogutil.Logger().With(logargs.GoPackageLogArg, "macosutil")

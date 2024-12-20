@@ -22,6 +22,7 @@ type Group interface {
 	LogArgs() []any
 	ErrorInfo() error
 	ShallowCopy() Group
+	Valid() bool
 	fmt.Stringer
 }
 
@@ -30,14 +31,20 @@ var _ Group = (*group)(nil)
 type group struct {
 	name        Name
 	code        Code
+	invalid     bool
 	keyValues   []KeyValue
 	initialized bool
+}
+
+func (g *group) Valid() bool {
+	return !g.invalid
 }
 
 func (g *group) ShallowCopy() Group {
 	return &group{
 		name:        g.name,
 		code:        g.code,
+		invalid:     g.invalid,
 		keyValues:   make([]KeyValue, 0),
 		initialized: false,
 	}
