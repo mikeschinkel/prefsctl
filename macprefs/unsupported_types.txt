@@ -1,0 +1,8 @@
+0 = unsupported preference class: __NSDictionaryI ->
+1 = unsupported preference class: __NSTaggedDate ->
+2 = unsupported preference class: __NSCFArray ->
+3 = unsupported preference class: __NSDictionary0 ->
+4 = unsupported preference class: __NSSingleEntryDictionaryI ->
+5 = unsupported preference class: __NSCFData ->
+6 = unsupported preference class: __NSArrayM ->
+7 = unsupported preference class: __NSArray0 -> 
