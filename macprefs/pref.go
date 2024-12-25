@@ -64,8 +64,7 @@ func NewPref(args PrefArgs) *Pref {
 		dv.labels = args.Labels
 	}
 	return &Pref{
-		value: args.Value,
-		//Kind:        args.Kind,
+		value:       args.Value,
 		invalid:     args.Invalid,
 		PrefDefault: dv,
 	}
