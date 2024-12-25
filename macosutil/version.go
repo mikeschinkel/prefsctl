@@ -151,7 +151,7 @@ var code Code
 
 func (*macOSUtils) MustGetVersionCode() Code {
 	if code == "" {
-		panic("Must call Code() in macosutil package before calling MustGetVersionCode()")
+		panic("Must call .VersionCode() in macosutil package before calling .MustGetVersionCode()")
 	}
 	return code
 }
