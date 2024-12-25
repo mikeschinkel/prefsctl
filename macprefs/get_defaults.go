@@ -2,6 +2,7 @@ package macprefs
 
 import (
 	"errors"
+	"fmt"
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
@@ -11,7 +12,12 @@ import (
 )
 
 type GetDefaultsArgs struct {
-	Printer Printer
+	Printer   Printer
+	OmitEmpty bool
+}
+
+func (args *GetDefaultsArgs) PrinterOutput() string {
+	return args.Printer.(fmt.Stringer).String()
 }
 
 func GetDefaults(ctx Context, args GetDefaultsArgs) (err error) {
@@ -67,9 +73,10 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 	noop(pds)
 
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
-		Filters: nameFilters,
-		Groups:  domains.ToFiltersGroups(),
-		Labels:  []*kvfilters.Label{&UserManaged},
+		Groups:    domains.ToFiltersGroups(),
+		Filters:   nameFilters,
+		Labels:    []*kvfilters.Label{&UserManaged},
+		OmitEmpty: args.OmitEmpty,
 	})
 	if err != nil {
 		err = errors.Join(ErrFailedToQueryGroups, err)
@@ -89,10 +96,10 @@ func retrieveDefaults(ctx Context, args GetDefaultsArgs) (domains *PrefDomains, 
 	}
 
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
-		Filters:     valueFilters,
 		Groups:      domains.ToFiltersGroups(),
+		Filters:     valueFilters,
 		Labels:      []*kvfilters.Label{&UserManaged},
-		OmitEmpty:   true,
+		OmitEmpty:   args.OmitEmpty,
 		OmitInvalid: true,
 	})
 

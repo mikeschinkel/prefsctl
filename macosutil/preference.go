@@ -143,14 +143,17 @@ type Preference struct {
 func (p Preference) Valid() bool {
 	return !p.invalid
 }
-
-type cacheId string
-
-func getCacheId(domain string, name string) cacheId {
-	return cacheId(domain + "|" + name)
+func (p Preference) Id() Identifier {
+	return PreferenceId(p.Domain, p.Name)
 }
 
-var preferenceCache = make(map[cacheId]*Preference)
+type Identifier string
+
+func PreferenceId(domain string, name string) Identifier {
+	return Identifier(domain + "/" + name)
+}
+
+var preferenceCache = make(map[Identifier]*Preference)
 var preferenceCacheMutex sync.Mutex
 
 // RetrievePreference fetches the preference value from the system
@@ -160,7 +163,7 @@ func (*macOSUtils) RetrievePreference(domain string, name string) (dp *Preferenc
 	var cResult C.PreferenceResult
 
 	preferenceCacheMutex.Lock()
-	prefId := getCacheId(domain, name)
+	prefId := PreferenceId(domain, name)
 	if dp, ok = preferenceCache[prefId]; ok {
 		goto end
 	}

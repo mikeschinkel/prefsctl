@@ -2,6 +2,6 @@
 
 package macosutil
 
-func SetInstance(i MacOSUtils) {
+func SetInstance(i MacOSUtil) {
 	instance = i
 }

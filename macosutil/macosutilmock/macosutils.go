@@ -10,6 +10,7 @@ type MacOSUtil = macosutil.MacOSUtil
 type Preference = macosutil.Preference
 type PreferenceDomain = macosutil.PreferenceDomain
 type VersionNumber = macosutil.VersionNumber
+type Identifier = macosutil.Identifier
 
 type VersionCode = types.Code
 type VersionName = types.Name
@@ -20,7 +21,7 @@ func NewMock() MacOSUtil {
 		Domains:     make([]PreferenceDomain, 0),
 		DomainPrefs: make(map[PreferenceDomain][]*Preference),
 		DomainErrs:  make(map[PreferenceDomain]error),
-		Prefs:       make(map[string]*Preference),
+		Prefs:       make(map[Identifier]*Preference),
 	}
 }
 
@@ -32,7 +33,7 @@ type MacOSUtilMock struct {
 	DomainsErr  error
 	DomainPrefs map[PreferenceDomain][]*Preference
 	DomainErrs  map[PreferenceDomain]error
-	Prefs       map[string]*Preference
+	Prefs       map[Identifier]*Preference
 	Version     struct {
 		Number    VersionNumber
 		NumberErr error

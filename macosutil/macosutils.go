@@ -1,6 +1,6 @@
 package macosutil
 
-type MacOSUtils interface {
+type MacOSUtil interface {
 	RetrievePreferenceDomains() (domains []PreferenceDomain, err error)
 	RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error)
 	RetrievePreference(domain string, name string) (dp *Preference, err error)
@@ -15,13 +15,13 @@ type MacOSUtils interface {
 	ValidVersionNumbers() []VersionNumber
 }
 
-var instance MacOSUtils = New()
+var instance MacOSUtil = New()
 
-func New() MacOSUtils {
+func New() MacOSUtil {
 	return &macOSUtils{}
 }
 
-var _ MacOSUtils = (*macOSUtils)(nil)
+var _ MacOSUtil = (*macOSUtils)(nil)
 
 type macOSUtils struct{}
 
