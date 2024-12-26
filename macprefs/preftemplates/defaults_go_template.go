@@ -15,23 +15,23 @@ func {{.OSVersion}}PrefDefaults() DomainDefaults {
 		{{- range $i, $domain := .Domains}}
 		"{{$domain.Name}}": DomainPrefs{
 			{{- range $i, $dflt := $domain.Defaults}}
-				"{{$dflt.Name}}": DomainPref{
-					Type:     "{{$dflt.TypeName}}",
-					{{- if $.ShowPrefDefault $dflt }}
-					Default:  "{{$dflt.Value}}",
+			"{{$dflt.Name}}": DomainPref{
+				Type:     "{{$dflt.TypeName}}",
+				{{- if $.ShowPrefDefault $dflt }}
+				Default:  "{{$dflt.Value}}",
+				{{- end}}
+				Labels: NewLabels(
+				{{- range $i, $label := .Labels.LabelPtrs}}
+					{{- if ne $label.Name "type" }}
+					{{firstUp $label.Value.String}},
 					{{- end}}
-					Labels: NewLabels(
-					{{- range $i, $label := .Labels.LabelPtrs}}
-						{{- if ne $label.Name "type" }}
-						{{firstUp $label.Value.String}},
-						{{- end}}
 					{{- end}}
-					),
-				},
+				),
+			},
 			{{- end}}
 		},
 		{{- end}}
-	}	
+	}
 }`
 
 var _ Template = (*DefaultsGoTemplate)(nil)
