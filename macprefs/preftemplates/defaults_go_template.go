@@ -16,7 +16,6 @@ func {{.OSVersion}}PrefDefaults() DomainDefaults {
 		"{{$domain.Name}}": DomainPrefs{
 			{{- range $i, $dflt := $domain.Defaults}}
 				"{{$dflt.Name}}": DomainPref{
-					Verified: {{$dflt.Verified}},
 					Type:     "{{$dflt.TypeName}}",
 					{{- if $.ShowPrefDefault $dflt }}
 					Default:  "{{$dflt.Value}}",

@@ -14,6 +14,7 @@ type CmdFlagArgs struct {
 type CmdFlag struct {
 	Cmd        Cmd
 	Name       string
+	Descr      string
 	Type       reflect.Kind
 	Required   bool
 	Default    any

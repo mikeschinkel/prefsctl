@@ -48,7 +48,11 @@ func (dd *PrefDomains) UserManagedPrefDefaults() (pds []*PrefDefault) {
 	return pds
 }
 
-func (dd *PrefDomains) TemplateDomains() (domains []*preftemplates.Domain) {
+type DefaultsTemplateDomainsArgs struct {
+	UseCurrent bool
+}
+
+func (dd *PrefDomains) DefaultsTemplateDomains(args DefaultsTemplateDomainsArgs) (domains []*preftemplates.Domain) {
 	domains = make([]*preftemplates.Domain, len(dd.domains))
 	dd.Sort()
 	for i, domain := range dd.domains {
@@ -59,13 +63,16 @@ func (dd *PrefDomains) TemplateDomains() (domains []*preftemplates.Domain) {
 		}
 		defaults := make([]*preftemplates.Default, len(domain.Prefs()))
 		for j, pref := range domain.Prefs() {
+			value := pref.DefaultValue
+			if args.UseCurrent {
+				value = pref.Value()
+			}
 			defaults[j] = &preftemplates.Default{
-				Domain:   d,
-				Name:     preftemplates.PrefName(pref.Name),
-				Type:     pref.TypeName(),
-				Value:    pref.DefaultValue,
-				Labels:   pref.Labels(),
-				Verified: pref.Verified,
+				Domain: d,
+				Name:   preftemplates.PrefName(pref.Name),
+				Type:   pref.TypeName(),
+				Value:  value,
+				Labels: pref.Labels(),
 			}
 		}
 		d.Defaults = defaults

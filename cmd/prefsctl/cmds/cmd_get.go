@@ -1,11 +1,14 @@
 package cmds
 
 import (
+	"github.com/mikeschinkel/prefsctl/cobrautil"
 	"github.com/spf13/cobra"
 )
 
 func init() {
-	RootCmd.AddCmd(getCmd)
+	cobrautil.AddInitializer(func(cli *CLI) {
+		RootCmd.AddCmd(getCmd)
+	})
 }
 
 var getProps = &GetProps{}

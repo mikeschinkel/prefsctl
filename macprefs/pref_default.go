@@ -19,7 +19,6 @@ type PrefDefault struct {
 	Kind         reflect.Kind // kind of the value
 	typeName     TypeName
 	labels       *kvfilters.Labels
-	Verified     Verified
 }
 
 func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
@@ -38,7 +37,6 @@ func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
 			// change it.
 			&UserManaged,
 		),
-		Verified: Verified{},
 		typeName: TypeName(UnknownType.Value),
 	}
 }

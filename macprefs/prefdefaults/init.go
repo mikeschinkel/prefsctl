@@ -36,8 +36,6 @@ type Labels = kvfilters.Labels
 
 var NewLabels = kvfilters.NewLabels
 
-type Verified = macprefs.Verified
-
 var (
 	InvalidLabel = macprefs.InvalidLabel
 	Sets         = macprefs.Sets
@@ -58,6 +56,10 @@ var (
 	IntBoolType      = &macprefs.IntBoolType
 	IntType          = &macprefs.IntType
 	FloatType        = &macprefs.FloatType
+
+	TypeVerified    = &macprefs.TypeVerified
+	ValueVerified   = &macprefs.ValueVerified
+	DefaultVerified = &macprefs.DefaultVerified
 )
 
 type DomainDefaults = map[string]DomainPrefs
@@ -68,7 +70,6 @@ type DomainPref struct {
 	Type      string
 	Default   string // raw string value for default
 	Labels    *kvfilters.Labels
-	Verified  Verified
 	kind      reflect.Kind
 	typeLabel *kvfilters.Label
 }
@@ -153,14 +154,12 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 	}
 	if def.Default != "" {
 		pd.DefaultValue = def.Default
-		pd.Verified = def.Verified
 	} else {
 		p, err := macosutil.RetrievePreference(def.Domain, def.Name)
 		if err == nil {
 			pd.DefaultValue = p.Value
 			pd.Kind = p.Kind
 		}
-		pd.Verified = Verified{}
 	}
 	pd.Kind, typeLabel = GetPrefKindAndTypeLabel(pd.Kind, def.TypeName(), pd.DefaultValue)
 

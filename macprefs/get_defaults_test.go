@@ -222,7 +222,6 @@ func %sPrefDefaults() DomainDefaults {
 	return DomainDefaults{
 		"com.apple.Accessibility": DomainPrefs{
       "InvertColorsEnabled": DomainPref{
-				Verified: Verified{},
 				Type:     "intBool",
 				Default:  "0",
 				Labels: NewLabels(
@@ -231,16 +230,15 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"KeyRepeatDelay": DomainPref{
-				Verified: Verified{},
 				Type:     "float",
 				Default:  "0.25",
 				Labels: NewLabels(
 					DefaultsSet,
+					TypeVerified,
 					UserManaged,
 				),
 			},
 			"KeyRepeatInterval": DomainPref{
-				Verified: Verified{},
 				Type:     "unknown",
 				Default:  "",
 				Labels: NewLabels(
@@ -251,7 +249,6 @@ func %sPrefDefaults() DomainDefaults {
 		},
 		"com.apple.dock": DomainPrefs{
 			"autohide": DomainPref{
-				Verified: Verified{},
 				Type:     "bool",
 				Default:  "false",
 				Labels: NewLabels(
@@ -260,7 +257,6 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"region": DomainPref{
-				Verified: Verified{},
 				Type:     "string",
 				Default:  "US",
 				Labels: NewLabels(
@@ -269,7 +265,6 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"showhidden": DomainPref{
-				Verified: Verified{},
 				Type:     "bool",
 				Default:  "true",
 				Labels: NewLabels(
@@ -278,7 +273,6 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"tilesize": DomainPref{
-				Verified: Verified{},
 				Type:     "int",
 				Default:  "70",
 				Labels: NewLabels(
@@ -289,7 +283,6 @@ func %sPrefDefaults() DomainDefaults {
 		},
 		"com.apple.finder": DomainPrefs{
 			"ShowRemovableMediaOnDesktop": DomainPref{
-				Verified: Verified{},
 				Type:     "bool",
 				Default:  "false",
 				Labels: NewLabels(
@@ -298,7 +291,6 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"ShowStatusBar": DomainPref{
-				Verified: Verified{},
 				Type:     "bool",
 				Default:  "true",
 				Labels: NewLabels(
@@ -309,7 +301,6 @@ func %sPrefDefaults() DomainDefaults {
 		},
 		"com.apple.keyboard": DomainPrefs{
 			"KeyboardWordOrSentenceTrackingForPFL": DomainPref{
-				Verified: Verified{},
 				Type:     "bool",
 				Default:  "false",
 				Labels: NewLabels(
@@ -320,7 +311,6 @@ func %sPrefDefaults() DomainDefaults {
 		},
 		"GlobalPreferences": DomainPrefs{
 			"AppleActionOnDoubleClick": DomainPref{
-				Verified: Verified{},
 				Type:     "string",
 				Default:  "Maximize",
 				Labels: NewLabels(
@@ -329,7 +319,6 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"AppleMeasurementUnits": DomainPref{
-				Verified: Verified{},
 				Type:     "string",
 				Default:  "Inches",
 				Labels: NewLabels(
@@ -338,7 +327,6 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"AppleTemperatureUnit": DomainPref{
-				Verified: Verified{},
 				Type:     "string",
 				Default:  "Fahrenheit",
 				Labels: NewLabels(
@@ -347,7 +335,6 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"com.apple.mouse.scaling": DomainPref{
-				Verified: Verified{},
 				Type:     "int",
 				Default:  "3",
 				Labels: NewLabels(
@@ -356,7 +343,6 @@ func %sPrefDefaults() DomainDefaults {
 				),
 			},
 			"com.apple.trackpad.scaling": DomainPref{
-				Verified: Verified{},
 				Type:     "intBool",
 				Default:  "1",
 				Labels: NewLabels(

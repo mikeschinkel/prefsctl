@@ -12,8 +12,9 @@ import (
 )
 
 type GetDefaultsArgs struct {
-	Printer   Printer
-	OmitEmpty bool
+	Printer    Printer
+	OmitEmpty  bool
+	UseCurrent bool
 }
 
 func (args *GetDefaultsArgs) PrinterOutput() string {
@@ -139,7 +140,9 @@ func getDefaultsGo(ctx Context, args GetDefaultsArgs) (err error) {
 	}
 	tmpl = preftemplates.NewDefaultsGoTemplate(
 		preftemplates.OSVersion(code),
-		domains.TemplateDomains(),
+		domains.DefaultsTemplateDomains(DefaultsTemplateDomainsArgs{
+			UseCurrent: args.UseCurrent,
+		}),
 	)
 	tmpl.ShowValueFunc = func(d *preftemplates.Default) bool {
 		return d.Labels.HasLabel(&UserManaged)

@@ -7,4 +7,6 @@ import (
 const (
 	FilenameFlagName      = cobrautil.FilenameFlagName
 	FilenameFlagShorthand = cobrautil.FilenameFlagShorthand
+
+	UseCurrentFlagName = "use-current"
 )

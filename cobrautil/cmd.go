@@ -63,7 +63,11 @@ type cmd struct {
 }
 
 func (c *cmd) Command() *cobra.Command {
-	return c.cobraCommand
+	cc := c.cobraCommand
+	if cc == nil {
+		cc = rootCmd.Command()
+	}
+	return cc
 }
 
 func (c *cmd) Props() Props {
@@ -74,6 +78,10 @@ func (c *cmd) Execute(ctx Context) error {
 }
 func (c *cmd) SetProps(props Props) {
 	c.props = props
+}
+
+func (c *cmd) SetArgs(args []string) {
+	c.cobraCommand.SetArgs(args)
 }
 
 func NewCmd(cli *CLI, command *cobra.Command) Cmd {
@@ -110,9 +118,10 @@ end:
 }
 
 func (c *cmd) AddCmd(cmd Cmd) {
+	cc := c.Command()
 	command := cmd.Command()
-	if c.Command() != command {
-		c.Command().AddCommand(command)
+	if cc != command {
+		cc.AddCommand(command)
 		if c.SubCmds == nil {
 			c.SubCmds = make(map[string]Cmd)
 		}
@@ -142,8 +151,15 @@ func NewCmdFromOpts(opts CmdOpts) Cmd {
 		newCmd.props = opts.Props
 		newCmd.RunFunc = opts.RunFunc
 		if newCmd.RunFunc == nil {
-			newCmd.RunFunc = func(ctx Context, cmd Cmd) error {
-				return CalledCmd(cmd, cli.Args).Execute(ctx)
+			newCmd.RunFunc = func(ctx Context, cmd Cmd) (err error) {
+				calledCmd := CalledCmd(cmd, cli.Args)
+				if cmd != calledCmd {
+					err = calledCmd.Execute(ctx)
+					goto end
+				}
+				println("TODO: Call Command Help Here")
+			end:
+				return err
 			}
 		}
 		for _, f := range opts.Flags {

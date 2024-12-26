@@ -27,6 +27,7 @@ type DomainPrefDefaults map[DomainName]PrefDefaultsMap
 
 type Filename string
 
+type UseCurrentPtr *bool
 type FilenamePtr *string
 type OutputPtr *string
 
