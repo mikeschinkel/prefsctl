@@ -73,8 +73,6 @@ func TestGetDefaults(t *testing.T) {
 			}
 			expected := tt.expectedOutput
 			received := tt.args.PrinterOutput()
-			expected = errutil.StripInlineWhitespace(expected)
-			received = errutil.StripInlineWhitespace(received)
 			if expected != received {
 				diff := diffator.CompareStrings(expected, received, nil)
 				t.Errorf("Body <(expected/received)>:\n\t%s", diff)
