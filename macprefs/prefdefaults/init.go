@@ -8,7 +8,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs"
-	"github.com/mikeschinkel/prefsctl/maputils"
+	"github.com/mikeschinkel/prefsctl/maputil"
 
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
@@ -123,9 +123,9 @@ var file *os.File
 // `kvfilters.KeyValue` interface.
 func convertDomainDefaultsToMacprefsDomainPrefDefaults(defaults DomainDefaults) (dpd macprefs.DomainPrefDefaults) {
 	dpd = make(macprefs.DomainPrefDefaults, len(defaults))
-	for domain, defs := range maputils.KeysSorted(defaults) {
+	for domain, defs := range maputil.SortedKeysIterator(defaults) {
 		pp := make(macprefs.PrefDefaultsMap, len(defs))
-		for name, def := range maputils.KeysSorted(defs) {
+		for name, def := range maputil.SortedKeysIterator(defs) {
 			def.Domain = domain
 			def.Name = name
 			pp[macprefs.PrefName(name)] = getPrefDefaultFromDomainPref(def)
