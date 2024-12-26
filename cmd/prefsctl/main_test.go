@@ -6,6 +6,16 @@ import (
 
 	"github.com/mikeschinkel/prefsctl/cmd/prefsctl/cmds"
 	"github.com/mikeschinkel/prefsctl/cobrautil"
+	"github.com/mikeschinkel/prefsctl/macosutil/macosutilmock"
+	"github.com/mikeschinkel/prefsctl/macprefs/macprefstest"
+)
+
+type (
+	Data = macosutilmock.Data
+)
+
+var (
+	MockMacOSUtil = macosutilmock.MockMacOSUtil
 )
 
 // TestMain is the entry point for testing, allowing you to run setup and
@@ -30,9 +40,16 @@ func TestGetDefaults(t *testing.T) {
 
 	cobrautil.RunCLICommandTests(c4t, []cobrautil.CLICommandTest{
 		{
-			Name:          "Get Defaults Go code",
-			Args:          cmd{"get", "defaults", "-o", "go"},
-			SuccessResult: "TODO",
+			Name: "Get Defaults Go code",
+			Args: cmd{"get", "defaults", "-o", "go"},
+			BeforeTestFunc: func(tests cobrautil.ContextForTests, test cobrautil.CLICommandTest) error {
+				MockMacOSUtil(Data{
+					Domains:     macprefstest.DomainsForTest(),
+					DomainPrefs: macprefstest.DomainPrefsForTest(),
+				})
+				return nil
+			},
+			SuccessResult: macprefstest.ExpectedOutputForTest(),
 		},
 	})
 }
