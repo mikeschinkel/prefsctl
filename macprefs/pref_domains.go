@@ -48,39 +48,6 @@ func (dd *PrefDomains) UserManagedPrefDefaults() (pds []*PrefDefault) {
 	return pds
 }
 
-type DefaultsTemplateDomainsArgs struct {
-	UseCurrent bool
-}
-
-func (dd *PrefDomains) DefaultsTemplateDomains(args DefaultsTemplateDomainsArgs) (domains []*preftemplates.Domain) {
-	domains = make([]*preftemplates.Domain, len(dd.domains))
-	dd.Sort()
-	for i, domain := range dd.domains {
-		d := &preftemplates.Domain{
-			Name:     preftemplates.DomainName(domain.DomainName()),
-			Defaults: nil,
-			MacOS:    nil,
-		}
-		defaults := make([]*preftemplates.Default, len(domain.Prefs()))
-		for j, pref := range domain.Prefs() {
-			value := pref.DefaultValue
-			if args.UseCurrent {
-				value = pref.Value()
-			}
-			defaults[j] = &preftemplates.Default{
-				Domain: d,
-				Name:   preftemplates.PrefName(pref.Name),
-				Type:   pref.TypeName(),
-				Value:  value,
-				Labels: pref.Labels(),
-			}
-		}
-		d.Defaults = defaults
-		domains[i] = d
-	}
-	return domains
-}
-
 func (dd *PrefDomains) Domains() []*PrefsDomain {
 	return dd.domains
 }
@@ -288,4 +255,108 @@ func RetrieveDomainPrefs(domain DomainName) (pp Prefs, err error) {
 	})
 end:
 	return pp, err
+}
+
+type TemplateDomainsArgs struct {
+	UseCurrent bool
+}
+
+func (dd *PrefDomains) TemplateDomains(args TemplateDomainsArgs) (domains []*preftemplates.Domain) {
+	domains = make([]*preftemplates.Domain, len(dd.domains))
+	dd.Sort()
+	for i, domain := range dd.domains {
+		d := &preftemplates.Domain{
+			Name:     preftemplates.DomainName(domain.DomainName()),
+			Defaults: nil,
+			MacOS:    nil,
+		}
+		defaults := make([]*preftemplates.Default, len(domain.Prefs()))
+		for j, pref := range domain.Prefs() {
+			value := pref.DefaultValue
+			if args.UseCurrent {
+				value = pref.Value()
+			}
+			defaults[j] = &preftemplates.Default{
+				Domain: d,
+				Name:   preftemplates.PrefName(pref.Name),
+				Type:   pref.TypeName(),
+				Value:  value,
+				Labels: pref.Labels(),
+			}
+		}
+		d.Defaults = defaults
+		domains[i] = d
+	}
+	return domains
+}
+
+func retrievePrefDomains(ctx Context, args GenerateArgs) (domains *PrefDomains, err error) {
+	var nameFilters, valueFilters []kvfilters.Filter
+	var filtered []kvfilters.Group
+
+	toDomains := func(domains *PrefDomains, group []kvfilters.Group) []*PrefsDomain {
+		return sliceconv.Func(group, func(g kvfilters.Group) *PrefsDomain {
+			return g.(*PrefsDomain)
+		})
+	}
+
+	domains, err = RetrievePrefDomains()
+	if err != nil {
+		goto end
+	}
+	err = domains.Initialize()
+	if err != nil {
+		goto end
+	}
+	err = domains.RetrievePrefs(RetrievePrefArgs{
+		IgnoreMissingDomains: true,
+	})
+	if err != nil {
+		goto end
+	}
+	nameFilters, err = QueryFiltersForTargets(kvfilters.Groups, kvfilters.Keys)
+	if err != nil {
+		goto end
+	}
+
+	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
+		Groups:    domains.ToFiltersGroups(),
+		Filters:   nameFilters,
+		Labels:    []*kvfilters.Label{&UserManaged},
+		OmitEmpty: args.OmitEmpty,
+	})
+	if err != nil {
+		err = errors.Join(ErrFailedToQueryGroups, err)
+		goto end
+	}
+
+	domains.domains = toDomains(domains, filtered)
+
+	err = domains.RetrievePrefValues()
+	if err != nil {
+		goto end
+	}
+
+	valueFilters, err = QueryFiltersForTargets(kvfilters.Values, kvfilters.KeyValues)
+	if err != nil {
+		goto end
+	}
+
+	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
+		Groups:      domains.ToFiltersGroups(),
+		Filters:     valueFilters,
+		Labels:      []*kvfilters.Label{&UserManaged},
+		OmitEmpty:   args.OmitEmpty,
+		OmitInvalid: true,
+	})
+
+	if err != nil {
+		err = errors.Join(ErrFailedToQueryPrefState, err)
+		goto end
+	}
+
+	domains.domains = toDomains(domains, filtered)
+	domains.Sort()
+end:
+	return domains, err
 }

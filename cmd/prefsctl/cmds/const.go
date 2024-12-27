@@ -9,4 +9,6 @@ const (
 	FilenameFlagShorthand = cobrautil.FilenameFlagShorthand
 
 	UseCurrentFlagName = "use-current"
+
+	IncludeUnchangedFlagName = "include-unchanged"
 )

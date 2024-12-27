@@ -10,36 +10,36 @@ import (
 
 func init() {
 	cobrautil.AddInitializer(func(cli *CLI) {
-		getCmd.AddCmd(getDefaultsCmd)
+		getCmd.AddCmd(getPrefsCmd)
 	})
 }
 
-var getDefaultsProps = &GetDefaultsProps{}
+var getPrefsProps = &GetPrefsProps{}
 
-type GetDefaultsProps struct {
+type GetPrefsProps struct {
 	BaseProps
-	UseCurrent *bool
+	IncludeUnchanged *bool
 	//filename macprefs.FilenamePtr
 	//dummy *string
 }
 
-var getDefaultsCmd = NewCmdFromOpts(CmdOpts{
+var getPrefsCmd = NewCmdFromOpts(CmdOpts{
 	Parent: getCmd,
 	Command: &cobra.Command{
-		Use:   "defaults",
-		Short: "Get preference defaults",
+		Use:   "prefs",
+		Short: "Get preference prefs",
 	},
-	Props: getDefaultsProps,
+	Props: getPrefsProps,
 	Flags: []*CmdFlag{
 		{
-			Name:     UseCurrentFlagName,
+			Name:     IncludeUnchangedFlagName,
 			Type:     reflect.Bool,
-			Descr:    "Use current values from macOS for preference values not yet marked valid",
+			Descr:    "Include preferences that have been unchanged from their default values",
 			Default:  false,
 			Required: false,
 			AssignFunc: func(value any) {
 				// This assigns the pointer, the value has not yet been retrieved from os.Args
-				getDefaultsProps.UseCurrent = value.(*bool)
+				getPrefsProps.IncludeUnchanged = value.(*bool)
 			},
 		},
 		//{
@@ -49,17 +49,16 @@ var getDefaultsCmd = NewCmdFromOpts(CmdOpts{
 		//	Shorthand: 'f',
 		//	AssignFunc: func(value any) {
 		// 		// This assigns the pointer, the value has not yet been retrieved from os.Args
-		//		getDefaultsProps.filename = macprefs.FilenamePtr(value.(*string))
+		//		getPrefsProps.filename = macprefs.FilenamePtr(value.(*string))
 		//	},
 		//},
 	},
-	RunFunc: runGetDefaultsFunc,
+	RunFunc: runGetPrefsFunc,
 })
 
-func runGetDefaultsFunc(ctx Context, cmd Cmd) error {
-	//p := cmd.Props.(*GetDefaultsProps)
-	return macprefs.GetDefaults(ctx, macprefs.GenerateArgs{
-		Printer:    cmd,
-		UseCurrent: *getDefaultsProps.UseCurrent,
+func runGetPrefsFunc(ctx Context, cmd Cmd) error {
+	return macprefs.GetPrefs(ctx, macprefs.GenerateArgs{
+		Printer:          cmd,
+		IncludeUnchanged: *getPrefsProps.IncludeUnchanged,
 	})
 }

@@ -2,39 +2,15 @@ package preftemplates
 
 import (
 	"bytes"
+	_ "embed"
 	"strings"
 	"text/template"
 )
 
-const defaultsGoTemplateName = "prefDefaults"
-const defaultsGoTemplateText = `package prefdefaults
+//go:embed templates/defaults_go.template
+var defaultsGoTemplateText TemplateText
 
-//goland:noinspection SpellCheckingInspection
-func {{.OSVersion}}PrefDefaults() DomainDefaults {
-	return DomainDefaults{
-		{{- range $i, $domain := .Domains}}
-		"{{$domain.Name}}": DomainPrefs{
-			{{- range $i, $dflt := $domain.Defaults}}
-			"{{$dflt.Name}}": DomainPref{
-				Type:     "{{$dflt.TypeName}}",
-				{{- if $.ShowPrefDefault $dflt }}
-				Default:  "{{$dflt.Value}}",
-				{{- end}}
-				Labels: NewLabels(
-				{{- range $i, $label := .Labels.LabelPtrs}}
-					{{- if ne $label.Name "type" }}
-					{{firstUp $label.Value.String}},
-					{{- end}}
-					{{- end}}
-				),
-			},
-			{{- end}}
-		},
-		{{- end}}
-	}
-}`
-
-var _ Template = (*DefaultsGoTemplate)(nil)
+var _ TemplateData = (*DefaultsGoTemplate)(nil)
 
 type DefaultsGoTemplate struct {
 	OSVersion     OSVersion
@@ -58,21 +34,7 @@ func NewDefaultsGoTemplate(name OSVersion, domains []*Domain) *DefaultsGoTemplat
 }
 
 func (t DefaultsGoTemplate) Generate() (output string, err error) {
-	var tmpl *template.Template
-	var buf bytes.Buffer
-
-	// Parse and execute tmpl
-	tmpl, err = template.New(defaultsGoTemplateName).
-		Funcs(templateFuncs).
-		Parse(defaultsGoTemplateText)
-	if err != nil {
-		goto end
-	}
-
-	err = tmpl.Execute(&buf, t)
-	if err != nil {
-		goto end
-	}
-end:
-	return buf.String(), err
+	return Generate("prefDefaults", defaultsGoTemplateText, func(tmpl *template.Template, buf *bytes.Buffer) error {
+		return tmpl.Execute(buf, t)
+	})
 }

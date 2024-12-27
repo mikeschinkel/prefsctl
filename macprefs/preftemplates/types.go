@@ -6,10 +6,14 @@ import (
 
 type TypeName = types.TypeName
 
-type OSVersion string
-type DomainName string
-type PrefName string
+type (
+	OSVersion    string
+	DomainName   string
+	PrefName     string
+	TemplateName string
+	TemplateText string
+	APIVersion   string
+	KindName     string
+)
 
-type Template interface {
-	Generate() (string, error)
-}
+type TemplateData interface{}
