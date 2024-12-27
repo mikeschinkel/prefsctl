@@ -7,5 +7,5 @@ metadata:
 spec:
   preferences:
   - name: autohide
-    default: true
+    value: true
 

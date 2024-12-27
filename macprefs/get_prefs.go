@@ -11,11 +11,8 @@ import (
 )
 
 type (
-	PrefsYAMLTemplateArgs = preftemplates.PrefsYAMLTemplateArgs
-	OSVersion             = preftemplates.OSVersion
+	OSVersion = preftemplates.OSVersion
 )
-
-var NewPrefsYAMLTemplate = preftemplates.NewPrefsYAMLTemplate
 
 type GenerateArgs struct {
 	Printer          Printer
@@ -119,27 +116,44 @@ end:
 	return domains, err
 }
 
-func getPrefsYAML(ctx Context, args GenerateArgs) (err error) {
-	var tmpl *preftemplates.PrefsYAMLTemplate
-	var output string
+func newDomains(domains []*PrefsDomain) []*preftemplates.Domain {
+	dd := make([]*preftemplates.Domain, len(domains))
+	for i, domain := range domains {
+		prefs := make([]*preftemplates.Pref, len(domain.Prefs()))
+		for j, pref := range domain.Prefs() {
+			prefs[j] = &preftemplates.Pref{
+				Domain: preftemplates.DomainName(pref.Domain),
+				Name:   preftemplates.PrefName(pref.Name),
+				Value:  pref.Value(),
+			}
+		}
+		dd[i] = &preftemplates.Domain{
+			Name:  preftemplates.DomainName(domain.Name()),
+			Prefs: prefs,
+			MacOS: nil,
+		}
+	}
+	return dd
+}
 
-	code, err := macosutil.VersionCode()
+func getPrefsYAML(ctx Context, args GenerateArgs) (err error) {
+	var osVersion OSVersion
+	var ptr Printer
+	var resources []preftemplates.YAMLPrefsResource
+
 	domains, err := retrievePrefsDomains(ctx, args)
 	if err != nil {
 		goto end
 	}
-	tmpl = NewPrefsYAMLTemplate(PrefsYAMLTemplateArgs{
-		APIVersion: LatestAPIVersion,
-		OSVersion:  OSVersion(code),
-		Domains: domains.TemplateDomains(TemplateDomainsArgs{
-			UseCurrent: args.UseCurrent,
-		}),
-	})
-	output, err = tmpl.Generate()
-	if err != nil {
-		goto end
+
+	ptr = args.Printer
+	osVersion = OSVersion(macosutil.MustGetVersionCode())
+	resources = preftemplates.NewYAMLPrefsResources(newDomains(domains.domains))
+	for _, resource := range resources {
+		ptr.Println("---")
+		resource.MetaData.OSVersion = osVersion
+		ptr.Println(resource.YAML())
 	}
-	args.Printer.Print(output)
 end:
 	return err
 }
