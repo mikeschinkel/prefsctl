@@ -35,6 +35,15 @@ func ToPtrs[E any](from []E) []*E {
 	return items
 }
 
+// DereferencePtrs converts a slice of pointers to a slice of that type
+func DereferencePtrs[E any](from []*E) []E {
+	items := make([]E, len(from))
+	for i, item := range from {
+		items[i] = *item
+	}
+	return items
+}
+
 // Func converts a slice of one type to a slice of another type
 func Func[F, T any](from []F, fn func(F) T) []T {
 	items := make([]T, len(from))
