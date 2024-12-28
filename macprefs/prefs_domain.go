@@ -35,6 +35,8 @@ type PrefsDomain struct {
 }
 
 func (d *PrefsDomain) Valid() bool {
+	// TODO: Change to determining invalid based on labels
+	//       Need to understand what determines something is invalid before doing so, though
 	return !d.invalid
 }
 

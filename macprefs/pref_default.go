@@ -21,6 +21,14 @@ type PrefDefault struct {
 	labels       *kvfilters.Labels
 }
 
+func (pd *PrefDefault) SetKey(key kvfilters.Code) {
+	pd.Name = PrefName(key)
+}
+
+func (pd *PrefDefault) SetValue(value string) {
+	pd.DefaultValue = value
+}
+
 func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
 	return &PrefDefault{
 		Domain: domain,

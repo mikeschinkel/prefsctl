@@ -85,10 +85,8 @@ func (dd *PrefDomains) Initialize() (err error) {
 		errs.Add(err)
 		goto end
 	}
-	for domain, dvs := range dmf() {
-		for name, dv := range dvs {
-			dv.Domain = domain
-			dv.Name = name
+	for _, dvs := range dmf() {
+		for _, dv := range dvs {
 			SetPrefDefault(dv)
 		}
 	}
@@ -308,6 +306,8 @@ func retrievePrefDomains(ctx Context, args GenerateArgs) (domains *PrefDomains, 
 	if err != nil {
 		goto end
 	}
+
+	// Retrieve all the prefs for all domains, including all their pref defaults
 	err = domains.RetrievePrefs(RetrievePrefArgs{
 		IgnoreMissingDomains: true,
 	})
@@ -332,6 +332,7 @@ func retrievePrefDomains(ctx Context, args GenerateArgs) (domains *PrefDomains, 
 
 	domains.domains = toDomains(domains, filtered)
 
+	// Not retrieve all the current values of the prefs for all domains
 	err = domains.RetrievePrefValues()
 	if err != nil {
 		goto end
@@ -340,6 +341,9 @@ func retrievePrefDomains(ctx Context, args GenerateArgs) (domains *PrefDomains, 
 	valueFilters, err = QueryFiltersForTargets(kvfilters.Values, kvfilters.KeyValues)
 	if err != nil {
 		goto end
+	}
+	if !args.IncludeUnchanged {
+		valueFilters = append(valueFilters, OmitValueEqualsDefaultFilter())
 	}
 
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{

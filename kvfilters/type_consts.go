@@ -46,7 +46,7 @@ const (
 	KeyValues            = 'b' // b=both
 )
 
-var KeyValueOrKeyValue = []Target{Keys, Values, KeyValues}
+var KeysValuesOrKeyValue = []Target{Keys, Values, KeyValues}
 
 type Matches byte
 
@@ -77,8 +77,9 @@ const (
 	Entirety               = 'e'
 	Func                   = 'f'
 	Regexp                 = 'r'
+	Default                = 'd'
 	Contains               = 'c'
 )
 
 type MatchFunc1 func(Code) bool
-type MatchFunc2 func(Code, string) bool
+type MatchFunc2 func(KeyValue) bool

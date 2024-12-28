@@ -11,6 +11,8 @@ type KeyValue interface {
 	fmt.Stringer
 	Key() Code
 	Value() string
+	SetKey(Code)
+	SetValue(string)
 	Labels() *Labels
 	ErrorInfo() error
 	Valid() bool
@@ -27,6 +29,14 @@ type keyValue struct {
 	value   string
 	labels  *Labels
 	invalid bool
+}
+
+func (kv *keyValue) SetKey(key Code) {
+	kv.key = key
+}
+
+func (kv *keyValue) SetValue(value string) {
+	kv.value = value
 }
 
 func (kv *keyValue) Labels() *Labels {

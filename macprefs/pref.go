@@ -19,6 +19,10 @@ type Pref struct {
 	invalid     bool
 }
 
+func (p *Pref) SetValue(value string) {
+	p.value = value
+}
+
 func (p *Pref) TypeName() TypeName {
 	label := p.labels.GetNamedLabel(Type)
 	if label == nil {

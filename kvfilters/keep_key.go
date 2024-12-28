@@ -52,6 +52,8 @@ func (kkic) IgnoreCase() bool {
 	return true
 }
 
+//=============================================
+
 type KeepWhenKeyPrefixIsOneOf []string
 type kkp = KeepWhenKeyPrefixIsOneOf
 

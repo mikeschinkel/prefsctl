@@ -83,7 +83,7 @@ end:
 //}
 
 // MustKeepKeyValue2 returns true is a key or value as appropriate matches ANY Keep kvfilters.
-func MustKeepKeyValue2(ff []Filter, key Code, value string, targets ...Target) (keep bool, err error) {
+func MustKeepKeyValue2(ff []Filter, kv KeyValue, targets ...Target) (keep bool, err error) {
 	for _, filter := range ff {
 		if filter.Effect() != Keep {
 			continue
@@ -91,7 +91,7 @@ func MustKeepKeyValue2(ff []Filter, key Code, value string, targets ...Target) (
 		if !slices.Contains(targets, filter.Target()) {
 			continue
 		}
-		keep, err = matchKeyValue(filter, key, value)
+		keep, err = matchKeyValue(filter, kv)
 		if err != nil {
 			goto end
 		}
@@ -104,7 +104,7 @@ end:
 }
 
 // OmitKeyValue2 returns true is a key or value as appropriate matches ANY Omit kvfilters.
-func OmitKeyValue2(ff []Filter, key Code, value string, targets ...Target) (omit bool, err error) {
+func OmitKeyValue2(ff []Filter, kv KeyValue, targets ...Target) (omit bool, err error) {
 	for _, filter := range ff {
 		if filter.Effect() != Omit {
 			continue
@@ -112,7 +112,7 @@ func OmitKeyValue2(ff []Filter, key Code, value string, targets ...Target) (omit
 		if !slices.Contains(targets, filter.Target()) {
 			continue
 		}
-		omit, err = matchKeyValue(filter, key, value)
+		omit, err = matchKeyValue(filter, kv)
 		if err != nil {
 			goto end
 		}
@@ -125,6 +125,7 @@ end:
 }
 
 func matchValueFilter(filter Filter, value string) (match bool, err error) {
+
 	if filter.IgnoreCase() {
 		value = strings.ToLower(value)
 	}
@@ -201,10 +202,10 @@ end:
 	return match, err
 }
 
-func matchKeyValueFilter(filter Filter, key Code, value string) (match bool, err error) {
+func matchKeyValueFilter(filter Filter, kv KeyValue) (match bool, err error) {
 	if filter.IgnoreCase() {
-		key = Code(strings.ToLower(string(key)))
-		value = strings.ToLower(value)
+		kv.SetKey(Code(strings.ToLower(string(kv.Key()))))
+		kv.SetValue(strings.ToLower(kv.Value()))
 	}
 	getter, ok := filter.(Funcs2Getter)
 	if !ok {
@@ -214,7 +215,7 @@ func matchKeyValueFilter(filter Filter, key Code, value string) (match bool, err
 		)
 	}
 	for _, gf := range getter.Funcs2() {
-		match = gf(key, value)
+		match = gf(kv)
 		if match {
 			goto end
 		}
@@ -226,17 +227,17 @@ end:
 	return match, err
 }
 
-func matchKeyValue(f Filter, key Code, value string) (match bool, err error) {
+func matchKeyValue(f Filter, kv KeyValue) (match bool, err error) {
 	var arg Code
 	switch f.Target() {
 	case Keys:
-		arg = key
+		arg = kv.Key()
 	case Values:
-		arg = Code(value)
+		arg = Code(kv.Value())
 	case KeyValues:
-		arg = Code(fmt.Sprintf("%s=%s", key, value))
+		fallthrough
 	default:
-		match, err = matchKeyValueFilter(f, key, value)
+		match, err = matchKeyValueFilter(f, kv)
 		if err != nil {
 			goto end
 		}

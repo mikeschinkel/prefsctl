@@ -8,11 +8,12 @@ import (
 )
 
 type QueryArgs struct {
-	Filters     []Filter
-	Groups      []Group
-	Labels      []*Label
-	OmitEmpty   bool
-	OmitInvalid bool
+	Filters       []Filter
+	Groups        []Group
+	Labels        []*Label
+	OmitEmpty     bool
+	OmitInvalid   bool
+	OmitUnchanged bool
 }
 
 func Query(args QueryArgs) (result []Group, err error) {
@@ -46,21 +47,13 @@ func Query(args QueryArgs) (result []Group, err error) {
 			if args.OmitEmpty && kv.Value() == "" {
 				continue
 			}
-			mustKeep, err = MustKeepKeyValue2(args.Filters,
-				kv.Key(),
-				kv.Value(),
-				KeyValueOrKeyValue...,
-			)
+			mustKeep, err = MustKeepKeyValue2(args.Filters, kv, KeysValuesOrKeyValue...)
 			if err != nil {
 				errs.Add(errors.Join(err, kv.ErrorInfo()))
 				continue
 			}
 			if !mustKeep {
-				omit, err = OmitKeyValue2(args.Filters,
-					kv.Key(),
-					kv.Value(),
-					KeyValueOrKeyValue...,
-				)
+				omit, err = OmitKeyValue2(args.Filters, kv, KeysValuesOrKeyValue...)
 				if err != nil {
 					errs.Add(errors.Join(err, kv.ErrorInfo()))
 					continue

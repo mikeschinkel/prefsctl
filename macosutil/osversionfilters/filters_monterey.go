@@ -1,9 +1,13 @@
-package kvfilters
+package osversionfilters
+
+import (
+	"github.com/mikeschinkel/prefsctl/kvfilters"
+)
 
 //goland:noinspection SpellCheckingInspection
-func MontereyQueryFilters() []Filter {
-	return []Filter{
-		OmitWhenGroupPrefixIsNotOneOf{
+func MontereyQueryFilters() []kvfilters.Filter {
+	return []kvfilters.Filter{
+		kvfilters.OmitWhenGroupPrefixIsNotOneOf{
 			"com.apple.",
 		},
 		//// TEMP for debugging
@@ -11,10 +15,10 @@ func MontereyQueryFilters() []Filter {
 		//	"GlobalPreferences",
 		//},
 		// Whitelisted user configuration props
-		KeepWhenGroupIsOneOf{
+		kvfilters.KeepWhenGroupIsOneOf{
 			"GlobalPreferences",
 		},
-		KeepWhenKeyIsOneOf{
+		kvfilters.KeepWhenKeyIsOneOf{
 			"KeyRepeatInterval",
 			"AutoUpdateMajorOSVersion",
 			"TALLogoutSavesState",
@@ -23,7 +27,7 @@ func MontereyQueryFilters() []Filter {
 			"enableCKSyncingV2",
 		},
 		// Non-configurable domain prefixes
-		OmitWhenGroupIsOneOf{
+		kvfilters.OmitWhenGroupIsOneOf{
 			"com.apple.security.",
 			"com.apple.icloud.",
 			"com.apple.cloud",
@@ -34,14 +38,14 @@ func MontereyQueryFilters() []Filter {
 			"com.apple.internal.",
 		},
 		// Non-configurable domain suffixes
-		OmitWhenGroupSuffixIsOneOfIgnoringCase{
+		kvfilters.OmitWhenGroupSuffixIsOneOfIgnoringCase{
 			".notbackedup",
 			".daemon",
 			".agent",
 			".syncagent",
 		},
 		// Non-configurable preference keys
-		OmitWhenKeySuffixIsOneOfIgnoringCase{
+		kvfilters.OmitWhenKeySuffixIsOneOfIgnoringCase{
 			"count",
 			".lastselectedtab",
 			".lastselection",
@@ -54,21 +58,21 @@ func MontereyQueryFilters() []Filter {
 			"v2",
 		},
 		// Non-configurable preference keys
-		OmitWhenKeyPrefixIsOneOf{
+		kvfilters.OmitWhenKeyPrefixIsOneOf{
 			"OSAStandardAdditions",
 			"__uniquePageGroupID",
 			"messageTracer",
 		},
 		// Non-configurable domains that contain
-		OmitWhenGroupContainsOneOf{
+		kvfilters.OmitWhenGroupContainsOneOf{
 			"cloudkit",
 		},
 		// Non-configurable prefs that contain
-		OmitWhenKeyContainsOneOfIgnoringCase{
+		kvfilters.OmitWhenKeyContainsOneOfIgnoringCase{
 			".last",
 		},
 		// Only keep apple-specific prefs, at least currently
-		OmitWhenGroupIsOneOf{
+		kvfilters.OmitWhenGroupIsOneOf{
 			// System Management & Security Domains
 			"com.apple.security.cloudkeychainproxy3.keysToRegister",
 			"com.apple.security.sosaccount",
@@ -128,7 +132,7 @@ func MontereyQueryFilters() []Filter {
 			"com.apple.FontRegistry.user",
 			"com.apple.GEO",
 		},
-		OmitWhenKeyPrefixIsOneOf{
+		kvfilters.OmitWhenKeyPrefixIsOneOf{
 			// System Paths
 			"/System/",
 			// Whatever this is
@@ -137,10 +141,10 @@ func MontereyQueryFilters() []Filter {
 			"seed-viewed",
 		},
 		// Agent/Daemon startup times
-		OmitWhenKeyIsOneOf{
+		kvfilters.OmitWhenKeyIsOneOf{
 			"CKStartupTime",
 		},
-		OmitWhenKeyPrefixIsOneOf{
+		kvfilters.OmitWhenKeyPrefixIsOneOf{
 			// Objective-C Symbols
 			"NSApplicationCrashOnExceptions",
 			"NSWindowTabbingShoudShowTabBarKey",
@@ -152,7 +156,7 @@ func MontereyQueryFilters() []Filter {
 			"NSTableView",
 			"NSToolbar",
 		},
-		OmitWhenValueMatchedByOneOfRegexps{
+		kvfilters.OmitWhenValueMatchedByOneOfRegexps{
 			// Numbers with many digits
 			`(-?\d{9,}|0\.\d{8,}|\d{7,}\.\d+)`,
 			// Locations, Sizes
@@ -160,7 +164,7 @@ func MontereyQueryFilters() []Filter {
 			// Timestamps
 			`\d{9,10}\.\d{5,7}`,
 		},
-		OmitWhenValueMatchedByOneOfRegexpsIgnoringCase{
+		kvfilters.OmitWhenValueMatchedByOneOfRegexpsIgnoringCase{
 			// UUIDs
 			`[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}`,
 			// Screen coordinates
