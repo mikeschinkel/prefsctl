@@ -6,6 +6,13 @@ package macosutil
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
+extern CFTypeRef CFPreferencesGetValue(
+    CFStringRef key,
+    CFStringRef applicationID,
+    CFStringRef userName,
+    CFStringRef hostName
+);
+
 // Match Go's reflect.Kind relevant values
 typedef enum {
 	 KIND_INVALID = 0,
@@ -29,8 +36,116 @@ typedef struct {
 	 PreferenceKind kind;   // Type of the value (valid only if error == 0)
 } PreferenceResult;
 
+// Forward declare functions
 PreferenceResult getPreferenceResult(const char* domain, const char* name);
 void freePreferenceResult(PreferenceResult result);
+PreferenceResult getGlobalPreferenceResult(const char* name);
+PreferenceResult processPreferenceValue(id value);
+bool isDomainValid(CFStringRef domain);
+
+PreferenceResult getPreferenceResult(const char* domain, const char* name) {
+	PreferenceResult result = {NULL, NULL, PREF_SUCCESS, KIND_INVALID};
+
+	@autoreleasepool {
+		if (!domain || !name) {
+			result.value = strdup("invalid input parameters");
+			result.error = PREF_INVALID_INPUT;
+			return result;
+		}
+
+		NSString* domainStr = [NSString stringWithUTF8String:domain];
+		NSString* keyStr = [NSString stringWithUTF8String:name];
+
+		// Check if domain exists
+		if (!isDomainValid((__bridge CFStringRef)domainStr)) {
+			result.value = strdup("invalid preference domain");
+			result.error = PREF_INVALID_DOMAIN;
+			return result;
+		}
+
+		// Get current value
+		id value = CFBridgingRelease(CFPreferencesCopyAppValue(
+			(__bridge CFStringRef)keyStr,
+			(__bridge CFStringRef)domainStr
+		));
+
+		return processPreferenceValue(value);
+	}
+}
+
+void freePreferenceResult(PreferenceResult result) {
+	 if (result.value) free((void*)result.value);
+   if (result.descr) free((void*)result.descr);
+}
+
+PreferenceResult getGlobalPreferenceResult(const char* name) {
+	PreferenceResult result = {NULL, NULL, PREF_SUCCESS, KIND_INVALID};
+
+	@autoreleasepool {
+		if (!name) {
+			result.value = strdup("invalid input parameters");
+			result.error = PREF_INVALID_INPUT;
+			return result;
+		}
+
+		NSString* keyStr = [NSString stringWithUTF8String:name];
+
+		// Get current value using CFPreferencesCopyValue for global preferences
+		id value = CFBridgingRelease(CFPreferencesCopyValue(
+			(__bridge CFStringRef)keyStr,
+			kCFPreferencesAnyApplication,
+			kCFPreferencesCurrentUser,
+			kCFPreferencesAnyHost
+		));
+
+		return processPreferenceValue(value);
+	}
+}
+
+PreferenceResult processPreferenceValue(id value) {
+	PreferenceResult result = {NULL, NULL, PREF_SUCCESS, KIND_INVALID};
+
+	if (!value) {
+		result.value = strdup("preference not found");
+		result.error = PREF_NOT_FOUND;
+		return result;
+	}
+
+	// Handle strings
+	if ([value isKindOfClass:[NSString class]]) {
+		result.value = strdup([value UTF8String]);
+		result.kind = KIND_STRING;
+		return result;
+	}
+
+	// Handle numbers (including booleans)
+	if ([value isKindOfClass:[NSNumber class]]) {
+		NSNumber* number = (NSNumber*)value;
+		const char* objCType = [number objCType];
+
+		// Check if it's a boolean
+		if (strcmp(objCType, @encode(BOOL)) == 0) {
+			result.value = strdup([number boolValue] ? "true" : "false");
+			result.kind = KIND_BOOL;
+			return result;
+		}
+
+		// Handle other numbers as integers
+		result.value = strdup([[number stringValue] UTF8String]);
+		result.kind = KIND_INT;
+		return result;
+	}
+
+	// Handle unsupported types
+	NSString *className = NSStringFromClass([value class]);
+	NSString *typeDesc = [value description];
+	NSString *errorMsg = [NSString stringWithFormat:@"unsupported preference class: %@", className];
+
+	result.value = strdup([errorMsg UTF8String]);
+	result.descr = strdup([typeDesc UTF8String]);
+	result.error = PREF_UNSUPPORTED_TYPE;
+	return result;
+}
 
 bool isDomainValid(CFStringRef domain) {
     CFArrayRef keyList = CFPreferencesCopyKeyList(domain, kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
@@ -49,79 +164,6 @@ bool isDomainValid(CFStringRef domain) {
     return false;
 }
 
-PreferenceResult getPreferenceResult(const char* domain, const char* name) {
-	 PreferenceResult result = {NULL, NULL, PREF_SUCCESS, KIND_INVALID};
-
-	 @autoreleasepool {
-			 if (!domain || !name) {
-					 result.value = strdup("invalid input parameters");
-					 result.error = PREF_INVALID_INPUT;
-					 return result;
-			 }
-
-			 NSString* domainStr = [NSString stringWithUTF8String:domain];
-			 NSString* keyStr = [NSString stringWithUTF8String:name];
-
-        // Check if domain exists
-        if (!isDomainValid((__bridge CFStringRef)domainStr)) {
-            result.value = strdup("invalid preference domain");
-            result.error = PREF_INVALID_DOMAIN;
-            return result;
-        }
-
-			// Get current value
-			id value = CFBridgingRelease(CFPreferencesCopyAppValue(
-				 (__bridge CFStringRef)keyStr,
-				 (__bridge CFStringRef)domainStr
-			));
-
-			if (!value) {
-					 result.value = strdup("preference not found");
-					 result.error = PREF_NOT_FOUND;
-					 return result;
-			 }
-
-			 // Handle strings
-			 if ([value isKindOfClass:[NSString class]]) {
-					 result.value = strdup([value UTF8String]);
-					 result.kind = KIND_STRING;
-					 return result;
-			 }
-
-			 // Handle numbers (including booleans)
-			 if ([value isKindOfClass:[NSNumber class]]) {
-					 NSNumber* number = (NSNumber*)value;
-					 const char* objCType = [number objCType];
-
-					 // Check if it's a boolean
-					 if (strcmp(objCType, @encode(BOOL)) == 0) {
-							 result.value = strdup([number boolValue] ? "true" : "false");
-							 result.kind = KIND_BOOL;
-							 return result;
-					 }
-
-					 // Handle other numbers as integers
-					 result.value = strdup([[number stringValue] UTF8String]);
-					 result.kind = KIND_INT;
-					 return result;
-			 }
-
-			 // Handle unsupported types
-			NSString *className = NSStringFromClass([value class]);
-			NSString *typeDesc = [value description];
-			NSString *errorMsg = [NSString stringWithFormat:@"unsupported preference class: %@",className];
-
-			result.value = strdup([errorMsg UTF8String]);
-			result.descr = strdup([typeDesc UTF8String]);
-			result.error = PREF_UNSUPPORTED_TYPE;
-			return result;
-	 }
-}
-
-void freePreferenceResult(PreferenceResult result) {
-	 if (result.value) free((void*)result.value);
-   if (result.descr) free((void*)result.descr);
-}
 */
 import "C"
 import (
@@ -129,6 +171,8 @@ import (
 	"sync"
 	"unsafe"
 )
+
+const GlobalPreferencesDomain = "GlobalPreferences"
 
 type Preference struct {
 	Domain      string
@@ -173,7 +217,11 @@ func (*macOSUtils) RetrievePreference(domain string, name string) (dp *Preferenc
 	defer C.free(unsafe.Pointer(cDomain))
 	defer C.free(unsafe.Pointer(cName))
 
-	cResult = C.getPreferenceResult(cDomain, cName)
+	if domain == GlobalPreferencesDomain {
+		cResult = C.getGlobalPreferenceResult(cName)
+	} else {
+		cResult = C.getPreferenceResult(cDomain, cName)
+	}
 	defer C.freePreferenceResult(cResult)
 
 	dp = &Preference{

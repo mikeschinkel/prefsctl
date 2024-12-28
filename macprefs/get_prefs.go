@@ -77,6 +77,7 @@ func getPrefsYAML(ctx Context, args GenerateArgs) (err error) {
 	resources = preftemplates.NewYAMLPrefsResources(newDomains(domains.domains))
 	for _, resource := range resources {
 		ptr.Println("---")
+		resource.APIVersion = LatestAPIVersion
 		resource.MetaData.OSVersion = osVersion
 		ptr.Println(resource.YAML())
 	}

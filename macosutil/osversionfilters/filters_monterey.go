@@ -7,6 +7,10 @@ import (
 //goland:noinspection SpellCheckingInspection
 func MontereyQueryFilters() []kvfilters.Filter {
 	return []kvfilters.Filter{
+		//// DEBUGGING
+		//kvfilters.OmitWhenGroupIsNotOneOf{
+		//	"GlobalPreferences",
+		//},
 		kvfilters.OmitWhenGroupPrefixIsNotOneOf{
 			"com.apple.",
 		},
