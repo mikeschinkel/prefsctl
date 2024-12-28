@@ -31,10 +31,6 @@ type BoolPtr *bool
 type FilenamePtr *string
 type OutputPtr *string
 
-type YAMLFile struct {
-	Preferences []YAMLDomain `yaml:"preferences"`
-}
-
 type Printer interface {
 	Print(i ...any)
 	Println(i ...any)
