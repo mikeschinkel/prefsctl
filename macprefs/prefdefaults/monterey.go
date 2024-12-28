@@ -6,7 +6,7 @@ func montereyPrefDefaults() DomainDefaults {
 		"com.apple.Accessibility": DomainPrefs{
 			"AccessibilityEnabled": DomainPref{
 				Type:    "bool",
-				Default: "false",
+				Default: "true",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -14,7 +14,7 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 			"ApplicationAccessibilityEnabled": DomainPref{
 				Type:    "intBool",
-				Default: "0",
+				Default: "1",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -94,7 +94,7 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 			"GenericAccessibilityClientEnabled": DomainPref{
 				Type:    "intBool",
-				Default: "0",
+				Default: "1",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -121,8 +121,8 @@ func montereyPrefDefaults() DomainDefaults {
 				Default: "0.25",
 				Labels: NewLabels(
 					DefaultsSet,
-					UserManaged,
 					TypeVerified,
+					UserManaged,
 				),
 			},
 			"KeyRepeatEnabled": DomainPref{
@@ -185,9 +185,25 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.ActivityMonitor": DomainPrefs{
+			"cacheTableSortDescriptors": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Column Width": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"OpenMainWindow": DomainPref{
 				Type:    "bool",
-				Default: "false",
+				Default: "true",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -217,6 +233,30 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"UserColumnSortPerTab": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"UserColumnsPerTab v5.0": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"UserColumnsPerTab v6.0": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.AddressBook": DomainPrefs{
 			"AB21vCardEncoding": DomainPref{
@@ -235,9 +275,33 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"ABCleanWindowController-MainCleanWindow-groupList": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ABCleanWindowController-MainCleanWindow-personListController": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"ABLastImportShown": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ABMetadataLastOilChange": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -279,9 +343,25 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.airport.airportutility": DomainPrefs{
+			"configuredAirPortIDs": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"dontPerformBaseRestartWarning": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"RecentNetworks": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -305,9 +385,25 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"home-sharing-settings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"photo-sharing-enabled": DomainPref{
 				Type:    "intBool",
 				Default: "0",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"photo-sharing-settings": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -324,6 +420,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"public-sharing-is-protected": DomainPref{
 				Type:    "intBool",
 				Default: "0",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"public-sharing-settings": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -366,6 +470,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"ITUserPrefsMigrated": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"MobileDeviceSoftwareUpdateQueue": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -432,6 +544,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"imported-media-domains": DomainPref{
 				Type:    "int",
 				Default: "15",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"iTunes-media-folder-bookmark": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -512,6 +632,72 @@ func montereyPrefDefaults() DomainDefaults {
 			"updateLevel": DomainPref{
 				Type:    "int",
 				Default: "43",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.amsaccountsd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.animoji": DomainPrefs{
+			"AVTRecentStickers": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.ap.adprivacyd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.appkit.xpc.openAndSavePanelService": DomainPrefs{
+			"NSNavRecentPlaces": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.appleaccountd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastCloudSyncTimestampKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -875,6 +1061,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"JE.MediaAPIToken": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"lastBootstrapTimeZone": DomainPref{
 				Type:    "string",
 				Default: "America/New_York",
@@ -893,6 +1087,22 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.assistant": DomainPrefs{
+			"Account Status Server Change Token": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Accounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"Has Set Up Account Status Subscription": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -997,6 +1207,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"Myriad Last Win": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"Myriad VTEndtimeDistanceThreshold": DomainPref{
 				Type:    "float",
 				Default: "0.5",
@@ -1047,9 +1265,33 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"Modification Dates": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"MultiUser VoiceIdentification Enabled": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Output Voice": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Output Voice v3": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -1081,9 +1323,27 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"Offline Dictation Status": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"Siri Data Sharing Opt-In Status": DomainPref{
 				Type:    "intBool",
 				Default: "1",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.assistantd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -1110,6 +1370,16 @@ func montereyPrefDefaults() DomainDefaults {
 			"SCLaunchedAsSlave": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.ATS": DomainPrefs{
+			"ATSAutoActivationAppSpecific": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -1160,6 +1430,68 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.BezelServices": DomainPrefs{
+			"afActionHistory": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"BatteryHistory": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ChargingEvents": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TransportElapsedSeconds": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.bookdatastored": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kJaliscoDAAPClientLastSuccessfulFullUpdateDateDictionary": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.CacheDelete": DomainPrefs{
+			"com.apple.cache_delete.purge_markers": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.CharacterPaletteIM": DomainPrefs{
 			"CVFontSize": DomainPref{
 				Type:    "int",
@@ -1172,6 +1504,32 @@ func montereyPrefDefaults() DomainDefaults {
 			"CVStartAsLargeWindow": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.CharacterPicker": DomainPrefs{
+			"State:com.apple.CharacterPaletteIM": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"State:com.apple.iChat": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"State:com.apple.MobileSMS": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -1302,6 +1660,102 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.cloudphotod": DomainPrefs{
+			"_CPLUpgradeHistory-SystemLibrary": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CPLEngineParameters-SystemLibrary": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.CloudSubscriptionFeatures.cache": DomainPrefs{
+			"mail.custom-domains.transfer": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"mail.hide-my-email.create": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"networking.privacy.attestation": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"networking.privacy.subscriber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.CloudSubscriptionFeatures.geoCache": DomainPrefs{
+			"001794-05-7e3c72e0-68de-4a6b-a51d-5ef3201ca25b-com.apple.systempreferences-mail.custom-domains.purchase": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"001794-05-7e3c72e0-68de-4a6b-a51d-5ef3201ca25b-com.apple.systempreferences-mail.hide-my-email.create": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"001794-05-7e3c72e0-68de-4a6b-a51d-5ef3201ca25b-com.apple.systempreferences-networking.privacy.subscriber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.cmfsyncagent": DomainPrefs{
+			"__kCMFBlockListStoreTopLevelKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.ColorSyncCalibrator": DomainPrefs{
 			"722524374X-expertMode": DomainPref{
 				Type:    "intBool",
@@ -1346,6 +1800,168 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.commcenter": DomainPrefs{
+			"PhoneServices": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.CommCenter.counts": DomainPrefs{
+			"CellularBytesRecved": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CellularBytesSent": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.commerce.knownclients": DomainPrefs{
+			"com.apple.appstore:708": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.appstore:709": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.appstore:712": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.configurator:709": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.configurator:712": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.ibooks:708": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.ibooks:709": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.spotlight:708": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.spotlight:709": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.spotlight:712": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.fiplab.batteryhealth:712": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.multimarkdown.composer4.mac:712": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.coreauthd": DomainPrefs{
+			"refKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.CoreDuet": DomainPrefs{
+			"CloudSync2Policies": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CloudSyncPoliciesLastDownload": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CloudSyncPoliciesLastDownloadAttempt": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.CoreGraphics": DomainPrefs{
 			"DisplayUseForcedGray": DomainPref{
 				Type:    "bool",
@@ -1381,6 +1997,78 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"CSUILast32BitPromptDate_v2 for capicli": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CSUILast32BitPromptDate_v2 for com.charlessoft.pacifist": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CSUILast32BitPromptDate_v2 for com.tuffcode.HTTPScoop": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CSUILast32BitPromptDate_v2 for com.vmware.proxyApp.564d2494dc9a7951-62392db59de0d65c.564471774": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CSUILast32BitPromptDate_v2 for com.vmware.proxyApp.564d89fdf692a7b6-17f20d885122b12a.429132423": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CSUILast32BitPromptDate_v2 for com.yourcompany.Notify": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CSUILast32BitPromptDate_v2 for gen_snapshot": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CSUILast32BitPromptDate_v2 for net.nightproductions.prefSetter": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CSUILast32BitPromptDate_v2 for net.openvpn.uninstaller": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"CSUILastOSVersionWhereSafariRecommendationWasMade": DomainPref{
 				Type:    "string",
 				Default: "10.15.6",
@@ -1392,6 +2080,34 @@ func montereyPrefDefaults() DomainDefaults {
 			"CSUIRecommendSafariBackOffInterval": DomainPref{
 				Type:    "int",
 				Default: "259200",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SGTRecentFileSearches": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.coreservices.useractivityd.dynamicuseractivites": DomainPrefs{
+			"kUADynamicUserActivitiesKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.corespotlightui": DomainPrefs{
+			"lastSyncDisabledBundleIds": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -1444,10 +2160,38 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.DiagnosticExtensions.extensionTracker": DomainPrefs{
+			"com.apple.DiagnosticExtensions.extensionTracker": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.digihub": DomainPrefs{
+			"com.apple.digihub.blank.cd.appeared": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.DirectoryUtility": DomainPrefs{
 			"FirstLaunch": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"perHost": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -1521,6 +2265,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"last-analytics-stamp": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"launchanim": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -1556,6 +2308,30 @@ func montereyPrefDefaults() DomainDefaults {
 			"no-bouncing": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"persistent-apps": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"persistent-others": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"recent-apps": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -1638,6 +2414,24 @@ func montereyPrefDefaults() DomainDefaults {
 			"ShowSolidarity": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.donotdisturbd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"DNDSModeConfigurationsContactHistoryToken": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2011,6 +2805,22 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.dt.Xcode": DomainPrefs{
+			"DVTIgnoredDevices": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"DVTSourceControlAccountDefaultsKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"IBAppliesAutoResizingRulesWhileResizing": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -2027,9 +2837,57 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"IDEDefaultPrimaryEditorFrameSizeForPaths": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"IDEKeyBindingCurrentPreferenceSet": DomainPref{
 				Type:    "string",
 				Default: "Default.idekeybindings",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"IDEKeyBindingExcludedPreferenceSet": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"IDELastLSRegisterHashes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"IDERecentEditorDocuments": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"IDESourceControlHostAccounts_10": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"IDESourceControlKnownSSHHostsDefaultsKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2052,7 +2910,227 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.EmojiCache": DomainPrefs{
+			"18F132_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"18G1012_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"18G103_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"18G2022_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"18G95_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1030_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H114_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1217_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1323_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1419_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1519_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1615_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1715_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1824_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H1922_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H2026_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H2_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"19H524_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"21G115_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"21G1974_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"21G320_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"21G419_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"21G725_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"21H1123_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"21H1320_en-US": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.EmojiPreferences": DomainPrefs{
+			"EMFDefaultsKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.FaceTime": DomainPrefs{
+			"CustomRingtone": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"DidMigrateToSixteenByNineAspectRatio": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -2077,6 +3155,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"PNRltc": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"PreferredVideoDeviceUID": DomainPref{
 				Type:    "string",
 				Default: "CC26373HVV3G1HNBN",
@@ -2087,9 +3173,33 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.facetime.bag": DomainPrefs{
+			"CacheCertificate": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CachedBag": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CachedSignature": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"CacheTime": DomainPref{
 				Type:    "int",
-				Default: "4212",
+				Default: "3600",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2137,9 +3247,33 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"ComputerViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"DesktopViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"DisableAllAnimations": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"FavoriteTagNames": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2161,9 +3295,49 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"FK_DefaultIconViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"FK_iCloudIconViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"FK_SearchIconViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"FK_SidebarWidth": DomainPref{
 				Type:    "int",
 				Default: "204",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"FK_StandardViewOptions2": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"FK_StandardViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2204,6 +3378,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"FXDesktopTouchBarUpgradedToTenTwelveOne": DomainPref{
 				Type:    "intBool",
 				Default: "1",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"FXDesktopVolumePositions": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2265,6 +3447,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"FXInfoPanesExpanded": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"FXInfoWindowWidth": DomainPref{
 				Type:    "int",
 				Default: "400",
@@ -2313,6 +3503,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"FXRecentFolders": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"FXSidebarUpgradedSharedSearchToTwelve": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -2332,6 +3530,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"FXSidebarUpgradedToTenTen": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"FXSyncExtensionToolbarItemsAutomaticallyAdded": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2363,7 +3569,39 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 			"GoToField": DomainPref{
 				Type:    "string",
-				Default: "/",
+				Default: "/Volumes/Backups/2022-",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"GoToFieldHistory": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ICloudViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"MeetingRoomViewSetting": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NetworkViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2372,6 +3610,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"NewWindowTarget": DomainPref{
 				Type:    "string",
 				Default: "PfHm",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PackageViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2417,6 +3663,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"RecentMoveAndCopyDestinations": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"RecentsArrangeGroupViewBy": DomainPref{
 				Type:    "string",
 				Default: "Date Last Opened",
@@ -2428,6 +3682,30 @@ func montereyPrefDefaults() DomainDefaults {
 			"SearchRecentsSavedViewStyle": DomainPref{
 				Type:    "string",
 				Default: "Nlsv",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SearchRecentsViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SearchViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SGTRecentFileSearches": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2513,9 +3791,57 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"SlicesRootAttributes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SmartSharedSearchViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"StandardViewOptions": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"StandardViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"TagsCloudSerialNumber": DomainPref{
 				Type:    "int",
 				Default: "23",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TrashViewSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ViewSettingsDictionary": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2541,6 +3867,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.FolderActionsDispatcher": DomainPrefs{
+			"folderActions": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"folderActionsEnabled": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -2551,9 +3885,33 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.gamed": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"GKLastPushTokenDateKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"GKLastPushTokenEnvironment": DomainPref{
 				Type:    "int",
 				Default: "5",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"GKLastPushTokenKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2575,9 +3933,43 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"GKURLPatternCacheBagURLUserDefaultsKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"GKURLPatternCacheExpirationDateUserDefaultsKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"natType": DomainPref{
 				Type:    "int",
 				Default: "2",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.help": DomainPrefs{
+			"RegisteredBooks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"RegistrationOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2601,6 +3993,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"AppleEnabledInputSources": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"AppleFnUsageType": DomainPref{
 				Type:    "int",
 				Default: "2",
@@ -2609,8 +4009,34 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"AppleSelectedInputSources": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.iApps": DomainPrefs{
+			"PhotoBoothLibraries": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.iCal": DomainPrefs{
+			"AccountDisplayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"AllDayAreaHeight": DomainPref{
 				Type:    "int",
 				Default: "60",
@@ -2691,6 +4117,30 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"CollapsedTopLevelNodes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"DelegatesInSeparateWindows": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"DisabledCalendars": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"display birthdays calendar": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -2755,6 +4205,22 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"OwnerEmailAddress": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SelectedEvents": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"Show Week Numbers": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -2763,9 +4229,25 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"TabbedWindowGroups": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"TimeZone support enabled": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"view rects": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2781,6 +4263,22 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.iChat": DomainPrefs{
+			"AccountSortOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"AccountsToLogInAtLaunch": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"BuddyPictureSetToGenericByUser": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -2792,6 +4290,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"ChatWindowControllerUnifiedChatListWidth": DomainPref{
 				Type:    "int",
 				Default: "284",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ChatWindowControllerUnifiedContents": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2840,6 +4346,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"DidRegenerateGroupID63841559": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"DownloadsBookmark": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2950,10 +4464,150 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.iChat.AIM": DomainPrefs{
+			"Accounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ActiveAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"OnlineAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.iChat.inputLine": DomainPrefs{
+			"inputLineSettingsKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.iChat.Jabber": DomainPrefs{
+			"Accounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ActiveAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"OnlineAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.icloud.fmip.clientconfiguration": DomainPrefs{
+			"object": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.icloud.fmip.voiceassistantsync": DomainPrefs{
+			"object": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.icloud.searchpartyuseragent": DomainPrefs{
+			"baseDate.LocalBeaconingManager": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"lastLaunchLocale": DomainPref{
 				Type:    "string",
 				Default: "en",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastPruneDate.BeaconManagerService": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.ids.deviceproperties": DomainPrefs{
+			"6B23BF90-1A72-4FF8-B110-34B616AA2005": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CC2F9C5B-CFEA-4446-932F-1FEA359FC21D": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"D7F530C5-9B62-407E-86E8-06897F41B8BE": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"E8311575-FFDD-4240-92B3-64379B26E092": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -2996,6 +4650,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"IK_Camera_selectedTag": DomainPref{
 				Type:    "int",
 				Default: "1100",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"IK_Camera_user-directories-0": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3071,6 +4733,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.imagent": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"IMChatVocabularyUpdaterDidPerformInitialUpdateKey": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -3125,9 +4795,33 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.imessage.bag": DomainPrefs{
+			"CacheCertificate": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CachedBag": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CachedSignature": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"CacheTime": DomainPref{
 				Type:    "int",
-				Default: "4385",
+				Default: "6006",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3142,7 +4836,77 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.imservice.ids.FaceTime": DomainPrefs{
+			"ActiveAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"OnlineAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.imservice.ids.iMessage": DomainPrefs{
+			"ActiveAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"OnlineAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.imtranscoding.IMTranscoderAgent": DomainPrefs{
+			"kCKMediaObjectManagerDefaultsClasses": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kCKMediaObjectManagerDefaultsDynTypes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kCKMediaObjectManagerDefaultsUTITypes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.internetconfigpriv": DomainPrefs{
+			"DownloadFolder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"WWWHomePage": DomainPref{
 				Type:    "string",
 				Default: "http://livepage.apple.com/",
@@ -3153,6 +4917,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.internetconfigspec": DomainPrefs{
+			"UserInformation": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"WWWHomePage": DomainPref{
 				Type:    "string",
 				Default: "http://livepage.apple.com/",
@@ -3176,6 +4948,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"AutomaticDeviceBackupsDisabled": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"bwui": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3237,6 +5017,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"Database Location": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"debugAssertCategoriesEnabled": DomainPref{
 				Type:    "intBool",
 				Default: "0",
@@ -3280,6 +5068,30 @@ func montereyPrefDefaults() DomainDefaults {
 			"dontAutomaticallySyncIPods": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"gnot:1:Gracenote Match Registered User ID": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"gnot:2:Gracenote CDDB Lookup Registered User ID": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Home Sharing Settings": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3333,6 +5145,78 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"MobileDeviceSoftwareUpdateQueue": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PLGD:HIToolbox.rsrc•AAC Encoder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"pref:130:Preferences": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"pref:400:Touch Remote Preferences": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"RDoc:132:Documents": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"recentSearches": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"recentSearchHints": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"rprf:0000000000000000": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"rspl:1:AirTunes Speaker List": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"Store Apple ID": DomainPref{
 				Type:    "string",
 				Default: "mikeschinkel@gmail.com",
@@ -3349,11 +5233,99 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"StoreUserInfo": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"stpr:294735135:Store Preferences": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.iTunes.eq": DomainPrefs{
+			"eqps:129:EQPresets": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.itunescloud": DomainPrefs{
+			"ICDefaultsCachedSubscriptionStatus": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ICDefaultsKeyLastCookieHeadersForRevokingMusicUserTokens": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ICDefaultsKeyLastKnownSubscriptionStatusBaseCacheKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ICDefaultsKeyMediaLibraryAccessApplicationIdentifiersWithTCCAcceptanceDates": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.java.util.prefs": DomainPrefs{
+			"/": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.keyboard": DomainPrefs{
 			"KeyboardWordOrSentenceTrackingForPFL": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.keyboardservicesd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"UserDictionary": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3541,6 +5513,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"IMCloudKitAnalyticSyncDatesDictionary": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"IMCloudKitStartingDisableDevices": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -3613,9 +5593,27 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"LastChatSyncTime": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"RequestPriorityRamp": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.mail": DomainPrefs{
+			"NSUserKeyEquivalents": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3626,6 +5624,24 @@ func montereyPrefDefaults() DomainDefaults {
 			"MACaptionDisplayType": DomainPref{
 				Type:    "int",
 				Default: "2",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.mediaanalysisd": DomainPrefs{
+			"PhotoLibraries": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PreheatLastRun": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3740,10 +5756,90 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.messageshelper.MessageController": DomainPrefs{
+			"SOInputLineSettings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.metrickitd": DomainPrefs{
+			"MXClientDataRetrieved": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"MXClientTeamID": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.mlruntimed": DomainPrefs{
+			"LastCompletionDate-com.apple.NewsDES": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.MobileDeviceCrashCopy": DomainPrefs{
+			"LastDeleted": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ShouldPrompt": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"ShouldSubmit": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.MobileSMS": DomainPrefs{
 			"BusinessChatPrivacyPageDisplayed": DomainPref{
 				Type:    "int",
 				Default: "2",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CKCallPreferredServiceToIDMap": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"CKEntryViewLayoutMetricsInfo": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3757,9 +5853,73 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"kCKBrowserSelectionControllerIndexPathDictionaryV3Key": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kCKBrowserSelectionControllerLaunchTimeDictionaryKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kCKBrowserSelectionControllerSeenDictionaryKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kCKBrowserSelectionControllerVersionDictionaryKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kCKMediaObjectManagerDefaultsClasses": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kCKMediaObjectManagerDefaultsDynTypes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kCKMediaObjectManagerDefaultsUTITypes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"KeepMessageForDays": DomainPref{
 				Type:    "intBool",
 				Default: "0",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"kPluginSummaryTextDefaultsKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3776,6 +5936,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"NotifyAboutMessagesFromUnknownContacts": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"OnboardingFinishTime": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3808,6 +5976,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"ReadReceiptSettingsConfirmed": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Scrutiny": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -3897,6 +6073,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"bwui": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"cddbPrefsOK": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -3961,6 +6145,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"devp:2:Device Information": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"doesStoreSupportCloudMusicLibrary": DomainPref{
 				Type:    "intBool",
 				Default: "1",
@@ -4009,6 +6201,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"eqName": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"eqWindowHPos": DomainPref{
 				Type:    "int",
 				Default: "1059",
@@ -4020,6 +6220,22 @@ func montereyPrefDefaults() DomainDefaults {
 			"eqWindowVPos": DomainPref{
 				Type:    "int",
 				Default: "617",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"gnot:1:Gracenote Match Registered User ID": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"gnot:2:Gracenote CDDB Lookup Registered User ID": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4041,6 +6257,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"Home Sharing Settings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"imported-eq-presets": DomainPref{
 				Type:    "intBool",
 				Default: "1",
@@ -4057,9 +6281,33 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"lastMusicTabs": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"library-bookmark": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"log-PlayQueue-LastSelectedTab": DomainPref{
 				Type:    "intBool",
 				Default: "0",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"media-folder-bookmark": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4137,6 +6385,158 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"PLGD:Music•AAC Encoder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:108cd281017e134d": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:23c80390c3230d0b": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:33cdb311c1d3000": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:39fb487bb789c556": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:5": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:5f95ba817db924bd": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:9b5cec37a177fa3e": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:ad9854d9acf570b3": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:ca10e523ad6d719c": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:cb975be86b377bd1": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:d7029e8cc09035fa": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:de054297cbb94475": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:e637bd9dae791bfe": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:edd0b99296e638db": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:ef3a85e10d48207": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:f2e02089ee363beb": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:f5a16fda0eb89f8e": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:3d7cff22c30ce399:fdf5a5350cf284": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"preloadFilesIntoMemory": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -4145,9 +6545,73 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"RDoc:132:Documents": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"recentSearches": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"recentSearchHints": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"rprf:0000000000000000": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"rprf:00002074CF733A84": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"searchSavedTab": DomainPref{
 				Type:    "int",
 				Default: "2",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"sidebarInfo": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"sidebarItemInfo": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"smartShuffleOptions": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4169,9 +6633,25 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"storeBrowseColumns": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"storeMediaTypeFlags": DomainPref{
 				Type:    "int",
 				Default: "3422",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"storePublishedPlaylistColumns": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4204,6 +6684,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"storeSupportsUPP": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"StoreUserInfo": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4273,6 +6761,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"viewOptionsWindowSectionConfig": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"volumeWSG": DomainPref{
 				Type:    "float",
 				Default: "0.1204547",
@@ -4282,7 +6778,25 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.Music.eq": DomainPrefs{
+			"eqps:129:EQPresets": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.ncprefs": DomainPrefs{
+			"apps": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"content_visibility": DomainPref{
 				Type:    "int",
 				Default: "2",
@@ -4291,9 +6805,27 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"dnd_prefs": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"sort_order": DomainPref{
 				Type:    "intBool",
 				Default: "0",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.NetAuthAgent": DomainPrefs{
+			"PreviouslySelectedShares": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4310,10 +6842,68 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.networkserviceproxy": DomainPrefs{
+			"NSPConfiguration": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSPProxyAgentManagerPreferences": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSPServiceStatusManagerInfo": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSPSignatureInfo": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.NetworkUtility": DomainPrefs{
+			"NUFingerPerson": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NULookupAddress": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"NUNetstatChoice": DomainPref{
 				Type:    "intBool",
 				Default: "0",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NUPingAddress": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4335,9 +6925,25 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"NUPortScanEnd": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"NUPortScanRange": DomainPref{
 				Type:    "intBool",
 				Default: "0",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NUPortScanStart": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4359,9 +6965,25 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"NUWhoisAddress": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"NUWhoisSelectedServer": DomainPref{
 				Type:    "string",
 				Default: "whois.internic.net",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NUWhoisServers": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4419,9 +7041,65 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"com.apple.news.notification_receipt_channel_data_dictionary": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.news.notification_receipt_event_app_data": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.news.notification_receipt_event_device_data": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"com.apple.news.notification_receipt_event_endpoint": DomainPref{
 				Type:    "string",
 				Default: "https://news-notification-events.apple.com/analyticseventsv2/async",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.news.notification_receipt_event_session_data": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.news.notification_receipt_event_subscription_data": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.news.notification_receipt_event_user_data": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.news.notification_receipt_user_channel_context_data_dictionary": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4507,6 +7185,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"notificationPersonalizationTreatmentDictionary": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"use_parsec_results_for_widget": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -4525,6 +7211,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"last-known-requests": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.notificationcenterui": DomainPrefs{
 			"bannerTime": DomainPref{
@@ -4535,11 +7229,37 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"TodayView": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.passd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.PhotoBooth": DomainPrefs{
 			"AVDesktopPlaybackControlsControllerShowsDurationInsteadOfTimeRemainingDefaultsKey": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LibraryBookmark": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4595,6 +7315,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"iCloudPhotoLibraryHasBeenEnabledAccountIdentifiers": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"repushVideoAssetsMetadata": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4613,8 +7341,32 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"UserDictionaryUbiquityIdentityTokenCurrent": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"UserDictionaryUbiquityIdentityTokenLastKnown": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.preferences.extensions.CredentialProvider": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4625,6 +7377,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.preferences.extensions.FinderSync": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4635,6 +7395,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.preferences.extensions.PhotoEditing": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4645,6 +7413,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.preferences.extensions.PhotoProjects": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4655,6 +7431,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.preferences.extensions.QuickLook": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4665,6 +7449,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.preferences.extensions.ServicesWithUI": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4675,6 +7467,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.preferences.extensions.SharedLinks": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4685,6 +7485,22 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.preferences.extensions.ShareMenu": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SHKRecentServices": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -4695,9 +7511,63 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.preferences.extensions.XcodeSourceEditor": DomainPrefs{
+			"displayOrder": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"userHasOrdered": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.preferences.softwareupdate": DomainPrefs{
+			"ProductKeysLastSeenByUser": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.print.add": DomainPrefs{
+			"defaultTableView": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.print.custompapers": DomainPrefs{
+			"33 Ponce Mailbox Label": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Narrow": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Thin Borders": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4716,6 +7586,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"com.apple.print.lastPresetPrefType": DomainPref{
 				Type:    "intBool",
 				Default: "1",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.print.lastUsedSettingsPref": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4742,6 +7620,24 @@ func montereyPrefDefaults() DomainDefaults {
 			"IK_Scanner_selectedTag": DomainPref{
 				Type:    "int",
 				Default: "1000",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.proactive.PersonalizationPortrait": DomainPrefs{
+			"entityBackfillTimestamp": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"entityMappingTrieSha256": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4775,6 +7671,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"ModuleSpecificPrefs": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.PubSubAgent": DomainPrefs{
 			"TigerMigrationCompleted": DomainPref{
@@ -4797,6 +7701,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.remindd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"CloudConfigurationPath": DomainPref{
 				Type:    "string",
 				Default: "/System/Library/PrivateFrameworks/ReminderKit.framework/Versions/A/Resources/CloudConfigurations/Normal.plist",
@@ -4813,9 +7725,49 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"CloudKitZonesNeedingFetchChanges": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"isDatabaseMigrated": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastCloudConfigurationDownload": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastSuggestedAttributesAutoTrainingToken": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastSyncPoll": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SubscriptionIDs": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4832,6 +7784,32 @@ func montereyPrefDefaults() DomainDefaults {
 			"useExtraneousAlarmBackOffThrottleInterval": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.remindd.babysitter": DomainPrefs{
+			"FailedWaiters": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"RefreshingWaiters": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"RestrictedWaiters": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -4979,9 +7957,51 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"Homepage": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"ShowDevelopMenu": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.SafariBookmarksSyncAgent": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LastDatabaseServerChangeToken.com.apple.SafariShared.CloudTabs": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LastSavedAccountHash": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"MigrationStateEncodedRecordData": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5016,10 +8036,28 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.scheduler": DomainPrefs{
+			"AbsoluteSchedule": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.screencapture": DomainPrefs{
 			"captureDelay": DomainPref{
 				Type:    "int",
 				Default: "5",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"last-selection": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5075,6 +8113,22 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"com.apple.AnnotationKit.fillColor": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.AnnotationKit.font": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"com.apple.AnnotationKit.hasShadow": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -5086,6 +8140,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"com.apple.AnnotationKit.highlightStyle": DomainPref{
 				Type:    "int",
 				Default: "765200",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.AnnotationKit.strokeColor": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5107,6 +8169,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"com.apple.AnnotationKit.textAttributes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.screensaver": DomainPrefs{
 			"tokenRemovalAction": DomainPref{
@@ -5122,6 +8192,34 @@ func montereyPrefDefaults() DomainDefaults {
 			"ScriptMenuEnabled": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.security.ctkd-db": DomainPrefs{
+			"classes": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"tokens": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.ServicesMenu.Services": DomainPrefs{
+			"NSServices": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5169,6 +8267,30 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"HashManager-LastConsumedHistoryTokenKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"HashManager-LastRebuiltDateKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"HashManager-LastUpdatedDateKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"HashManager-StoredDatabaseVersionKey": DomainPref{
 				Type:    "int",
 				Default: "3",
@@ -5194,6 +8316,32 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.shortcuts": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"MainViewLayoutMode": DomainPref{
+				Type:    "unknown",
+				Default: "grid",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSUserKeyEquivalents": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.Siri": DomainPrefs{
 			"StatusMenuVisible": DomainPref{
 				Type:    "bool",
@@ -5206,6 +8354,102 @@ func montereyPrefDefaults() DomainDefaults {
 			"VoiceTriggerUserEnabled": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.siri-distributed-evaluation": DomainPrefs{
+			"LastCompletionDate-com.apple.dodml.TestPlugin": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LastCompletionDate-com.apple.fides.borealis": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LastCompletionDate-com.apple.NewsDES": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LastCompletionDate-com.apple.proactive.PMLDESPlugin": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LastCompletionDate-com.apple.reminders.des": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LastCompletionDate-com.apple.siri.SiriAudioDESPlugin": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"LastCompletionDate-com.apple.stocks.des": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.siri.DialogEngine": DomainPrefs{
+			"dateTime": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"dateTime#hoursMinutesSeconds": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.siri.embeddedspeech": DomainPrefs{
+			"InstalledLanguages": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.siri.morphun": DomainPrefs{
+			"subscriptions": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5229,9 +8473,41 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"WFKnownHomeSceneNames": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"WFRecentDocuments": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"WFServicesShortcutsMigrated": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"WFSidebarAdditionalDestinations": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"WFSidebarHiddenWorkflowTypes": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5241,7 +8517,17 @@ func montereyPrefDefaults() DomainDefaults {
 		"com.apple.siri.VoiceShortcuts": DomainPrefs{
 			"VCLSDataSequenceKey": DomainPref{
 				Type:    "int",
-				Default: "62268",
+				Default: "63392",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.siriactionsd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5259,9 +8545,27 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.SocialLayer": DomainPrefs{
+			"SharedWithYouApps": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"SharedWithYouEnabled": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.sociallayerd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5280,6 +8584,22 @@ func montereyPrefDefaults() DomainDefaults {
 			"accountLastKnownUserRecordID": DomainPref{
 				Type:    "string",
 				Default: "_4d72b079e6dd351d59dcdf0b9afd41d6",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastKnownApps": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"syncEngineMetadata": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5304,7 +8624,227 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.spaces": DomainPrefs{
+			"app-bindings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SpacesDisplayConfiguration": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.speech.recognition.AppleSpeechRecognition.CustomCommands": DomainPrefs{
+			"Accessibility.DisableCommandAndControl": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.CursorMoveDownPixelsWithCardinalNumber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.CursorMoveLeftPixelsWithCardinalNumber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.CursorMoveRightPixelsWithCardinalNumber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.CursorMoveUpPixelsWithCardinalNumber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.CursorTriplePress": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.DecrementItem": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.DecrementItemUsingCardinalNumber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.DragFromItemToItem": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.EndDragAtItem": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.Find": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.IncrementItem": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.IncrementItemUsingCardinalNumber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.OverlayDecrementLabel": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.OverlayDecrementLabelUsingCardinalNumber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.OverlayIncrementLabel": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.OverlayIncrementLabelUsingCardinalNumber": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.OverlayMoveCursor": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.OverlayTriplePress": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.PressAndHoldAtItem": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.PressItemWithoutPrefix": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.SetValueByPercentAtItem": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.StartCommandSearch": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"System.StartDragAtItem": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.speech.recognition.AppleSpeechRecognition.prefs": DomainPrefs{
+			"DictationIMCommandCounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"DictationIMCommandsWindowIsOpen": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -5345,6 +8885,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"DictationIMTargetApplications": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"DictationIMUpgradedTo10_15": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -5369,11 +8917,63 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"DictationIMUserHintsHistory": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SpeechDataInstallationLog": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.speech.voice.prefs": DomainPrefs{
+			"SpeechDataInstallationLog": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"SpeechDataPurgeList": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"VoiceStatistics": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.SpeechRecognitionCore": DomainPrefs{
 			"AllowAudioDucking": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.SpeechRecognitionCore.speechrecognitiond": DomainPrefs{
+			"InstalledLanguages": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5399,7 +8999,7 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 			"engagementCount-com.apple.Spotlight": DomainPref{
 				Type:    "intBool",
-				Default: "0",
+				Default: "1",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5416,6 +9016,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"ModelName": DomainPref{
 				Type:    "string",
 				Default: "Canned",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"orderedItems": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5454,6 +9062,32 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.StatusKitAgent": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastPublishTime": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastReauthTime": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.stockholm": DomainPrefs{
 			"PKWalletShouldAutomaticallyRegisterKey": DomainPref{
 				Type:    "bool",
@@ -5464,7 +9098,25 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.suggestd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.suggestions": DomainPrefs{
+			"AppCanShowSiriSuggestionsBlacklist": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"findToShowMigrationPerformed": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -5490,10 +9142,54 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.symbolichotkeys": DomainPrefs{
+			"AppleSymbolicHotKeys": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.syncdefaultsd": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.systempreferences": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"com.apple.preferences.accounts.outline.usersparent": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.preferences.energysaver": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.preferences.keyboard.text.sortDescriptors": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5507,9 +9203,25 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"com.apple.PreferenceSync.ExcludeSyncKeys": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"com.apple.SecurityPref.Privacy.LastSourceSelected": DomainPref{
 				Type:    "intBool",
 				Default: "0",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"DidShowPrefBundleIDs": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5523,9 +9235,25 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"DSKDesktopPrefPane": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"NSFullScreenMenuItemEverywhere": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSOutlineView Items DSKSourceOfPicturesOutlineView": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5547,6 +9275,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"SGTRecentFileSearches": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"ShowAllMode": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -5557,7 +9293,27 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 			"SoundTab": DomainPref{
 				Type:    "string",
-				Default: "input",
+				Default: "output",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.SystemProfiler": DomainPrefs{
+			"CPU Names": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.talagent": DomainPrefs{
+			"LastKeyChange": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5565,6 +9321,14 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.TelephonyUtilities": DomainPrefs{
+			"activeConversationsListKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"FaceTimePhotosEnabled": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -5573,9 +9337,35 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"registeredProviders": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"relayCallingDisabled": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"thumperCallingCapabilitiesStates": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.TelephonyUtilities.sharePlayAppPolicies": DomainPrefs{
+			"CPAppPolicy.ContactsChangeHistoryToken": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5623,6 +9413,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"Window Settings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.TextEdit": DomainPrefs{
 			"PlainTextEncoding": DomainPref{
@@ -5654,6 +9452,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"_KSTRCloudKitMigratable": DomainPref{
 				Type:    "bool",
 				Default: "false",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"configPullTime": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5787,6 +9593,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"kTRCKLastSyncTime": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"osxMajorVersForCloudKitSync": DomainPref{
 				Type:    "int",
 				Default: "10",
@@ -5851,6 +9665,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"whitelistedMigrationAccounts": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.TextInputMenu": DomainPrefs{
 			"visible": DomainPref{
@@ -5863,6 +9685,62 @@ func montereyPrefDefaults() DomainDefaults {
 			},
 		},
 		"com.apple.tipsd": DomainPrefs{
+			"DeliveryEventIdentifierToDeliveryEventMap": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"DiscoverabilityDeliveryInfoMap": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"Experiment": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TPSAnalyticsHistoricTipsDataProcessor_DateLastRun": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TPSAnalyticsStore": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TPSAnalyticsUsageEventsProcessor_DateLastRun": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TPSDCloudHintDisplayed": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"TPSTipsAppInstalled": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -5872,7 +9750,55 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.TMHelperAgent": DomainPrefs{
+			"LastNotificationDates": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.touristd": DomainPrefs{
+			"firstOSLogin": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.translationd": DomainPrefs{
+			"InstalledLocales": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.triald": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.TTY": DomainPrefs{
+			"IncomingCallsTTYPreference": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"RTTContinuityRTTIsSupportedPreference": DomainPref{
 				Type:    "bool",
 				Default: "true",
@@ -5884,6 +9810,30 @@ func montereyPrefDefaults() DomainDefaults {
 			"RTTSettingsVersionPreference": DomainPref{
 				Type:    "int",
 				Default: "2",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TTYHardwareEnabledPreference": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TTYShouldBeRealtimePreference": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"TTYSoftwareEnabledPreference": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -5918,6 +9868,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"automaticallyDownloadArtwork": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"bwui": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -6019,9 +9977,41 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"Home Sharing Settings": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"ITUserPrefsMigrated": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"lastViewdLibraryViewMode": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"library-bookmark": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"media-folder-bookmark": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -6099,6 +10089,70 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"PPr4:LIB:a2de93531b7e1bda:3884c713d2a16431": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:a2de93531b7e1bda:4192905156c353e3": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:a2de93531b7e1bda:5": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:a2de93531b7e1bda:66852efdd705ebec": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:a2de93531b7e1bda:97d81438db99e819": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:a2de93531b7e1bda:ceb4675ad60ea843": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:a2de93531b7e1bda:ed5ef2132826af84": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"PPr4:LIB:a2de93531b7e1bda:f8b16edff78b2283": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"preloadFilesIntoMemory": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -6107,9 +10161,65 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"RDoc:132:Documents": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"recentSearches": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"recentSearchHints": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"sidebarInfo": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"smartShuffleOptions": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"storeBrowseColumns": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"storeMediaTypeFlags": DomainPref{
 				Type:    "int",
 				Default: "3422",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"storePublishedPlaylistColumns": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -6142,6 +10252,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"storeSupportsUPP": DomainPref{
 				Type:    "bool",
 				Default: "true",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"tabBarTabs": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -6219,6 +10337,24 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"viewOptionsWindowSectionConfig": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.typographypanel": DomainPrefs{
+			"NSTypographyPanel_Monaco": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 		},
 		"com.apple.UIKit": DomainPrefs{
 			"hasAccessibilityBeenMigrated": DomainPref{
@@ -6234,6 +10370,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"AssistiveControlType": DomainPref{
 				Type:    "int",
 				Default: "2",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"axShortcutExposedFeatures": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -6298,6 +10442,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"closeViewZoomFactorBeforeTermination": DomainPref{
 				Type:    "intBool",
 				Default: "1",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.custommenu.apps": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -6559,6 +10711,14 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"UserAssignableHotKeys": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"useStickyKeysShortcutKeys": DomainPref{
 				Type:    "bool",
 				Default: "false",
@@ -6740,6 +10900,26 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.voicememod": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.VoiceOver": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"com.apple.VoiceOver4.local": DomainPrefs{
 			"SCRCUserDefaultsAllowAirPlay": DomainPref{
 				Type:    "bool",
@@ -6778,10 +10958,48 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
+		"com.apple.weather": DomainPrefs{
+			"cachedAppConfig": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.weather.internal": DomainPrefs{
+			"cachedAppConfig": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
+		"com.apple.WorkflowKit.BackgroundShortcutRunner": DomainPrefs{
+			"CKPerBootTasks": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+		},
 		"GlobalPreferences": DomainPrefs{
 			"646F6E7A_00000000_00000001_6E7A6361_696D6963": DomainPref{
 				Type:    "intBool",
 				Default: "1",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"AKLastEmailListRequestDateKey": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -6830,6 +11048,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"AppleKeyboardUIMode": DomainPref{
 				Type:    "intBool",
 				Default: "1",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"AppleLanguages": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -6926,6 +11152,14 @@ func montereyPrefDefaults() DomainDefaults {
 			"Canon MF5900 Series": DomainPref{
 				Type:    "intBool",
 				Default: "1",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"com.apple.finder.SyncExtensions": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
@@ -7091,9 +11325,49 @@ func montereyPrefDefaults() DomainDefaults {
 					UserManaged,
 				),
 			},
+			"NSLinguisticDataAssetsRequested": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSLinguisticDataAssetsRequestedByChecker": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
 			"NSLinguisticDataAssetsRequestLastInterval": DomainPref{
 				Type:    "int",
 				Default: "86400",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSLinguisticDataAssetsRequestTime": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSPreferredWebServices": DomainPref{
+				Type:    "unknown",
+				Default: "",
+				Labels: NewLabels(
+					DefaultsSet,
+					UserManaged,
+				),
+			},
+			"NSUserDictionaryReplacementItems": DomainPref{
+				Type:    "unknown",
+				Default: "",
 				Labels: NewLabels(
 					DefaultsSet,
 					UserManaged,
