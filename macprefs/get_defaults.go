@@ -12,6 +12,9 @@ func GetDefaults(ctx Context, args GenerateArgs) (err error) {
 		args.Printer = StandardPrinter{}
 	}
 
+	// Defaults should include all defaults, including the unchanged ones.
+	args.IncludeUnchanged = true
+
 	switch OutputFormat(*GlobalFlags.Output) {
 	case YAMLFormat:
 		err = getDefaultsYAML(ctx, args)
