@@ -1,4 +1,4 @@
-package osversionfilters
+package osfilters
 
 import (
 	"github.com/mikeschinkel/prefsctl/kvfilters"
