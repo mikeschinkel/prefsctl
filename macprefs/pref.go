@@ -1,6 +1,7 @@
 package macprefs
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 
@@ -84,13 +85,20 @@ func NewPrefFromDefault(pd *PrefDefault) *Pref {
 // Retrieve fetches the preference value from the system
 func (p *Pref) Retrieve() error {
 	mp, err := macosutil.RetrievePreference(string(p.Domain), string(p.Name))
-	if err == nil {
-		p.value = mp.Value
-		p.Description = mp.Description
-		p.PrefDefault = GetPrefDefault(p.Domain, p.Name)
-		p.invalid = !mp.Valid()
+	if errors.Is(err, macosutil.ErrUnsupportedType) {
+		err = nil
+		p.invalid = true
+		goto end
 	}
-	return p.err
+	if err != nil {
+		goto end
+	}
+	p.value = mp.Value
+	p.Description = mp.Description
+	p.PrefDefault = GetPrefDefault(p.Domain, p.Name)
+	p.invalid = !mp.Valid()
+end:
+	return err
 }
 
 // IsDefault returns true if the property's current value is the same as its default value.
