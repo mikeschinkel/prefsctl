@@ -136,8 +136,83 @@ PreferenceResult processPreferenceValue(id value) {
 		return result;
 	}
 
+  // Get the class name as a string for comparison
+  NSString *className = NSStringFromClass([value class]);
+
+  // Handle Dictionary Types
+  if ([value isKindOfClass:[NSDictionary class]]) {
+      if ([className isEqualToString:@"__NSDictionaryI"]) {
+          // Standard immutable dictionary with entries
+          // Note: Will need to handle nested key-value pairs
+          result.value = strdup("__NSDictionaryI: Not implemented");
+          result.descr = strdup([[value description] UTF8String]);
+          result.error = PREF_UNSUPPORTED_TYPE;
+          return result;
+      }
+      if ([className isEqualToString:@"__NSDictionary0"]) {
+          // Empty immutable dictionary
+          // Note: Should probably return an empty dictionary representation
+          result.value = strdup("__NSDictionary0: Not implemented");
+          result.descr = strdup([[value description] UTF8String]);
+          result.error = PREF_UNSUPPORTED_TYPE;
+          return result;
+      }
+      if ([className isEqualToString:@"__NSSingleEntryDictionaryI"]) {
+          // Single entry immutable dictionary
+          result.value = strdup("__NSSingleEntryDictionaryI: Not implemented");
+          result.descr = strdup([[value description] UTF8String]);
+          result.error = PREF_UNSUPPORTED_TYPE;
+          return result;
+      }
+  }
+
+  // Handle Array Types
+  if ([value isKindOfClass:[NSArray class]]) {
+      if ([className isEqualToString:@"__NSArray0"]) {
+          // Empty immutable array
+          // Note: Should probably return an empty array representation
+          result.value = strdup("__NSArray0: Not implemented");
+          result.descr = strdup([[value description] UTF8String]);
+          result.error = PREF_UNSUPPORTED_TYPE;
+          return result;
+      }
+      if ([className isEqualToString:@"__NSArrayM"]) {
+          // Mutable array
+          // Note: Contents could theoretically change during processing
+          result.value = strdup("__NSArrayM: Not implemented");
+          result.descr = strdup([[value description] UTF8String]);
+          result.error = PREF_UNSUPPORTED_TYPE;
+          return result;
+      }
+      if ([className isEqualToString:@"__NSCFArray"]) {
+          // Core Foundation array bridge
+          // Note: May need special handling for CF-bridged content
+          result.value = strdup("__NSCFArray: Not implemented");
+          result.descr = strdup([[value description] UTF8String]);
+          result.error = PREF_UNSUPPORTED_TYPE;
+          return result;
+      }
+  }
+
+  // Handle Date Type
+  if ([value isKindOfClass:[NSDate class]] && [className isEqualToString:@"__NSTaggedDate"]) {
+      // Note: Consider timezone handling and date format standardization
+      result.value = strdup("__NSTaggedDate: Not implemented");
+      result.descr = strdup([[value description] UTF8String]);
+      result.error = PREF_UNSUPPORTED_TYPE;
+      return result;
+  }
+
+  // Handle Data Type
+  if ([value isKindOfClass:[NSData class]] && [className isEqualToString:@"__NSCFData"]) {
+      // Note: May need to handle binary data conversion
+      result.value = strdup("__NSCFData: Not implemented");
+      result.descr = strdup([[value description] UTF8String]);
+      result.error = PREF_UNSUPPORTED_TYPE;
+      return result;
+  }
+
 	// Handle unsupported types
-	NSString *className = NSStringFromClass([value class]);
 	NSString *typeDesc = [value description];
 	NSString *errorMsg = [NSString stringWithFormat:@"unsupported preference class: %@", className];
 
