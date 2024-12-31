@@ -86,7 +86,7 @@ func RunCLICommandTest(c4t testutil.ContextForTests, successFunc OnCLITestSucces
 	var cmdResult CmdResult
 
 	if test.Config == nil {
-		test.Config = NewConfig(&ConfigArgs{
+		test.Config = NewConfig(ConfigArgs{
 			Filepath: c4t.ConfigFilepath(),
 		})
 	}

@@ -1,5 +1,6 @@
 package cobrautil
 
+// TODO: Extract out into a proper config package
 import (
 	"fmt"
 	"os"
@@ -9,7 +10,7 @@ import (
 )
 
 var (
-	ConfigName    = "prefs"
+	ConfigName    = "prefsctl"
 	ConfigFileExt = "yaml"
 )
 
@@ -21,11 +22,14 @@ const (
 
 type ConfigArgs struct {
 	Filepath string
+	Filename string
 	Options  OptionsMap
 }
 
 type Config interface {
 	Initialize(Context) error
+	AppName() string
+	Dir() string
 	Filepath() string
 	Options() OptionsMap
 }
@@ -33,9 +37,19 @@ type Config interface {
 var _ Config = (*config)(nil)
 
 type config struct {
+	dir         string
+	appName     string
 	filepath    string
 	options     OptionsMap
 	initialized bool
+}
+
+func (c *config) Dir() string {
+	return c.dir
+}
+
+func (c *config) AppName() string {
+	return c.appName
 }
 
 func ConfigLogArgs(c config) []any {
@@ -54,13 +68,12 @@ func (c *config) Filepath() string {
 	return c.filepath
 }
 
-func NewConfig(args *ConfigArgs) Config {
+func NewConfig(args ConfigArgs) Config {
 	if args.Options == nil {
 		args.Options = make(OptionsMap)
 	}
 	return &config{
-		filepath: args.Filepath,
-		options:  args.Options,
+		options: args.Options,
 	}
 }
 
@@ -69,9 +82,25 @@ func (c *config) Initialized() bool {
 }
 
 func (c *config) Initialize(_ Context) (err error) {
+	var execPath string
+
 	if c.initialized {
 		goto end
 	}
+	execPath, err = os.Executable()
+	if err != nil {
+		goto end
+	}
+	c.appName = filepath.Base(execPath)
+
+	c.dir, err = ConfigDir(c.appName)
+	if err != nil {
+		goto end
+	}
+	c.filepath = filepath.Join(
+		c.dir,
+		fmt.Sprintf("%s.%s", c.appName, ConfigFileExt),
+	)
 	c.initialized = true
 end:
 	return nil
@@ -92,21 +121,7 @@ func SaveConfigWithOnErr(ctx Context, cfg Config, onErr OnErrFunc) (err error) {
 	return err
 }
 
-func configFilename() string {
-	return fmt.Sprintf("%s.%s", ConfigName, ConfigFileExt)
-}
-
-func ConfigFilepath() (file string, _ error) {
-	dir, err := ConfigDir()
-	if err != nil {
-		goto end
-	}
-	file = filepath.Join(dir, configFilename())
-end:
-	return file, err
-}
-
-func ConfigDir() (dir string, err error) {
+func ConfigDir(configName string) (dir string, err error) {
 	dir = os.Getenv("XDG_CONFIG_HOME")
 	if dir != "" {
 		goto end
@@ -116,7 +131,7 @@ func ConfigDir() (dir string, err error) {
 		err = ErrNoHomeDirVar
 		goto end
 	}
-	dir = filepath.Join(dir, ".config", ConfigName)
+	dir = filepath.Join(dir, ".config", configName)
 end:
 	return dir, err
 }

@@ -6,11 +6,12 @@ import (
 )
 
 type ExecuteArgs struct {
-	Config       Config
-	CLIArgs      []string
-	NoUsageOnErr bool
-	OutWriter    io.Writer
-	ErrWriter    io.Writer
+	Config        Config
+	CLIArgs       []string
+	NoUsageOnErr  bool
+	OutWriter     io.Writer
+	ErrWriter     io.Writer
+	ConfigOptions OptionsMap
 }
 
 func Execute(rootCmd Cmd, args ExecuteArgs) (result CmdResult, err error) {
@@ -29,13 +30,10 @@ func Execute(rootCmd Cmd, args ExecuteArgs) (result CmdResult, err error) {
 	cli := NewCLI()
 	ctx := DefaultContext()
 	if args.Config == nil {
-		cfg, err = GetConfig(ctx)
-		if err != nil {
-			result = NewErrResult(err)
-			goto end
-		}
+		cfg = NewConfig(ConfigArgs{Options: args.ConfigOptions})
 		err = cfg.Initialize(ctx)
 		if err != nil {
+			result = NewErrResult(err)
 			goto end
 		}
 	}
@@ -53,19 +51,4 @@ end:
 		cli.ShowUsage(result)
 	}
 	return result, err
-}
-
-func GetConfig(ctx Context) (cfg Config, err error) {
-	var options OptionsMap
-	fp, err := ConfigFilepath()
-	if err != nil {
-		goto end
-	}
-	options = OptionsMap{}
-	cfg = NewConfig(&ConfigArgs{
-		Filepath: fp,
-		Options:  options,
-	})
-end:
-	return cfg, err
 }

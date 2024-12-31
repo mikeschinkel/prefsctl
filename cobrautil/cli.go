@@ -2,7 +2,6 @@ package cobrautil
 
 import (
 	"context"
-	"path/filepath"
 	"regexp"
 	"sync"
 
@@ -49,24 +48,23 @@ func DefaultContext() Context {
 
 func (cli *CLI) Initialize(ctx Context, cfg Config, args []string) error {
 	var exists bool
+	var filepath string
 
 	cli.Config = cfg
 	cli.Args = args
 
-	file, err := ConfigFilepath()
+	err := stdlibex.EnsureDir(cfg.Dir())
 	if err != nil {
 		goto end
 	}
-	err = stdlibex.EnsureDir(filepath.Dir(file))
-	if err != nil {
-		goto end
-	}
-	exists, err = stdlibex.FileExists(file)
+	filepath = cfg.Filepath()
+
+	exists, err = stdlibex.FileExists(filepath)
 	if err != nil {
 		goto end
 	}
 	if !exists {
-		err = SaveConfig(ctx, cli.Config, file)
+		err = SaveConfig(ctx, cli.Config, filepath)
 	}
 	if err != nil {
 		goto end
