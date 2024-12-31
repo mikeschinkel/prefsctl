@@ -7,7 +7,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 )
 
-func GetDefaults(ctx Context, args GenerateArgs) (err error) {
+func GetDefaults(ctx Context, args QueryArgs) (err error) {
 	if args.Printer == nil {
 		args.Printer = StandardPrinter{}
 	}
@@ -30,12 +30,12 @@ func GetDefaults(ctx Context, args GenerateArgs) (err error) {
 	return err
 }
 
-func getDefaultsGo(ctx Context, args GenerateArgs) (err error) {
+func getDefaultsGo(ctx Context, args QueryArgs) (err error) {
 	var tmpl *preftemplates.DefaultsGoTemplate
 	var output string
 
 	code, err := macosutil.VersionCode()
-	domains, err := retrievePrefDomains(ctx, args)
+	domains, err := QueryPrefDomains(ctx, args)
 	if err != nil {
 		goto end
 	}
@@ -57,8 +57,8 @@ end:
 	return err
 }
 
-func getDefaultsText(ctx Context, args GenerateArgs) (err error) {
-	domains, err := retrievePrefDomains(ctx, args)
+func getDefaultsText(ctx Context, args QueryArgs) (err error) {
+	domains, err := QueryPrefDomains(ctx, args)
 	if err != nil {
 		goto end
 	}
@@ -71,11 +71,11 @@ end:
 	return err
 }
 
-func getDefaultsYAML(ctx Context, args GenerateArgs) (err error) {
+func getDefaultsYAML(ctx Context, args QueryArgs) (err error) {
 	args.Printer.Print("YAML output not implemented")
 	return err
 }
-func GetDefaultsJSON(ctx Context, args GenerateArgs) (err error) {
+func GetDefaultsJSON(ctx Context, args QueryArgs) (err error) {
 	args.Printer.Print("JSON output not implemented")
 	return err
 }

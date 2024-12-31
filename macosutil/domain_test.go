@@ -16,10 +16,11 @@ var (
 type (
 	PreferenceDomain = macosutil.PreferenceDomain
 	Preference       = macosutil.Preference
+	RetrievalArgs    = macosutil.RetrievalArgs
 )
 
 func Test_macOSUtils_RetrievePreferenceDomains(t *testing.T) {
-	gotDomains, err := macosutil.RetrievePreferenceDomains()
+	gotDomains, err := macosutil.RetrievePreferenceDomains(RetrievalArgs{})
 	if err != nil {
 		t.Errorf("RetrievePreferenceDomains() error = %v", err)
 		return

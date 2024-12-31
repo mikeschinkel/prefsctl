@@ -1,8 +1,6 @@
 package macprefs
 
 import (
-	"fmt"
-
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 )
@@ -11,18 +9,7 @@ type (
 	OSVersion = preftemplates.OSVersion
 )
 
-type GenerateArgs struct {
-	Printer          Printer
-	OmitEmpty        bool
-	UseCurrent       bool
-	IncludeUnchanged bool
-}
-
-func (args *GenerateArgs) PrinterOutput() string {
-	return args.Printer.(fmt.Stringer).String()
-}
-
-func GetPrefs(ctx Context, args GenerateArgs) (err error) {
+func GetPrefs(ctx Context, args QueryArgs) (err error) {
 	if args.Printer == nil {
 		args.Printer = StandardPrinter{}
 	}
@@ -62,12 +49,12 @@ func newDomains(domains []*PrefsDomain) []*preftemplates.Domain {
 	return dd
 }
 
-func getPrefsYAML(ctx Context, args GenerateArgs) (err error) {
+func getPrefsYAML(ctx Context, args QueryArgs) (err error) {
 	var osVersion OSVersion
 	var ptr Printer
 	var resources []preftemplates.YAMLPrefsResource
 
-	domains, err := retrievePrefDomains(ctx, args)
+	domains, err := QueryPrefDomains(ctx, args)
 	if err != nil {
 		goto end
 	}
@@ -85,17 +72,17 @@ end:
 	return err
 }
 
-func getPrefsJSON(ctx Context, args GenerateArgs) (err error) {
+func getPrefsJSON(ctx Context, args QueryArgs) (err error) {
 	args.Printer.Print("JSON output not implemented")
 	return err
 }
 
-func getPrefsText(ctx Context, args GenerateArgs) (err error) {
+func getPrefsText(ctx Context, args QueryArgs) (err error) {
 	args.Printer.Print("TXT output not implemented")
 	return err
 }
 
-func getPrefsGo(ctx Context, args GenerateArgs) (err error) {
+func getPrefsGo(ctx Context, args QueryArgs) (err error) {
 	args.Printer.Print("Go output not implemented")
 	return err
 }

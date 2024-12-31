@@ -8,3 +8,4 @@ type VersionNumber string
 
 type Name = types.Name
 type Code = types.Code
+type NULL = struct{}

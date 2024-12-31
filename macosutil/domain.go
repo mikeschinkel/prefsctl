@@ -73,11 +73,30 @@ import (
 )
 
 type PreferenceDomain string
+type DomainName string
+
+type RetrievalArgs struct {
+	Domains     []PreferenceDomain
+	domainsPtr  unsafe.Pointer
+	domainIndex map[PreferenceDomain]NULL
+}
+
+func (args *RetrievalArgs) HasDomain(domain PreferenceDomain) (has bool) {
+	if args.domainsPtr != unsafe.Pointer(&args.Domains) {
+		args.domainIndex = make(map[PreferenceDomain]NULL, len(args.Domains))
+		for _, d := range args.Domains {
+			args.domainIndex[d] = NULL{}
+		}
+		args.domainsPtr = unsafe.Pointer(&args.Domains)
+	}
+	_, has = args.domainIndex[domain]
+	return has
+}
 
 // RetrievePreferenceDomains returns a list of all preference domains available
 // for the current user on macOS.
-func (*macOSUtils) RetrievePreferenceDomains() (domains []PreferenceDomain, err error) {
-	var count int
+func (*macOSUtils) RetrievePreferenceDomains(args RetrievalArgs) (domains []PreferenceDomain, err error) {
+	var count, maxCount int
 
 	// Get the CFArray of preference domains
 	domainsArray := C.GetPreferenceDomains()
@@ -87,12 +106,18 @@ func (*macOSUtils) RetrievePreferenceDomains() (domains []PreferenceDomain, err 
 	}
 	defer C.CFRelease(C.CFTypeRef(domainsArray))
 
-	// Get the count of domains
-	count = int(C.GetArrayLen(domainsArray))
+	maxCount = int(C.GetArrayLen(domainsArray))
+	if len(args.Domains) == 0 {
+		// Get the count of available domains
+		count = maxCount
+	} else {
+		// Get the count of requested domains
+		count = len(args.Domains)
+	}
 	domains = make([]PreferenceDomain, 0, count)
 
 	// Iterate through the array and convert each CFString to Go string
-	for i := 0; i < count; i++ {
+	for i := 0; i < maxCount; i++ {
 		cDomainPtr := C.GetArrayValueAtIndex(domainsArray, C.int(i))
 		if cDomainPtr == 0 {
 			continue
@@ -102,9 +127,18 @@ func (*macOSUtils) RetrievePreferenceDomains() (domains []PreferenceDomain, err 
 		if cDomain == nil {
 			continue
 		}
+		domain := PreferenceDomain(C.GoString(cDomain))
+		if !args.HasDomain(domain) {
+			continue
+		}
+
 		domains = append(domains, PreferenceDomain(C.GoString(cDomain)))
 
 		C.free(unsafe.Pointer(cDomain))
+
+		if len(domains) >= count {
+			goto end
+		}
 	}
 end:
 	return domains, err

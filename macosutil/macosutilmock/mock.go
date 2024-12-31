@@ -28,8 +28,17 @@ func (mock *MacOSUtilMock) SetPreferenceDomains(domains []PreferenceDomain, err 
 	mock.Domains = domains
 	mock.DomainsErr = err
 }
-func (mock *MacOSUtilMock) RetrievePreferenceDomains() (domains []PreferenceDomain, err error) {
-	return mock.Domains, mock.DomainsErr
+
+func (mock *MacOSUtilMock) RetrievePreferenceDomains(args RetrievalArgs) (domains []PreferenceDomain, err error) {
+	if len(args.Domains) == 0 {
+		domains = mock.Domains
+		goto end
+	}
+	domains = filterPreferenceDomains(mock.Domains, filter{
+		IncludeDomains: mock.Domains,
+	})
+end:
+	return domains, mock.DomainsErr
 }
 
 func (mock *MacOSUtilMock) SetPreferences(prefs map[PreferenceDomain][]*Preference, errs map[PreferenceDomain]error) {
@@ -77,4 +86,23 @@ end:
 	//err = macosutil.ErrUnsupportedType
 	//err = macosutil.ErrUnknownPreferenceError
 	return pref, err
+}
+
+type filter struct {
+	IncludeDomains []PreferenceDomain
+}
+
+func filterPreferenceDomains(domains []PreferenceDomain, filter filter) []PreferenceDomain {
+	index := make(map[PreferenceDomain]NULL, len(filter.IncludeDomains))
+	for _, domain := range filter.IncludeDomains {
+		index[domain] = NULL{}
+	}
+	dd := make([]PreferenceDomain, 0, len(filter.IncludeDomains))
+	for _, domain := range domains {
+		if _, ok := index[domain]; !ok {
+			continue
+		}
+		dd = append(dd, domain)
+	}
+	return dd
 }

@@ -1,7 +1,7 @@
 package macosutil
 
 type MacOSUtil interface {
-	RetrievePreferenceDomains() (domains []PreferenceDomain, err error)
+	RetrievePreferenceDomains(RetrievalArgs) (domains []PreferenceDomain, err error)
 	RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error)
 	RetrievePreference(domain string, name string) (dp *Preference, err error)
 	GetVersionNumber() (v VersionNumber, err error)
@@ -25,8 +25,8 @@ var _ MacOSUtil = (*macOSUtils)(nil)
 
 type macOSUtils struct{}
 
-func RetrievePreferenceDomains() (domains []PreferenceDomain, err error) {
-	return instance.RetrievePreferenceDomains()
+func RetrievePreferenceDomains(args RetrievalArgs) (domains []PreferenceDomain, err error) {
+	return instance.RetrievePreferenceDomains(args)
 }
 
 func RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error) {

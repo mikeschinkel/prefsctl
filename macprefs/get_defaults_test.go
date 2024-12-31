@@ -25,7 +25,7 @@ var (
 )
 
 type (
-	GenerateArgs     = macprefs.GenerateArgs
+	QueryArgs        = macprefs.QueryArgs
 	OutputFormat     = macprefs.OutputFormat
 	PreferenceDomain = macosutil.PreferenceDomain
 	Preference       = macosutil.Preference
@@ -35,7 +35,7 @@ type (
 func TestGetDefaults(t *testing.T) {
 	tests := []struct {
 		name            string
-		args            GenerateArgs
+		args            QueryArgs
 		output          OutputFormat
 		errWanted       error
 		mockData        Data
@@ -47,7 +47,7 @@ func TestGetDefaults(t *testing.T) {
 	}{
 		{
 			name: "",
-			args: GenerateArgs{
+			args: QueryArgs{
 				OmitEmpty: false,
 			},
 			output:         GoFormat,

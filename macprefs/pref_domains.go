@@ -226,8 +226,10 @@ func (dd *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
 
 // RetrievePrefDomains retrieves the list of macOS preference domains available
 // currently on the system via macOS.
-func RetrievePrefDomains() (pds *PrefDomains, err error) {
-	domains, err := macosutil.RetrievePreferenceDomains()
+func RetrievePrefDomains(args QueryArgs) (pds *PrefDomains, err error) {
+	domains, err := macosutil.RetrievePreferenceDomains(macosutil.RetrievalArgs{
+		Domains: args.ToMacOSUtilPreferenceDomains(),
+	})
 	if err != nil {
 		goto end
 	}
@@ -288,7 +290,8 @@ func (dd *PrefDomains) TemplateDomains(args TemplateDomainsArgs) (domains []*pre
 	return domains
 }
 
-func retrievePrefDomains(ctx Context, args GenerateArgs) (domains *PrefDomains, err error) {
+// QueryPrefDomains queries for a set of preference domains based on the QueryArg provided
+func QueryPrefDomains(ctx Context, args QueryArgs) (domains *PrefDomains, err error) {
 	var nameFilters, valueFilters []kvfilters.Filter
 	var filtered []kvfilters.Group
 
@@ -298,7 +301,7 @@ func retrievePrefDomains(ctx Context, args GenerateArgs) (domains *PrefDomains, 
 		})
 	}
 
-	domains, err = RetrievePrefDomains()
+	domains, err = RetrievePrefDomains(args)
 	if err != nil {
 		goto end
 	}

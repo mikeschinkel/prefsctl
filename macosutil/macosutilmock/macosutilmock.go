@@ -7,10 +7,13 @@ import (
 
 type MacOSUtil = macosutil.MacOSUtil
 
+type RetrievalArgs = macosutil.RetrievalArgs
+type DomainName = macosutil.DomainName
 type Preference = macosutil.Preference
 type PreferenceDomain = macosutil.PreferenceDomain
 type VersionNumber = macosutil.VersionNumber
 type Identifier = macosutil.Identifier
+type NULL = struct{}
 
 type VersionCode = types.Code
 type VersionName = types.Name
