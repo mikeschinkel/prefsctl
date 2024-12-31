@@ -164,28 +164,44 @@ func NewCmdFromOpts(opts CmdOpts) Cmd {
 		}
 		for _, f := range opts.Flags {
 			f.Cmd = newCmd
+			shorthand := string(f.Shorthand)
+			if f.Shorthand == 0 {
+				shorthand = ""
+			}
 			switch f.Type {
 			case reflect.String:
 				f.AssignFunc(newCmd.Flags().StringP(
 					f.Name,
-					string(f.Shorthand),
+					shorthand,
 					f.DefaultString(),
 					f.Usage,
 				))
 			case reflect.Int:
 				f.AssignFunc(newCmd.Flags().IntP(
 					f.Name,
-					string(f.Shorthand),
+					shorthand,
 					f.DefaultInt(),
 					f.Usage,
 				))
 			case reflect.Bool:
 				f.AssignFunc(newCmd.Flags().BoolP(
 					f.Name,
-					string(f.Shorthand),
+					shorthand,
 					f.DefaultBool(),
 					f.Usage,
 				))
+			case reflect.Slice:
+				switch f.Subtype {
+				case reflect.String:
+					f.AssignFunc(newCmd.Flags().StringSliceP(
+						f.Name,
+						shorthand,
+						f.DefaultSliceString(),
+						f.Usage,
+					))
+				default:
+					panicf("Flag Type 'Slice' Subtype '%s' not implemented", f.Subtype)
+				}
 			default:
 				panicf("Flag Type '%s' not implemented", f.Type)
 			}

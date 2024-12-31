@@ -16,6 +16,7 @@ type CmdFlag struct {
 	Name       string
 	Descr      string
 	Type       reflect.Kind
+	Subtype    reflect.Kind
 	Required   bool
 	Default    any
 	Shorthand  byte
@@ -68,6 +69,20 @@ func (f *CmdFlag) DefaultBool() bool {
 	d, ok = f.Default.(bool)
 	if !ok {
 		f.panicFunc("bool")
+	}
+end:
+	return d
+}
+
+func (f *CmdFlag) DefaultSliceString() []string {
+	var d []string
+	var ok bool
+	if f.Default == nil {
+		goto end
+	}
+	d, ok = f.Default.([]string)
+	if !ok {
+		f.panicFunc("[]string")
 	}
 end:
 	return d
