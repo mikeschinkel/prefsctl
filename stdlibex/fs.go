@@ -106,7 +106,7 @@ func FileRemoveLine(line, filename string) (err error) {
 }
 
 func EnsureDir(dir string) (err error) {
-	err = os.Mkdir(dir, os.ModePerm)
+	err = os.MkdirAll(dir, os.ModePerm)
 	if errors.Is(err, syscall.EEXIST) {
 		err = nil
 		goto end
