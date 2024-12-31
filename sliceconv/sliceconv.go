@@ -26,6 +26,16 @@ func ToStrings[ST []T, T any](slice ST) []string {
 	return items
 }
 
+// ConvertStringSlice converts a slice from type based on a string to another type
+// based on a string.
+func ConvertStringSlice[X, Y ~string](slice []X) []Y {
+	items := make([]Y, len(slice))
+	for i, item := range slice {
+		items[i] = Y(item)
+	}
+	return items
+}
+
 // ToPtrs converts a slice of any type to a slice of pointers to that type
 func ToPtrs[E any](from []E) []*E {
 	items := make([]*E, len(from))
