@@ -19,8 +19,17 @@ var getPrefsProps = &GetPrefsProps{}
 type GetPrefsProps struct {
 	BaseProps
 	IncludeUnchanged *bool
+	Domains          *[]string
 	//filename macprefs.FilenamePtr
 	//dummy *string
+}
+
+func (ps *GetPrefsProps) ToMacPrefsDomainNames() (dns []macprefs.DomainName) {
+	dns = make([]macprefs.DomainName, len(*ps.Domains))
+	for i, domain := range *ps.Domains {
+		dns[i] = macprefs.DomainName(domain)
+	}
+	return dns
 }
 
 var getPrefsCmd = NewCmdFromOpts(CmdOpts{
@@ -42,6 +51,18 @@ var getPrefsCmd = NewCmdFromOpts(CmdOpts{
 				getPrefsProps.IncludeUnchanged = value.(*bool)
 			},
 		},
+		{
+			Name:     DomainsFlagName,
+			Type:     reflect.Slice,
+			Subtype:  reflect.String,
+			Descr:    "Filter preferences to include only specified domains",
+			Default:  []string{},
+			Required: false,
+			AssignFunc: func(value any) {
+				// This assigns the pointer, the value has not yet been retrieved from os.Args
+				getPrefsProps.Domains = value.(*[]string)
+			},
+		},
 		//{
 		//	Name:      macprefs.FilenameFlag,
 		//	Type:      reflect.String,
@@ -57,8 +78,9 @@ var getPrefsCmd = NewCmdFromOpts(CmdOpts{
 })
 
 func runGetPrefsFunc(ctx Context, cmd Cmd) error {
-	return macprefs.GetPrefs(ctx, macprefs.GenerateArgs{
+	return macprefs.GetPrefs(ctx, macprefs.QueryArgs{
 		Printer:          cmd,
 		IncludeUnchanged: *getPrefsProps.IncludeUnchanged,
+		Domains:          getPrefsProps.ToMacPrefsDomainNames(),
 	})
 }

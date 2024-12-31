@@ -11,4 +11,5 @@ const (
 	UseCurrentFlagName = "use-current"
 
 	IncludeUnchangedFlagName = "include-unchanged"
+	DomainsFlagName          = "domains"
 )

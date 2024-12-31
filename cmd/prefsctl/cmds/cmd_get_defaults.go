@@ -58,7 +58,7 @@ var getDefaultsCmd = NewCmdFromOpts(CmdOpts{
 
 func runGetDefaultsFunc(ctx Context, cmd Cmd) error {
 	//p := cmd.Props.(*GetDefaultsProps)
-	return macprefs.GetDefaults(ctx, macprefs.GenerateArgs{
+	return macprefs.GetDefaults(ctx, macprefs.QueryArgs{
 		Printer:    cmd,
 		UseCurrent: *getDefaultsProps.UseCurrent,
 	})
