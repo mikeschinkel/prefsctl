@@ -87,10 +87,13 @@ func (p *Pref) Retrieve() error {
 	mp, err := macosutil.RetrievePreference(string(p.Domain), string(p.Name))
 	if errors.Is(err, macosutil.ErrUnsupportedType) {
 		err = nil
+		p.value = mp.Description
+		p.err = fmt.Errorf(p.value)
 		p.invalid = true
 		goto end
 	}
 	if err != nil {
+		err = errors.Join(ErrUnexpectedPreferenceType, err)
 		goto end
 	}
 	p.value = mp.Value
