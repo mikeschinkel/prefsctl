@@ -13,6 +13,8 @@ type MacOSUtil interface {
 	ValidateVersionNumber(VersionNumber) bool
 	ValidateVersionName(Name) bool
 	ValidVersionNumbers() []VersionNumber
+	ApplyPreferences(domain string, prefs []Preference) (err error)
+	SetPreference(domain, name, value string) (err error)
 }
 
 var instance MacOSUtil = New()
@@ -66,4 +68,12 @@ func VersionCode() (code Code, err error) {
 
 func MustGetVersionCode() Code {
 	return instance.MustGetVersionCode()
+}
+
+func ApplyPreferences(domain string, prefs []Preference) (err error) {
+	return instance.ApplyPreferences(domain, prefs)
+}
+
+func SetPreference(domain, name, value string) (err error) {
+	return instance.SetPreference(domain, name, value)
 }

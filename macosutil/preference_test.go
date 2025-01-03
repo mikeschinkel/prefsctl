@@ -10,10 +10,11 @@ import (
 
 var (
 	RetrievePreference = macosutil.RetrievePreference
+	ApplyPreferences   = macosutil.ApplyPreferences
 	ErrorCheckFails    = errutil.ErrorCheckFails
 )
 
-func Test_macOSUtils_RetrievePreference(t *testing.T) {
+func Test_RetrievePreference(t *testing.T) {
 	tests := []struct {
 		name      string
 		domain    string
@@ -54,6 +55,55 @@ func Test_macOSUtils_RetrievePreference(t *testing.T) {
 				if tt.wantKind == reflect.Invalid {
 					t.Error("Did you maybe forget to set .kind for this test?")
 				}
+			}
+		})
+	}
+}
+
+func Test_ApplyPreferences(t *testing.T) {
+	tests := []struct {
+		domain  string
+		name    string
+		value   string
+		wantErr bool
+	}{
+		{
+			domain: "com.apple.dock",
+			name:   "autohide-delay",
+			value:  "0",
+		},
+		{
+			domain: "com.apple.dock",
+			name:   "largesize",
+			value:  "75",
+		},
+		{
+			domain: "com.apple.dock",
+			name:   "magnification",
+			value:  "true",
+		},
+		{
+			domain: "com.apple.dock",
+			name:   "minimize-to-application",
+			value:  "true",
+		},
+		{
+			domain: "com.apple.dock",
+			name:   "tilesize",
+			value:  "70",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.domain+"_"+tt.name, func(t *testing.T) {
+			pref := []Preference{
+				{
+					Domain: tt.domain,
+					Name:   tt.name,
+					Value:  tt.value,
+				},
+			}
+			if err := ApplyPreferences(tt.domain, pref); (err != nil) != tt.wantErr {
+				t.Errorf("ApplyPreferences() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}

@@ -3,8 +3,11 @@ package prefdefaults
 //goland:noinspection SpellCheckingInspection
 func montereyPrefDefaults() DomainDefaults {
 	return DomainDefaults{
+		"com.apple.dock": comAppleDock(),
+
 		"com.apple.Accessibility": DomainPrefs{
 			"ApplicationAccessibilityEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -13,6 +16,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"AutomationEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -21,6 +25,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"AXSClassicInvertColorsPreference": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -29,6 +34,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"BrailleInputDeviceConnected": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -37,6 +43,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"CommandAndControlEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -45,6 +52,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DarkenSystemColors": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -53,6 +61,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DifferentiateWithoutColor": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -61,6 +70,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"EnhancedBackgroundContrastEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -69,6 +79,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FullKeyboardAccessEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -77,6 +88,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FullKeyboardAccessFocusRingEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -85,6 +97,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"GenericAccessibilityClientEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -93,6 +106,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"InvertColorsEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -101,6 +115,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"KeyRepeatDelay": DomainPref{
+				Descr:   "",
 				Type:    "float",
 				Default: "0.5",
 				Labels: NewLabels(
@@ -110,6 +125,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"KeyRepeatEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -118,6 +134,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ReduceMotionEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -126,6 +143,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SpeakThisEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -134,6 +152,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"VoiceOverTouchEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -144,6 +163,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.ActivityMonitor": DomainPrefs{
 			"OpenMainWindow": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -152,6 +172,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SelectedTab": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -160,6 +181,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ShowCategory": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "102",
 				Labels: NewLabels(
@@ -170,6 +192,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.AddressBook": DomainPrefs{
 			"ABBirthDayVisible": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -180,6 +203,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.amp.mediasharingd": DomainPrefs{
 			"home-sharing-computer-id": DomainPref{
+				Descr:   "",
 				Type:    "unknown",
 				Default: "",
 				Labels: NewLabels(
@@ -188,6 +212,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"home-sharing-enabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -196,6 +221,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"home-sharing-group-id": DomainPref{
+				Descr:   "",
 				Type:    "unknown",
 				Default: "",
 				Labels: NewLabels(
@@ -204,6 +230,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"home-sharing-sequence-id": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "100",
 				Labels: NewLabels(
@@ -212,6 +239,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"photo-sharing-enabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -220,6 +248,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"public-sharing-enabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -228,6 +257,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"public-sharing-is-protected": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -236,6 +266,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"shared-library-name": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "Mike Schinkel’s Library",
 				Labels: NewLabels(
@@ -246,6 +277,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.AMPLibraryAgent": DomainPrefs{
 			"books-migrated": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -254,6 +286,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"debugAssertCategoriesEnabled": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -262,6 +295,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"imported-media-domains": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "15",
 				Labels: NewLabels(
@@ -270,6 +304,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"podcasts-migrated": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -278,6 +313,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"storeMediaTypeFlags": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3422",
 				Labels: NewLabels(
@@ -286,6 +322,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"storeSupportsPasswordSettings": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -294,6 +331,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"storeSupportsPreviousPurchases": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -302,6 +340,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"storeSupportsUPP": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -312,6 +351,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.AppleMultitouchMouse": DomainPrefs{
 			"MouseButtonDivision": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "55",
 				Labels: NewLabels(
@@ -320,6 +360,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseButtonMode": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "OneButton",
 				Labels: NewLabels(
@@ -328,6 +369,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseHorizontalScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -336,6 +378,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseMomentumScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -344,6 +387,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseOneFingerDoubleTapGesture": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -352,6 +396,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseTwoFingerDoubleTapGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3",
 				Labels: NewLabels(
@@ -360,6 +405,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseTwoFingerHorizSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -368,6 +414,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseVerticalScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -376,6 +423,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"UserPreferences": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -386,6 +434,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.AppleMultitouchTrackpad": DomainPrefs{
 			"ActuateDetents": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -394,6 +443,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Clicking": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "0",
 				Labels: NewLabels(
@@ -402,6 +452,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Dragging": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "0",
 				Labels: NewLabels(
@@ -410,6 +461,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DragLock": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "0",
 				Labels: NewLabels(
@@ -418,6 +470,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FirstClickThreshold": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -426,6 +479,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ForceSuppressed": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -434,6 +488,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SecondClickThreshold": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -442,6 +497,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadCornerSecondaryClick": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "0",
 				Labels: NewLabels(
@@ -450,6 +506,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadFiveFingerPinchGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -458,6 +515,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadFourFingerHorizSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -466,6 +524,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadFourFingerPinchGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -474,6 +533,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadFourFingerVertSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -482,6 +542,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadHandResting": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -490,6 +551,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadHorizScroll": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -498,6 +560,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadMomentumScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -506,6 +569,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadPinch": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -514,6 +578,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadRightClick": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -522,6 +587,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadRotate": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -530,6 +596,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -538,6 +605,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadThreeFingerDrag": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -546,6 +614,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadThreeFingerHorizSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -554,6 +623,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadThreeFingerTapGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -562,6 +632,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadThreeFingerVertSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -570,6 +641,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadTwoFingerDoubleTapGesture": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -578,6 +650,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadTwoFingerFromRightEdgeSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3",
 				Labels: NewLabels(
@@ -586,6 +659,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"USBMouseStopsTrackpad": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -594,6 +668,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"UserPreferences": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -604,6 +679,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.assistant": DomainPrefs{
 			"MultiUser Shared Data Needs Sync": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -612,6 +688,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Voice Trigger Needs Sync": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -622,6 +699,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.classroom": DomainPrefs{
 			"allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -630,6 +708,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -638,6 +717,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomOpenApp": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -646,6 +726,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -654,6 +735,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -662,6 +744,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomOpenApp-ask": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -670,6 +753,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomOpenURL": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -678,6 +762,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -686,6 +771,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -694,6 +780,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomOpenURL-ask": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -702,6 +789,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -710,6 +798,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -718,6 +807,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -726,6 +816,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0-ask": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -736,6 +827,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.CloudKit": DomainPrefs{
 			"AccountInfoValidationCounter": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "34",
 				Labels: NewLabels(
@@ -746,6 +838,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.CoreGraphics": DomainPrefs{
 			"DisplayUseForcedGray": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -754,6 +847,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DisplayUseInvertedPolarity": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -762,34 +856,9 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 		},
-		"com.apple.dock": DomainPrefs{
-			"loc": DomainPref{
-				Type:    "string",
-				Default: "en_US:US",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"region": DomainPref{
-				Type:    "string",
-				Default: "US",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"wvous-br-corner": DomainPref{
-				Type:    "int",
-				Default: "14",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-		},
 		"com.apple.driver.AppleBluetoothMultitouch.mouse": DomainPrefs{
 			"MouseButtonDivision": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "55",
 				Labels: NewLabels(
@@ -798,6 +867,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseButtonMode": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "OneButton",
 				Labels: NewLabels(
@@ -806,6 +876,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseHorizontalScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -814,6 +885,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseMomentumScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -822,6 +894,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseOneFingerDoubleTapGesture": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -830,6 +903,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseTwoFingerDoubleTapGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3",
 				Labels: NewLabels(
@@ -838,6 +912,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseTwoFingerHorizSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -846,6 +921,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"MouseVerticalScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -854,6 +930,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"UserPreferences": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -864,6 +941,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.driver.AppleBluetoothMultitouch.trackpad": DomainPrefs{
 			"Clicking": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "0",
 				Labels: NewLabels(
@@ -872,6 +950,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Dragging": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "0",
 				Labels: NewLabels(
@@ -880,6 +959,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DragLock": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "0",
 				Labels: NewLabels(
@@ -888,6 +968,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadCornerSecondaryClick": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "0",
 				Labels: NewLabels(
@@ -896,6 +977,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadFiveFingerPinchGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -904,6 +986,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadFourFingerHorizSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -912,6 +995,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadFourFingerPinchGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -920,6 +1004,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadFourFingerVertSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -928,6 +1013,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadHandResting": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -936,6 +1022,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadHorizScroll": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -944,6 +1031,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadMomentumScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -952,6 +1040,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadPinch": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -960,6 +1049,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadRightClick": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -968,6 +1058,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadRotate": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -976,6 +1067,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadScroll": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -984,6 +1076,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadThreeFingerDrag": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -992,6 +1085,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadThreeFingerHorizSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -1000,6 +1094,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadThreeFingerTapGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -1008,6 +1103,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadThreeFingerVertSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -1016,6 +1112,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadTwoFingerDoubleTapGesture": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1024,6 +1121,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TrackpadTwoFingerFromRightEdgeSwipeGesture": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3",
 				Labels: NewLabels(
@@ -1032,6 +1130,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"USBMouseStopsTrackpad": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1040,6 +1139,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"UserPreferences": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1050,6 +1150,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.driver.AppleHIDMouse": DomainPrefs{
 			"Button1": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1058,6 +1159,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Button2": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1066,6 +1168,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Button3": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1074,6 +1177,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Button4": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1082,6 +1186,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Button4Click": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1090,6 +1195,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Button4Force": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1098,6 +1204,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ButtonDominance": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1106,6 +1213,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ScrollH": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1114,6 +1222,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ScrollS": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "4",
 				Labels: NewLabels(
@@ -1122,6 +1231,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ScrollSSize": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "30",
 				Labels: NewLabels(
@@ -1130,6 +1240,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ScrollV": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1140,6 +1251,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.facetime.bag": DomainPrefs{
 			"CacheTime": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3600",
 				Labels: NewLabels(
@@ -1148,6 +1260,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"URL": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "https://init.ess.apple.com/WebObjects/VCInit.woa/wa/getBag?ix=3",
 				Labels: NewLabels(
@@ -1158,6 +1271,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.finder": DomainPrefs{
 			"FXArrangeGroupViewBy": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "Name",
 				Labels: NewLabels(
@@ -1166,6 +1280,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXDesktopTouchBarUpgradedToTenTwelveOne": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1174,6 +1289,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXICloudDriveDeclinedUpgrade": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1182,6 +1298,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXICloudDriveDesktop": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1190,6 +1307,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXICloudDriveDocuments": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1198,6 +1316,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXICloudDriveEnabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1206,6 +1325,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXICloudDriveFirstSyncDownComplete": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1214,6 +1334,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXICloudLoggedIn": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1222,6 +1343,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXPreferredViewStyle": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "Nlsv",
 				Labels: NewLabels(
@@ -1230,6 +1352,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXQuickActionsConfigUpgradeLevel": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -1238,6 +1361,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXSidebarUpgradedToTenFourteen": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1246,6 +1370,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXSidebarUpgradedToTenTen": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1254,6 +1379,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXToolbarUpgradedToTenEight": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1262,6 +1388,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXToolbarUpgradedToTenNine": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -1270,6 +1397,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"FXToolbarUpgradedToTenSeven": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1278,6 +1406,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"RecentsArrangeGroupViewBy": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "Date Last Opened",
 				Labels: NewLabels(
@@ -1286,6 +1415,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ShowExternalHardDrivesOnDesktop": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1294,6 +1424,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ShowHardDrivesOnDesktop": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1302,6 +1433,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ShowRemovableMediaOnDesktop": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1310,6 +1442,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ShowSidebar": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1318,6 +1451,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SidebarShowingiCloudDesktop": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1326,6 +1460,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SidebarShowingSignedIntoiCloud": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1334,6 +1469,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SidebarWidth": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "217",
 				Labels: NewLabels(
@@ -1342,6 +1478,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TagsCloudSerialNumber": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "1",
 				Labels: NewLabels(
@@ -1352,6 +1489,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.FolderActionsDispatcher": DomainPrefs{
 			"folderActionsEnabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1362,6 +1500,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.iCal": DomainPrefs{
 			"BirthdayEventsGenerationAttemptsToResetKey": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1370,6 +1509,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"BirthdayEventsGenerationLastLocale": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "en_US",
 				Labels: NewLabels(
@@ -1378,6 +1518,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"CalForceTruthFileRestoreHashKey": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "16A1",
 				Labels: NewLabels(
@@ -1386,6 +1527,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"display birthdays calendar": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1396,6 +1538,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.iChat": DomainPrefs{
 			"DidCheckForDuplicateChats": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3",
 				Labels: NewLabels(
@@ -1404,6 +1547,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DidMarkGroupPhotosAsUnpurgeable": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1414,6 +1558,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.icloud.searchpartyuseragent": DomainPrefs{
 			"lastLaunchLocale": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "en",
 				Labels: NewLabels(
@@ -1424,6 +1569,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.imagecapture": DomainPrefs{
 			"loggingLevel": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3073",
 				Labels: NewLabels(
@@ -1434,6 +1580,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.imagent": DomainPrefs{
 			"IMChatVocabularyUpdaterDidPerformInitialUpdateKey": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1444,6 +1591,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.imdpersistence.IMDPersistenceAgent": DomainPrefs{
 			"LogAllIOErrors": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1454,6 +1602,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.imessage": DomainPrefs{
 			"PreviewTranscodingQualityOnWiFiWasInitializedToDefaultValue": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1462,6 +1611,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"PreviewTranscodingWasInitializedToDefaultValue": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1472,6 +1622,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.imessage.bag": DomainPrefs{
 			"CacheTime": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3600",
 				Labels: NewLabels(
@@ -1480,6 +1631,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"URL": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "https://init-p01md.apple.com/bag?ix=2",
 				Labels: NewLabels(
@@ -1490,6 +1642,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.ipTelephony": DomainPrefs{
 			"ImsLoggingEnabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1500,6 +1653,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.loginwindow": DomainPrefs{
 			"MiniBuddyLaunch": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1508,6 +1662,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"oneTimeSSMigrationComplete": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1516,6 +1671,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TALLogoutReason": DomainPref{
+				Descr:   "",
 				Type:    "unknown",
 				Default: "Shut Down",
 				Labels: NewLabels(
@@ -1526,6 +1682,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.madrid": DomainPrefs{
 			"CloudKitCheckedMiCSwitchEligibilityOnImagentLaunch": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1534,6 +1691,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"CloudKitIsEligibleForTruthZone": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1542,6 +1700,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"CloudKitIsRemovedFromBackup": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1550,6 +1709,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"CloudKitSyncingEnabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1558,6 +1718,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitAccountStatusKey": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "1",
 				Labels: NewLabels(
@@ -1566,6 +1727,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitStartingDisableDevices": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1574,6 +1736,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitStartingEnabledSettingChange": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1582,6 +1745,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitStartingInitialSync": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1590,6 +1754,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitStartingPeriodicSync": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1598,6 +1763,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitSyncControllerSyncRecordTypeKey": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1606,6 +1772,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitSyncControllerSyncStateKey": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1614,6 +1781,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitSyncControllerSyncTypeKey": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1622,6 +1790,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"IMCloudKitSyncPaused": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1630,6 +1799,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"initialSyncRecordHasBeenWritten": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1640,6 +1810,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.menuextra.clock": DomainPrefs{
 			"DateFormat": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "EEE MMM d  j:mm a",
 				Labels: NewLabels(
@@ -1650,6 +1821,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.messages.nicknames": DomainPrefs{
 			"NicknameScrutinyDoNotHandle": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1660,6 +1832,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.ncprefs": DomainPrefs{
 			"content_visibility": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "2",
 				Labels: NewLabels(
@@ -1668,6 +1841,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"sort_order": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1678,6 +1852,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.NewDeviceOutreach": DomainPrefs{
 			"PostUpgradeActivityCompleted": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1686,6 +1861,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"PostUpgradeOSVersionKey": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "12.7.6",
 				Labels: NewLabels(
@@ -1696,6 +1872,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.newscore": DomainPrefs{
 			"force_refresh_user_segmentation": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1704,6 +1881,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"use_parsec_results_for_widget": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1714,6 +1892,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.ProblemReporter": DomainPrefs{
 			"ShowComments": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1724,6 +1903,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.remindd": DomainPrefs{
 			"CloudConfigurationPath": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "/System/Library/PrivateFrameworks/ReminderKit.framework/Versions/A/Resources/CloudConfigurations/Normal.plist",
 				Labels: NewLabels(
@@ -1732,6 +1912,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"CloudKitAccountStatus": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "3",
 				Labels: NewLabels(
@@ -1740,6 +1921,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"isDatabaseMigrated": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1748,6 +1930,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"useExtraneousAlarmBackOffThrottleInterval": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1758,6 +1941,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.Safari.SafeBrowsing": DomainPrefs{
 			"HasMigratedSafeBrowsingEnabledDefaults": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1768,6 +1952,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.Safari.SandboxBroker": DomainPrefs{
 			"DidMigrateDownloadFolderToSandbox": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1776,6 +1961,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DidMigrateDownloadMetadataToSandboxGroupContainer": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1784,6 +1970,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DidMigrateResourcesToSandbox": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1792,6 +1979,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"ShowDevelopMenu": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1802,6 +1990,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.screensaver": DomainPrefs{
 			"tokenRemovalAction": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1812,6 +2001,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.scriptmenu": DomainPrefs{
 			"ScriptMenuEnabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1822,6 +2012,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.sharingd": DomainPrefs{
 			"HashManager-StoredDatabaseVersionKey": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3",
 				Labels: NewLabels(
@@ -1830,6 +2021,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"OneTimeAirDropReset2": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1840,6 +2032,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.siri.shortcuts": DomainPrefs{
 			"WFDidUnconflictShortcuts": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1850,6 +2043,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.siri.VoiceShortcuts": DomainPrefs{
 			"VCLSDataSequenceKey": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "3913",
 				Labels: NewLabels(
@@ -1860,6 +2054,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.Spotlight": DomainPrefs{
 			"__NSEnableTSMDocumentWindowLevel": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1868,6 +2063,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"engagementCount-com.apple.mail": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1876,6 +2072,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"engagementCount-com.apple.Spotlight": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -1884,6 +2081,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"engagementCount-com.apple.Spotlight.suggestions": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -1892,6 +2090,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"showedFTE": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1902,6 +2101,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.suggestions": DomainPrefs{
 			"findToShowMigrationPerformed": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1910,6 +2110,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"spToLearnMigrationPerformed": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1918,6 +2119,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SuggestionsAllowGeocode": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1928,6 +2130,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.systempreferences": DomainPrefs{
 			"com.apple.SecurityPref.Privacy.LastSourceSelected": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "8",
 				Labels: NewLabels(
@@ -1936,6 +2139,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"DisableAutoLoginButtonIsHidden": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1944,6 +2148,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"NSFullScreenMenuItemEverywhere": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1952,6 +2157,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"NSQuitAlwaysKeepsWindows": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1960,6 +2166,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SecurityPrefTab": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "Privacy",
 				Labels: NewLabels(
@@ -1970,6 +2177,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.Terminal": DomainPrefs{
 			"Default Window Settings": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "Basic",
 				Labels: NewLabels(
@@ -1978,6 +2186,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"HasMigratedDefaults": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -1986,6 +2195,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"SecureKeyboardEntry": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -1994,6 +2204,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"Startup Window Settings": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "Basic",
 				Labels: NewLabels(
@@ -2002,6 +2213,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TTAppPreferences Selected Tab": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -2012,6 +2224,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.textInput.keyboardServices.textReplacement": DomainPrefs{
 			"KSDidPushMigrationStatusOnce-2": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2020,6 +2233,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"KSSampleShortcutWasImported_CK": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2030,6 +2244,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.TextInputMenu": DomainPrefs{
 			"visible": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -2040,6 +2255,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.tipsd": DomainPrefs{
 			"TPSTipsAppInstalled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2048,6 +2264,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"TPSWaitingToShowWelcomeNotification": DomainPref{
+				Descr:   "",
 				Type:    "unknown",
 				Default: "false",
 				Labels: NewLabels(
@@ -2058,6 +2275,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.universalaccess": DomainPrefs{
 			"closeViewHotkeysEnabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -2066,6 +2284,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"closeViewZoomDisplayID": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -2074,6 +2293,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"closeViewZoomFactor": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "1",
 				Labels: NewLabels(
@@ -2082,6 +2302,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"login": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -2090,6 +2311,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"sessionChange": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -2100,6 +2322,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.UserAccountUpdater": DomainPrefs{
 			"com.apple.HidLibraryFolderAlready": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2110,6 +2333,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"com.apple.visualintelligence": DomainPrefs{
 			"bypassAvailability": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -2118,6 +2342,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"debugUI": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -2126,6 +2351,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableAlbumsDomain": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2134,6 +2360,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableArtDomain": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2142,6 +2369,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableBooksDomain": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2150,6 +2378,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableCoarseClassification": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2158,6 +2387,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableLandmarkDomain": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2166,6 +2396,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableNatureDomain": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2174,6 +2405,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enablePetsDomain": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2182,6 +2414,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enablePhotosApp": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2190,6 +2423,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableQuickLook": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2198,6 +2432,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableSafariApp": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2206,6 +2441,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"enableScreenshots": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2214,6 +2450,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"firstTimeExperience": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2222,6 +2459,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"initialized": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2230,6 +2468,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"sendLocationInfo": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2238,6 +2477,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"sendOCRText": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2248,6 +2488,7 @@ func montereyPrefDefaults() DomainDefaults {
 		},
 		"GlobalPreferences": DomainPrefs{
 			"AKLastIDMSEnvironment": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -2256,6 +2497,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"AppleAntiAliasingThreshold": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "4",
 				Labels: NewLabels(
@@ -2264,6 +2506,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"AppleLanguagesDidMigrate": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "12.7.6",
 				Labels: NewLabels(
@@ -2272,6 +2515,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"AppleLocale": DomainPref{
+				Descr:   "",
 				Type:    "string",
 				Default: "en_US",
 				Labels: NewLabels(
@@ -2280,6 +2524,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"AppleMiniaturizeOnDoubleClick": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
@@ -2288,6 +2533,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"com.apple.sound.beep.flash": DomainPref{
+				Descr:   "",
 				Type:    "intBool",
 				Default: "0",
 				Labels: NewLabels(
@@ -2296,6 +2542,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"com.apple.springing.delay": DomainPref{
+				Descr:   "",
 				Type:    "float",
 				Default: "0.5",
 				Labels: NewLabels(
@@ -2304,6 +2551,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"com.apple.springing.enabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2312,6 +2560,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"com.apple.trackpad.forceClick": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2320,6 +2569,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"NSAutomaticCapitalizationEnabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2328,6 +2578,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"NSAutomaticPeriodSubstitutionEnabled": DomainPref{
+				Descr:   "",
 				Type:    "bool",
 				Default: "true",
 				Labels: NewLabels(
@@ -2336,6 +2587,7 @@ func montereyPrefDefaults() DomainDefaults {
 				),
 			},
 			"NSLinguisticDataAssetsRequestLastInterval": DomainPref{
+				Descr:   "",
 				Type:    "int",
 				Default: "86400",
 				Labels: NewLabels(

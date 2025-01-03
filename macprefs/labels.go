@@ -25,7 +25,9 @@ const (
 var (
 	TypeVerified    = NewLabel(Verification, "typeVerified")
 	DefaultVerified = NewLabel(Verification, "defaultVerified")
-	ValueVerified   = NewLabel(Verification, "valueVerified")
+	SetsVerified    = NewLabel(Verification, "setsVerified")
+	ClassVerified   = NewLabel(Verification, "classVerified")
+	OptionsVerified = NewLabel(Verification, "optionsVerified")
 )
 
 //goland:noinspection GoStructInitializationWithoutFieldNames

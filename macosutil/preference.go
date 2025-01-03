@@ -239,9 +239,15 @@ bool isDomainValid(CFStringRef domain) {
     return false;
 }
 
+void setPreference(CFStringRef domain, CFStringRef key, CFPropertyListRef value) {
+    CFPreferencesSetValue(key, value, domain, kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+}
+
 */
 import "C"
 import (
+	"errors"
+	"fmt"
 	"reflect"
 	"sync"
 	"unsafe"
@@ -259,11 +265,36 @@ type Preference struct {
 	err         error
 }
 
-func (p Preference) Valid() bool {
+func (p *Preference) Valid() bool {
 	return !p.invalid
 }
-func (p Preference) Id() Identifier {
+func (p *Preference) Id() Identifier {
 	return PreferenceId(p.Domain, p.Name)
+}
+
+type ApplyOpts struct {
+	SkipSync bool
+}
+
+// ApplyPreference applies a single preference for the specified domain
+func (p *Preference) ApplyPreference(opts ApplyOpts) (err error) {
+
+	// Set the preference
+	err = SetPreference(p.Domain, p.Name, p.Value)
+	if err != nil {
+		goto end
+	}
+	if !opts.SkipSync {
+		// Sync preferences to make them persistent
+		p.SyncPreference()
+	}
+
+end:
+	return err
+
+}
+func (p *Preference) SyncPreference() {
+	SyncDomainPreferences(p.Domain)
 }
 
 type Identifier string
@@ -330,4 +361,39 @@ func (*macOSUtils) RetrievePreference(domain string, name string) (dp *Preferenc
 end:
 	preferenceCacheMutex.Unlock()
 	return dp, err
+}
+
+func (*macOSUtils) SetPreference(domain, name, value string) (err error) {
+	var cfDomain, cfName *CFString
+	var cfValue *CFPropertyListRef
+
+	cfDomain = NewCFString(domain)
+	if cfDomain.IsNull() {
+		err = errors.Join(ErrFailedToCreateCFString, fmt.Errorf("domain=%s", domain))
+		goto end
+	}
+	defer cfDomain.Release()
+
+	cfName = NewCFString(name)
+	if cfName.IsNull() {
+		err = errors.Join(ErrFailedToCreateCFString, fmt.Errorf("key=%s", name))
+		goto end
+	}
+	defer cfName.Release()
+
+	cfValue = NewCFPropertyListRef(value)
+	if cfValue.IsNull() {
+		err = errors.Join(ErrFailedToCreateCFString, fmt.Errorf("value=%s", value))
+		goto end
+	}
+	defer cfValue.Release()
+
+	C.setPreference(
+		cfDomain.cfString,
+		cfName.cfString,
+		cfValue.cfValue,
+	)
+
+end:
+	return err
 }
