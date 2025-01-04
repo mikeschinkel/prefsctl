@@ -4,7 +4,6 @@ package macosutil
 #cgo CFLAGS: -x objective-c
 #cgo LDFLAGS: -framework CoreFoundation -framework Foundation
 #include <CoreFoundation/CoreFoundation.h>
-#include <stddef.h>
 
 CFStringRef createCFString(const char* str) {
     return CFStringCreateWithCString(NULL, str, kCFStringEncodingUTF8);

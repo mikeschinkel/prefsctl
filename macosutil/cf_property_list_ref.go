@@ -6,10 +6,6 @@ package macosutil
 #include <CoreFoundation/CoreFoundation.h>
 #include <stddef.h>
 
-CFBooleanRef createCFBoolean(bool value) {
-    return value ? kCFBooleanTrue : kCFBooleanFalse;
-}
-
 CFNumberRef createCFNumberFromLongLong(long long value) {
     CFNumberRef number = CFNumberCreate(NULL, kCFNumberLongLongType, &value);
     return number;
@@ -32,10 +28,10 @@ type CFPropertyListRef struct {
 
 func NewCFPropertyListRef(value string) *CFPropertyListRef {
 	var cfValue C.CFPropertyListRef
+
 	switch {
 	case value == "true" || value == "false":
-		boolVal := value == "true"
-		cfValue = C.CFPropertyListRef(C.createCFBoolean(C.bool(boolVal)))
+		cfValue = C.CFPropertyListRef(NewCFBoolean(value == "true").cfBoolean)
 
 	case isInteger(value):
 		val, _ := strconv.ParseInt(value, 10, 64)
@@ -48,7 +44,9 @@ func NewCFPropertyListRef(value string) *CFPropertyListRef {
 	default:
 		cfValue = C.CFPropertyListRef(NewCFString(value).cfString)
 	}
-	return &CFPropertyListRef{cfValue: cfValue}
+	return &CFPropertyListRef{
+		cfValue: cfValue,
+	}
 }
 
 func (ref *CFPropertyListRef) IsNull() bool {
