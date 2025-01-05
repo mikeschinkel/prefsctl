@@ -4,11 +4,6 @@ package macosutil
 #cgo CFLAGS: -x objective-c
 #cgo LDFLAGS: -framework CoreFoundation -framework Foundation
 #include <CoreFoundation/CoreFoundation.h>
-
-CFNumberRef createCFNumberFromDouble(double value) {
-    CFNumberRef number = CFNumberCreate(NULL, kCFNumberDoubleType, &value);
-    return number;
-}
 */
 import "C"
 import (
@@ -38,7 +33,7 @@ func NewCFPropertyListRef(value string) *CFPropertyListRef {
 
 	floatVal, ok = parseFloat64(value)
 	if ok {
-		cfValue = C.CFPropertyListRef(C.createCFNumberFromDouble(C.double(floatVal)))
+		cfValue = C.CFPropertyListRef(NewCFDouble(floatVal).cfDouble)
 		goto end
 	}
 
