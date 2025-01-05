@@ -18,7 +18,6 @@ CFNumberRef createCFNumberFromDouble(double value) {
 */
 import "C"
 import (
-	"strconv"
 	"unsafe"
 )
 
@@ -28,22 +27,31 @@ type CFPropertyListRef struct {
 
 func NewCFPropertyListRef(value string) *CFPropertyListRef {
 	var cfValue C.CFPropertyListRef
+	var intVal int64
+	var floatVal float64
+	var ok bool
 
-	switch {
-	case value == "true" || value == "false":
+	if value == "true" || value == "false" {
 		cfValue = C.CFPropertyListRef(NewCFBoolean(value == "true").cfBoolean)
-
-	case isInteger(value):
-		val, _ := strconv.ParseInt(value, 10, 64)
-		cfValue = C.CFPropertyListRef(C.createCFNumberFromLongLong(C.longlong(val)))
-
-	case isFloat(value):
-		val, _ := strconv.ParseFloat(value, 64)
-		cfValue = C.CFPropertyListRef(C.createCFNumberFromDouble(C.double(val)))
-
-	default:
-		cfValue = C.CFPropertyListRef(NewCFString(value).cfString)
+		goto end
 	}
+
+	intVal, ok = parseInt64(value)
+	if ok {
+		cfValue = C.CFPropertyListRef(NewCFLongLong(intVal).cfLongLong)
+		goto end
+	}
+
+	floatVal, ok = parseFloat64(value)
+	if ok {
+		cfValue = C.CFPropertyListRef(C.createCFNumberFromDouble(C.double(floatVal)))
+		goto end
+	}
+
+	// Assume string
+	cfValue = C.CFPropertyListRef(NewCFString(value).cfString)
+
+end:
 	return &CFPropertyListRef{
 		cfValue: cfValue,
 	}

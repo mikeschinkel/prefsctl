@@ -22,16 +22,16 @@ func panicf(format string, args ...any) {
 	panic(fmt.Sprintf(format, args...))
 }
 
-// isInteger checks if a string represents an integer value
-func isInteger(str string) bool {
-	_, err := strconv.ParseInt(str, 10, 64)
-	return err == nil
+// parseInt64 checks if a string represents an integer value
+func parseInt64(str string) (int64, bool) {
+	value, err := strconv.ParseInt(str, 10, 64)
+	return value, err == nil
 }
 
-// isFloat checks if a string represents a floating point value
-func isFloat(str string) bool {
-	_, err := strconv.ParseFloat(str, 64)
-	return err == nil && !isInteger(str)
+// parseFloat64 checks if a string represents a floating point value
+func parseFloat64(str string) (float64, bool) {
+	value, err := strconv.ParseFloat(str, 64)
+	return value, err == nil
 }
 
 func cIsNullRef(p unsafe.Pointer) bool {
