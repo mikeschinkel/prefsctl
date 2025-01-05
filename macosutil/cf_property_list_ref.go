@@ -4,12 +4,6 @@ package macosutil
 #cgo CFLAGS: -x objective-c
 #cgo LDFLAGS: -framework CoreFoundation -framework Foundation
 #include <CoreFoundation/CoreFoundation.h>
-#include <stddef.h>
-
-CFNumberRef createCFNumberFromLongLong(long long value) {
-    CFNumberRef number = CFNumberCreate(NULL, kCFNumberLongLongType, &value);
-    return number;
-}
 
 CFNumberRef createCFNumberFromDouble(double value) {
     CFNumberRef number = CFNumberCreate(NULL, kCFNumberDoubleType, &value);
