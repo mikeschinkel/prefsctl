@@ -35,6 +35,18 @@ type Labels = kvfilters.Labels
 
 var NewLabels = kvfilters.NewLabels
 
+var FinalizedLabels = NewLabels(
+	DefaultsSet,
+	TypeVerified,
+	ClassVerified,
+	SetsVerified,
+	DefaultVerified,
+	DescrVerified,
+)
+var FinalizedUserManaged = FinalizedLabels.SetLabel(UserManaged)
+var FinalizedRuntimeState = FinalizedLabels.SetLabel(RuntimeState)
+var FinalizedUserManagedWithOptions = FinalizedUserManaged.SetLabel(OptionsVerified)
+
 var (
 	InvalidLabel = macprefs.InvalidLabel
 	Sets         = macprefs.Sets
