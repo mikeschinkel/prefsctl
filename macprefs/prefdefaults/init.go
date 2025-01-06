@@ -70,9 +70,13 @@ var (
 
 	TypeVerified    = &macprefs.TypeVerified
 	DefaultVerified = &macprefs.DefaultVerified
+	DescrVerified   = &macprefs.DescrVerified
 	SetsVerified    = &macprefs.SetsVerified
 	ClassVerified   = &macprefs.ClassVerified
 	OptionsVerified = &macprefs.OptionsVerified
+
+	TypeNotVerified  = &macprefs.TypeNotVerified
+	DescrNotVerified = &macprefs.DescrNotVerified
 )
 
 type DomainDefaults = map[string]DomainPrefs
