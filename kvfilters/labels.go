@@ -134,7 +134,7 @@ end:
 	return ok
 }
 
-func (ll *Labels) SetLabel(label *Label) {
+func (ll *Labels) SetLabel(label *Label) *Labels {
 	count := len(ll.labelsMap)
 	ll.labelsMap[label.Name] = label
 	if count == len(ll.labelsMap) {
@@ -146,6 +146,7 @@ func (ll *Labels) SetLabel(label *Label) {
 	ll.labelsIndex[label.Name] = len(ll.labels)
 	ll.labels = append(ll.labels, label)
 end:
+	return ll
 }
 
 // HasLabel returns true if `*Labels` has the passed label
