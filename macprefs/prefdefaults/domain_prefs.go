@@ -15,8 +15,10 @@ type DomainPref struct {
 	Name      string
 	Type      string
 	Descr     string
+	Requires  []string
 	Options   []string
-	Default   string // raw string value for default
+	Default   string   // raw string value for default
+	Range     []string // raw string value for default
 	Labels    *kvfilters.Labels
 	kind      reflect.Kind
 	typeLabel *kvfilters.Label
