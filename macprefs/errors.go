@@ -10,4 +10,5 @@ var (
 	ErrUnsupportedType          = errors.New("unsupported preference type")
 	ErrUnsupportedMacOSVersion  = errors.New("unsupported macOS version")
 	ErrUnexpectedPreferenceType = errors.New("unexpected preference type")
+	ErrInvalidOutputFormat      = errors.New("not a valid output format")
 )

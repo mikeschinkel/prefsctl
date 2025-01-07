@@ -3,8 +3,15 @@ package cmds
 import (
 	"reflect"
 
+	"github.com/mikeschinkel/prefsctl/cobrautil"
 	"github.com/mikeschinkel/prefsctl/macprefs"
 )
+
+func init() {
+	cobrautil.AddInitializer(func(cli *CLI) {
+		RootCmd.AddCmd(applyCmd)
+	})
+}
 
 var applyProps = &ApplyProps{}
 
