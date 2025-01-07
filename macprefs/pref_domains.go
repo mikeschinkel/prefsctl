@@ -108,7 +108,7 @@ end:
 //		pd.Verified = def.Verified
 //		//pd.Kind = def.Kind()
 //	} else {
-//		p, err := macOSUtils.RetrievePreference(def.Domain, def.Name)
+//		p, err := macOSUtils.GetPreference(def.Domain, def.Name)
 //		if err == nil {
 //			pd.DefaultValue = p.Value
 //			pd.Kind = p.Kind
@@ -227,7 +227,7 @@ func (dd *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
 // RetrievePrefDomains retrieves the list of macOS preference domains available
 // currently on the system via macOS.
 func RetrievePrefDomains(args QueryArgs) (pds *PrefDomains, err error) {
-	domains, err := macosutil.RetrievePreferenceDomains(macosutil.RetrievalArgs{
+	domains, err := macosutil.GetPreferenceDomains(macosutil.RetrievalArgs{
 		Domains: args.ToMacOSUtilPreferenceDomains(),
 	})
 	if err != nil {
@@ -243,7 +243,7 @@ end:
 // RetrieveDomainPrefs retrieves the macOS preferences for the specified
 // preference domain from macOS.
 func RetrieveDomainPrefs(domain DomainName) (pp Prefs, err error) {
-	prefs, err := macosutil.RetrievePreferences(macosutil.PreferenceDomain(domain))
+	prefs, err := macosutil.GetPreferences(macosutil.PreferenceDomain(domain))
 	if err != nil {
 		goto end
 	}

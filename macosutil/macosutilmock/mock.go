@@ -22,6 +22,8 @@ func NewMock() MacOSUtil {
 	}
 }
 
+var _ MacOSUtil = (*MacOSUtilMock)(nil)
+
 var mock = NewMock()
 
 func (mock *MacOSUtilMock) SetPreferenceDomains(domains []PreferenceDomain, err error) {
@@ -50,8 +52,8 @@ func (mock *MacOSUtilMock) SetPreferences(prefs map[PreferenceDomain][]*Preferen
 		}
 	}
 }
-func (mock *MacOSUtilMock) RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error) {
-	//return mock.MacOSUtil.RetrievePreferences(d)
+func (mock *MacOSUtilMock) GetPreferences(d PreferenceDomain) (prefs []*Preference, err error) {
+	//return mock.MacOSUtil.GetPreferences(d)
 	var ok bool
 
 	prefs, ok = mock.DomainPrefs[d]
@@ -66,8 +68,8 @@ end:
 	return prefs, err
 }
 
-func (mock *MacOSUtilMock) RetrievePreference(domain string, name string) (pref *Preference, err error) {
-	//return mock.MacOSUtil.RetrievePreference(domain, name)
+func (mock *MacOSUtilMock) GetPreference(domain string, name string) (pref *Preference, err error) {
+	//return mock.MacOSUtil.GetPreference(domain, name)
 	var ok bool
 
 	id := macosutil.PreferenceId(domain, name)

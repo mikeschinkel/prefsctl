@@ -9,9 +9,9 @@ import (
 )
 
 var (
-	RetrievePreference = macosutil.RetrievePreference
 	ApplyPreferences   = macosutil.ApplyPreferences
 	ErrorCheckFails    = errutil.ErrorCheckFails
+	GetPreference    = macosutil.GetPreference
 )
 
 func Test_RetrievePreference(t *testing.T) {
@@ -43,12 +43,12 @@ func Test_RetrievePreference(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotPref, err := RetrievePreference(tt.domain, tt.prop)
-			if ErrorCheckFails(t, "RetrievePreference()", tt.errWanted, err) {
+			gotPref, err := GetPreference(tt.domain, tt.prop)
+			if ErrorCheckFails(t, "GetPreference()", tt.errWanted, err) {
 				return
 			}
 			if tt.wantKind != gotPref.Kind {
-				t.Errorf("RetrievePreference(): wanted kind '%s', got '%s'",
+				t.Errorf("GetPreference(): wanted kind '%s', got '%s'",
 					tt.wantKind.String(),
 					gotPref.Kind.String(),
 				)

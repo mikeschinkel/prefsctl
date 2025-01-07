@@ -293,6 +293,7 @@ end:
 	return err
 
 }
+
 func (p *Preference) SyncPreference() {
 	SyncDomainPreferences(p.Domain)
 }
@@ -306,8 +307,8 @@ func PreferenceId(domain string, name string) Identifier {
 var preferenceCache = make(map[Identifier]*Preference)
 var preferenceCacheMutex sync.Mutex
 
-// RetrievePreference fetches the preference value from the system
-func (*macOSUtils) RetrievePreference(domain string, name string) (dp *Preference, err error) {
+// GetPreference fetches the preference value from the system
+func (*macOSUtils) GetPreference(domain string, name string) (dp *Preference, err error) {
 	var ok bool
 	var cDomain, cName *C.char
 	var cResult C.PreferenceResult

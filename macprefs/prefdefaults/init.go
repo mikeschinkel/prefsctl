@@ -134,7 +134,7 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 	if def.Default != "" {
 		pd.DefaultValue = def.Default
 	} else {
-		p, err := macosutil.RetrievePreference(def.Domain, def.Name)
+		p, err := macosutil.GetPreference(def.Domain, def.Name)
 		if err == nil {
 			pd.DefaultValue = p.Value
 			pd.Kind = p.Kind

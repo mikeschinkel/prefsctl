@@ -93,9 +93,9 @@ func (args *RetrievalArgs) HasDomain(domain PreferenceDomain) (has bool) {
 	return has
 }
 
-// RetrievePreferenceDomains returns a list of all preference domains available
+// GetPreferenceDomains returns a list of all preference domains available
 // for the current user on macOS.
-func (*macOSUtils) RetrievePreferenceDomains(args RetrievalArgs) (domains []PreferenceDomain, err error) {
+func (*macOSUtils) GetPreferenceDomains(args RetrievalArgs) (domains []PreferenceDomain, err error) {
 	var count, maxCount int
 
 	// Get the CFArray of preference domains
@@ -144,8 +144,8 @@ end:
 	return domains, err
 }
 
-// RetrievePreferences returns all available preferences for this domain
-func (*macOSUtils) RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error) {
+// GetPreferences returns all available preferences for this domain
+func (*macOSUtils) GetPreferences(d PreferenceDomain) (prefs []*Preference, err error) {
 	var numPrefs int
 
 	// Convert domain name to CFString

@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	RetrievePreferences = macosutil.RetrievePreferences
+	GetPreferences = macosutil.GetPreferences
 )
 
 type (
@@ -20,16 +20,16 @@ type (
 )
 
 func Test_macOSUtils_RetrievePreferenceDomains(t *testing.T) {
-	gotDomains, err := macosutil.RetrievePreferenceDomains(RetrievalArgs{})
+	gotDomains, err := macosutil.GetPreferenceDomains(RetrievalArgs{})
 	if err != nil {
-		t.Errorf("RetrievePreferenceDomains() error = %v", err)
+		t.Errorf("GetPreferenceDomains() error = %v", err)
 		return
 	}
 	if gotDomains == nil {
-		t.Error("RetrievePreferenceDomains() returned nil")
+		t.Error("GetPreferenceDomains() returned nil")
 	}
 	if len(gotDomains) <= 500 {
-		t.Errorf("RetrievePreferenceDomains() only returned %d domains; more than 500 expected", len(gotDomains))
+		t.Errorf("GetPreferenceDomains() only returned %d domains; more than 500 expected", len(gotDomains))
 	}
 }
 
@@ -72,8 +72,8 @@ func Test_macOSUtils_RetrievePreferences(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotPrefs, err := RetrievePreferences(PreferenceDomain(tt.domain))
-			if errutil.ErrorCheckFails(t, "RetrievePreferences()", tt.errWanted, err) {
+			gotPrefs, err := GetPreferences(PreferenceDomain(tt.domain))
+			if errutil.ErrorCheckFails(t, "GetPreferences()", tt.errWanted, err) {
 				return
 			}
 
@@ -87,13 +87,13 @@ func Test_macOSUtils_RetrievePreferences(t *testing.T) {
 				names, _ := sliceconv.ToStringsFunc(gotPrefs, func(p *Preference) (bool, string, error) {
 					return true, p.Name, nil
 				})
-				t.Errorf("RetrievePreferences() prefs wanted but not found:\n\tNot Found:%v",
+				t.Errorf("GetPreferences() prefs wanted but not found:\n\tNot Found:%v",
 					stdlibex.DiffSlices(tt.wantPrefs, names),
 				)
 
 			case !tt.wantMatch:
 				if len(found) > 0 {
-					t.Errorf("RetrievePreferences() prefs found but not wanted:\n\t%v", found)
+					t.Errorf("GetPreferences() prefs found but not wanted:\n\t%v", found)
 				}
 			}
 		})

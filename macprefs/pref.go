@@ -84,7 +84,7 @@ func NewPrefFromDefault(pd *PrefDefault) *Pref {
 
 // Retrieve fetches the preference value from the system
 func (p *Pref) Retrieve() error {
-	mp, err := macosutil.RetrievePreference(string(p.Domain), string(p.Name))
+	mp, err := macosutil.GetPreference(string(p.Domain), string(p.Name))
 	if errors.Is(err, macosutil.ErrUnsupportedType) {
 		err = nil
 		p.value = mp.Description

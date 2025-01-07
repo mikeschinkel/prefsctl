@@ -1,9 +1,9 @@
 package macosutil
 
 type MacOSUtil interface {
-	RetrievePreferenceDomains(RetrievalArgs) (domains []PreferenceDomain, err error)
-	RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error)
-	RetrievePreference(domain string, name string) (dp *Preference, err error)
+	GetPreferenceDomains(RetrievalArgs) (domains []PreferenceDomain, err error)
+	GetPreferences(d PreferenceDomain) (prefs []*Preference, err error)
+	GetPreference(domain string, name string) (dp *Preference, err error)
 	GetVersionNumber() (v VersionNumber, err error)
 	VersionName() (name Name, err error)
 	GetVersionName(code Code) (name Name)
@@ -27,16 +27,16 @@ var _ MacOSUtil = (*macOSUtils)(nil)
 
 type macOSUtils struct{}
 
-func RetrievePreferenceDomains(args RetrievalArgs) (domains []PreferenceDomain, err error) {
-	return instance.RetrievePreferenceDomains(args)
+func GetPreferenceDomains(args RetrievalArgs) (domains []PreferenceDomain, err error) {
+	return instance.GetPreferenceDomains(args)
 }
 
-func RetrievePreferences(d PreferenceDomain) (prefs []*Preference, err error) {
-	return instance.RetrievePreferences(d)
+func GetPreferences(d PreferenceDomain) (prefs []*Preference, err error) {
+	return instance.GetPreferences(d)
 }
 
-func RetrievePreference(domain string, name string) (dp *Preference, err error) {
-	return instance.RetrievePreference(domain, name)
+func GetPreference(domain string, name string) (dp *Preference, err error) {
+	return instance.GetPreference(domain, name)
 }
 
 func GetVersionNumber() (v VersionNumber, err error) {
