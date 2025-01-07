@@ -14,7 +14,7 @@ var (
 	GetPreference    = macosutil.GetPreference
 )
 
-func Test_RetrievePreference(t *testing.T) {
+func Test_GetPreference(t *testing.T) {
 	tests := []struct {
 		name      string
 		domain    string

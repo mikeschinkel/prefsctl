@@ -32,7 +32,7 @@ type (
 	Data             = macosutilmock.Data
 )
 
-func TestGetDefaults(t *testing.T) {
+func Test_GetDefaults(t *testing.T) {
 	tests := []struct {
 		name            string
 		args            QueryArgs
