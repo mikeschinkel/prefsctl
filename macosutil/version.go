@@ -140,7 +140,7 @@ func parseVersion(v string) (int, error) {
 	n, err := strconv.ParseInt(v, 10, 0)
 	if err != nil {
 		err = errors.Join(ErrFailedParsingMajorVersion,
-			fmt.Errorf("%v=%v", logargs.VersionLogArg, v),
+			fmt.Errorf("%v=%v", logargs.Version, v),
 		)
 	}
 	return int(n), err
@@ -174,7 +174,7 @@ func (m *macOSUtils) VersionCode() (_ Code, err error) {
 	matches = semVerRegex.FindStringSubmatch(string(v))
 	if matches == nil {
 		err = errors.Join(ErrUnrecognizedMacOSVersionFormat,
-			fmt.Errorf("%s=%s", logargs.VersionLogArg, v),
+			fmt.Errorf("%s=%s", logargs.Version, v),
 		)
 		goto end
 	}
@@ -186,7 +186,7 @@ func (m *macOSUtils) VersionCode() (_ Code, err error) {
 	case n < 10:
 		// We support nothing before OS-X, and mostly nothing before Sierra, really.
 		err = errors.Join(ErrUnrecognizedMacOSVersion,
-			fmt.Errorf("%s=%s", logargs.VersionLogArg, v),
+			fmt.Errorf("%s=%s", logargs.Version, v),
 		)
 	case n > 10:
 		// Version of macOS Big Sur thru Sequoia are 11.0 thru 15.0
@@ -204,7 +204,7 @@ func (m *macOSUtils) VersionCode() (_ Code, err error) {
 	code, ok = versionNumberCodeMap[v]
 	if !ok {
 		err = errors.Join(ErrUnrecognizedMacOSVersion,
-			fmt.Errorf("%s=%s", logargs.VersionLogArg, v),
+			fmt.Errorf("%s=%s", logargs.Version, v),
 		)
 		goto end
 	}

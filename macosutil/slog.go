@@ -5,4 +5,4 @@ import (
 	"github.com/mikeschinkel/prefsctl/slogutil"
 )
 
-var slog = slogutil.Logger().With(logargs.GoPackageLogArg, "macosutil")
+var slog = slogutil.Logger().With(logargs.GoPackage, "macosutil")

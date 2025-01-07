@@ -14,33 +14,33 @@ func TLSLogArgs(s *tls.ConnectionState) (args []any) {
 	}
 
 	if s.Version != 0 {
-		args = append(args, logargs.TLSVersionLogArg, _tls(s.Version).String())
+		args = append(args, logargs.TLSVersion, _tls(s.Version).String())
 	}
 
 	if !s.HandshakeComplete {
-		args = append(args, logargs.TLSHandshakeLogArg, "pending")
+		args = append(args, logargs.TLSHandshake, "pending")
 	} else {
-		args = append(args, logargs.TLSHandshakeLogArg, "complete")
+		args = append(args, logargs.TLSHandshake, "complete")
 	}
 
 	if len(s.PeerCertificates) > 0 {
-		args = append(args, logargs.PeerCertCountLogArg, len(s.PeerCertificates))
+		args = append(args, logargs.PeerCertCount, len(s.PeerCertificates))
 	}
 
 	if len(s.VerifiedChains) > 0 {
-		args = append(args, logargs.VerifiedChainCountLogArg, len(s.VerifiedChains))
+		args = append(args, logargs.VerifiedChainCount, len(s.VerifiedChains))
 	}
 
 	if s.CipherSuite != 0 {
-		args = append(args, logargs.CipherSuiteLogArg, _cipher(s.CipherSuite).String())
+		args = append(args, logargs.CipherSuite, _cipher(s.CipherSuite).String())
 	}
 
 	if s.NegotiatedProtocol != "" {
-		args = append(args, logargs.NegotiatedProtocolLogArg, s.NegotiatedProtocol)
+		args = append(args, logargs.NegotiatedProtocol, s.NegotiatedProtocol)
 	}
 
 	if s.ServerName != "" {
-		args = append(args, logargs.ServerNameLogArg, s.ServerName)
+		args = append(args, logargs.ServerName, s.ServerName)
 	}
 
 end:

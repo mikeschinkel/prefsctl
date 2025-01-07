@@ -44,7 +44,7 @@ func Initialize() {
 	logger = newLogger(LogFormat(), &Options{
 		Level: LogLevel(),
 	})
-	packageSlog = logger.With(logargs.GoPackageLogArg, "slogutil")
+	packageSlog = logger.With(logargs.GoPackage, "slogutil")
 	slog.SetDefault(logger)
 	loggerMutex.Unlock()
 }

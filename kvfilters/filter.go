@@ -135,7 +135,7 @@ func matchValueFilter(filter Filter, value string) (match bool, err error) {
 		getter, ok := filter.(ValuesGetter)
 		if !ok {
 			err = errors.Join(ErrFailedToAccessGroupKeyValues,
-				fmt.Errorf("%s=kvfilters.ValuesGetter", logargs.TypeExpectedLogArg),
+				fmt.Errorf("%s=kvfilters.ValuesGetter", logargs.TypeExpected),
 				err,
 			)
 			goto end
@@ -159,7 +159,7 @@ func matchValueFilter(filter Filter, value string) (match bool, err error) {
 					re, err = regexp.Compile(reString)
 					if err != nil {
 						err = errors.Join(ErrInvalidRegExp,
-							fmt.Errorf("%s=%s", logargs.RegexpLogArg, reString),
+							fmt.Errorf("%s=%s", logargs.Regexp, reString),
 							err,
 						)
 						goto end
@@ -175,7 +175,7 @@ func matchValueFilter(filter Filter, value string) (match bool, err error) {
 		getter, ok := filter.(Funcs1Getter)
 		if !ok {
 			err = errors.Join(ErrFailedTypeAssertion,
-				fmt.Errorf("%s=kvfilters.Funcs1Getter", logargs.TypeExpectedLogArg),
+				fmt.Errorf("%s=kvfilters.Funcs1Getter", logargs.TypeExpected),
 				err,
 			)
 			goto end
@@ -189,7 +189,7 @@ func matchValueFilter(filter Filter, value string) (match bool, err error) {
 	case InvalidMatches:
 		//goland:noinspection GoDfaNilDereference
 		err = errors.Join(ErrInvalidFilterMatchCriteria,
-			fmt.Errorf("%s=%s", logargs.TypeExpectedLogArg, matchCriteria.String()),
+			fmt.Errorf("%s=%s", logargs.TypeExpected, matchCriteria.String()),
 			err,
 		)
 		goto end
@@ -210,7 +210,7 @@ func matchKeyValueFilter(filter Filter, kv KeyValue) (match bool, err error) {
 	getter, ok := filter.(Funcs2Getter)
 	if !ok {
 		err = errors.Join(ErrFailedTypeAssertion,
-			fmt.Errorf("%s=kvfilters.Funcs2Getter", logargs.TypeExpectedLogArg),
+			fmt.Errorf("%s=kvfilters.Funcs2Getter", logargs.TypeExpected),
 			err,
 		)
 	}

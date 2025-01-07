@@ -15,9 +15,9 @@ var (
 )
 
 const (
-	ConfigFilepathLogArg    = "config_filepath"
-	ConfigOptionsLogArg     = "config_options"
-	ConfigInitializedLogArg = "config_initialized"
+	ConfigFilepath    = "config_filepath"
+	ConfigOptions     = "config_options"
+	ConfigInitialized = "config_initialized"
 )
 
 type ConfigArgs struct {
@@ -54,9 +54,9 @@ func (c *config) AppName() string {
 
 func ConfigLogArgs(c config) []any {
 	return []any{
-		ConfigFilepathLogArg, c.Filepath(),
-		ConfigOptionsLogArg, c.Options(),
-		ConfigInitializedLogArg, c.Initialized(),
+		ConfigFilepath, c.Filepath(),
+		ConfigOptions, c.Options(),
+		ConfigInitialized, c.Initialized(),
 	}
 }
 

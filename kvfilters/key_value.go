@@ -60,7 +60,7 @@ func (kv *keyValue) Value() string {
 }
 func (kv *keyValue) ErrorInfo() error {
 	return errors.Join(
-		fmt.Errorf("%s=%s", logargs.KeyLogArg, kv.key),
-		fmt.Errorf("%s=%s", logargs.ValueLogArg, kv.value),
+		fmt.Errorf("%s=%s", logargs.Key, kv.key),
+		fmt.Errorf("%s=%s", logargs.Value, kv.value),
 	)
 }

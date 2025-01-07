@@ -27,7 +27,7 @@ func QueryFilters() (ff []kvfilters.Filter, err error) {
 	if !ok {
 		err = errors.Join(
 			kvfilters.ErrInvalidFilterMatchCriteria,
-			fmt.Errorf("%s=%s", logargs.OSCodeLogArg, code),
+			fmt.Errorf("%s=%s", logargs.OSCode, code),
 		)
 	}
 end:

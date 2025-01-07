@@ -118,7 +118,7 @@ func (pd *PrefDefault) Value() string {
 
 func (pd *PrefDefault) ErrorInfo() error {
 	return errors.Join(
-		fmt.Errorf("%s=%s", logargs.KeyLogArg, pd.Name),
-		fmt.Errorf("%s=%s", logargs.ValueLogArg, pd.Value()),
+		fmt.Errorf("%s=%s", logargs.Key, pd.Name),
+		fmt.Errorf("%s=%s", logargs.Value, pd.Value()),
 	)
 }

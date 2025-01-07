@@ -139,7 +139,7 @@ func (d *PrefsDomain) AddKeyValue(value kvfilters.KeyValue) {
 
 func (d *PrefsDomain) LogArgs() []any {
 	return []any{
-		logargs.PrefsDomainLogArg,
+		logargs.PrefsDomain,
 		d.Name(),
 	}
 }
@@ -148,7 +148,7 @@ func (d *PrefsDomain) String() string {
 	return string(d.Name())
 }
 func (d *PrefsDomain) ErrorInfo() error {
-	return fmt.Errorf("%s=%s", logargs.PrefsDomainLogArg, d)
+	return fmt.Errorf("%s=%s", logargs.PrefsDomain, d)
 }
 
 func (d *PrefsDomain) HasPrefix(prefix string) bool {

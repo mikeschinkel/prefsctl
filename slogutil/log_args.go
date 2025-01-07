@@ -27,15 +27,15 @@ func appendLogArgs(args ...any) (_ []any, err error) {
 		}
 		if i == len(args)-1 {
 			funcName := stdlibex.Caller(2).Function
-			err = errors.Join(ErrNotEnoughArgsPassed, fmt.Errorf("%s=%s", logargs.CallerLogArg, funcName))
-			packageSlog.Debug("not enough parameters", logargs.CallerLogArg, funcName, logargs.ErrorLogArg, err)
+			err = errors.Join(ErrNotEnoughArgsPassed, fmt.Errorf("%s=%s", logargs.Caller, funcName))
+			packageSlog.Debug("not enough parameters", logargs.Caller, funcName, logargs.Error, err)
 			args = append(args, []any{"{!INVALID}"})
 		}
 		newArgs = append(newArgs, args...)
 	}
 	err = errs.Err()
 	if err != nil {
-		packageSlog.Error("missing label or value passed to AppendLogArgs", logargs.ErrorLogArg, err)
+		packageSlog.Error("missing label or value passed to AppendLogArgs", logargs.Error, err)
 	}
 	return newArgs, err
 }

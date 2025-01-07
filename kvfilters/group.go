@@ -76,12 +76,12 @@ func (g *group) AddKeyValue(kv KeyValue) {
 }
 
 func (g *group) ErrorInfo() error {
-	return fmt.Errorf("%s=%s", logargs.GroupNameLogArg, g.name)
+	return fmt.Errorf("%s=%s", logargs.GroupName, g.name)
 }
 
 func (g *group) LogArgs() []any {
 	return []any{
-		logargs.GroupNameLogArg,
+		logargs.GroupName,
 		g.name,
 	}
 }

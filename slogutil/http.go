@@ -11,31 +11,31 @@ import (
 func HTTPRequestLogArgs(r *http.Request) []any {
 	_ = r.ParseForm()
 	args := []any{
-		logargs.HostnameLogArg, r.Host,
-		logargs.RequestProtocolLogArg, r.Proto,
-		logargs.RequestMethodLogArg, r.Method,
-		logargs.RequestURLLogArg, r.RequestURI,
-		logargs.ContentTypeLengthLogArg, r.ContentLength,
-		logargs.RequestorAddressLogArg, r.RemoteAddr,
+		logargs.Hostname, r.Host,
+		logargs.RequestProtocol, r.Proto,
+		logargs.RequestMethod, r.Method,
+		logargs.RequestURL, r.RequestURI,
+		logargs.ContentTypeLength, r.ContentLength,
+		logargs.RequestorAddress, r.RemoteAddr,
 	}
 	args = append(args, HTTPHeaderLogArgs(r.Header)...)
 	args = append(args)
 	if r.TLS != nil {
-		args = append(args, logargs.RequestTLSLogArg, "set")
+		args = append(args, logargs.RequestTLS, "set")
 		args = append(args, TLSLogArgs(r.TLS)...)
 	}
 	if r.TransferEncoding != nil {
-		args = append(args, logargs.TransferEncodingLogArg, strings.Join(r.TransferEncoding, ","))
+		args = append(args, logargs.TransferEncoding, strings.Join(r.TransferEncoding, ","))
 	}
 	if r.Pattern != "" {
-		args = append(args, logargs.RequestPatternLogArg, r.Pattern)
+		args = append(args, logargs.RequestPattern, r.Pattern)
 	}
 	form := r.PostForm.Encode()
 	if form != "" {
-		args = append(args, logargs.RequestFormLogArg, form)
+		args = append(args, logargs.RequestForm, form)
 	}
 	if r.Response != nil {
-		args = append(args, logargs.RequestRedirectLogArg, r.Response)
+		args = append(args, logargs.RequestRedirect, r.Response)
 	}
 	return args
 }
@@ -43,7 +43,7 @@ func HTTPRequestLogArgs(r *http.Request) []any {
 func HTTPHeaderLogArgs(hh http.Header) (args []any) {
 	headers := make([]string, len(hh))
 	args = make([]any, 0, len(hh)*2)
-	args = append(args, logargs.HeadersCountLogArg, len(hh))
+	args = append(args, logargs.HeadersCount, len(hh))
 	index := 0
 	for h := range hh {
 		headers[index] = h
