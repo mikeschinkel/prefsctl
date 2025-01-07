@@ -78,8 +78,7 @@ var getPrefsCmd = NewCmdFromOpts(CmdOpts{
 })
 
 func runGetPrefsFunc(ctx Context, cmd Cmd) error {
-	return macprefs.GetPrefs(ctx, macprefs.QueryArgs{
-		Printer:          cmd,
+	return macprefs.GetPrefs(ctx, cmd, macprefs.QueryArgs{
 		IncludeUnchanged: *getPrefsProps.IncludeUnchanged,
 		Domains:          getPrefsProps.ToMacPrefsDomainNames(),
 	})

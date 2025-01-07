@@ -64,14 +64,14 @@ func Test_GetDefaults(t *testing.T) {
 			ctx := context.Background()
 			GlobalFlags.Output = stdlibex.Ptr(string(tt.output))
 			GlobalFlags.Quiet = stdlibex.Ptr(true)
-			tt.args.Printer = &errutil.BufferPrinter{}
+			ptr := &errutil.BufferPrinter{}
 			MockMacOSUtil(tt.mockData)
-			err := GetDefaults(ctx, tt.args)
+			err := GetDefaults(ctx, ptr, tt.args)
 			if errutil.ErrorCheckFails(t, "GetDefaults", tt.errWanted, err) {
 				return
 			}
 			expected := tt.expectedOutput
-			received := tt.args.PrinterOutput()
+			received := ptr.String()
 			if expected != received {
 				diff := diffator.CompareStrings(expected, received, nil)
 				t.Errorf("Body <(expected/received)>:\n\t%s", diff)
