@@ -1,0 +1,12 @@
+---
+apiVersion: prefs/v1beta1
+kind: prefs
+metadata:
+  domain: com.apple.dock
+  macos: monterey
+spec:
+  preferences:
+  - name: tilesize
+    kind: int
+    value: 25
+
