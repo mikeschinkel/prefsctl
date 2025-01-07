@@ -9,8 +9,8 @@ import (
 )
 
 var (
-	ApplyPreferences   = macosutil.ApplyPreferences
-	ErrorCheckFails    = errutil.ErrorCheckFails
+	ApplyPreferences = macosutil.ApplyPreferences
+	ErrorCheckFails  = errutil.ErrorCheckFails
 	GetPreference    = macosutil.GetPreference
 )
 
@@ -60,50 +60,80 @@ func Test_GetPreference(t *testing.T) {
 	}
 }
 
+type pair [2]string
+
+func (p pair) toggle(value string) string {
+	if value == p[0] {
+		return p[1]
+	}
+	return p[0]
+}
+
 func Test_ApplyPreferences(t *testing.T) {
 	tests := []struct {
 		domain  string
 		name    string
-		value   string
+		values  pair
 		wantErr bool
 	}{
 		{
 			domain: "com.apple.dock",
-			name:   "autohide-delay",
-			value:  "0",
+			name:   "tilesize",
+			values: pair{"70", "50"},
 		},
 		{
 			domain: "com.apple.dock",
 			name:   "largesize",
-			value:  "75",
-		},
-		{
-			domain: "com.apple.dock",
-			name:   "magnification",
-			value:  "true",
+			values: pair{"75", "128"},
 		},
 		{
 			domain: "com.apple.dock",
 			name:   "minimize-to-application",
-			value:  "true",
+			values: pair{"true", "false"},
 		},
 		{
 			domain: "com.apple.dock",
-			name:   "tilesize",
-			value:  "70",
+			name:   "autohide-delay",
+			values: pair{"0", "1"},
+		},
+		{
+			domain: "com.apple.dock",
+			name:   "magnification",
+			values: pair{"true", "false"},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.domain+"_"+tt.name, func(t *testing.T) {
-			pref := []Preference{
-				{
-					Domain: tt.domain,
-					Name:   tt.name,
-					Value:  tt.value,
-				},
+			pref, err := GetPreference(tt.domain, tt.name)
+			if err != nil {
+				t.Errorf("ApplyPreferences() Initial Get error: %s", err.Error())
+				return
 			}
-			if err := ApplyPreferences(tt.domain, pref); (err != nil) != tt.wantErr {
-				t.Errorf("ApplyPreferences() error = %v, wantErr %v", err, tt.wantErr)
+			value := pref.Value
+			expected := tt.values.toggle(value)
+			pref.Value = expected
+			prefs := []*Preference{pref}
+			if err := ApplyPreferences(tt.domain, prefs); (err != nil) != tt.wantErr {
+				t.Errorf("ApplyPreferences() SET error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if tt.wantErr && err != nil {
+				return
+			}
+			pref, err = GetPreference(tt.domain, tt.name)
+			if err != nil {
+				t.Errorf("ApplyPreferences() Subsequent Get error: %s", err.Error())
+				return
+			}
+			if pref.Value != expected {
+				t.Errorf("ApplyPreferences() value error: expected after Apply(): %s, got instead: %s", expected, pref.Value)
+				return
+			}
+			prefs = []*Preference{pref}
+			pref.Value = value
+			if err := ApplyPreferences(tt.domain, prefs); (err != nil) != tt.wantErr {
+				t.Errorf("ApplyPreferences() RESET error = %v, wantErr %v", err, tt.wantErr)
+				return
 			}
 		})
 	}
