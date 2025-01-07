@@ -11,7 +11,7 @@ import (
 
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
-	"github.com/mikeschinkel/prefsctl/testutil"
+	"github.com/mikeschinkel/prefsctl/test/testutil"
 )
 
 type ContextForTests = testutil.ContextForTests

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/mikeschinkel/prefsctl/testutil"
+	"github.com/mikeschinkel/prefsctl/test/testutil"
 )
 
 const (
