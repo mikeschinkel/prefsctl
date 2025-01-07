@@ -2,7 +2,7 @@
 apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
-  domain: com.apple.Dock
+  domain: com.apple.dock
   macos: sequoia
 spec:
   preferences:
