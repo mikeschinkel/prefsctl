@@ -18,7 +18,7 @@ import (
 )
 
 // ApplyPreferences applies the given preferences to the specified domain
-func (*macOSUtils) ApplyPreferences(domain string, prefs []Preference) (err error) {
+func (*macOSUtils) ApplyPreferences(domain string, prefs []*Preference) (err error) {
 	var errs errutil.MultiErr
 	opts := ApplyOpts{
 		SkipSync: true,
