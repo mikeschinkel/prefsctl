@@ -14,7 +14,11 @@ func GetPrefs(ctx Context, ptr Printer, args QueryArgs) (err error) {
 		ptr = StandardPrinter{}
 	}
 
-	switch OutputFormat(*GlobalFlags.Output) {
+	format := *GlobalFlags.Output
+	if format == "" {
+		format = string(TXTFormat)
+	}
+	switch OutputFormat(format) {
 	case YAMLFormat:
 		err = getPrefsYAML(ctx, ptr, args)
 	case JSONFormat:

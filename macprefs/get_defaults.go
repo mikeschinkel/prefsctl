@@ -15,7 +15,11 @@ func GetDefaults(ctx Context, ptr Printer, args QueryArgs) (err error) {
 	// Defaults should include all defaults, including the unchanged ones.
 	args.IncludeUnchanged = true
 
-	switch OutputFormat(*GlobalFlags.Output) {
+	format := *GlobalFlags.Output
+	if format == "" {
+		format = string(TXTFormat)
+	}
+	switch OutputFormat(format) {
 	case YAMLFormat:
 		err = getDefaultsYAML(ctx, ptr, args)
 	case JSONFormat:

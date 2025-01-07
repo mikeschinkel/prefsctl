@@ -42,7 +42,7 @@ func init() {
 		macprefs.GlobalFlags.Output = PersistentStringFlag(RootCmd, CmdFlagArgs{
 			Name:      cobrautil.OutputFlagName,
 			Shorthand: cobrautil.OutputFlagShorthand,
-			Default:   string(macprefs.TXTFormat),
+			Default:   "",
 			Usage: fmt.Sprintf("Specify the format for output; one of: %s",
 				strings.Join(sliceconv.ToStrings(macprefs.AllFormats), ","),
 			),
