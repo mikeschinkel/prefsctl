@@ -56,6 +56,7 @@ const (
 	ServerAddress     = "server_address"
 	ServerURL         = "server_url"
 	Signal            = "os_signal"
+	SpecifiedFormat   = "specified_format"
 	Targets           = "record_targets"
 	TimeToLive        = "record_ttl"
 	ToCreate          = "to_create"
