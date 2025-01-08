@@ -32,7 +32,6 @@ func (*macOSUtils) ApplyPreferences(domain string, prefs []*Preference) (err err
 		}
 	}
 	SyncDomainPreferences(domain)
-
 	return errs.Err()
 }
 

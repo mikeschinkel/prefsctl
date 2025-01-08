@@ -12,7 +12,7 @@ type Default struct {
 	Name     PrefName
 	Value    string // raw string value for default
 	Labels   *kvfilters.Labels
-	Type     TypeName
+	Type     PreferenceType
 	Verified Verified
 	Domain   *Domain
 }

@@ -66,8 +66,8 @@ func Test_GetDefaults(t *testing.T) {
 			GlobalFlags.Quiet = stdlibex.Ptr(true)
 			ptr := &errutil.BufferPrinter{}
 			MockMacOSUtil(tt.mockData)
-			err := GetDefaults(ctx, ptr, tt.args)
-			if errutil.ErrorCheckFails(t, "GetDefaults", tt.errWanted, err) {
+			result := GetDefaults(ctx, ptr, tt.args)
+			if errutil.ErrorCheckFails(t, "GetDefaults", tt.errWanted, result.Err) {
 				return
 			}
 			expected := tt.expectedOutput

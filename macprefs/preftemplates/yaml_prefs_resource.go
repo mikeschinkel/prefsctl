@@ -2,8 +2,11 @@ package preftemplates
 
 import (
 	_ "embed"
+	"errors"
 	"fmt"
+	"os"
 
+	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"gopkg.in/yaml.v3"
 )
@@ -12,7 +15,7 @@ type YAMLPrefsResource struct {
 	APIVersion APIVersion   `yaml:"apiVersion"`
 	KindName   KindName     `yaml:"kind"`
 	MetaData   YAMLMetadata `yaml:"metadata"`
-	Spec       YAMLSpec     `yaml:"spec"`
+	Spec       YAMLPrefSpec `yaml:"spec"`
 }
 
 type Identifier string
@@ -20,6 +23,29 @@ type Identifier string
 func (r *YAMLPrefsResource) Id() Identifier {
 	// TODO: What would Kubernetes do to format this?
 	return Identifier(fmt.Sprintf("%s:%s", r.KindName, r.MetaData.Domain))
+}
+
+func LoadYAMLPrefsResource(filename string) (pr YAMLPrefsResource, err error) {
+	var in []byte
+	in, err = os.ReadFile(filename)
+	if err != nil {
+		err = errors.Join(ErrFailedToLoadYAMLFile,
+			fmt.Errorf("%s=%s", logargs.Filename, filename), err,
+		)
+		goto end
+	}
+	err = yaml.Unmarshal(in, &pr)
+	if err != nil {
+		err = errors.Join(ErrFailedToUnmarshalYAMLFile,
+			fmt.Errorf("%s=%s", logargs.Filename, filename), err,
+		)
+		goto end
+	}
+	for i := range pr.Spec.Prefs {
+		pr.Spec.Prefs[i].MetaData = &pr.MetaData
+	}
+end:
+	return pr, err
 }
 
 func (r *YAMLPrefsResource) YAML() string {
@@ -35,13 +61,21 @@ type YAMLMetadata struct {
 	OSVersion OSVersion  `yaml:"macos"`
 }
 
-type YAMLSpec struct {
+type YAMLPrefSpec struct {
 	Prefs []YAMLPref `yaml:"preferences"`
 }
-
 type YAMLPref struct {
-	Name  PrefName `yaml:"name"`
-	Value string   `yaml:"value"`
+	MetaData *YAMLMetadata `yaml:"-"`
+	Name     PrefName      `yaml:"name"`
+	Value    string        `yaml:"value"`
+}
+
+func (yp *YAMLPref) MacOSUtilPreference() (pref *macosutil.Preference) {
+	return &macosutil.Preference{
+		Domain: string(yp.MetaData.Domain),
+		Name:   string(yp.Name),
+		Value:  yp.Value,
+	}
 }
 
 func NewYAMLPrefsResources(domains []*Domain) []YAMLPrefsResource {
@@ -71,7 +105,7 @@ func NewYAMLPrefsResource(domain *Domain) YAMLPrefsResource {
 			Domain:    domain.Name,
 			OSVersion: osVersion,
 		},
-		Spec: YAMLSpec{
+		Spec: YAMLPrefSpec{
 			Prefs: prefs,
 		},
 	}

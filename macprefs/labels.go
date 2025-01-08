@@ -2,6 +2,7 @@ package macprefs
 
 import (
 	"github.com/mikeschinkel/prefsctl/kvfilters"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 )
 
 type (
@@ -52,19 +53,29 @@ var (
 
 //goland:noinspection GoStructInitializationWithoutFieldNames
 var (
-	UnknownType = kvfilters.NewUnknownLabel(Type, "unknownType")
-	StringType  = NewLabel(Type, "stringType")
-	NumberType  = NewLabel(Type, "numberType")
-	IntType     = NewLabel(Type, "intType")
-	FloatType   = NewLabel(Type, "floatType")
-	BoolType    = NewLabel(Type, "boolType")
+	UnknownType = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.UnknownType))
+	StringType  = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.StringType))
+	NumberType  = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.NumberType))
+	IntType     = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.IntType))
+	FloatType   = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.FloatType))
+	BoolType    = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.BoolType))
 
-	IntBoolType = NewLabel(Type, "intBoolType")
+	IntBoolType = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.IntBoolType))
 
-	LanguageType = NewLabel(Type, "languageType")
-	LocaleType   = NewLabel(Type, "localeType")
-	YesNoType    = NewLabel(Type, "yesNoType")
+	LanguageType = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.LanguageType))
+	LocaleType   = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.LocaleType))
 )
+var TypeLabelMap = map[macosutil.PreferenceType]*kvfilters.Label{
+	macosutil.UnknownType:  &UnknownType,
+	macosutil.StringType:   &StringType,
+	macosutil.NumberType:   &NumberType,
+	macosutil.IntType:      &IntType,
+	macosutil.FloatType:    &FloatType,
+	macosutil.BoolType:     &BoolType,
+	macosutil.IntBoolType:  &IntBoolType,
+	macosutil.LanguageType: &LanguageType,
+	macosutil.LocaleType:   &LocaleType,
+}
 
 func GoVarName(value kvfilters.LabelValue) LabelName {
 	name, ok := goVarMap[value]

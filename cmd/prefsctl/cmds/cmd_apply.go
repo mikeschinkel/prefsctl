@@ -40,12 +40,11 @@ var applyCmd = NewCmdFromOpts(CmdOpts{
 			},
 		},
 	},
-	RunFunc:    runApplyFunc,
-	SuccessMsg: "Successfully applied manifest:\n\n%s",
+	RunFunc: runApplyFunc,
 })
 
-func runApplyFunc(ctx Context, cmd Cmd) error {
+func runApplyFunc(ctx Context, cmd Cmd) cobrautil.CmdResult {
 	return macprefs.Apply(ctx, cmd, macprefs.ApplyArgs{
 		Filename: macprefs.Filename(*cmd.Props().(*ApplyProps).filename),
-	})
+	}).CobraUtilResult(cmd)
 }

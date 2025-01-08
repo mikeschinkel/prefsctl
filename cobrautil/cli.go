@@ -35,7 +35,7 @@ func NewCLI() *CLI {
 func (cli *CLI) Execute(ctx Context, args []string) (result CmdResult, err error) {
 	rootCmd.SetArgs(args)
 	err = rootCmd.Command().Execute()
-	result = NewCmdResult(
+	result = NewErrorResult(
 		NewCmd(cli, calledCmd),
 		err,
 	)

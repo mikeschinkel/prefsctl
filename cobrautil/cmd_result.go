@@ -4,24 +4,26 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var NoResult = NewCmdResult(nil, nil)
+var NoResult = CmdResult{}
 
 type CmdResult struct {
-	cmd Cmd
-	err error
+	cmd     Cmd
+	Success string
+	err     error
 }
 
-func NewErrResult(err error) CmdResult {
+func NewCmdResult(cmd Cmd, success string, err error) CmdResult {
 	return CmdResult{
-		err: err,
+		cmd:     cmd,
+		Success: success,
+		err:     err,
 	}
 }
-
-func NewCmdResult(cmd Cmd, err error) CmdResult {
-	return CmdResult{
-		cmd: cmd,
-		err: err,
-	}
+func NewSuccessResult(cmd Cmd, success string) CmdResult {
+	return NewCmdResult(cmd, success, nil)
+}
+func NewErrorResult(cmd Cmd, err error) CmdResult {
+	return NewCmdResult(cmd, "", err)
 }
 
 func (n CmdResult) IsErr() bool {

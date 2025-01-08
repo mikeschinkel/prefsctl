@@ -79,7 +79,7 @@ var (
 	DescrNotVerified = &macprefs.DescrNotVerified
 )
 
-type DomainDefaults = map[string]DomainPrefs
+type DomainDefaults = map[string]Domain
 
 func init() {
 	register(SequoiaLabel, func() macprefs.DomainPrefDefaults {
@@ -102,14 +102,18 @@ var file *os.File
 // `kvfilters.KeyValue` interface.
 func convertDomainDefaultsToMacprefsDomainPrefDefaults(defaults DomainDefaults) (dpd macprefs.DomainPrefDefaults) {
 	dpd = make(macprefs.DomainPrefDefaults, len(defaults))
-	for domain, defs := range maputil.SortedKeysIterator(defaults) {
-		pp := make(macprefs.PrefDefaultsMap, len(defs))
-		for name, def := range maputil.SortedKeysIterator(defs) {
+	for domain, dd := range maputil.SortedKeysIterator(defaults) {
+		pd := macprefs.PrefDefaults{
+			Domain:         macprefs.DomainName(domain),
+			AfterApplyFunc: dd.AfterApplyFunc,
+			DefaultsMap:    make(macprefs.PrefDefaultsMap, len(dd.Prefs)),
+		}
+		for name, def := range maputil.SortedKeysIterator(dd.Prefs) {
 			def.Domain = domain
 			def.Name = name
-			pp[macprefs.PrefName(name)] = getPrefDefaultFromDomainPref(def)
+			pd.DefaultsMap[macprefs.PrefName(name)] = getPrefDefaultFromDomainPref(def)
 		}
-		dpd[macprefs.DomainName(domain)] = pp
+		dpd[macprefs.DomainName(domain)] = pd
 	}
 	return dpd
 }
@@ -123,7 +127,7 @@ func fixCase(s string) string {
 // is set — e.g. `.Default==""` — then `PrefDefault.DefaultValue` will be set by
 // the current value from macOS and `.Verified` will be set to `false`. Also Kind
 func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
-	var typeLabel *kvfilters.Label
+	var prefType PreferenceType
 
 	dn := macprefs.DomainName(def.Domain)
 	pn := macprefs.PrefName(def.Name)
@@ -140,9 +144,13 @@ func getPrefDefaultFromDomainPref(def DomainPref) (pd *macprefs.PrefDefault) {
 			pd.Kind = p.Kind
 		}
 	}
-	pd.Kind, typeLabel = GetPrefKindAndTypeLabel(pd.Kind, def.TypeName(), pd.DefaultValue)
+	pd.Kind, prefType = macosutil.GetPrefKindAndType(
+		pd.Kind,
+		macosutil.PreferenceType(def.TypeName()),
+		pd.DefaultValue,
+	)
 
-	def.Labels.SetLabel(typeLabel)
+	def.Labels.SetLabel(GetTypeLabel(TypeName(prefType)))
 
 	pdLabels := pd.Labels()
 	sets := pdLabels.GetNamedLabel(macprefs.Sets)

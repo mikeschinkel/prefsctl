@@ -1,6 +1,8 @@
 package macprefs
 
 import (
+	"errors"
+
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 )
@@ -9,7 +11,7 @@ type (
 	OSVersion = preftemplates.OSVersion
 )
 
-func GetPrefs(ctx Context, ptr Printer, args QueryArgs) (err error) {
+func GetPrefs(ctx Context, ptr Printer, args QueryArgs) (result Result) {
 	if ptr == nil {
 		ptr = StandardPrinter{}
 	}
@@ -20,17 +22,17 @@ func GetPrefs(ctx Context, ptr Printer, args QueryArgs) (err error) {
 	}
 	switch OutputFormat(format) {
 	case YAMLFormat:
-		err = getPrefsYAML(ctx, ptr, args)
+		result = getPrefsYAML(ctx, ptr, args)
 	case JSONFormat:
-		err = getPrefsJSON(ctx, ptr, args)
+		result = getPrefsJSON(ctx, ptr, args)
 	case GoFormat:
-		err = getPrefsGo(ctx, ptr, args)
+		result = getPrefsGo(ctx, ptr, args)
 	case TXTFormat:
 		fallthrough
 	default:
-		err = getPrefsText(ctx, ptr, args)
+		result = getPrefsText(ctx, ptr, args)
 	}
-	return err
+	return result
 }
 
 func newDomains(domains []*PrefsDomain) []*preftemplates.Domain {
@@ -53,7 +55,7 @@ func newDomains(domains []*PrefsDomain) []*preftemplates.Domain {
 	return dd
 }
 
-func getPrefsYAML(ctx Context, ptr Printer, args QueryArgs) (err error) {
+func getPrefsYAML(ctx Context, ptr Printer, args QueryArgs) (result Result) {
 	var osVersion OSVersion
 	var resources []preftemplates.YAMLPrefsResource
 
@@ -71,20 +73,23 @@ func getPrefsYAML(ctx Context, ptr Printer, args QueryArgs) (err error) {
 		ptr.Println(resource.YAML())
 	}
 end:
-	return err
+	return Result{Err: err}
 }
 
-func getPrefsJSON(ctx Context, ptr Printer, args QueryArgs) (err error) {
-	ptr.Print("JSON output not implemented")
-	return err
+func getPrefsJSON(ctx Context, ptr Printer, args QueryArgs) (result Result) {
+	return Result{
+		Err: errors.New("get prefs --output=json not (yet?) implemented"),
+	}
 }
 
-func getPrefsText(ctx Context, ptr Printer, args QueryArgs) (err error) {
-	ptr.Print("TXT output not implemented")
-	return err
+func getPrefsText(ctx Context, ptr Printer, args QueryArgs) (result Result) {
+	return Result{
+		Err: errors.New("get prefs --output=txt not (yet?) implemented"),
+	}
 }
 
-func getPrefsGo(ctx Context, ptr Printer, args QueryArgs) (err error) {
-	ptr.Print("Go output not implemented")
-	return err
+func getPrefsGo(ctx Context, ptr Printer, args QueryArgs) (result Result) {
+	return Result{
+		Err: errors.New("get prefs --output=go not (yet?) implemented"),
+	}
 }

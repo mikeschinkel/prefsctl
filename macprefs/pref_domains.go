@@ -67,7 +67,6 @@ func NewPrefDomains(domains []*PrefsDomain) *PrefDomains {
 }
 
 func (dd *PrefDomains) Initialize() (err error) {
-	var osCode Code
 	var dmf DefaultsMapFunc
 	var errs errutil.MultiErr
 
@@ -75,18 +74,13 @@ func (dd *PrefDomains) Initialize() (err error) {
 		goto end
 	}
 
-	osCode, err = macosutil.VersionCode()
-	if err != nil {
-		errs.Add(err)
-		goto end
-	}
-	dmf, err = GetDefaultsMapFunc(osCode)
+	dmf, err = GetDefaultsMapFunc()
 	if err != nil {
 		errs.Add(err)
 		goto end
 	}
 	for _, dvs := range dmf() {
-		for _, dv := range dvs {
+		for _, dv := range dvs.DefaultsMap {
 			SetPrefDefault(dv)
 		}
 	}
@@ -115,7 +109,7 @@ end:
 //		}
 //		pd.Verified = false
 //	}
-//	pd.Kind, typeLabel = GetPrefKindAndTypeLabel(pd.Kind, TypeName(def.Type), pd.DefaultValue)
+//	pd.Kind, typeLabel = GetPrefKindAndType(pd.Kind, TypeName(def.Type), pd.DefaultValue)
 //
 //	//_, _ = fmt.Fprintf(file, "{\n")
 //	//_, _ = fmt.Fprintf(file, "\t"+"id:        \"%s/%s\",\n", pd.Domain, pd.Name)
@@ -224,9 +218,9 @@ func (dd *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
 	return groups
 }
 
-// RetrievePrefDomains retrieves the list of macOS preference domains available
+// GetPrefDomains retrieves the list of macOS preference domains available
 // currently on the system via macOS.
-func RetrievePrefDomains(args QueryArgs) (pds *PrefDomains, err error) {
+func GetPrefDomains(args QueryArgs) (pds *PrefDomains, err error) {
 	domains, err := macosutil.GetPreferenceDomains(macosutil.RetrievalArgs{
 		Domains: args.ToMacOSUtilPreferenceDomains(),
 	})
@@ -279,7 +273,7 @@ func (dd *PrefDomains) TemplateDomains(args TemplateDomainsArgs) (domains []*pre
 			defaults[j] = &preftemplates.Default{
 				Domain: d,
 				Name:   preftemplates.PrefName(pref.Name),
-				Type:   pref.TypeName(),
+				Type:   preftemplates.PreferenceType(pref.typeName),
 				Value:  value,
 				Labels: pref.Labels(),
 			}
@@ -301,7 +295,7 @@ func QueryPrefDomains(ctx Context, args QueryArgs) (domains *PrefDomains, err er
 		})
 	}
 
-	domains, err = RetrievePrefDomains(args)
+	domains, err = GetPrefDomains(args)
 	if err != nil {
 		goto end
 	}

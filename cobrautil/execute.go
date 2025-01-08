@@ -33,7 +33,7 @@ func Execute(rootCmd Cmd, args ExecuteArgs) (result CmdResult, err error) {
 		cfg = NewConfig(ConfigArgs{Options: args.ConfigOptions})
 		err = cfg.Initialize(ctx)
 		if err != nil {
-			result = NewErrResult(err)
+			result = NewErrorResult(nil, err)
 			goto end
 		}
 	}
@@ -42,7 +42,7 @@ func Execute(rootCmd Cmd, args ExecuteArgs) (result CmdResult, err error) {
 	}
 	err = cli.Initialize(ctx, cfg, args.CLIArgs)
 	if err != nil {
-		result = NewErrResult(err)
+		result = NewErrorResult(nil, err)
 		goto end
 	}
 	result, err = cli.Execute(ctx, cli.Args)

@@ -1,13 +1,14 @@
 package macprefs
 
 import (
+	"errors"
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 )
 
-func GetDefaults(ctx Context, ptr Printer, args QueryArgs) (err error) {
+func GetDefaults(ctx Context, ptr Printer, args QueryArgs) (result Result) {
 	if ptr == nil {
 		ptr = StandardPrinter{}
 	}
@@ -21,20 +22,20 @@ func GetDefaults(ctx Context, ptr Printer, args QueryArgs) (err error) {
 	}
 	switch OutputFormat(format) {
 	case YAMLFormat:
-		err = getDefaultsYAML(ctx, ptr, args)
+		result = getDefaultsYAML(ctx, ptr, args)
 	case JSONFormat:
-		err = GetDefaultsJSON(ctx, ptr, args)
+		result = GetDefaultsJSON(ctx, ptr, args)
 	case GoFormat:
-		err = getDefaultsGo(ctx, ptr, args)
+		result = getDefaultsGo(ctx, ptr, args)
 	case TXTFormat:
 		fallthrough
 	default:
-		err = getDefaultsText(ctx, ptr, args)
+		result = getDefaultsText(ctx, ptr, args)
 	}
-	return err
+	return result
 }
 
-func getDefaultsGo(ctx Context, ptr Printer, args QueryArgs) (err error) {
+func getDefaultsGo(ctx Context, ptr Printer, args QueryArgs) Result {
 	var tmpl *preftemplates.DefaultsGoTemplate
 	var output string
 
@@ -58,10 +59,13 @@ func getDefaultsGo(ctx Context, ptr Printer, args QueryArgs) (err error) {
 	}
 	ptr.Print(output)
 end:
-	return err
+	return Result{
+		Success: "",
+		Err:     err,
+	}
 }
 
-func getDefaultsText(ctx Context, ptr Printer, args QueryArgs) (err error) {
+func getDefaultsText(ctx Context, ptr Printer, args QueryArgs) Result {
 	domains, err := QueryPrefDomains(ctx, args)
 	if err != nil {
 		goto end
@@ -72,14 +76,19 @@ func getDefaultsText(ctx Context, ptr Printer, args QueryArgs) (err error) {
 		ptr.Printf("— %s\n", ut)
 	}
 end:
-	return err
+	return Result{
+		Success: "",
+		Err:     err,
+	}
 }
 
-func getDefaultsYAML(ctx Context, ptr Printer, args QueryArgs) (err error) {
-	ptr.Print("YAML output not implemented")
-	return err
+func getDefaultsYAML(ctx Context, ptr Printer, args QueryArgs) Result {
+	return Result{
+		Err: errors.New("YAML output not implemented"),
+	}
 }
-func GetDefaultsJSON(ctx Context, ptr Printer, args QueryArgs) (err error) {
-	ptr.Print("JSON output not implemented")
-	return err
+func GetDefaultsJSON(ctx Context, ptr Printer, args QueryArgs) Result {
+	return Result{
+		Err: errors.New("JSON output not implemented"),
+	}
 }

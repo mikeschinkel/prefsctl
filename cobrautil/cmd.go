@@ -43,9 +43,10 @@ type Cmd interface {
 	Flags() *flag.FlagSet
 	SetProps(Props)
 	SetArgs([]string)
-	Execute(Context) error
+	Execute(Context) CmdResult
 	Command() *cobra.Command
 	AddCmd(Cmd)
+	Result() CmdResult
 	Printer
 }
 
@@ -60,6 +61,15 @@ type cmd struct {
 	props   Props
 	SubCmds map[string]Cmd
 	RunFunc RunFunc
+	result  CmdResult
+}
+
+func (c *cmd) Result() CmdResult {
+	return c.result
+}
+
+func (c *cmd) SetResult(result string) {
+	c.result = NewSuccessResult(c, result)
 }
 
 func (c *cmd) Command() *cobra.Command {
@@ -73,7 +83,7 @@ func (c *cmd) Command() *cobra.Command {
 func (c *cmd) Props() Props {
 	return c.props
 }
-func (c *cmd) Execute(ctx Context) error {
+func (c *cmd) Execute(ctx Context) CmdResult {
 	return c.RunFunc(ctx, c)
 }
 func (c *cmd) SetProps(props Props) {
@@ -129,15 +139,14 @@ func (c *cmd) AddCmd(cmd Cmd) {
 	}
 }
 
-type RunFunc = func(Context, Cmd) error
+type RunFunc = func(Context, Cmd) CmdResult
 
 type CmdOpts struct {
-	Parent     Cmd
-	Command    *cobra.Command
-	Flags      []*CmdFlag
-	Props      Props
-	RunFunc    RunFunc
-	SuccessMsg string
+	Parent  Cmd
+	Command *cobra.Command
+	Flags   []*CmdFlag
+	Props   Props
+	RunFunc RunFunc
 }
 
 func NewCmdFromOpts(opts CmdOpts) Cmd {
@@ -151,15 +160,15 @@ func NewCmdFromOpts(opts CmdOpts) Cmd {
 		newCmd.props = opts.Props
 		newCmd.RunFunc = opts.RunFunc
 		if newCmd.RunFunc == nil {
-			newCmd.RunFunc = func(ctx Context, cmd Cmd) (err error) {
+			newCmd.RunFunc = func(ctx Context, cmd Cmd) (result CmdResult) {
 				calledCmd := CalledCmd(cmd, cli.Args)
 				if cmd != calledCmd {
-					err = calledCmd.Execute(ctx)
+					result = calledCmd.Execute(ctx)
 					goto end
 				}
 				println("TODO: Call Command Help Here")
 			end:
-				return err
+				return result
 			}
 		}
 		for _, f := range opts.Flags {
@@ -212,6 +221,7 @@ func NewCmdFromOpts(opts CmdOpts) Cmd {
 			}
 		}
 		newCmd.Command().RunE = func(cc *cobra.Command, args []string) (err error) {
+			var result CmdResult
 			var props Props
 			cfg := cli.Config
 			subCmd := CalledCmd(newCmd, args)
@@ -223,14 +233,14 @@ func NewCmdFromOpts(opts CmdOpts) Cmd {
 				goto end
 			}
 			subCmd.SetProps(props)
-			err = subCmd.Execute(context.Background())
+			result = subCmd.Execute(context.Background())
 			if err != nil {
 				goto end
 			}
 		end:
-			if err == nil && len(opts.SuccessMsg) != 0 {
+			if !result.IsErr() {
 				//goland:noinspection GoDfaNilDereference
-				cc.Printf(opts.SuccessMsg)
+				cc.Printf("\n%s\n", result.Success)
 				//cc.Printf(opts.SuccessMsg+"\n",
 				//	stdlibex.IndentLines(2, result.String()),
 				//)

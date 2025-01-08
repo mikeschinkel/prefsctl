@@ -73,6 +73,7 @@ const (
 	OSName            = "os_name"
 )
 const (
+	Filename           = "filename"
 	GroupName          = "group_name"
 	Key                = "key"
 	Value              = "value"

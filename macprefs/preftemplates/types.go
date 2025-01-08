@@ -1,10 +1,10 @@
 package preftemplates
 
 import (
-	"github.com/mikeschinkel/prefsctl/types"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 )
 
-type TypeName = types.TypeName
+type PreferenceType = macosutil.PreferenceType
 
 type (
 	OSVersion    string

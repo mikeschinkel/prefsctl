@@ -4,6 +4,10 @@ import (
 	"errors"
 )
 
+const (
+	ProcessNameLogArg = "process_name"
+)
+
 var (
 	ErrFailedParsingMajorVersion      = errors.New("failed parsing major version")
 	ErrFailedToGetMacOSVersion        = errors.New("failed to get macOS version")
@@ -20,4 +24,5 @@ var (
 
 	ErrFailedToCreateCFString = errors.New("failed to create CFString")
 	ErrFailedToGetPrefDomains = errors.New("failed to get preference domains")
+	ErrFailedToKillProcess    = errors.New("failed to kill process")
 )
