@@ -5,8 +5,12 @@ metadata:
   domain: com.apple.dock
   macos: monterey
 spec:
+  # noinspection YAMLIncompatibleTypes
   preferences:
+  - name: size-immutable
+    kind: bool
+    value: false
   - name: tilesize
     kind: int
-    value: 25
+    value: 65
 
