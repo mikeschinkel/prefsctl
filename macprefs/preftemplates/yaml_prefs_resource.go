@@ -2,12 +2,12 @@ package preftemplates
 
 import (
 	_ "embed"
-	"errors"
 	"fmt"
+	"io"
 	"os"
 
-	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
+	"github.com/mikeschinkel/prefsctl/stdlibex"
 	"gopkg.in/yaml.v3"
 )
 
@@ -25,27 +25,34 @@ func (r *YAMLPrefsResource) Id() Identifier {
 	return Identifier(fmt.Sprintf("%s:%s", r.KindName, r.MetaData.Domain))
 }
 
-func LoadYAMLPrefsResource(filename string) (pr YAMLPrefsResource, err error) {
-	var in []byte
-	in, err = os.ReadFile(filename)
+func LoadYAMLPrefsResources(filename string) (resources []YAMLPrefsResource, err error) {
+	var decoder *yaml.Decoder
+
+	file, err := os.Open(filename)
 	if err != nil {
-		err = errors.Join(ErrFailedToLoadYAMLFile,
-			fmt.Errorf("%s=%s", logargs.Filename, filename), err,
-		)
 		goto end
 	}
-	err = yaml.Unmarshal(in, &pr)
-	if err != nil {
-		err = errors.Join(ErrFailedToUnmarshalYAMLFile,
-			fmt.Errorf("%s=%s", logargs.Filename, filename), err,
-		)
-		goto end
-	}
-	for i := range pr.Spec.Prefs {
-		pr.Spec.Prefs[i].MetaData = &pr.MetaData
+	defer stdlibex.MustClose(file)
+
+	resources = make([]YAMLPrefsResource, 0, 1)
+	decoder = yaml.NewDecoder(file)
+	for {
+		var resource YAMLPrefsResource
+		err = decoder.Decode(&resource)
+		if err == io.EOF {
+			err = nil
+			goto end
+		}
+		if err != nil {
+			goto end
+		}
+		for i := range resource.Spec.Prefs {
+			resource.Spec.Prefs[i].MetaData = &resource.MetaData
+		}
+		resources = append(resources, resource)
 	}
 end:
-	return pr, err
+	return resources, err
 }
 
 func (r *YAMLPrefsResource) YAML() string {

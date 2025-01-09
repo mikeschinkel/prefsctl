@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
@@ -53,24 +54,22 @@ func Apply(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
 	return result
 }
 
-func applyYAML(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
-	var domain string
-	var prefs []*macosutil.Preference
+func applyYAMLItem(ctx Context, resource preftemplates.YAMLPrefsResource, args ApplyArgs) (result Result) {
 	var success strings.Builder
-	var specPrefs []preftemplates.YAMLPref
 	var aaf func() error
-	//var afterFunc func() error
+	var err error
 
-	result = Result{}
-
-	resource, err := preftemplates.LoadYAMLPrefsResource(string(args.Filename))
-	if err != nil {
-		result.Err = err
-		goto end
+	preparePref := func(yamlPref preftemplates.YAMLPref) (pref *macosutil.Preference) {
+		pref = yamlPref.MacOSUtilPreference()
+		success.WriteString("\t— ")
+		success.WriteString(renderPreference(pref))
+		success.WriteByte('\n')
+		return pref
 	}
-	specPrefs = resource.Spec.Prefs
-	prefs = make([]*macosutil.Preference, len(specPrefs))
-	domain = string(resource.MetaData.Domain)
+
+	specPrefs := resource.Spec.Prefs
+	prefs := make([]*macosutil.Preference, len(specPrefs))
+	domain := string(resource.MetaData.Domain)
 	switch len(prefs) {
 	case 0:
 		result.Err = errors.Join(
@@ -80,16 +79,13 @@ func applyYAML(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
 		)
 		goto end
 	case 1:
-		prefs = []*macosutil.Preference{
-			specPrefs[0].MacOSUtilPreference(),
-		}
+		success.WriteString(fmt.Sprintf("\tDomain '%s':\n", domain))
+		prefs = []*macosutil.Preference{preparePref(specPrefs[0])}
+		result.Success = success.String()
 	default:
-		success.WriteString(fmt.Sprintf("Prefs applied.\n\tDomain '%s':\n", domain))
+		success.WriteString(fmt.Sprintf("\tDomain '%s':\n", domain))
 		for i, pref := range specPrefs {
-			prefs[i] = pref.MacOSUtilPreference()
-			success.WriteString("\t— ")
-			success.WriteString(renderPreference(prefs[i]))
-			success.WriteByte('\n')
+			prefs[i] = preparePref(pref)
 		}
 		result.Success = success.String()
 	}
@@ -104,11 +100,39 @@ func applyYAML(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
 	}
 	err = aaf()
 	if err != nil {
+		result = Result{Err: err}
 		goto end
 	}
 end:
 	return result
 }
+
+func applyYAML(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
+	var errs errutil.MultiErr
+
+	successes := []string{fmt.Sprintf("Prefs applied.\n")}
+
+	resources, err := preftemplates.LoadYAMLPrefsResources(string(args.Filename))
+	if err != nil {
+		errs.Add(err)
+		goto end
+	}
+	for _, resource := range resources {
+		itemResult := applyYAMLItem(ctx, resource, args)
+		if itemResult.Err != nil {
+			errs.Add(itemResult.Err)
+			continue
+		}
+		successes = append(successes, itemResult.Success)
+	}
+end:
+	if len(successes) != 0 {
+		result.Success = strings.Join(successes, "")
+	}
+	result.Err = errs.Err()
+	return result
+}
+
 func ApplyJSON(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
 	return Result{
 		Err: errors.New("apply JSON output not implemented"),

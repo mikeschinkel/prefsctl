@@ -10,6 +10,16 @@ spec:
   - name: size-immutable
     kind: bool
     value: false
+
+---
+apiVersion: prefs/v1beta1
+kind: prefs
+metadata:
+  domain: com.apple.dock
+  macos: monterey
+spec:
+  # noinspection YAMLIncompatibleTypes
+  preferences:
   - name: tilesize
     kind: int
     value: 65
