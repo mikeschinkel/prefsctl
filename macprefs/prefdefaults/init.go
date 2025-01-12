@@ -88,14 +88,14 @@ func convertDomainDefaultsToMacprefsDomainPrefDefaults(defaults DomainDefaults) 
 	dpd = make(macprefs.DomainPrefDefaults, len(defaults))
 	for domain, dd := range maputil.SortedKeysIterator(defaults) {
 		pd := macprefs.PrefDefaults{
-			Domain:         macprefs.DomainName(domain),
+			Domain:         macprefs.DomainName(dd.Domain),
 			AfterApplyFunc: dd.AfterApplyFunc,
 			DefaultsMap:    make(macprefs.PrefDefaultsMap, len(dd.Prefs)),
 		}
-		for name, def := range maputil.SortedKeysIterator(dd.Prefs) {
-			def.Domain = domain
-			def.Name = name
-			pd.DefaultsMap[macprefs.PrefName(name)] = getPrefDefaultFromDomainPref(def)
+		for _, def := range dd.Prefs {
+			def.Domain = string(dd.Domain)
+			name := macprefs.PrefName(def.Name)
+			pd.DefaultsMap[name] = getPrefDefaultFromDomainPref(def)
 		}
 		dpd[macprefs.DomainName(domain)] = pd
 	}
