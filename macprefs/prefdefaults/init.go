@@ -37,15 +37,9 @@ var NewLabels = kvfilters.NewLabels
 
 var FinalizedLabels = NewLabels(
 	DefaultsSet,
-	TypeVerified,
-	ClassVerified,
-	SetsVerified,
-	DefaultVerified,
-	DescrVerified,
 )
 var FinalizedUserManaged = FinalizedLabels.SetLabel(UserManaged)
 var FinalizedRuntimeState = FinalizedLabels.SetLabel(RuntimeState)
-var FinalizedUserManagedWithOptions = FinalizedUserManaged.SetLabel(OptionsVerified)
 
 var (
 	InvalidLabel = macprefs.InvalidLabel
@@ -67,16 +61,6 @@ var (
 	IntBoolType      = &macprefs.IntBoolType
 	IntType          = &macprefs.IntType
 	FloatType        = &macprefs.FloatType
-
-	TypeVerified    = &macprefs.TypeVerified
-	DefaultVerified = &macprefs.DefaultVerified
-	DescrVerified   = &macprefs.DescrVerified
-	SetsVerified    = &macprefs.SetsVerified
-	ClassVerified   = &macprefs.ClassVerified
-	OptionsVerified = &macprefs.OptionsVerified
-
-	TypeNotVerified  = &macprefs.TypeNotVerified
-	DescrNotVerified = &macprefs.DescrNotVerified
 )
 
 type DomainDefaults = map[string]Domain
