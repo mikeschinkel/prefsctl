@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
+	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 )
 
@@ -50,6 +51,7 @@ func GetDefaultsMapFuncForOS(os Code) (f DefaultsMapFunc, err error) {
 	f, ok = defaultsMapFuncs[os]
 	if !ok {
 		err = errors.Join(ErrUnsupportedMacOSVersion,
+			fmt.Errorf("%s=%s", logargs.OSName, os),
 			fmt.Errorf(`(Did you forget import "%s" in main.go?)`, prefDefaultsGoImport),
 		)
 	}
