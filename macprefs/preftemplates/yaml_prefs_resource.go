@@ -74,7 +74,8 @@ type YAMLPrefSpec struct {
 type YAMLPref struct {
 	MetaData *YAMLMetadata `yaml:"-"`
 	Name     PrefName      `yaml:"name"`
-	Value    string        `yaml:"value"`
+	Value    string        `yaml:"value,omitempty"`
+	Default  string        `yaml:"default,omitempty"`
 }
 
 func (yp *YAMLPref) MacOSUtilPreference() (pref *macosutil.Preference) {

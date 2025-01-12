@@ -9,23 +9,26 @@ import (
 
 type ErrorFunc func() error
 type PrefsMap map[string]DomainPref
+
 type Domain struct {
-	AfterApplyFunc ErrorFunc
-	Prefs          PrefsMap
+	Domain         macosutil.DomainName `yaml:"Domain"`
+	AfterApplyFunc ErrorFunc            `yaml:"-"`
+	Prefs          []DomainPref         `yaml:"Prefs"`
 }
 
 type DomainPref struct {
-	Domain    string
-	Name      string
-	Type      string
-	Descr     string
-	Requires  []string
-	Options   []string
-	Default   string   // raw string value for default
-	Range     []string // raw string value for default
-	Labels    *kvfilters.Labels
-	kind      reflect.Kind
-	typeLabel *kvfilters.Label
+	Domain    string            `yaml:"-"`
+	Name      string            `yaml:"Name"`
+	Type      string            `yaml:"Type"`
+	Descr     string            `yaml:"-"`
+	Requires  []string          `yaml:"-"`
+	Options   []string          `yaml:"-"`
+	Default   string            `yaml:"Default"` // raw string value for default
+	Range     []string          `yaml:"-"`
+	Labels    *kvfilters.Labels `yaml:"-"`
+	kind      reflect.Kind      `yaml:"-"`
+	typeLabel *kvfilters.Label  `yaml:"-"`
+	Class     *kvfilters.Label  `yaml:"-"`
 }
 
 func (dp DomainPref) Kind() reflect.Kind {

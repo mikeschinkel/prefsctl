@@ -1,0 +1,1079 @@
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.Accessibility
+  macos: monterey
+spec:
+  preferences:
+  - name: ApplicationAccessibilityEnabled
+    default: "0"
+  - name: AutomationEnabled
+    default: "0"
+  - name: AXSClassicInvertColorsPreference
+    default: "0"
+  - name: BrailleInputDeviceConnected
+    default: "0"
+  - name: CommandAndControlEnabled
+    default: "0"
+  - name: DarkenSystemColors
+    default: "0"
+  - name: DifferentiateWithoutColor
+    default: "0"
+  - name: EnhancedBackgroundContrastEnabled
+    default: "0"
+  - name: FullKeyboardAccessEnabled
+    default: "0"
+  - name: FullKeyboardAccessFocusRingEnabled
+    default: "1"
+  - name: GenericAccessibilityClientEnabled
+    default: "0"
+  - name: InvertColorsEnabled
+    default: "0"
+  - name: KeyRepeatDelay
+    default: "0.5"
+  - name: KeyRepeatEnabled
+    default: "1"
+  - name: ReduceMotionEnabled
+    default: "0"
+  - name: SpeakThisEnabled
+    default: "0"
+  - name: VoiceOverTouchEnabled
+    default: "0"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.ActivityMonitor
+  macos: monterey
+spec:
+  preferences:
+  - name: OpenMainWindow
+    default: "true"
+  - name: SelectedTab
+    default: "0"
+  - name: ShowCategory
+    default: "102"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.AddressBook
+  macos: monterey
+spec:
+  preferences:
+  - name: ABBirthDayVisible
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.amp.mediasharingd
+  macos: monterey
+spec:
+  preferences:
+  - name: home-sharing-computer-id
+  - name: home-sharing-enabled
+    default: "0"
+  - name: home-sharing-group-id
+  - name: home-sharing-sequence-id
+    default: "100"
+  - name: photo-sharing-enabled
+    default: "0"
+  - name: public-sharing-enabled
+    default: "0"
+  - name: public-sharing-is-protected
+    default: "0"
+  - name: shared-library-name
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.AMPLibraryAgent
+  macos: monterey
+spec:
+  preferences:
+  - name: books-migrated
+    default: "1"
+  - name: debugAssertCategoriesEnabled
+    default: "0"
+  - name: imported-media-domains
+    default: "15"
+  - name: podcasts-migrated
+    default: "1"
+  - name: storeMediaTypeFlags
+    default: "3422"
+  - name: storeSupportsPasswordSettings
+    default: "true"
+  - name: storeSupportsPreviousPurchases
+    default: "true"
+  - name: storeSupportsUPP
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.AppleMultitouchMouse
+  macos: monterey
+spec:
+  preferences:
+  - name: MouseButtonDivision
+    default: "55"
+  - name: MouseButtonMode
+    default: OneButton
+  - name: MouseHorizontalScroll
+    default: "true"
+  - name: MouseMomentumScroll
+    default: "true"
+  - name: MouseOneFingerDoubleTapGesture
+    default: "0"
+  - name: MouseTwoFingerDoubleTapGesture
+    default: "3"
+  - name: MouseTwoFingerHorizSwipeGesture
+    default: "2"
+  - name: MouseVerticalScroll
+    default: "true"
+  - name: UserPreferences
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.AppleMultitouchTrackpad
+  macos: monterey
+spec:
+  preferences:
+  - name: ActuateDetents
+    default: "1"
+  - name: Clicking
+    default: "0"
+  - name: Dragging
+    default: "0"
+  - name: DragLock
+    default: "0"
+  - name: FirstClickThreshold
+    default: "1"
+  - name: ForceSuppressed
+    default: "false"
+  - name: SecondClickThreshold
+    default: "1"
+  - name: TrackpadCornerSecondaryClick
+    default: "0"
+  - name: TrackpadFiveFingerPinchGesture
+    default: "2"
+  - name: TrackpadFourFingerHorizSwipeGesture
+    default: "2"
+  - name: TrackpadFourFingerPinchGesture
+    default: "2"
+  - name: TrackpadFourFingerVertSwipeGesture
+    default: "2"
+  - name: TrackpadHandResting
+    default: "true"
+  - name: TrackpadHorizScroll
+    default: "1"
+  - name: TrackpadMomentumScroll
+    default: "true"
+  - name: TrackpadPinch
+    default: "1"
+  - name: TrackpadRightClick
+    default: "true"
+  - name: TrackpadRotate
+    default: "1"
+  - name: TrackpadScroll
+    default: "true"
+  - name: TrackpadThreeFingerDrag
+    default: "false"
+  - name: TrackpadThreeFingerHorizSwipeGesture
+    default: "2"
+  - name: TrackpadThreeFingerTapGesture
+    default: "2"
+  - name: TrackpadThreeFingerVertSwipeGesture
+    default: "2"
+  - name: TrackpadTwoFingerDoubleTapGesture
+    default: "1"
+  - name: TrackpadTwoFingerFromRightEdgeSwipeGesture
+    default: "3"
+  - name: USBMouseStopsTrackpad
+    default: "0"
+  - name: UserPreferences
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.assistant
+  macos: monterey
+spec:
+  preferences:
+  - name: MultiUser Shared Data Needs Sync
+    default: "true"
+  - name: Voice Trigger Needs Sync
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.classroom
+  macos: monterey
+spec:
+  preferences:
+  - name: allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0
+    default: "true"
+  - name: allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0-ask
+    default: "false"
+  - name: allowClassroomOpenApp
+    default: "true"
+  - name: allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0
+    default: "true"
+  - name: allowClassroomOpenApp-00000000-0000-0000-0000-000000000000:0-ask
+    default: "false"
+  - name: allowClassroomOpenApp-ask
+    default: "false"
+  - name: allowClassroomOpenURL
+    default: "true"
+  - name: allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0
+    default: "true"
+  - name: allowClassroomOpenURL-00000000-0000-0000-0000-000000000000:0-ask
+    default: "false"
+  - name: allowClassroomOpenURL-ask
+    default: "false"
+  - name: allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0
+    default: "true"
+  - name: allowClassroomScreenObservation-00000000-0000-0000-0000-000000000000:0-ask
+    default: "false"
+  - name: forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0
+    default: "true"
+  - name: forceUnpromptedRemoteScreenObservation-00000000-0000-0000-0000-000000000000:0-ask
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.CloudKit
+  macos: monterey
+spec:
+  preferences:
+  - name: AccountInfoValidationCounter
+    default: "34"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.CoreGraphics
+  macos: monterey
+spec:
+  preferences:
+  - name: DisplayUseForcedGray
+    default: "false"
+  - name: DisplayUseInvertedPolarity
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.driver.AppleBluetoothMultitouch.mouse
+  macos: monterey
+spec:
+  preferences:
+  - name: MouseButtonDivision
+    default: "55"
+  - name: MouseButtonMode
+    default: OneButton
+  - name: MouseHorizontalScroll
+    default: "true"
+  - name: MouseMomentumScroll
+    default: "true"
+  - name: MouseOneFingerDoubleTapGesture
+    default: "0"
+  - name: MouseTwoFingerDoubleTapGesture
+    default: "3"
+  - name: MouseTwoFingerHorizSwipeGesture
+    default: "2"
+  - name: MouseVerticalScroll
+    default: "true"
+  - name: UserPreferences
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+  macos: monterey
+spec:
+  preferences:
+  - name: Clicking
+    default: "0"
+  - name: Dragging
+    default: "0"
+  - name: DragLock
+    default: "0"
+  - name: TrackpadCornerSecondaryClick
+    default: "0"
+  - name: TrackpadFiveFingerPinchGesture
+    default: "2"
+  - name: TrackpadFourFingerHorizSwipeGesture
+    default: "2"
+  - name: TrackpadFourFingerPinchGesture
+    default: "2"
+  - name: TrackpadFourFingerVertSwipeGesture
+    default: "2"
+  - name: TrackpadHandResting
+    default: "true"
+  - name: TrackpadHorizScroll
+    default: "1"
+  - name: TrackpadMomentumScroll
+    default: "true"
+  - name: TrackpadPinch
+    default: "1"
+  - name: TrackpadRightClick
+    default: "true"
+  - name: TrackpadRotate
+    default: "1"
+  - name: TrackpadScroll
+    default: "true"
+  - name: TrackpadThreeFingerDrag
+    default: "false"
+  - name: TrackpadThreeFingerHorizSwipeGesture
+    default: "2"
+  - name: TrackpadThreeFingerTapGesture
+    default: "2"
+  - name: TrackpadThreeFingerVertSwipeGesture
+    default: "2"
+  - name: TrackpadTwoFingerDoubleTapGesture
+    default: "1"
+  - name: TrackpadTwoFingerFromRightEdgeSwipeGesture
+    default: "3"
+  - name: USBMouseStopsTrackpad
+    default: "0"
+  - name: UserPreferences
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.driver.AppleHIDMouse
+  macos: monterey
+spec:
+  preferences:
+  - name: Button1
+    default: "1"
+  - name: Button2
+    default: "1"
+  - name: Button3
+    default: "0"
+  - name: Button4
+    default: "0"
+  - name: Button4Click
+    default: "0"
+  - name: Button4Force
+    default: "0"
+  - name: ButtonDominance
+    default: "1"
+  - name: ScrollH
+    default: "1"
+  - name: ScrollS
+    default: "4"
+  - name: ScrollSSize
+    default: "30"
+  - name: ScrollV
+    default: "1"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.facetime.bag
+  macos: monterey
+spec:
+  preferences:
+  - name: CacheTime
+    default: "3600"
+  - name: URL
+    default: https://init.ess.apple.com/WebObjects/VCInit.woa/wa/getBag?ix=3
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.finder
+  macos: monterey
+spec:
+  preferences:
+  - name: FXArrangeGroupViewBy
+    default: Name
+  - name: FXDesktopTouchBarUpgradedToTenTwelveOne
+    default: "1"
+  - name: FXICloudDriveDeclinedUpgrade
+    default: "false"
+  - name: FXICloudDriveDesktop
+    default: "false"
+  - name: FXICloudDriveDocuments
+    default: "false"
+  - name: FXICloudDriveEnabled
+    default: "false"
+  - name: FXICloudDriveFirstSyncDownComplete
+    default: "false"
+  - name: FXICloudLoggedIn
+    default: "false"
+  - name: FXPreferredViewStyle
+    default: Nlsv
+  - name: FXQuickActionsConfigUpgradeLevel
+    default: "2"
+  - name: FXSidebarUpgradedToTenFourteen
+    default: "true"
+  - name: FXSidebarUpgradedToTenTen
+    default: "true"
+  - name: FXToolbarUpgradedToTenEight
+    default: "1"
+  - name: FXToolbarUpgradedToTenNine
+    default: "2"
+  - name: FXToolbarUpgradedToTenSeven
+    default: "1"
+  - name: RecentsArrangeGroupViewBy
+    default: Date Last Opened
+  - name: ShowExternalHardDrivesOnDesktop
+    default: "true"
+  - name: ShowHardDrivesOnDesktop
+    default: "false"
+  - name: ShowRemovableMediaOnDesktop
+    default: "true"
+  - name: ShowSidebar
+    default: "true"
+  - name: SidebarShowingiCloudDesktop
+    default: "false"
+  - name: SidebarShowingSignedIntoiCloud
+    default: "false"
+  - name: SidebarWidth
+    default: "217"
+  - name: TagsCloudSerialNumber
+    default: "1"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.FolderActionsDispatcher
+  macos: monterey
+spec:
+  preferences:
+  - name: folderActionsEnabled
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.iCal
+  macos: monterey
+spec:
+  preferences:
+  - name: BirthdayEventsGenerationAttemptsToResetKey
+    default: "0"
+  - name: BirthdayEventsGenerationLastLocale
+    default: en_US
+  - name: CalForceTruthFileRestoreHashKey
+    default: 16A1
+  - name: display birthdays calendar
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.iChat
+  macos: monterey
+spec:
+  preferences:
+  - name: DidCheckForDuplicateChats
+    default: "3"
+  - name: DidMarkGroupPhotosAsUnpurgeable
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.icloud.searchpartyuseragent
+  macos: monterey
+spec:
+  preferences:
+  - name: lastLaunchLocale
+    default: en
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.imagecapture
+  macos: monterey
+spec:
+  preferences:
+  - name: loggingLevel
+    default: "3073"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.imagent
+  macos: monterey
+spec:
+  preferences:
+  - name: IMChatVocabularyUpdaterDidPerformInitialUpdateKey
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.imdpersistence.IMDPersistenceAgent
+  macos: monterey
+spec:
+  preferences:
+  - name: LogAllIOErrors
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.imessage
+  macos: monterey
+spec:
+  preferences:
+  - name: PreviewTranscodingQualityOnWiFiWasInitializedToDefaultValue
+    default: "true"
+  - name: PreviewTranscodingWasInitializedToDefaultValue
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.imessage.bag
+  macos: monterey
+spec:
+  preferences:
+  - name: CacheTime
+    default: "3600"
+  - name: URL
+    default: https://init-p01md.apple.com/bag?ix=2
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.ipTelephony
+  macos: monterey
+spec:
+  preferences:
+  - name: ImsLoggingEnabled
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.loginwindow
+  macos: monterey
+spec:
+  preferences:
+  - name: MiniBuddyLaunch
+    default: "false"
+  - name: oneTimeSSMigrationComplete
+    default: "true"
+  - name: TALLogoutReason
+    default: Shut Down
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.madrid
+  macos: monterey
+spec:
+  preferences:
+  - name: CloudKitCheckedMiCSwitchEligibilityOnImagentLaunch
+    default: "true"
+  - name: CloudKitIsEligibleForTruthZone
+    default: "false"
+  - name: CloudKitIsRemovedFromBackup
+    default: "false"
+  - name: CloudKitSyncingEnabled
+    default: "false"
+  - name: IMCloudKitAccountStatusKey
+    default: "1"
+  - name: IMCloudKitStartingDisableDevices
+    default: "false"
+  - name: IMCloudKitStartingEnabledSettingChange
+    default: "false"
+  - name: IMCloudKitStartingInitialSync
+    default: "false"
+  - name: IMCloudKitStartingPeriodicSync
+    default: "false"
+  - name: IMCloudKitSyncControllerSyncRecordTypeKey
+    default: "0"
+  - name: IMCloudKitSyncControllerSyncStateKey
+    default: "0"
+  - name: IMCloudKitSyncControllerSyncTypeKey
+    default: "0"
+  - name: IMCloudKitSyncPaused
+    default: "false"
+  - name: initialSyncRecordHasBeenWritten
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.menuextra.clock
+  macos: monterey
+spec:
+  preferences:
+  - name: DateFormat
+    default: EEE MMM d  j:mm a
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.messages.nicknames
+  macos: monterey
+spec:
+  preferences:
+  - name: NicknameScrutinyDoNotHandle
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.ncprefs
+  macos: monterey
+spec:
+  preferences:
+  - name: content_visibility
+    default: "2"
+  - name: sort_order
+    default: "0"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.NewDeviceOutreach
+  macos: monterey
+spec:
+  preferences:
+  - name: PostUpgradeActivityCompleted
+    default: "true"
+  - name: PostUpgradeOSVersionKey
+    default: 12.7.6
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.newscore
+  macos: monterey
+spec:
+  preferences:
+  - name: force_refresh_user_segmentation
+    default: "false"
+  - name: use_parsec_results_for_widget
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.ProblemReporter
+  macos: monterey
+spec:
+  preferences:
+  - name: ShowComments
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.remindd
+  macos: monterey
+spec:
+  preferences:
+  - name: CloudConfigurationPath
+    default: /System/Library/PrivateFrameworks/ReminderKit.framework/Versions/A/Resources/CloudConfigurations/Normal.plist
+  - name: CloudKitAccountStatus
+    default: "3"
+  - name: isDatabaseMigrated
+    default: "true"
+  - name: useExtraneousAlarmBackOffThrottleInterval
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.Safari.SafeBrowsing
+  macos: monterey
+spec:
+  preferences:
+  - name: HasMigratedSafeBrowsingEnabledDefaults
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.Safari.SandboxBroker
+  macos: monterey
+spec:
+  preferences:
+  - name: DidMigrateDownloadFolderToSandbox
+    default: "true"
+  - name: DidMigrateDownloadMetadataToSandboxGroupContainer
+    default: "true"
+  - name: DidMigrateResourcesToSandbox
+    default: "true"
+  - name: ShowDevelopMenu
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.screensaver
+  macos: monterey
+spec:
+  preferences:
+  - name: tokenRemovalAction
+    default: "0"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.scriptmenu
+  macos: monterey
+spec:
+  preferences:
+  - name: ScriptMenuEnabled
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.sharingd
+  macos: monterey
+spec:
+  preferences:
+  - name: HashManager-StoredDatabaseVersionKey
+    default: "3"
+  - name: OneTimeAirDropReset2
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.siri.shortcuts
+  macos: monterey
+spec:
+  preferences:
+  - name: WFDidUnconflictShortcuts
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.siri.VoiceShortcuts
+  macos: monterey
+spec:
+  preferences:
+  - name: VCLSDataSequenceKey
+    default: "3913"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.Spotlight
+  macos: monterey
+spec:
+  preferences:
+  - name: __NSEnableTSMDocumentWindowLevel
+    default: "true"
+  - name: engagementCount-com.apple.mail
+    default: "0"
+  - name: engagementCount-com.apple.Spotlight
+    default: "1"
+  - name: engagementCount-com.apple.Spotlight.suggestions
+    default: "0"
+  - name: showedFTE
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.suggestions
+  macos: monterey
+spec:
+  preferences:
+  - name: findToShowMigrationPerformed
+    default: "true"
+  - name: spToLearnMigrationPerformed
+    default: "true"
+  - name: SuggestionsAllowGeocode
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.systempreferences
+  macos: monterey
+spec:
+  preferences:
+  - name: com.apple.SecurityPref.Privacy.LastSourceSelected
+    default: "8"
+  - name: DisableAutoLoginButtonIsHidden
+    default: "false"
+  - name: NSFullScreenMenuItemEverywhere
+    default: "false"
+  - name: NSQuitAlwaysKeepsWindows
+    default: "false"
+  - name: SecurityPrefTab
+    default: Privacy
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.Terminal
+  macos: monterey
+spec:
+  preferences:
+  - name: Default Window Settings
+    default: Basic
+  - name: HasMigratedDefaults
+    default: "true"
+  - name: SecureKeyboardEntry
+    default: "false"
+  - name: Startup Window Settings
+    default: Basic
+  - name: TTAppPreferences Selected Tab
+    default: "0"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.textInput.keyboardServices.textReplacement
+  macos: monterey
+spec:
+  preferences:
+  - name: KSDidPushMigrationStatusOnce-2
+    default: "true"
+  - name: KSSampleShortcutWasImported_CK
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.TextInputMenu
+  macos: monterey
+spec:
+  preferences:
+  - name: visible
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.tipsd
+  macos: monterey
+spec:
+  preferences:
+  - name: TPSTipsAppInstalled
+    default: "true"
+  - name: TPSWaitingToShowWelcomeNotification
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.universalaccess
+  macos: monterey
+spec:
+  preferences:
+  - name: closeViewHotkeysEnabled
+    default: "false"
+  - name: closeViewZoomDisplayID
+    default: "0"
+  - name: closeViewZoomFactor
+    default: "1"
+  - name: login
+    default: "false"
+  - name: sessionChange
+    default: "false"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.UserAccountUpdater
+  macos: monterey
+spec:
+  preferences:
+  - name: com.apple.HidLibraryFolderAlready
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.visualintelligence
+  macos: monterey
+spec:
+  preferences:
+  - name: bypassAvailability
+    default: "false"
+  - name: debugUI
+    default: "false"
+  - name: enableAlbumsDomain
+    default: "true"
+  - name: enableArtDomain
+    default: "true"
+  - name: enableBooksDomain
+    default: "true"
+  - name: enableCoarseClassification
+    default: "true"
+  - name: enableLandmarkDomain
+    default: "true"
+  - name: enableNatureDomain
+    default: "true"
+  - name: enablePetsDomain
+    default: "true"
+  - name: enablePhotosApp
+    default: "true"
+  - name: enableQuickLook
+    default: "true"
+  - name: enableSafariApp
+    default: "true"
+  - name: enableScreenshots
+    default: "true"
+  - name: firstTimeExperience
+    default: "true"
+  - name: initialized
+    default: "true"
+  - name: sendLocationInfo
+    default: "true"
+  - name: sendOCRText
+    default: "true"
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: GlobalPreferences
+  macos: monterey
+spec:
+  preferences:
+  - name: AKLastIDMSEnvironment
+    default: "0"
+  - name: AppleAntiAliasingThreshold
+    default: "4"
+  - name: AppleLanguagesDidMigrate
+    default: 12.7.6
+  - name: AppleLocale
+    default: en_US
+  - name: AppleMiniaturizeOnDoubleClick
+    default: "false"
+  - name: com.apple.sound.beep.flash
+    default: "0"
+  - name: com.apple.springing.delay
+    default: "0.5"
+  - name: com.apple.springing.enabled
+    default: "true"
+  - name: com.apple.trackpad.forceClick
+    default: "true"
+  - name: NSAutomaticCapitalizationEnabled
+    default: "true"
+  - name: NSAutomaticPeriodSubstitutionEnabled
+    default: "true"
+  - name: NSLinguisticDataAssetsRequestLastInterval
+    default: "86400"
+
