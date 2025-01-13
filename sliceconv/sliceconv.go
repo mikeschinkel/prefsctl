@@ -106,3 +106,11 @@ func ToIndexMap[S []T, T comparable](ss S) map[T]int {
 	}
 	return m
 }
+
+func ToIndexMapFunc[S []T, T any, K comparable](ss S, f func(T) K) map[K]int {
+	m := make(map[K]int, len(ss))
+	for i, s := range ss {
+		m[f(s)] = i
+	}
+	return m
+}
