@@ -48,6 +48,10 @@ type Labels struct {
 	labelsIndex map[LabelName]int
 }
 
+func (ll *Labels) Labels() []*Label {
+	return ll.labels
+}
+
 func NewLabels(labels ...*Label) *Labels {
 	ll := &Labels{
 		labels: labels,
@@ -147,6 +151,11 @@ func (ll *Labels) SetLabel(label *Label) *Labels {
 	ll.labels = append(ll.labels, label)
 end:
 	return ll
+}
+
+// HasLabels returns true if `*Labels` has 1 or more labels
+func (ll *Labels) HasLabels() bool {
+	return len(ll.labels) != 0
 }
 
 // HasLabel returns true if `*Labels` has the passed label
