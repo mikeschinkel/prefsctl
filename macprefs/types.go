@@ -24,13 +24,25 @@ type TypeName = types.TypeName
 type Name = types.Name
 type Code = types.Code
 
-type PrefDefaultsMap map[PrefName]*PrefDefault
-type PrefDefaults struct {
+type PrefDomain struct {
 	Domain         DomainName
 	AfterApplyFunc func() error
-	DefaultsMap    PrefDefaultsMap
+	Defaults       []*PrefDefault
 }
-type DomainPrefDefaults map[DomainName]PrefDefaults
+
+func NewPrefDomain(domain DomainName, afterApplyFunc func() error) PrefDomain {
+	return PrefDomain{
+		Domain:         domain,
+		AfterApplyFunc: afterApplyFunc,
+		Defaults:       make([]*PrefDefault, 0),
+	}
+}
+
+// OSPrefDefaults is used to load a list of all domains and its default
+// preferences for a given macOS version
+type OSPrefDefaults struct {
+	Domains []PrefDomain
+}
 
 type Filename string
 

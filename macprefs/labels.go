@@ -6,7 +6,9 @@ import (
 )
 
 type (
-	LabelName = kvfilters.LabelName
+	Label      = kvfilters.Label
+	LabelName  = kvfilters.LabelName
+	LabelValue = kvfilters.LabelValue
 )
 
 var (
@@ -34,8 +36,8 @@ var (
 //goland:noinspection GoStructInitializationWithoutFieldNames
 var (
 	UnknownSets = kvfilters.NewUnknownLabel(Sets, "unknownSets")
-	DefaultsSet = NewLabel(Sets, "defaultsSet")
-	SetupSets   = NewLabel(Sets, "setupSets")
+	Optional    = NewLabel(Sets, "optional")
+	Required    = NewLabel(Sets, "required")
 )
 
 //goland:noinspection GoStructInitializationWithoutFieldNames
@@ -64,6 +66,29 @@ var TypeLabelMap = map[macosutil.PreferenceType]*kvfilters.Label{
 	macosutil.LocaleType:   &LocaleType,
 }
 
+var LabelMap = map[kvfilters.LabelValue]*kvfilters.Label{
+	UserManaged.Value:      &UserManaged,
+	SystemManaged.Value:    &SystemManaged,
+	AppManaged.Value:       &AppManaged,
+	RuntimeState.Value:     &RuntimeState,
+	VersionMigration.Value: &VersionMigration,
+	Optional.Value:         &Optional,
+	Required.Value:         &Required,
+	UnknownType.Value:      &UnknownType,
+	StringType.Value:       &StringType,
+	NumberType.Value:       &NumberType,
+	IntType.Value:          &IntType,
+	FloatType.Value:        &FloatType,
+	BoolType.Value:         &BoolType,
+	IntBoolType.Value:      &IntBoolType,
+	LanguageType.Value:     &LanguageType,
+	LocaleType.Value:       &LocaleType,
+}
+
+func GetLabelByValue(value LabelValue) *Label {
+	label, _ := LabelMap[value]
+	return label
+}
 func GoVarName(value kvfilters.LabelValue) LabelName {
 	name, ok := goVarMap[value]
 	if !ok {
@@ -74,8 +99,8 @@ func GoVarName(value kvfilters.LabelValue) LabelName {
 
 var goVarMap = map[kvfilters.LabelValue]LabelName{
 	UnknownSets.Value: "UnknownSets",
-	DefaultsSet.Value: "DefaultsSet",
-	SetupSets.Value:   "SetupSets",
+	Optional.Value:    "Optional",
+	Required.Value:    "Required",
 
 	StringType.Value:   "StringType",
 	NumberType.Value:   "NumberType",

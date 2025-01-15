@@ -39,7 +39,7 @@ func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
 			// 'defaults' is a reasonable default as the alternate is 'setup'
 			// so we'll discover issues when comparing to current settings and
 			// realize we need to manually change it.
-			&DefaultsSet,
+			&Optional,
 			// 'userManaged' is a reasonable default as we'll discover issues
 			// when comparing to current settings and realize we need to manually
 			// change it.

@@ -71,14 +71,27 @@ type YAMLMetadata struct {
 type YAMLPrefSpec struct {
 	Prefs []YAMLPref `yaml:"preferences"`
 }
+
+func NewYAMLPrefSpec() YAMLPrefSpec {
+	return YAMLPrefSpec{
+		Prefs: make([]YAMLPref, 0),
+	}
+}
+
 type YAMLPref struct {
 	MetaData *YAMLMetadata `yaml:"-"`
 	Name     PrefName      `yaml:"name"`
+	Type     PrefType      `yaml:"type"`
 	Value    string        `yaml:"value,omitempty"`
 	Default  string        `yaml:"default,omitempty"`
+	Labels   []LabelValue  `yaml:"labels,omitempty"`
 }
 
-func (yp *YAMLPref) MacOSUtilPreference() (pref *macosutil.Preference) {
+func (yp YAMLPref) PreferenceType() (pt macosutil.PreferenceType) {
+	return macosutil.PreferenceType(yp.Type)
+}
+
+func (yp YAMLPref) MacOSUtilPreference() (pref *macosutil.Preference) {
 	return &macosutil.Preference{
 		Domain: string(yp.MetaData.Domain),
 		Name:   string(yp.Name),

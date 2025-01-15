@@ -2,9 +2,12 @@ package macprefs_test
 
 import (
 	"context"
+	"fmt"
 	"testing"
 
 	"github.com/mikeschinkel/go-diffator"
+	"github.com/mikeschinkel/prefsctl/appinfo"
+	"github.com/mikeschinkel/prefsctl/cobrautil"
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macosutil/macosutilmock"
@@ -15,7 +18,7 @@ import (
 )
 
 const (
-	GoFormat = macprefs.GoFormat
+	YAMLFormat = macprefs.YAMLFormat
 )
 
 var (
@@ -50,7 +53,7 @@ func Test_GetDefaults(t *testing.T) {
 			args: QueryArgs{
 				OmitEmpty: false,
 			},
-			output:         GoFormat,
+			output:         YAMLFormat,
 			errWanted:      nil,
 			expectedOutput: macprefstest.ExpectedOutputForTest(),
 			mockData: Data{

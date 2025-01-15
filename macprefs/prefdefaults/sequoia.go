@@ -1,5 +1,5 @@
 package prefdefaults
 
-func sequoiaPrefDefaults() DomainDefaults {
+func sequoiaPrefDefaults() OSPrefDefaults {
 	return montereyPrefDefaults()
 }

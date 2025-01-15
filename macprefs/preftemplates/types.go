@@ -10,6 +10,9 @@ type (
 	OSVersion    string
 	DomainName   string
 	PrefName     string
+	LabelName    string
+	LabelValue   string
+	PrefType     string
 	TemplateName string
 	TemplateText string
 	APIVersion   string

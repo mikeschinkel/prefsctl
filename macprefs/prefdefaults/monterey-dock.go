@@ -15,7 +15,7 @@ func comAppleDock() Domain {
 				Type:    "bool",
 				Default: "false",
 				Labels: NewLabels(
-					DefaultsSet,
+					Optional,
 				),
 			},
 			{
@@ -227,7 +227,7 @@ func comAppleDock() Domain {
 				Default: "true",
 				Type:    "bool",
 				Labels: NewLabels(
-					DefaultsSet,
+					Optional,
 					UserManaged,
 				),
 			},
@@ -276,7 +276,7 @@ func comAppleDock() Domain {
 					"file:///System/Applications/System%20Preferences.app/",
 				}`,
 				Labels: NewLabels(
-					DefaultsSet,
+					Optional,
 					UserManaged,
 				),
 			},
@@ -288,7 +288,7 @@ func comAppleDock() Domain {
 					"file://${HOME}/Downloads/",
 				}`,
 				Labels: NewLabels(
-					DefaultsSet,
+					Optional,
 					UserManaged,
 				),
 			},

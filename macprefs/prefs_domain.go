@@ -9,6 +9,10 @@ import (
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/logargs"
+	"github.com/mikeschinkel/prefsctl/macosutil"
+	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
+	"github.com/mikeschinkel/prefsctl/sliceconv"
+	"gopkg.in/yaml.v3"
 )
 
 type DomainName string
@@ -33,41 +37,98 @@ type PrefsDomain struct {
 	prefsRetrieved       bool
 	prefsValuesRetrieved bool
 }
-
-func (d *PrefsDomain) Valid() bool {
-	// TODO: Change to determining invalid based on labels
-	//       Need to understand what determines something is invalid before doing so, though
-	return !d.invalid
+type YAMLOpts struct {
+	UseValueForDefault bool
 }
 
-func (d *PrefsDomain) ShallowCopy() kvfilters.Group {
+func (pd *PrefsDomain) DefaultsYAML(opts YAMLOpts) string {
+	var labelValues []preftemplates.LabelValue
+	var typeName string
+
+	sb := strings.Builder{}
+	if osCode == "" {
+		osCode = macosutil.MustGetVersionCode()
+	}
+	resource := preftemplates.YAMLPrefsResource{
+		APIVersion: LatestAPIVersion,
+		KindName:   "defaults",
+		MetaData: preftemplates.YAMLMetadata{
+			Domain:    preftemplates.DomainName(pd.domain),
+			OSVersion: preftemplates.OSVersion(osCode),
+		},
+		Spec: preftemplates.NewYAMLPrefSpec(),
+	}
+	for _, pref := range pd.Prefs() {
+		var val, def string
+		if opts.UseValueForDefault {
+			def = pref.Value()
+		} else {
+			val = pref.Value()
+			def = pref.Default()
+		}
+		labels := pref.Labels()
+		// Delete "type" from in YAML because as there is an explicit "type" field
+		labels.DeleteNamedLabel(Type)
+		if labels.HasLabels() {
+			labelValues = sliceconv.Func(labels.Labels(), func(l *kvfilters.Label) preftemplates.LabelValue {
+				return preftemplates.LabelValue(l.Value)
+			})
+		}
+		typeName, _ = strings.CutSuffix(string(pref.TypeName()), "Type")
+		resource.Spec.Prefs = append(resource.Spec.Prefs, preftemplates.YAMLPref{
+			MetaData: &resource.MetaData,
+			Name:     preftemplates.PrefName(pref.Name),
+			Type:     preftemplates.PrefType(typeName),
+			Value:    val,
+			Default:  def,
+			Labels:   labelValues,
+		})
+	}
+	b, err := yaml.Marshal(resource)
+	if err != nil {
+		// This should really never happen, right?
+		panic(err)
+	}
+	sb.WriteString("\n---\n")
+	sb.WriteString(string(b))
+	sb.WriteByte('\n')
+	return sb.String()
+}
+
+func (pd *PrefsDomain) Valid() bool {
+	// TODO: Change to determining invalid based on labels
+	//       Need to understand what determines something is invalid before doing so, though
+	return !pd.invalid
+}
+
+func (pd *PrefsDomain) ShallowCopy() kvfilters.Group {
 	return &PrefsDomain{
-		domain:               d.domain,
-		invalid:              d.invalid,
-		prefsRetrieved:       d.prefsRetrieved,
-		prefsValuesRetrieved: d.prefsValuesRetrieved,
+		domain:               pd.domain,
+		invalid:              pd.invalid,
+		prefsRetrieved:       pd.prefsRetrieved,
+		prefsValuesRetrieved: pd.prefsValuesRetrieved,
 		prefs:                make(Prefs, 0),
 	}
 }
 
-func (d *PrefsDomain) SortPrefs() {
-	d.prefs.Sort()
+func (pd *PrefsDomain) SortPrefs() {
+	pd.prefs.Sort()
 }
 
 var unsupportedTypes = make(map[string]struct{})
 
-func (d *PrefsDomain) RetrievePrefs() (err error) {
-	d.prefsRetrieved = true
-	d.prefs, err = RetrieveDomainPrefs(d.DomainName())
+func (pd *PrefsDomain) RetrievePrefs() (err error) {
+	pd.prefsRetrieved = true
+	pd.prefs, err = RetrieveDomainPrefs(pd.DomainName())
 	if err != nil {
-		d.invalid = true
-		d.prefs = make(Prefs, 0)
+		pd.invalid = true
+		pd.prefs = make(Prefs, 0)
 		goto end
 	}
-	for _, pref := range d.prefs {
+	for _, pref := range pd.prefs {
 		pd := LookupPrefDefault(pref.Id())
 		if pd == nil {
-			pd = NewPrefDefault(d.domain, pref.Name)
+			pd = NewPrefDefault(pref.Domain, pref.Name)
 		}
 		pref.PrefDefault = pd
 	}
@@ -75,10 +136,10 @@ end:
 	return err
 }
 
-func (d *PrefsDomain) RetrievePrefValues() (err error) {
+func (pd *PrefsDomain) RetrievePrefValues() (err error) {
 	var errs errutil.MultiErr
 
-	for _, pref := range d.prefs {
+	for _, pref := range pd.prefs {
 		err = pref.Retrieve()
 		if err == nil {
 			continue
@@ -90,7 +151,7 @@ func (d *PrefsDomain) RetrievePrefValues() (err error) {
 		}
 		errs.Add(err) // TODO Annotate
 	}
-	d.prefsValuesRetrieved = true
+	pd.prefsValuesRetrieved = true
 	return errs.Err()
 }
 
@@ -101,66 +162,66 @@ func NewPrefsDomain(domain DomainName) *PrefsDomain {
 	}
 }
 
-func (d *PrefsDomain) KeyValues() (kvs []kvfilters.KeyValue) {
-	if !d.prefsRetrieved {
+func (pd *PrefsDomain) KeyValues() (kvs []kvfilters.KeyValue) {
+	if !pd.prefsRetrieved {
 		panicf("ERROR: Preferences domain '%s' must be retrieved before calling macprefs.PrefsDomain.KeyValues()",
-			d.Name(),
+			pd.Name(),
 		)
 	}
-	kvs = make([]kvfilters.KeyValue, len(d.prefs))
-	for i, pref := range d.prefs {
+	kvs = make([]kvfilters.KeyValue, len(pd.prefs))
+	for i, pref := range pd.prefs {
 		kvs[i] = pref
 	}
 	return kvs
 }
 
-func (d *PrefsDomain) DomainName() DomainName {
-	return d.domain
+func (pd *PrefsDomain) DomainName() DomainName {
+	return pd.domain
 }
-func (d *PrefsDomain) Name() kvfilters.Name {
-	return kvfilters.Name(d.domain)
-}
-
-func (d *PrefsDomain) Code() kvfilters.Code {
-	return kvfilters.Codify(string(d.domain))
+func (pd *PrefsDomain) Name() kvfilters.Name {
+	return kvfilters.Name(pd.domain)
 }
 
-func (d *PrefsDomain) AddKeyValue(value kvfilters.KeyValue) {
+func (pd *PrefsDomain) Code() kvfilters.Code {
+	return kvfilters.Codify(string(pd.domain))
+}
+
+func (pd *PrefsDomain) AddKeyValue(value kvfilters.KeyValue) {
 	pref, ok := value.(*Pref)
 	if !ok {
 		panicf("Cannot add type '%T' with value %#v to macprefs.PrefsDomain %#v",
 			value,
 			value,
-			d,
+			pd,
 		)
 	}
-	d.prefs = append(d.prefs, pref)
+	pd.prefs = append(pd.prefs, pref)
 }
 
-func (d *PrefsDomain) LogArgs() []any {
+func (pd *PrefsDomain) LogArgs() []any {
 	return []any{
 		logargs.PrefsDomain,
-		d.Name(),
+		pd.Name(),
 	}
 }
 
-func (d *PrefsDomain) String() string {
-	return string(d.Name())
+func (pd *PrefsDomain) String() string {
+	return string(pd.Name())
 }
-func (d *PrefsDomain) ErrorInfo() error {
-	return fmt.Errorf("%s=%s", logargs.PrefsDomain, d)
+func (pd *PrefsDomain) ErrorInfo() error {
+	return fmt.Errorf("%s=%s", logargs.PrefsDomain, pd)
 }
 
-func (d *PrefsDomain) HasPrefix(prefix string) bool {
-	return strings.HasPrefix(string(d.Name()), prefix)
+func (pd *PrefsDomain) HasPrefix(prefix string) bool {
+	return strings.HasPrefix(string(pd.Name()), prefix)
 }
 
 // Prefs returns all available preferences for this domain
-func (d *PrefsDomain) Prefs() []*Pref {
-	if !d.prefsRetrieved {
+func (pd *PrefsDomain) Prefs() []*Pref {
+	if !pd.prefsRetrieved {
 		panicf("ERROR: Preferences domain '%s' must be retrieved before calling macprefs.PrefsDomain.Prefs()",
-			d.Name(),
+			pd.Name(),
 		)
 	}
-	return d.prefs
+	return pd.prefs
 }

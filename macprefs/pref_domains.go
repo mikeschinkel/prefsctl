@@ -32,10 +32,20 @@ type PrefDomains struct {
 	prefsRetrieved bool
 }
 
-func (dd *PrefDomains) UserManagedPrefDefaults() (pds []*PrefDefault) {
-	pds = make([]*PrefDefault, 0)
-	dd.Sort()
-	for _, domain := range dd.domains {
+var osCode macosutil.Code
+
+func (pds *PrefDomains) DefaultsYAML(opts YAMLOpts) string {
+	sb := strings.Builder{}
+	for _, domain := range pds.domains {
+		sb.WriteString(domain.DefaultsYAML(opts))
+	}
+	return sb.String()
+}
+
+func (pds *PrefDomains) UserManagedPrefDefaults() (pd []*PrefDefault) {
+	pd = make([]*PrefDefault, 0)
+	pds.Sort()
+	for _, domain := range pds.domains {
 		if domain.domain == ".GlobalPreferences_m" {
 			continue
 		}
@@ -43,21 +53,21 @@ func (dd *PrefDomains) UserManagedPrefDefaults() (pds []*PrefDefault) {
 			if !pref.HasLabel(&UserManaged) {
 				continue
 			}
-			pds = append(pds, pref.PrefDefault)
+			pd = append(pd, pref.PrefDefault)
 		}
 	}
-	return pds
+	return pd
 }
 
-func (dd *PrefDomains) Domains() []*PrefsDomain {
-	return dd.domains
+func (pds *PrefDomains) Domains() []*PrefsDomain {
+	return pds.domains
 }
 
-func (dd *PrefDomains) DebugString() string {
+func (pds *PrefDomains) DebugString() string {
 	return fmt.Sprintf("Domains: %d, Initialized: %t, PrefsRetrieved: %t",
-		len(dd.domains),
-		dd.initialized,
-		dd.prefsRetrieved,
+		len(pds.domains),
+		pds.initialized,
+		pds.prefsRetrieved,
 	)
 }
 
@@ -67,25 +77,31 @@ func NewPrefDomains(domains []*PrefsDomain) *PrefDomains {
 	}
 }
 
-func (dd *PrefDomains) Initialize() (err error) {
-	var dmf DefaultsMapFunc
+func (pds *PrefDomains) Initialize(cfg config.Config) (err error) {
+	var df PrefDefaultsFunc
 	var errs errutil.MultiErr
+	var osPrefs OSPrefDefaults
 
-	if dd.initialized {
+	if pds.initialized {
 		goto end
 	}
 
-	dmf, err = GetDefaultsMapFunc()
+	df, err = GetDefaultsFunc()
 	if err != nil {
 		errs.Add(err)
 		goto end
 	}
-	for _, dvs := range dmf() {
-		for _, dv := range dvs.DefaultsMap {
+	osPrefs, err = df(cfg)
+	if err != nil {
+		errs.Add(err)
+		goto end
+	}
+	for _, dd := range osPrefs.Domains {
+		for _, dv := range dd.Defaults {
 			SetPrefDefault(dv)
 		}
 	}
-	dd.initialized = true
+	pds.initialized = true
 end:
 	return errs.Err()
 }
@@ -144,14 +160,14 @@ type RetrievePrefArgs struct {
 	IgnoreMissingDomains bool
 }
 
-func (dd *PrefDomains) RetrievePrefs(args RetrievePrefArgs) (err error) {
-	if !dd.initialized {
+func (pds *PrefDomains) RetrievePrefs(args RetrievePrefArgs) (err error) {
+	if !pds.initialized {
 		panic("ERROR: Preferences domains must be initialized before calling " +
-			"macprefs.PrefDomains.RetrievePrefs().",
+			"macprefs.PrefDomains.RetrievePrefs().", // TODO Explain how to initialize them
 		)
 	}
 	var errs errutil.MultiErr
-	for _, domain := range dd.domains {
+	for _, domain := range pds.domains {
 		err = domain.RetrievePrefs()
 		if err == nil {
 			continue
@@ -161,19 +177,19 @@ func (dd *PrefDomains) RetrievePrefs(args RetrievePrefArgs) (err error) {
 		}
 		errs.Add(err) // TODO: Annotate
 	}
-	dd.prefsRetrieved = true
+	pds.prefsRetrieved = true
 	return errs.Err()
 }
 
-func (dd *PrefDomains) RetrievePrefValues() (err error) {
-	if !dd.prefsRetrieved {
+func (pds *PrefDomains) RetrievePrefValues() (err error) {
+	if !pds.prefsRetrieved {
 		panicf("ERROR: Domain preferences must be retrieved with " +
 			"macprefs.PrefDomains.RetrievePref() before calling " +
 			"macprefs.PrefDomains.RetrievePrefValues()",
 		)
 	}
 	var errs errutil.MultiErr
-	for _, domain := range dd.domains {
+	for _, domain := range pds.domains {
 		err = domain.RetrievePrefValues()
 		if err != nil {
 			errs.Add(err) // TODO: Annotate
@@ -182,20 +198,20 @@ func (dd *PrefDomains) RetrievePrefValues() (err error) {
 	return errs.Err()
 }
 
-func (dd *PrefDomains) Sort() {
-	slices.SortFunc(dd.domains, func(a, b *PrefsDomain) int {
+func (pds *PrefDomains) Sort() {
+	slices.SortFunc(pds.domains, func(a, b *PrefsDomain) int {
 		return strings.Compare(
 			strings.ToLower(a.String()),
 			strings.ToLower(b.String()),
 		)
 	})
-	for _, domain := range dd.domains {
+	for _, domain := range pds.domains {
 		domain.SortPrefs()
 	}
 }
 
-func (dd *PrefDomains) Describe(w io.Writer) {
-	for _, domain := range dd.domains {
+func (pds *PrefDomains) Describe(w io.Writer) {
+	for _, domain := range pds.domains {
 		writeString(w, string(domain.Name()))
 		writeByte(w, '\n')
 		for _, pref := range domain.KeyValues() {
@@ -211,9 +227,9 @@ func (dd *PrefDomains) Describe(w io.Writer) {
 		}
 	}
 }
-func (dd *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
-	groups = make([]kvfilters.Group, len(dd.domains))
-	for i, domain := range dd.domains {
+func (pds *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
+	groups = make([]kvfilters.Group, len(pds.domains))
+	for i, domain := range pds.domains {
 		groups[i] = domain
 	}
 	return groups
@@ -256,10 +272,10 @@ type TemplateDomainsArgs struct {
 	UseCurrent bool
 }
 
-func (dd *PrefDomains) TemplateDomains(args TemplateDomainsArgs) (domains []*preftemplates.Domain) {
-	domains = make([]*preftemplates.Domain, len(dd.domains))
-	dd.Sort()
-	for i, domain := range dd.domains {
+func (pds *PrefDomains) TemplateDomains(args TemplateDomainsArgs) (domains []*preftemplates.Domain) {
+	domains = make([]*preftemplates.Domain, len(pds.domains))
+	pds.Sort()
+	for i, domain := range pds.domains {
 		d := &preftemplates.Domain{
 			Name:     preftemplates.DomainName(domain.DomainName()),
 			Defaults: nil,

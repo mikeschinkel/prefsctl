@@ -86,9 +86,3 @@ func getPrefsText(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (
 		Err: errors.New("get prefs --output=txt not (yet?) implemented"),
 	}
 }
-
-func getPrefsGo(ctx Context, ptr Printer, args QueryArgs) (result Result) {
-	return Result{
-		Err: errors.New("get prefs --output=go not (yet?) implemented"),
-	}
-}

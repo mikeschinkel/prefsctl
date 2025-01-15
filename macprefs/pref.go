@@ -24,12 +24,23 @@ func (p *Pref) SetValue(value string) {
 	p.value = value
 }
 
-func (p *Pref) TypeName() TypeName {
-	label := p.labels.GetNamedLabel(Type)
-	if label == nil {
-		label = &UnknownType
+func (p *Pref) TypeName() (typ TypeName) {
+	//var label *kvfilters.Label
+	var prefType macosutil.PreferenceType
+
+	typ = p.PrefDefault.typeName
+	if typ != "" && typ != TypeName(macosutil.UnknownType) {
+		goto end
 	}
-	return TypeName(label.Value)
+	//label = p.labels.GetNamedLabel(Type)
+	//if label != nil {
+	//	typ = TypeName(label.Value)
+	//	goto end
+	//}
+	_, prefType = macosutil.ParsePrefValue(p.DefaultOrValue())
+	typ = TypeName(prefType)
+end:
+	return typ
 }
 
 func (p *Pref) HasLabel(label *kvfilters.Label) bool {
@@ -133,6 +144,15 @@ func (p *Pref) Value() string {
 // Default returns the default value of the pref, as best we can tell
 func (p *Pref) Default() string {
 	return p.PrefDefault.DefaultValue
+}
+
+// DefaultOrValue DefaultOrValue returns the default value unless it is empty
+// then returns the current value
+func (p *Pref) DefaultOrValue() string {
+	if p.PrefDefault.DefaultValue != "" {
+		return p.PrefDefault.DefaultValue
+	}
+	return p.value
 }
 
 // String returns the raw string value regardless of type
