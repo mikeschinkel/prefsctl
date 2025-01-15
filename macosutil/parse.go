@@ -97,7 +97,9 @@ func GetPrefKindAndType(kind reflect.Kind, typ PreferenceType, value string) (re
 	// Type is manually set/managed so it gets preference
 	if typ != "" && typ != UnknownType {
 		kind, typ = ParsePrefType(typ)
-		goto end
+		if typ != UnknownType {
+			goto end
+		}
 	}
 	kind, typ = ParsePrefValue(value)
 	switch {
