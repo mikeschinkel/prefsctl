@@ -15,6 +15,18 @@ apply and manage preferences for their macOS system.
 - Support for applying user-managed preferences while avoiding system- or app-managed settings that
   may be harmful or irrelevant.
 
+## com.apple domains only
+
+Note that Prefsctl **_currently_** only supports [preference domains](https://macos-defaults.com/)
+that begin with `com.apple`.
+
+However, we may add support for other domains in future if demand exists and users are willing to
+help research the preference names, types and defaults values in those domains.
+
+Please [start a discussion](https://github.com/mikeschinkel/prefsctl/discussions/new?category=ideas)
+if you are interested in Presctl supporting other preference domains besides `com.apple`.
+
+
 ---
 
 ## Installation
@@ -46,7 +58,7 @@ To apply preferences from a file:
 prefsctl apply -f path/to/filename.yaml
 ```
 
-The file format is determined by its extension (`yaml`, `yml`, or `json`).
+The file format is determined by its extension (`yaml`, `yml`=>`yaml`, or `json`).
 
 #### Explicitly Specify Format
 
@@ -87,27 +99,31 @@ spec:
 
 ## Generating YAML for Preferences
 
-Prefsctl can generate YAML documents containing current macOS preference values using the
-`get prefs` command:
+Users can use Prefsctl to generate resource documents they can they use with the `apply`
+command. Those resource documents will contain only the "user-managed" preference values that differ
+from _"known"_ defaults using the `get prefs` command:
 
 ```shell
 prefsctl get prefs -o=yaml
 ```
 
-This will output a YAML document containing all preferences that differ from the default values for
-the current macOS version. Note that currently only preference domains that begin with `com.apple.`
-are included in the output.
+To generate a resource document that ignores the default values and outputs all user-managed
+preference values for the specified domain(s), or all domains if no domains are specified — use the
+`--include-unchanged` flag:
+
+```shell
+prefsctl get prefs -o=yaml --include-unchanged
+```
 
 If you want to limit the output to just a specific preference domain, you can use the `--domains`
-switch as shown below:
+switch as shown below which limits the output to preferences in the `com.apple.dock`
+domain only:
 
 ```shell
 prefsctl get prefs -o=yaml --domains=com.apple.dock
 ```
 
-This example limits the output to preferences in the `com.apple.dock` domain only.
-
-#### Example Command
+### Example Command
 
 To generate preferences for multiple domains:
 
@@ -245,4 +261,51 @@ Prefsctl is released under the MIT License. See `LICENSE` for more details.
 Prefsctl’s vision is to become the `kubectl`for`brew bundle` for macOS preferences. By encoding
 known preference attributes and supporting customizable overrides, it aims to empower technical
 users to manage macOS configurations with precision and ease.
+
+---
+
+## Related Links
+
+- [macOS Defaults website](https://macos-defaults.com)
+- [macOS Defaults Github repo](https://github.com/yannbertrand/macos-defaults)
+- [defaultswrite reference — Github repo](https://github.com/dirtymouse/defaultswrite)
+- [osx_setup.sh — Github Gist](https://gist.github.com/dannysmith/9369950)
+- [macOS Defaults — Github repo](https://github.com/kevinSuttle/macOS-Defaults/)
+- [macOS Default Values Command Reference — Github repo](https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md)
+
+
+- [.macos dotfile — Mathias Bynens GitHub Repo](https://github.com/mathiasbynens/dotfiles/blob/main/.macos)
+- [.osx dotfile — Jeff Geerling Github Repo](https://github.com/geerlingguy/dotfiles/blob/master/.osx)
+
+
+- [Managed software installation for macOS — Munki](https://www.munki.org/munki/)
+
+
+- [MacDevOpsYVR Conference](https://mdoyvr.com/)
+
+
+- [How to Lock the Dock Size, Position, and Contents in OS X — Mac Observer](https://www.macobserver.com/macos/lock-dock-size-position-contents/)
+- [Highlight Stack Items on Hover in Mac OS X Dock — OSX Daily](https://osxdaily.com/2008/01/07/highlight-stack-items-on-hover/)
+
+
+- [Post your dock setting and lets discuss — Reddit](https://www.reddit.com/r/MacOS/comments/17vst39/post_your_dock_settings_and_lets_discuss/)
+
+
+- [Tracking where settings are stored on macOS — RDerik Blog](https://rderik.com/blog/tracking-where-settings-are-stored-on-macos/)
+- [Config Profile and manage ALL the things…just about — Medium](https://boberito.medium.com/config-profile-and-manage-all-the-things-just-about-cafea8627d4b)
+
+
+- [Configuration Profile Reference (PDF) — Apple Developer](https://developer.apple.com/business/documentation/Configuration-Profile-Reference.pdf)
+- [Device Management Profile-specific Payload Keys — Apple Developer](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys)
+- [MDM payload list available in Apple Configurator for Mac — Apple Platform Development](https://support.apple.com/guide/deployment/payload-list-apple-configurator-mac-dep4f0cb04f3/1/web/1.0)
+- [MDM restrictions available in Apple Configurator for Mac — Apple Platform Development](https://support.apple.com/guide/deployment/restrictions-apple-configurator-mac-depe85b06021/1/web/1.0)
+- [About the User Defaults System — Apple Developer Archive](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html)
+
+
+- [Extracting keys for Preference Domains — JAMF Forums](https://community.jamf.com/t5/jamf-pro/extracting-keys-for-preference-domains/m-p/253906)
+
+
+- [Dockutil](https://github.com/kcrawford/dockutil)
+- [Boxen](https://github.com/boxen/boxen)
+
 
