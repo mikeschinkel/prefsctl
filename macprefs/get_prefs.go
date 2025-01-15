@@ -3,6 +3,7 @@ package macprefs
 import (
 	"errors"
 
+	"github.com/mikeschinkel/prefsctl/config"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 )
@@ -11,7 +12,7 @@ type (
 	OSVersion = preftemplates.OSVersion
 )
 
-func GetPrefs(ctx Context, ptr Printer, args QueryArgs) (result Result) {
+func GetPrefs(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
 	if ptr == nil {
 		ptr = StandardPrinter{}
 	}
@@ -22,15 +23,13 @@ func GetPrefs(ctx Context, ptr Printer, args QueryArgs) (result Result) {
 	}
 	switch OutputFormat(format) {
 	case YAMLFormat:
-		result = getPrefsYAML(ctx, ptr, args)
+		result = getPrefsYAML(ctx, cfg, ptr, args)
 	case JSONFormat:
-		result = getPrefsJSON(ctx, ptr, args)
-	case GoFormat:
-		result = getPrefsGo(ctx, ptr, args)
+		result = getPrefsJSON(ctx, cfg, ptr, args)
 	case TXTFormat:
 		fallthrough
 	default:
-		result = getPrefsText(ctx, ptr, args)
+		result = getPrefsText(ctx, cfg, ptr, args)
 	}
 	return result
 }
@@ -55,11 +54,11 @@ func newDomains(domains []*PrefsDomain) []*preftemplates.Domain {
 	return dd
 }
 
-func getPrefsYAML(ctx Context, ptr Printer, args QueryArgs) (result Result) {
+func getPrefsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
 	var osVersion OSVersion
 	var resources []preftemplates.YAMLPrefsResource
 
-	domains, err := QueryPrefDomains(ctx, args)
+	domains, err := QueryPrefDomains(ctx, cfg, args)
 	if err != nil {
 		goto end
 	}
@@ -76,13 +75,13 @@ end:
 	return Result{Err: err}
 }
 
-func getPrefsJSON(ctx Context, ptr Printer, args QueryArgs) (result Result) {
+func getPrefsJSON(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
 	return Result{
 		Err: errors.New("get prefs --output=json not (yet?) implemented"),
 	}
 }
 
-func getPrefsText(ctx Context, ptr Printer, args QueryArgs) (result Result) {
+func getPrefsText(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
 	return Result{
 		Err: errors.New("get prefs --output=txt not (yet?) implemented"),
 	}

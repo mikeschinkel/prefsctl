@@ -8,6 +8,7 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/mikeschinkel/prefsctl/config"
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutil"
@@ -285,7 +286,7 @@ func (dd *PrefDomains) TemplateDomains(args TemplateDomainsArgs) (domains []*pre
 }
 
 // QueryPrefDomains queries for a set of preference domains based on the QueryArg provided
-func QueryPrefDomains(ctx Context, args QueryArgs) (domains *PrefDomains, err error) {
+func QueryPrefDomains(ctx Context, cfg config.Config, args QueryArgs) (domains *PrefDomains, err error) {
 	var nameFilters, valueFilters []kvfilters.Filter
 	var filtered []kvfilters.Group
 
@@ -299,7 +300,7 @@ func QueryPrefDomains(ctx Context, args QueryArgs) (domains *PrefDomains, err er
 	if err != nil {
 		goto end
 	}
-	err = domains.Initialize()
+	err = domains.Initialize(cfg)
 	if err != nil {
 		goto end
 	}

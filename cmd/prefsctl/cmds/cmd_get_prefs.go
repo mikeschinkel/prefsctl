@@ -77,8 +77,8 @@ var getPrefsCmd = NewCmdFromOpts(CmdOpts{
 	RunFunc: runGetPrefsFunc,
 })
 
-func runGetPrefsFunc(ctx Context, cmd Cmd) cobrautil.CmdResult {
-	return macprefs.GetPrefs(ctx, cmd, macprefs.QueryArgs{
+func runGetPrefsFunc(ctx Context, cfg cobrautil.Config, cmd Cmd) cobrautil.CmdResult {
+	return macprefs.GetPrefs(ctx, cfg, cmd, macprefs.QueryArgs{
 		IncludeUnchanged: *getPrefsProps.IncludeUnchanged,
 		Domains:          getPrefsProps.ToMacPrefsDomainNames(),
 	}).CobraUtilResult(cmd)

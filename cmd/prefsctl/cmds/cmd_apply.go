@@ -43,8 +43,8 @@ var applyCmd = NewCmdFromOpts(CmdOpts{
 	RunFunc: runApplyFunc,
 })
 
-func runApplyFunc(ctx Context, cmd Cmd) cobrautil.CmdResult {
-	return macprefs.Apply(ctx, cmd, macprefs.ApplyArgs{
+func runApplyFunc(ctx Context, cfg cobrautil.Config, cmd Cmd) cobrautil.CmdResult {
+	return macprefs.Apply(ctx, cfg, cmd, macprefs.ApplyArgs{
 		Filename: macprefs.Filename(*cmd.Props().(*ApplyProps).filename),
 	}).CobraUtilResult(cmd)
 }

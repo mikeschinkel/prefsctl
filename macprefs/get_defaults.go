@@ -4,11 +4,10 @@ import (
 	"errors"
 	"os"
 
-	"github.com/mikeschinkel/prefsctl/macosutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
+	"github.com/mikeschinkel/prefsctl/config"
 )
 
-func GetDefaults(ctx Context, ptr Printer, args QueryArgs) (result Result) {
+func GetDefaults(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
 	if ptr == nil {
 		ptr = StandardPrinter{}
 	}
@@ -22,20 +21,17 @@ func GetDefaults(ctx Context, ptr Printer, args QueryArgs) (result Result) {
 	}
 	switch OutputFormat(format) {
 	case YAMLFormat:
-		result = getDefaultsYAML(ctx, ptr, args)
+		result = getDefaultsYAML(ctx, cfg, ptr, args)
 	case JSONFormat:
-		result = GetDefaultsJSON(ctx, ptr, args)
-	case GoFormat:
-		result = getDefaultsGo(ctx, ptr, args)
+		result = GetDefaultsJSON(ctx, cfg, ptr, args)
 	case TXTFormat:
 		fallthrough
 	default:
-		result = getDefaultsText(ctx, ptr, args)
+		result = getDefaultsText(ctx, cfg, ptr, args)
 	}
 	return result
 }
 
-func getDefaultsGo(ctx Context, ptr Printer, args QueryArgs) Result {
 	var tmpl *preftemplates.DefaultsGoTemplate
 	var output string
 
@@ -54,6 +50,7 @@ func getDefaultsGo(ctx Context, ptr Printer, args QueryArgs) Result {
 		return d.Labels.HasLabel(&UserManaged)
 	}
 	output, err = tmpl.Generate()
+func getDefaultsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) Result {
 	if err != nil {
 		goto end
 	}
@@ -64,9 +61,14 @@ end:
 		Err:     err,
 	}
 }
+func GetDefaultsJSON(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) Result {
+	return Result{
+		Err: errors.New("JSON output not implemented"),
+	}
+}
 
-func getDefaultsText(ctx Context, ptr Printer, args QueryArgs) Result {
-	domains, err := QueryPrefDomains(ctx, args)
+func getDefaultsText(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) Result {
+	domains, err := QueryPrefDomains(ctx, cfg, args)
 	if err != nil {
 		goto end
 	}

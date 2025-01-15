@@ -66,7 +66,14 @@ func Test_GetDefaults(t *testing.T) {
 			GlobalFlags.Quiet = stdlibex.Ptr(true)
 			ptr := &errutil.BufferPrinter{}
 			MockMacOSUtil(tt.mockData)
-			result := GetDefaults(ctx, ptr, tt.args)
+			cfg := cobrautil.NewConfig(cobrautil.ConfigArgs{
+				AppName: fmt.Sprintf("%s-test", appinfo.Name),
+			})
+			err := cfg.Initialize(ctx)
+			if err != nil {
+				t.Fatalf(err.Error())
+			}
+			result := GetDefaults(ctx, cfg, ptr, tt.args)
 			if errutil.ErrorCheckFails(t, "GetDefaults", tt.errWanted, result.Err) {
 				return
 			}

@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/mikeschinkel/prefsctl/config"
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
@@ -16,7 +17,7 @@ type ApplyArgs struct {
 	Filename Filename
 }
 
-func Apply(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
+func Apply(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (result Result) {
 	if ptr == nil {
 		ptr = StandardPrinter{}
 	}
@@ -35,11 +36,9 @@ func Apply(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
 	}
 	switch OutputFormat(format) {
 	case YAMLFormat:
-		result = applyYAML(ctx, ptr, args)
+		result = applyYAML(ctx, cfg, ptr, args)
 	case JSONFormat:
-		result = ApplyJSON(ctx, ptr, args)
-	case GoFormat:
-		fallthrough
+		result = ApplyJSON(ctx, cfg, ptr, args)
 	case TXTFormat:
 		fallthrough
 	default:
@@ -54,7 +53,7 @@ func Apply(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
 	return result
 }
 
-func applyYAMLItem(ctx Context, resource preftemplates.YAMLPrefsResource, args ApplyArgs) (result Result) {
+func applyYAMLItem(ctx Context, cfg config.Config, resource preftemplates.YAMLPrefsResource, args ApplyArgs) (result Result) {
 	var success strings.Builder
 	var aaf func() error
 	var err error
@@ -94,7 +93,7 @@ func applyYAMLItem(ctx Context, resource preftemplates.YAMLPrefsResource, args A
 		result = Result{Err: err}
 		goto end
 	}
-	aaf, err = GetAfterApplyFunc(DomainName(domain))
+	aaf, err = GetAfterApplyFunc(cfg, DomainName(domain))
 	if aaf == nil {
 		goto end
 	}
@@ -107,7 +106,7 @@ end:
 	return result
 }
 
-func applyYAML(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
+func applyYAML(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (result Result) {
 	var errs errutil.MultiErr
 
 	successes := []string{fmt.Sprintf("Prefs applied.\n")}
@@ -118,7 +117,7 @@ func applyYAML(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
 		goto end
 	}
 	for _, resource := range resources {
-		itemResult := applyYAMLItem(ctx, resource, args)
+		itemResult := applyYAMLItem(ctx, cfg, resource, args)
 		if itemResult.Err != nil {
 			errs.Add(itemResult.Err)
 			continue
@@ -133,7 +132,7 @@ end:
 	return result
 }
 
-func ApplyJSON(ctx Context, ptr Printer, args ApplyArgs) (result Result) {
+func ApplyJSON(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (result Result) {
 	return Result{
 		Err: errors.New("apply JSON output not implemented"),
 	}

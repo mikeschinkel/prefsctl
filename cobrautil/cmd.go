@@ -43,7 +43,7 @@ type Cmd interface {
 	Flags() *flag.FlagSet
 	SetProps(Props)
 	SetArgs([]string)
-	Execute(Context) CmdResult
+	Execute(Context, Config) CmdResult
 	Command() *cobra.Command
 	AddCmd(Cmd)
 	Result() CmdResult
@@ -83,8 +83,8 @@ func (c *cmd) Command() *cobra.Command {
 func (c *cmd) Props() Props {
 	return c.props
 }
-func (c *cmd) Execute(ctx Context) CmdResult {
-	return c.RunFunc(ctx, c)
+func (c *cmd) Execute(ctx Context, cfg Config) CmdResult {
+	return c.RunFunc(ctx, cfg, c)
 }
 func (c *cmd) SetProps(props Props) {
 	c.props = props
@@ -139,7 +139,7 @@ func (c *cmd) AddCmd(cmd Cmd) {
 	}
 }
 
-type RunFunc = func(Context, Cmd) CmdResult
+type RunFunc = func(Context, Config, Cmd) CmdResult
 
 type CmdOpts struct {
 	Parent  Cmd
@@ -160,10 +160,10 @@ func NewCmdFromOpts(opts CmdOpts) Cmd {
 		newCmd.props = opts.Props
 		newCmd.RunFunc = opts.RunFunc
 		if newCmd.RunFunc == nil {
-			newCmd.RunFunc = func(ctx Context, cmd Cmd) (result CmdResult) {
+			newCmd.RunFunc = func(ctx Context, cfg Config, cmd Cmd) (result CmdResult) {
 				calledCmd := CalledCmd(cmd, cli.Args)
 				if cmd != calledCmd {
-					result = calledCmd.Execute(ctx)
+					result = calledCmd.Execute(ctx, cfg)
 					goto end
 				}
 				println("TODO: Call Command Help Here")
@@ -233,7 +233,7 @@ func NewCmdFromOpts(opts CmdOpts) Cmd {
 				goto end
 			}
 			subCmd.SetProps(props)
-			result = subCmd.Execute(context.Background())
+			result = subCmd.Execute(context.Background(), cli.Config)
 			if err != nil {
 				goto end
 			}

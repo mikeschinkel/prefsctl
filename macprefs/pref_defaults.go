@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/mikeschinkel/prefsctl/config"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
@@ -11,9 +12,9 @@ import (
 
 const prefDefaultsGoImport = "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
 
-type DefaultsMapFunc func() DomainPrefDefaults
+type PrefDefaultsFunc func(cfg config.Config) (OSPrefDefaults, error)
 
-type DefaultsMapFuncs map[Code]DefaultsMapFunc
+type PrefDefaultsFuncs map[Code]PrefDefaultsFunc
 
 var defaultsMapFuncs = make(DefaultsMapFuncs)
 
@@ -21,8 +22,8 @@ func RegisterDefaultsMapFunc(os *kvfilters.Label, f DefaultsMapFunc) {
 	defaultsMapFuncs[Code(os.Value)] = f
 }
 
-func GetAfterApplyFunc(domain DomainName) (f func() error, _ error) {
-	mapFunc, err := GetDefaultsMapFunc()
+func GetAfterApplyFunc(cfg config.Config, domain DomainName) (f func() error, _ error) {
+	defaults, err = defaultsFunc(cfg)
 	if err != nil {
 		goto end
 	}

@@ -56,9 +56,9 @@ var getDefaultsCmd = NewCmdFromOpts(CmdOpts{
 	RunFunc: runGetDefaultsFunc,
 })
 
-func runGetDefaultsFunc(ctx Context, cmd Cmd) cobrautil.CmdResult {
+func runGetDefaultsFunc(ctx Context, cfg cobrautil.Config, cmd Cmd) cobrautil.CmdResult {
 	//p := cmd.Props.(*GetDefaultsProps)
-	return macprefs.GetDefaults(ctx, cmd, macprefs.QueryArgs{
+	return macprefs.GetDefaults(ctx, cfg, cmd, macprefs.QueryArgs{
 		UseCurrent: *getDefaultsProps.UseCurrent,
 	}).CobraUtilResult(cmd)
 }
