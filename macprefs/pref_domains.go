@@ -156,7 +156,7 @@ func (dd *PrefDomains) RetrievePrefs(args RetrievePrefArgs) (err error) {
 		if err == nil {
 			continue
 		}
-		if args.IgnoreMissingDomains && errors.Is(err, macosutil.ErrFailedToGetPrefDomains) {
+		if args.IgnoreMissingDomains && errors.Is(err, macosutil.ErrFailedToGetPrefDomain) {
 			continue
 		}
 		errs.Add(err) // TODO: Annotate

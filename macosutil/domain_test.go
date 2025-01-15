@@ -44,7 +44,7 @@ func Test_macOSUtils_RetrievePreferences(t *testing.T) {
 		{
 			name:      "Bad domain - baz.bar.foo",
 			domain:    "baz.bar.foo",
-			errWanted: macosutil.ErrFailedToGetPrefDomains,
+			errWanted: macosutil.ErrFailedToGetPrefDomain,
 		},
 		{
 			name:   "com.apple.finder — Match all",

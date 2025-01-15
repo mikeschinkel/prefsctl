@@ -161,7 +161,7 @@ func (*macOSUtils) GetPreferences(d PreferenceDomain) (prefs []*Preference, err 
 	// Get the array of keys
 	cfaPrefs = C.GetPrefNamesForDomain(cfDomain)
 	if cfaPrefs == 0 {
-		err = errutil.AnnotateErr(ErrFailedToGetPrefDomains, "%s=%s", logargs.PrefsDomain, d)
+		err = errutil.AnnotateErr(ErrFailedToGetPrefDomain, "%s=%s", logargs.PrefsDomain, d)
 		goto end
 	}
 	defer C.CFRelease(C.CFTypeRef(cfaPrefs))

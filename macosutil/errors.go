@@ -24,5 +24,6 @@ var (
 
 	ErrFailedToCreateCFString = errors.New("failed to create CFString")
 	ErrFailedToGetPrefDomains = errors.New("failed to get preference domains")
+	ErrFailedToGetPrefDomain  = errors.New("failed to get preference domain")
 	ErrFailedToKillProcess    = errors.New("failed to kill process")
 )
