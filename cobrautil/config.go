@@ -10,7 +10,6 @@ import (
 )
 
 var (
-	ConfigName    = "prefsctl"
 	ConfigFileExt = "yaml"
 )
 
@@ -21,6 +20,7 @@ const (
 )
 
 type ConfigArgs struct {
+	AppName  string
 	Filepath string
 	Filename string
 	Options  OptionsMap
@@ -73,6 +73,7 @@ func NewConfig(args ConfigArgs) Config {
 		args.Options = make(OptionsMap)
 	}
 	return &config{
+		appName: args.AppName,
 		options: args.Options,
 	}
 }
@@ -87,12 +88,13 @@ func (c *config) Initialize(_ Context) (err error) {
 	if c.initialized {
 		goto end
 	}
-	execPath, err = os.Executable()
-	if err != nil {
-		goto end
+	if c.appName == "" {
+		execPath, err = os.Executable()
+		if err != nil {
+			goto end
+		}
+		c.appName = filepath.Base(execPath)
 	}
-	c.appName = filepath.Base(execPath)
-
 	c.dir, err = ConfigDir(c.appName)
 	if err != nil {
 		goto end
