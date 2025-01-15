@@ -1,6 +1,10 @@
 package macosutilmock
 
 import (
+	"errors"
+	"fmt"
+
+	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 )
 
@@ -16,6 +20,7 @@ func NewMock() MacOSUtil {
 	return &MacOSUtilMock{
 		MacOSUtil:   macosutil.New(),
 		Domains:     make([]PreferenceDomain, 0),
+		DomainsErr:  nil,
 		DomainPrefs: make(map[PreferenceDomain][]*Preference),
 		DomainErrs:  make(map[PreferenceDomain]error),
 		Prefs:       make(map[Identifier]*Preference),
@@ -25,6 +30,14 @@ func NewMock() MacOSUtil {
 var _ MacOSUtil = (*MacOSUtilMock)(nil)
 
 var mock = NewMock()
+
+func (mock *MacOSUtilMock) GetPreferenceDomains(args RetrievalArgs) (domains []PreferenceDomain, err error) {
+	domains = mock.Domains
+	if args.FilterDomains() {
+		panic("Filtering preference domains NOT YET IMPLEMENTED")
+	}
+	return domains, mock.DomainsErr
+}
 
 func (mock *MacOSUtilMock) SetPreferenceDomains(domains []PreferenceDomain, err error) {
 	mock.Domains = domains
@@ -58,7 +71,9 @@ func (mock *MacOSUtilMock) GetPreferences(d PreferenceDomain) (prefs []*Preferen
 
 	prefs, ok = mock.DomainPrefs[d]
 	if !ok {
-		err = macosutil.ErrFailedToGetPrefDomains
+		err = errors.Join(macosutil.ErrFailedToGetPrefDomain,
+			fmt.Errorf("%s=%s", logargs.PrefsDomain, d),
+		)
 		goto end
 	}
 
@@ -74,8 +89,7 @@ func (mock *MacOSUtilMock) GetPreference(domain string, name string) (pref *Pref
 
 	id := macosutil.PreferenceId(domain, name)
 	err, ok = mock.DomainErrs[PreferenceDomain(domain)]
-	if !ok {
-		err = macosutil.ErrInvalidPreferenceDomain
+	if ok {
 		goto end
 	}
 	pref, ok = mock.Prefs[id]
