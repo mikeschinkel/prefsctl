@@ -81,6 +81,10 @@ type RetrievalArgs struct {
 	domainIndex map[PreferenceDomain]NULL
 }
 
+func (args *RetrievalArgs) FilterDomains() bool {
+	return len(args.Domains) > 0
+}
+
 func (args *RetrievalArgs) HasDomain(domain PreferenceDomain) (has bool) {
 	if args.domainsPtr != unsafe.Pointer(&args.Domains) {
 		args.domainIndex = make(map[PreferenceDomain]NULL, len(args.Domains))
@@ -128,7 +132,7 @@ func (*macOSUtils) GetPreferenceDomains(args RetrievalArgs) (domains []Preferenc
 			continue
 		}
 		domain := PreferenceDomain(C.GoString(cDomain))
-		if !args.HasDomain(domain) {
+		if args.FilterDomains() && !args.HasDomain(domain) {
 			continue
 		}
 
