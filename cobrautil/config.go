@@ -99,6 +99,10 @@ func (c *config) Initialize(_ Context) (err error) {
 	if err != nil {
 		goto end
 	}
+	err = os.MkdirAll(c.dir, os.ModePerm)
+	if err != nil {
+		goto end
+	}
 	c.filepath = filepath.Join(
 		c.dir,
 		fmt.Sprintf("%s.%s", c.appName, ConfigFileExt),
