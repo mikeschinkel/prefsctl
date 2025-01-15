@@ -7,7 +7,6 @@ import (
 	"strings"
 
 	"github.com/mikeschinkel/prefsctl/sliceconv"
-	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 
 type LabelName Name
@@ -170,11 +169,27 @@ func (ll *Labels) HasNamedLabel(name LabelName) bool {
 
 // DeleteNamedLabel removes the label that has the passed label name.
 func (ll *Labels) DeleteNamedLabel(name LabelName) {
-	delete(ll.labelsMap, name)
-	if index, ok := ll.labelsIndex[name]; ok {
-		stdlibex.RemoveElements(ll.labels, index, 1)
-		delete(ll.labelsIndex, name)
+	var index int
+	var ok bool
+
+	if len(ll.labelsIndex) == 0 {
+		goto end
 	}
+	index, ok = ll.labelsIndex[name]
+	if !ok {
+		goto end
+	}
+	delete(ll.labelsIndex, name)
+	switch index {
+	case 0:
+		ll.labels = ll.labels[1:]
+	case len(ll.labelsIndex):
+		ll.labels = ll.labels[:len(ll.labels)-2]
+	default:
+		ll.labels = append(ll.labels[0:index], ll.labels[index:]...)
+	}
+	delete(ll.labelsMap, name)
+end:
 }
 
 func (ll *Labels) GetNamedLabel(name LabelName) *Label {
