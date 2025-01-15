@@ -1,0 +1,1 @@
+My current personal project is named Prefsctl for use on macOS.  Think of it like kubectl for applying and outputting macOS preferences. Imaging using it like you use `brew bundle` but for your settings on your macOS.
