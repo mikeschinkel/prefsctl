@@ -3,6 +3,7 @@ module github.com/mikeschinkel/prefsctl
 go 1.23.4
 
 require (
+	github.com/micromdm/plist v0.2.0
 	github.com/mikeschinkel/go-diffator v0.0.0-20240114054559-18c353d6899c
 	github.com/spf13/cobra v1.8.1
 	github.com/spf13/pflag v1.0.5

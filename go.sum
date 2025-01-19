@@ -3,6 +3,8 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
+github.com/micromdm/plist v0.2.0 h1:W/AuDP/0EB1xNhWvoP5qpE14oYeQSE+IaJqoeAU5SJ0=
+github.com/micromdm/plist v0.2.0/go.mod h1:flkfm0od6GzyXBqI28h5sgEyi3iPO28W2t1Zm9LpwWs=
 github.com/mikeschinkel/go-diffator v0.0.0-20240114054559-18c353d6899c h1:Q24aAQX/+532KB7uT43HztW+FR7ZJ3oScvuc1JBoJbQ=
 github.com/mikeschinkel/go-diffator v0.0.0-20240114054559-18c353d6899c/go.mod h1:TEV/sGeySOLWi1S16Xj1J8PCPCxKwGWILb9EBCHZ/u0=
 github.com/mikeschinkel/go-lib v0.0.0-20240105150559-6b08a12c3c43 h1:bes/7SAEJW2TO9vfo3eccIktMuAMlsr4nUDNaFiocnQ=

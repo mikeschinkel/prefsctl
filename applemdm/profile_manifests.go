@@ -2,17 +2,40 @@ package applemdm
 
 import (
 	"embed"
+	"io"
 	"io/fs"
 	"path/filepath"
+	"slices"
 
 	"github.com/mikeschinkel/prefsctl/logargs"
 )
 
 type (
-	DirEntryMap map[string]fs.DirEntry
+	EntryFiles  []*EmbeddedFile
+	DirEntryMap map[string]EntryFiles
 )
 
-//go:embed data/ProfileManifests/Manifests
+type EmbeddedFile struct {
+	fs.DirEntry
+	Filepath string
+}
+
+func NewEmbeddedFile(file fs.DirEntry, fp string) *EmbeddedFile {
+	return &EmbeddedFile{
+		DirEntry: file,
+		Filepath: fp,
+	}
+}
+
+func (f *EmbeddedFile) Content() ([]byte, error) {
+	return profileManifests.ReadFile(f.Filepath)
+}
+
+func (f *EmbeddedFile) Reader() (r io.Reader, err error) {
+	return profileManifests.Open(f.Filepath)
+}
+
+//go:embed data/ProfileManifests
 var profileManifests embed.FS
 
 const (
@@ -20,48 +43,70 @@ const (
 )
 
 var (
-	profileManifestFiles   []fs.DirEntry
+	profileManifestFiles   EntryFiles
 	profileManifestFileMap DirEntryMap
 )
 
 type ProfileManifests struct {
-	files   []fs.DirEntry
+	files   EntryFiles
 	fileMap DirEntryMap
 }
 
-func (pm *ProfileManifests) Files() []fs.DirEntry {
+func NewProfileManifests() *ProfileManifests {
+	return &ProfileManifests{}
+}
+
+func (pm *ProfileManifests) sortFiles() {
+	slices.SortFunc(pm.files, func(a, b *EmbeddedFile) int {
+		switch {
+		case a.Filepath < b.Filepath:
+			return -1
+		case a.Filepath > b.Filepath:
+			return 1
+		}
+		return 0
+	})
+}
+
+func (pm *ProfileManifests) Files() EntryFiles {
+	pm.sortFiles()
 	return pm.files
 }
 
-func (pm *ProfileManifests) Load() (err error) {
-	pm.files, err = ListFilesRecursive(profileManifests, profileManifestsDir)
+func (pm *ProfileManifests) Load() error {
+	files, err := ListFilesRecursive(profileManifests, profileManifestsDir)
 	if err != nil {
 		goto end
 	}
+	pm.files = make(EntryFiles, 0, len(files))
 	pm.fileMap = make(DirEntryMap, len(pm.files))
-	for _, file := range pm.files {
+	for _, file := range files {
 		name := file.Name()
 		_, ok := pm.fileMap[name]
 		if ok {
-			slog.Error("Unexpected duplicated domain", logargs.PrefsDomain, filepath.Base(file.Name()))
+			slog.Warn("Unexpected duplicated preference domain", logargs.PrefsDomain, filepath.Base(file.Name()))
+		} else {
+			pm.fileMap[name] = make(EntryFiles, 0, 1)
 		}
-		pm.fileMap[name] = file
-
+		pm.files = append(pm.files, file)
+		pm.fileMap[name] = append(pm.fileMap[name], file)
 	}
 end:
 	return err
 }
 
 // ListFilesRecursive returns a slice of file entries from an fs.FS
-func ListFilesRecursive(fileSys fs.FS, dir string) (files []fs.DirEntry, err error) {
+func ListFilesRecursive(fileSys fs.FS, dir string) (files EntryFiles, err error) {
 	err = fs.WalkDir(fileSys, dir, func(path string, entry fs.DirEntry, err error) error {
+		var file *EmbeddedFile
 		if err != nil {
 			goto end
 		}
 		if entry.IsDir() {
 			goto end
 		}
-		files = append(files, entry)
+		file = NewEmbeddedFile(entry, path)
+		files = append(files, file)
 	end:
 		return err
 	})

@@ -85,6 +85,7 @@ const (
 	GoPackage          = "go_package"
 	HeadersCount       = "headers_count"
 	Hostname           = "hostname"
+	ManifestFile       = "manifest_file"
 	NegotiatedProtocol = "negotiated_protocol"
 	PeerCertCount      = "peer_cert_count"
 	PrefId             = "pref_id"
