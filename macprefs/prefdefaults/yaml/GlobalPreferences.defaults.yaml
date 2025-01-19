@@ -1,9 +1,0 @@
-domains:
-  - name: GlobalPreferences
-    prefs:
-      - name: AppleActionOnDoubleClick
-      - default: FooBar
-      - labels
-        - type: unknown
-        - sets: defaults
-        - class: userManaged

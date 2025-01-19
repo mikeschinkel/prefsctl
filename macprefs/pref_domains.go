@@ -12,7 +12,6 @@ import (
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 )
 
@@ -86,11 +85,7 @@ func (pds *PrefDomains) Initialize(cfg config.Config) (err error) {
 		goto end
 	}
 
-	df, err = GetDefaultsFunc()
-	if err != nil {
-		errs.Add(err)
-		goto end
-	}
+	df = GetDefaultsFunc()
 	osPrefs, err = df(cfg)
 	if err != nil {
 		errs.Add(err)
@@ -259,46 +254,13 @@ func RetrieveDomainPrefs(domain DomainName) (pp Prefs, err error) {
 		goto end
 	}
 	pp = sliceconv.Func(prefs, func(p *macosutil.Preference) *Pref {
-		return NewPref(PrefArgs{
+		return NewPref(PrefOpts{
 			Domain: DomainName(p.Domain),
 			Name:   PrefName(p.Name),
 		})
 	})
 end:
 	return pp, err
-}
-
-type TemplateDomainsArgs struct {
-	UseCurrent bool
-}
-
-func (pds *PrefDomains) TemplateDomains(args TemplateDomainsArgs) (domains []*preftemplates.Domain) {
-	domains = make([]*preftemplates.Domain, len(pds.domains))
-	pds.Sort()
-	for i, domain := range pds.domains {
-		d := &preftemplates.Domain{
-			Name:     preftemplates.DomainName(domain.DomainName()),
-			Defaults: nil,
-			MacOS:    nil,
-		}
-		defaults := make([]*preftemplates.Default, len(domain.Prefs()))
-		for j, pref := range domain.Prefs() {
-			value := pref.DefaultValue
-			if args.UseCurrent {
-				value = pref.Value()
-			}
-			defaults[j] = &preftemplates.Default{
-				Domain: d,
-				Name:   preftemplates.PrefName(pref.Name),
-				Type:   preftemplates.PreferenceType(pref.typeName),
-				Value:  value,
-				Labels: pref.Labels(),
-			}
-		}
-		d.Defaults = defaults
-		domains[i] = d
-	}
-	return domains
 }
 
 // QueryPrefDomains queries for a set of preference domains based on the QueryArg provided

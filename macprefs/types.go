@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/mikeschinkel/prefsctl/cobrautil"
+	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/types"
 )
 
@@ -25,16 +26,16 @@ type Name = types.Name
 type Code = types.Code
 
 type PrefDomain struct {
-	Domain         DomainName
-	AfterApplyFunc func() error
-	Defaults       []*PrefDefault
+	Domain      DomainName
+	Defaults    []*PrefDefault
+	KillOnApply macosutil.ProcessName
 }
 
-func NewPrefDomain(domain DomainName, afterApplyFunc func() error) PrefDomain {
+func NewPrefDomain(domain DomainName, killOnApply macosutil.ProcessName) PrefDomain {
 	return PrefDomain{
-		Domain:         domain,
-		AfterApplyFunc: afterApplyFunc,
-		Defaults:       make([]*PrefDefault, 0),
+		Domain:      domain,
+		Defaults:    make([]*PrefDefault, 0),
+		KillOnApply: killOnApply,
 	}
 }
 

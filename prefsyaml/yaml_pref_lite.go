@@ -1,6 +1,6 @@
-package preftemplates
+package prefsyaml
 
-type Pref struct {
+type YAMLPrefLite struct {
 	Domain DomainName
 	Name   PrefName
 	Value  string // raw string value for default

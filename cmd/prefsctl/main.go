@@ -5,7 +5,7 @@ import (
 
 	"github.com/mikeschinkel/prefsctl/cmd/prefsctl/cmds"
 	"github.com/mikeschinkel/prefsctl/cobrautil"
-	_ "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
+	_ "github.com/mikeschinkel/prefsctl/prefdefaults"
 )
 
 func main() {

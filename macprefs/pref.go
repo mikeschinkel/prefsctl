@@ -59,8 +59,8 @@ func (p *Pref) Valid() bool {
 	return !p.invalid
 }
 
-// PrefArgs are used to pass to NewPref() to set initial struct properties
-type PrefArgs struct {
+// PrefOpts are used to pass to NewPref() to set initial struct properties
+type PrefOpts struct {
 	Domain  DomainName
 	Name    PrefName
 	Value   string // raw string value
@@ -71,17 +71,17 @@ type PrefArgs struct {
 }
 
 // NewPref creates a new Pref instance
-func NewPref(args PrefArgs) *Pref {
-	dv := GetPrefDefault(args.Domain, args.Name)
-	if args.Default != "" {
-		dv.DefaultValue = args.Default
+func NewPref(opts PrefOpts) *Pref {
+	dv := GetPrefDefault(opts.Domain, opts.Name, nil)
+	if opts.Default != "" {
+		dv.DefaultValue = opts.Default
 	}
 	if dv.labels == nil {
-		dv.labels = args.Labels
+		dv.labels = opts.Labels
 	}
 	return &Pref{
-		value:       args.Value,
-		invalid:     args.Invalid,
+		value:       opts.Value,
+		invalid:     opts.Invalid,
 		PrefDefault: dv,
 	}
 }
@@ -109,7 +109,11 @@ func (p *Pref) Retrieve() error {
 	}
 	p.value = mp.Value
 	p.Description = mp.Description
-	p.PrefDefault = GetPrefDefault(p.Domain, p.Name)
+	p.PrefDefault = GetPrefDefault(p.Domain, p.Name, &PrefDefaultOpts{
+		Kind:          0, // TODO set these values
+		SupportedIn:   "",
+		UnsupportedIn: "",
+	})
 	p.invalid = !mp.Valid()
 end:
 	return err

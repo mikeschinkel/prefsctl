@@ -9,8 +9,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/logargs"
-	"github.com/mikeschinkel/prefsctl/macosutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
+	"github.com/mikeschinkel/prefsctl/prefsyaml"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 	"gopkg.in/yaml.v3"
 )
@@ -42,21 +41,17 @@ type YAMLOpts struct {
 }
 
 func (pd *PrefsDomain) DefaultsYAML(opts YAMLOpts) string {
-	var labelValues []preftemplates.LabelValue
+	var labelValues []prefsyaml.LabelValue
 	var typeName string
 
 	sb := strings.Builder{}
-	if osCode == "" {
-		osCode = macosutil.MustGetVersionCode()
-	}
-	resource := preftemplates.YAMLPrefsResource{
+	resource := prefsyaml.YAMLPrefsResource{
 		APIVersion: LatestAPIVersion,
 		KindName:   "defaults",
-		MetaData: preftemplates.YAMLMetadata{
-			Domain:    preftemplates.DomainName(pd.domain),
-			OSVersion: preftemplates.OSVersion(osCode),
+		MetaData: prefsyaml.YAMLMetadata{
+			Domain: prefsyaml.DomainName(pd.domain),
 		},
-		Spec: preftemplates.NewYAMLPrefSpec(),
+		Spec: prefsyaml.NewYAMLPrefSpec(),
 	}
 	for _, pref := range pd.Prefs() {
 		var val, def string
@@ -70,17 +65,17 @@ func (pd *PrefsDomain) DefaultsYAML(opts YAMLOpts) string {
 		// Delete "type" from in YAML because as there is an explicit "type" field
 		labels.DeleteNamedLabel(Type)
 		if labels.HasLabels() {
-			labelValues = sliceconv.Func(labels.Labels(), func(l *kvfilters.Label) preftemplates.LabelValue {
-				return preftemplates.LabelValue(l.Value)
+			labelValues = sliceconv.Func(labels.Labels(), func(l *kvfilters.Label) prefsyaml.LabelValue {
+				return prefsyaml.LabelValue(l.Value)
 			})
 		}
 		typeName, _ = strings.CutSuffix(string(pref.TypeName()), "Type")
-		resource.Spec.Prefs = append(resource.Spec.Prefs, preftemplates.YAMLPref{
+		resource.Spec.Prefs = append(resource.Spec.Prefs, prefsyaml.YAMLPref{
 			MetaData: &resource.MetaData,
-			Name:     preftemplates.PrefName(pref.Name),
-			Type:     preftemplates.PrefType(typeName),
-			Value:    val,
-			Default:  def,
+			Name:     prefsyaml.PrefName(pref.Name),
+			Type:     prefsyaml.PrefType(typeName),
+			Value:    prefsyaml.YAMLValue{Value: val},
+			Default:  prefsyaml.YAMLValue{Value: def},
 			Labels:   labelValues,
 		})
 	}
@@ -128,7 +123,11 @@ func (pd *PrefsDomain) RetrievePrefs() (err error) {
 	for _, pref := range pd.prefs {
 		pd := LookupPrefDefault(pref.Id())
 		if pd == nil {
-			pd = NewPrefDefault(pref.Domain, pref.Name)
+			pd = NewPrefDefault(pref.Domain, pref.Name, &PrefDefaultOpts{
+				Kind:          0, // TODO: Populate these opts
+				SupportedIn:   "",
+				UnsupportedIn: "",
+			})
 		}
 		pref.PrefDefault = pd
 	}

@@ -1,4 +1,4 @@
-package preftemplates
+package prefsyaml
 
 import (
 	"fmt"

@@ -33,7 +33,7 @@ func GetDefaults(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (r
 }
 
 func getDefaultsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) Result {
-	//var tmpl *preftemplates.DefaultsGoTemplate
+	//var tmpl *prefsyaml.DefaultsGoTemplate
 	//var output string
 	//
 	//code, err := macosutil.VersionCode()
@@ -41,21 +41,6 @@ func getDefaultsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs
 	if err != nil {
 		goto end
 	}
-	//
-	//
-	//tmpl = preftemplates.NewDefaultsGoTemplate(
-	//	preftemplates.OSVersion(code),
-	//	domains.TemplateDomains(TemplateDomainsArgs{
-	//		UseCurrent: args.UseCurrent,
-	//	}),
-	//)
-	//tmpl.ShowValueFunc = func(d *preftemplates.Default) bool {
-	//	return d.Labels.HasLabel(&UserManaged)
-	//}
-	//output, err = tmpl.Generate()
-	//if err != nil {
-	//	goto end
-	//}
 	ptr.Print(domains.DefaultsYAML(YAMLOpts{
 		UseValueForDefault: args.UseCurrent,
 	}))

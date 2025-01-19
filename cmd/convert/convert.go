@@ -6,26 +6,26 @@ package main
 //
 //	"github.com/mikeschinkel/prefsctl/macosutil"
 //	"github.com/mikeschinkel/prefsctl/macprefs"
-//	"github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
-//	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
+//	"github.com/mikeschinkel/prefsctl/prefdefaults"
+//	"github.com/mikeschinkel/prefsctl/macprefs/prefsyaml"
 //	"gopkg.in/yaml.v3"
 //)
 //
 //const (
 //	rootDir    = "./macprefs/prefdefaults/yaml"
-//	inputFile  = rootDir + "/monterey.yaml"
-//	outputFile = rootDir + "/monterey-defaults.yaml"
+//	inputFile  = rootDir + "/pref-defaults.yaml"
+//	outputFile = rootDir + "/monterey-pref-defaults.yaml"
 //)
 //
 //type (
-//	DomainName = preftemplates.DomainName
-//	OSVersion  = preftemplates.OSVersion
-//	KindName   = preftemplates.KindName
-//	PrefName   = preftemplates.PrefName
+//	DomainName = prefsyaml.DomainName
+//	OSVersion  = prefsyaml.OSVersion
+//	KindName   = prefsyaml.KindName
+//	PrefName   = prefsyaml.PrefName
 //
-//	YAMLPrefsResource = preftemplates.YAMLPrefsResource
-//	YAMLPrefSpec      = preftemplates.YAMLPrefSpec
-//	YAMLPref          = preftemplates.YAMLPref
+//	YAMLPrefsResource = prefsyaml.YAMLPrefsResource
+//	YAMLPrefSpec      = prefsyaml.YAMLPrefSpec
+//	YAMLPref          = prefsyaml.YAMLPref
 //)
 //
 //func main() {
@@ -69,7 +69,7 @@ package main
 //		resource := YAMLPrefsResource{
 //			APIVersion: macprefs.LatestAPIVersion,
 //			KindName:   KindName(macprefs.DefaultsKind),
-//			MetaData: preftemplates.YAMLMetadata{
+//			MetaData: prefsyaml.YAMLMetadata{
 //				Domain:    DomainName(domain.Domain),
 //				OSVersion: OSVersion(osVersion),
 //			},

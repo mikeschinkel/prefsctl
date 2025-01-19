@@ -33,8 +33,8 @@ import (
 	"fmt"
 )
 
-func KillProcess(name string) (err error) {
-	result := C.killProcessByName(C.CString(name))
+func KillProcess(name ProcessName) (err error) {
+	result := C.killProcessByName(C.CString(string(name)))
 	if result != 0 {
 		goto end
 	}

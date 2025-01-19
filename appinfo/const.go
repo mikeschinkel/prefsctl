@@ -1,5 +1,6 @@
 package appinfo
 
 const (
-	Name = "prefsctl"
+	Name             = "prefsctl"
+	PrefDefaultsFile = "pref-defaults.yaml"
 )

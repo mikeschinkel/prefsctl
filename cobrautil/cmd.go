@@ -234,17 +234,12 @@ func NewCmdFromOpts(opts CmdOpts) Cmd {
 			}
 			subCmd.SetProps(props)
 			result = subCmd.Execute(context.Background(), cli.Config)
-			if err != nil {
+			if result.IsErr() {
+				err = result.err
 				goto end
 			}
+			cc.Printf("\n%s\n", result.Success)
 		end:
-			if !result.IsErr() {
-				//goland:noinspection GoDfaNilDereference
-				cc.Printf("\n%s\n", result.Success)
-				//cc.Printf(opts.SuccessMsg+"\n",
-				//	stdlibex.IndentLines(2, result.String()),
-				//)
-			}
 			return err
 		}
 	})

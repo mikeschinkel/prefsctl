@@ -13,7 +13,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/macosutil/macosutilmock"
 	"github.com/mikeschinkel/prefsctl/macprefs"
 	"github.com/mikeschinkel/prefsctl/macprefs/macprefstest"
-	_ "github.com/mikeschinkel/prefsctl/macprefs/prefdefaults"
+	_ "github.com/mikeschinkel/prefsctl/prefdefaults"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 

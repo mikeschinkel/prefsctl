@@ -4,8 +4,12 @@ import (
 	"github.com/mikeschinkel/prefsctl/types"
 )
 
-type VersionNumber string
+type (
+	ProcessName   string
+	VersionNumber string
 
-type Name = types.Name
-type Code = types.Code
-type NULL = struct{}
+	Name = types.Name
+	Code = types.Code
+
+	NULL = struct{}
+)

@@ -1,4 +1,4 @@
-package preftemplates
+package prefsyaml
 
 import (
 	"github.com/mikeschinkel/prefsctl/macosutil"
@@ -19,10 +19,10 @@ type (
 	KindName     string
 )
 
-type TemplateData interface{}
-
 type Printer interface {
 	Print(i ...any)
 	Println(i ...any)
 	Printf(format string, i ...any)
 }
+
+type Identifier string

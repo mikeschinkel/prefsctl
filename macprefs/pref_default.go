@@ -13,12 +13,14 @@ var _ kvfilters.KeyValue = (*PrefDefault)(nil)
 
 // PrefDefault represents a preference's default value
 type PrefDefault struct {
-	Domain       DomainName
-	Name         PrefName
-	DefaultValue string       // raw string value for default
-	Kind         reflect.Kind // kind of the value
-	typeName     TypeName
-	labels       *kvfilters.Labels
+	Domain        DomainName
+	Name          PrefName
+	DefaultValue  string       // raw string value for default
+	Kind          reflect.Kind // kind of the value
+	typeName      TypeName
+	labels        *kvfilters.Labels
+	SupportedIn   OSVersion
+	UnsupportedIn OSVersion
 }
 
 func (pd *PrefDefault) SetKey(key kvfilters.Code) {
@@ -29,11 +31,22 @@ func (pd *PrefDefault) SetValue(value string) {
 	pd.DefaultValue = value
 }
 
-func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
+type PrefDefaultOpts struct {
+	Kind          reflect.Kind
+	SupportedIn   OSVersion
+	UnsupportedIn OSVersion
+}
+
+func NewPrefDefault(domain DomainName, name PrefName, opts *PrefDefaultOpts) *PrefDefault {
+	if opts == nil {
+		opts = &PrefDefaultOpts{
+			Kind: reflect.Invalid,
+		}
+	}
 	return &PrefDefault{
 		Domain: domain,
 		Name:   name,
-		Kind:   reflect.Invalid,
+		Kind:   opts.Kind,
 		labels: kvfilters.NewLabels(
 			&UnknownType,
 			// 'defaults' is a reasonable default as the alternate is 'setup'
@@ -45,13 +58,15 @@ func NewPrefDefault(domain DomainName, name PrefName) *PrefDefault {
 			// change it.
 			&UserManaged,
 		),
-		typeName: TypeName(UnknownType.Value),
+		typeName:      TypeName(UnknownType.Value),
+		SupportedIn:   opts.SupportedIn,
+		UnsupportedIn: opts.UnsupportedIn,
 	}
 }
-func GetPrefDefault(domain DomainName, name PrefName) (d *PrefDefault) {
+func GetPrefDefault(domain DomainName, name PrefName, opts *PrefDefaultOpts) (d *PrefDefault) {
 	d = LookupPrefDefault(NewPrefId(domain, name))
 	if d == nil {
-		d = NewPrefDefault(domain, name)
+		d = NewPrefDefault(domain, name, opts)
 	}
 	return d
 }

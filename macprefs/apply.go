@@ -10,7 +10,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
-	"github.com/mikeschinkel/prefsctl/macprefs/preftemplates"
+	"github.com/mikeschinkel/prefsctl/prefsyaml"
 )
 
 type ApplyArgs struct {
@@ -53,12 +53,12 @@ func Apply(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (result 
 	return result
 }
 
-func applyYAMLItem(ctx Context, cfg config.Config, resource preftemplates.YAMLPrefsResource, args ApplyArgs) (result Result) {
+func applyYAMLResource(ctx Context, cfg config.Config, resource prefsyaml.YAMLPrefsResource, args ApplyArgs) (result Result) {
 	var success strings.Builder
 	var aaf func() error
 	var err error
 
-	preparePref := func(yamlPref preftemplates.YAMLPref) (pref *macosutil.Preference) {
+	preparePref := func(yamlPref prefsyaml.YAMLPref) (pref *macosutil.Preference) {
 		pref = yamlPref.MacOSUtilPreference()
 		success.WriteString("\t— ")
 		success.WriteString(renderPreference(pref))
@@ -94,6 +94,10 @@ func applyYAMLItem(ctx Context, cfg config.Config, resource preftemplates.YAMLPr
 		goto end
 	}
 	aaf, err = GetAfterApplyFunc(cfg, DomainName(domain))
+	if err != nil {
+		result = Result{Err: err}
+		goto end
+	}
 	if aaf == nil {
 		goto end
 	}
@@ -111,13 +115,13 @@ func applyYAML(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (res
 
 	successes := []string{fmt.Sprintf("Prefs applied.\n")}
 
-	resources, err := preftemplates.LoadYAMLPrefsResources(string(args.Filename))
+	resources, err := prefsyaml.LoadYAMLPrefsResources(string(args.Filename))
 	if err != nil {
 		errs.Add(err)
 		goto end
 	}
 	for _, resource := range resources {
-		itemResult := applyYAMLItem(ctx, cfg, resource, args)
+		itemResult := applyYAMLResource(ctx, cfg, resource, args)
 		if itemResult.Err != nil {
 			errs.Add(itemResult.Err)
 			continue
@@ -125,7 +129,7 @@ func applyYAML(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (res
 		successes = append(successes, itemResult.Success)
 	}
 end:
-	if len(successes) != 0 {
+	if !errs.IsError() && len(successes) != 0 {
 		result.Success = strings.Join(successes, "")
 	}
 	result.Err = errs.Err()

@@ -1,10 +1,116 @@
+#file: noinspection SpellCheckingInspection
 
 ---
 apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.Accessibility
-  macos: monterey
+  kill_on_apply: Dock
+spec:
+  preferences:
+  - name:    "autohide"
+    default: "false"
+  - name:    "autohide-delay"
+    default: "0.2"
+  - name:    "autohide-time-modifier"
+    default: "0.5"
+  - name:    "largesize"
+    default: "128"
+  - name:    "launchanim"
+    default: "true"
+  - name:    "magnification"
+    default: "false"
+  - name:    "mineffect"
+    default: "genie"
+    options:
+    - "genie"
+    - "scale"
+    - "suck"
+  - name:    "minimize-to-application"
+    default: "false" 
+  - name:    "no-bouncing"
+    default: "false"
+  - name:    "orientation"
+    default: "bottom"
+    options:
+    - "left"
+    - "bottom"
+    - "right"
+    requires:
+    - "com.apple.dock/position-immutable=false"
+  - name:    "scroll-to-open"
+    default: "false"
+  - name:    "show-recents"
+    default: "true"
+  - name:    "showappexposegestureenabled"
+    default: "true"
+  - name:    "showhidden"
+    default: "false"
+  - name:    "showmissioncontrolgestureenabled"
+    default: "true"
+  - name:    "static-only"
+    default: "false"
+  - name:    "tilesize"
+    default: "48"
+  - name:    "trash-full"
+    default: "false"
+  - name:    "wvous-bl-corner"
+    default: "0"
+  - name:    "wvous-bl-modifier"
+    default: "0",
+  - name:    "wvous-br-corner"
+    default: "0",
+  - name:    "wvous-br-modifier"
+    default: "0",
+  - name:    "wvous-tl-corner"
+    default: "0",
+  - name:    "wvous-tl-modifier"
+    default: "0",
+  - name:    "wvous-tr-corner"
+    default: "0",
+  - name:    "wvous-tr-modifier"
+    default: "0",
+  - name:    "mouse-over-hilite-stack"
+    default: "false"
+  - name:    "show-process-indicators"
+    default: "true"
+  - name:    "mru-spaces"
+    default: "true"
+  - name:    "contents-immutable"
+    default: "false"
+  - name:    "size-immutable"
+    default: "0"
+  - name:    "position-immutable"
+    default: "false"
+  - name:  "persistent-apps"
+    default:
+    - "file:///system/applications/launchpad.app/"
+    - "file:///applications/safari.app/"
+    - "file:///system/applications/messages.app/"
+    - "file:///system/applications/mail.app/"
+    - "file:///system/applications/maps.app/"
+    - "file:///system/applications/photos.app/"
+    - "file:///system/applications/facetime.app/"
+    - "file:///system/applications/calendar.app/"
+    - "file:///system/applications/contacts.app/"
+    - "file:///system/applications/reminders.app/"
+    - "file:///system/applications/notes.app/"
+    - "file:///system/applications/tv.app/"
+    - "file:///system/applications/music.app/"
+    - "file:///system/applications/podcasts.app/"
+    - "file:///system/applications/news.app/"
+    - "file:///system/applications/app%20store.app/"
+    - "file:///system/applications/system%20preferences.app/"
+  - name:  "persistent-others"
+    default:
+    - "file://${home}/downloads/"
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.Accessibility
+  kill_after: Dock
 spec:
   preferences:
   - name: ApplicationAccessibilityEnabled
@@ -48,7 +154,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.ActivityMonitor
-  macos: monterey
 spec:
   preferences:
   - name: OpenMainWindow
@@ -64,7 +169,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.AddressBook
-  macos: monterey
 spec:
   preferences:
   - name: ABBirthDayVisible
@@ -76,7 +180,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.amp.mediasharingd
-  macos: monterey
 spec:
   preferences:
   - name: home-sharing-computer-id
@@ -99,7 +202,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.AMPLibraryAgent
-  macos: monterey
 spec:
   preferences:
   - name: books-migrated
@@ -125,7 +227,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.AppleMultitouchMouse
-  macos: monterey
 spec:
   preferences:
   - name: MouseButtonDivision
@@ -153,7 +254,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.AppleMultitouchTrackpad
-  macos: monterey
 spec:
   preferences:
   - name: ActuateDetents
@@ -217,7 +317,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.assistant
-  macos: monterey
 spec:
   preferences:
   - name: MultiUser Shared Data Needs Sync
@@ -231,7 +330,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.classroom
-  macos: monterey
 spec:
   preferences:
   - name: allowClassroomLockDevice-00000000-0000-0000-0000-000000000000:0
@@ -269,7 +367,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.CloudKit
-  macos: monterey
 spec:
   preferences:
   - name: AccountInfoValidationCounter
@@ -281,7 +378,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.CoreGraphics
-  macos: monterey
 spec:
   preferences:
   - name: DisplayUseForcedGray
@@ -295,7 +391,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.driver.AppleBluetoothMultitouch.mouse
-  macos: monterey
 spec:
   preferences:
   - name: MouseButtonDivision
@@ -323,7 +418,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
-  macos: monterey
 spec:
   preferences:
   - name: Clicking
@@ -379,7 +473,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.driver.AppleHIDMouse
-  macos: monterey
 spec:
   preferences:
   - name: Button1
@@ -411,7 +504,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.facetime.bag
-  macos: monterey
 spec:
   preferences:
   - name: CacheTime
@@ -425,7 +517,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.finder
-  macos: monterey
 spec:
   preferences:
   - name: FXArrangeGroupViewBy
@@ -483,7 +574,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.FolderActionsDispatcher
-  macos: monterey
 spec:
   preferences:
   - name: folderActionsEnabled
@@ -495,7 +585,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.iCal
-  macos: monterey
 spec:
   preferences:
   - name: BirthdayEventsGenerationAttemptsToResetKey
@@ -513,7 +602,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.iChat
-  macos: monterey
 spec:
   preferences:
   - name: DidCheckForDuplicateChats
@@ -527,7 +615,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.icloud.searchpartyuseragent
-  macos: monterey
 spec:
   preferences:
   - name: lastLaunchLocale
@@ -539,7 +626,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.imagecapture
-  macos: monterey
 spec:
   preferences:
   - name: loggingLevel
@@ -551,7 +637,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.imagent
-  macos: monterey
 spec:
   preferences:
   - name: IMChatVocabularyUpdaterDidPerformInitialUpdateKey
@@ -563,7 +648,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.imdpersistence.IMDPersistenceAgent
-  macos: monterey
 spec:
   preferences:
   - name: LogAllIOErrors
@@ -575,7 +659,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.imessage
-  macos: monterey
 spec:
   preferences:
   - name: PreviewTranscodingQualityOnWiFiWasInitializedToDefaultValue
@@ -589,7 +672,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.imessage.bag
-  macos: monterey
 spec:
   preferences:
   - name: CacheTime
@@ -603,7 +685,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.ipTelephony
-  macos: monterey
 spec:
   preferences:
   - name: ImsLoggingEnabled
@@ -615,7 +696,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.loginwindow
-  macos: monterey
 spec:
   preferences:
   - name: MiniBuddyLaunch
@@ -631,7 +711,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.madrid
-  macos: monterey
 spec:
   preferences:
   - name: CloudKitCheckedMiCSwitchEligibilityOnImagentLaunch
@@ -669,7 +748,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.menuextra.clock
-  macos: monterey
 spec:
   preferences:
   - name: DateFormat
@@ -681,7 +759,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.messages.nicknames
-  macos: monterey
 spec:
   preferences:
   - name: NicknameScrutinyDoNotHandle
@@ -693,7 +770,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.ncprefs
-  macos: monterey
 spec:
   preferences:
   - name: content_visibility
@@ -707,7 +783,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.NewDeviceOutreach
-  macos: monterey
 spec:
   preferences:
   - name: PostUpgradeActivityCompleted
@@ -721,7 +796,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.newscore
-  macos: monterey
 spec:
   preferences:
   - name: force_refresh_user_segmentation
@@ -735,7 +809,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.ProblemReporter
-  macos: monterey
 spec:
   preferences:
   - name: ShowComments
@@ -747,7 +820,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.remindd
-  macos: monterey
 spec:
   preferences:
   - name: CloudConfigurationPath
@@ -765,7 +837,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.Safari.SafeBrowsing
-  macos: monterey
 spec:
   preferences:
   - name: HasMigratedSafeBrowsingEnabledDefaults
@@ -777,7 +848,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.Safari.SandboxBroker
-  macos: monterey
 spec:
   preferences:
   - name: DidMigrateDownloadFolderToSandbox
@@ -795,7 +865,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.screensaver
-  macos: monterey
 spec:
   preferences:
   - name: tokenRemovalAction
@@ -807,7 +876,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.scriptmenu
-  macos: monterey
 spec:
   preferences:
   - name: ScriptMenuEnabled
@@ -819,7 +887,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.sharingd
-  macos: monterey
 spec:
   preferences:
   - name: HashManager-StoredDatabaseVersionKey
@@ -833,7 +900,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.siri.shortcuts
-  macos: monterey
 spec:
   preferences:
   - name: WFDidUnconflictShortcuts
@@ -845,7 +911,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.siri.VoiceShortcuts
-  macos: monterey
 spec:
   preferences:
   - name: VCLSDataSequenceKey
@@ -857,7 +922,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.Spotlight
-  macos: monterey
 spec:
   preferences:
   - name: __NSEnableTSMDocumentWindowLevel
@@ -877,7 +941,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.suggestions
-  macos: monterey
 spec:
   preferences:
   - name: findToShowMigrationPerformed
@@ -893,7 +956,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.systempreferences
-  macos: monterey
 spec:
   preferences:
   - name: com.apple.SecurityPref.Privacy.LastSourceSelected
@@ -913,7 +975,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.Terminal
-  macos: monterey
 spec:
   preferences:
   - name: Default Window Settings
@@ -933,7 +994,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.textInput.keyboardServices.textReplacement
-  macos: monterey
 spec:
   preferences:
   - name: KSDidPushMigrationStatusOnce-2
@@ -947,7 +1007,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.TextInputMenu
-  macos: monterey
 spec:
   preferences:
   - name: visible
@@ -959,7 +1018,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.tipsd
-  macos: monterey
 spec:
   preferences:
   - name: TPSTipsAppInstalled
@@ -973,7 +1031,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.universalaccess
-  macos: monterey
 spec:
   preferences:
   - name: closeViewHotkeysEnabled
@@ -993,7 +1050,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.UserAccountUpdater
-  macos: monterey
 spec:
   preferences:
   - name: com.apple.HidLibraryFolderAlready
@@ -1005,7 +1061,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.visualintelligence
-  macos: monterey
 spec:
   preferences:
   - name: bypassAvailability
@@ -1049,7 +1104,6 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: GlobalPreferences
-  macos: monterey
 spec:
   preferences:
   - name: AKLastIDMSEnvironment
