@@ -3,16 +3,23 @@ package macprefs
 import (
 	"errors"
 	"fmt"
+	"io"
+	"slices"
 
-	"github.com/mikeschinkel/prefsctl/applemdm"
+	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/config"
 	"github.com/mikeschinkel/prefsctl/errutil"
+	"github.com/mikeschinkel/prefsctl/gitutil"
 	"github.com/mikeschinkel/prefsctl/logargs"
+	"github.com/mikeschinkel/prefsctl/macosutil"
+	"github.com/mikeschinkel/prefsctl/profilemanifests"
 )
 
 const (
-	profileManifestsRepoURL = applemdm.ProfileManifestsRepoURL
-	gitRepoParentDir        = applemdm.GitRepoParentDir
+	profileManifestsRepoURL = "https://github.com/ProfileManifests/ProfileManifests"
+	gitRepoParentDir        = "/tmp/" + appinfo.Name
+
+	MacOSPlatform = "macOS"
 )
 
 type UpdateArgs struct {
@@ -20,28 +27,27 @@ type UpdateArgs struct {
 }
 
 func Update(ctx Context, cfg config.Config, ptr Printer, args UpdateArgs) (result Result) {
-	var pm *applemdm.ProfileManifests
+	var pms *profilemanifests.ProfileManifests
 
 	if ptr == nil {
 		ptr = StandardPrinter{}
 	}
-	err := applemdm.EnsureGitRepo(profileManifestsRepoURL, gitRepoParentDir)
+	err := gitutil.EnsureGitRepo(profileManifestsRepoURL, gitRepoParentDir)
 	if err != nil {
 		goto end
 	}
 	ptr.Printf("\nProfileManifests Git repo (%s) updated in %s.", profileManifestsRepoURL, gitRepoParentDir)
 
-	pm, err = LoadProfileManifests()
+	pms, err = LoadProfileManifests()
 	if err != nil {
 		goto end
 	}
 	ptr.Printf("\nProfileManifests loaded.")
 
-	err = ProcessProfileManifests(pm)
+	err = ProcessProfileManifests(pms)
 	if err != nil {
 		goto end
 	}
-	fmt.Printf("%v", pm)
 
 	ptr.Printf("\nTODO: Update prefs")
 	result = Result{Success: "Prefs updated."}
@@ -52,12 +58,38 @@ end:
 	return result
 }
 
-func ProcessProfileManifest(file *applemdm.EmbeddedFile) (pm *applemdm.PreferenceManifest, err error) {
-	r, err := file.Reader()
+func LoadProfileManifests() (*profilemanifests.ProfileManifests, error) {
+	pms := profilemanifests.New()
+	err := pms.Load()
+	return pms, err
+}
+
+func ProcessProfileManifests(pms *profilemanifests.ProfileManifests) error {
+	var errs errutil.MultiErr
+	for _, file := range pms.Files() {
+		if file.IsDir() {
+			continue
+		}
+		err := ProcessProfileManifest(file)
+		if err != nil {
+			errs.Add(err)
+			goto end
+		}
+	}
+end:
+	return errs.Err()
+}
+
+func ProcessProfileManifest(file *profilemanifests.EmbeddedFile) (err error) {
+	var pm *profilemanifests.ProfileManifest
+	var r io.Reader
+	var pd *DefaultsDomain
+
+	r, err = file.Reader()
 	if err != nil {
 		goto end
 	}
-	pm, err = applemdm.LoadPreferenceManifest(r)
+	pm, err = profilemanifests.LoadProfileManifest(r)
 	if err != nil {
 		err = errors.Join(
 			ErrFailedToGetFileInfo,
@@ -66,30 +98,37 @@ func ProcessProfileManifest(file *applemdm.EmbeddedFile) (pm *applemdm.Preferenc
 		)
 		goto end
 	}
-	print(pm)
+
+	if !slices.Contains(pm.Platforms, MacOSPlatform) {
+		// Not for macOS
+		goto end
+	}
+	pd = NewDefaultsDomainFromProfileManifest(pm)
+
+	fmt.Printf("%v\n", pd)
+
 end:
-	return pm, err
+	return err
 }
 
-func ProcessProfileManifests(pm *applemdm.ProfileManifests) error {
-	var errs errutil.MultiErr
-	for _, file := range pm.Files() {
-		if file.IsDir() {
+func NewDefaultsDomainFromProfileManifest(pm *profilemanifests.ProfileManifest) *DefaultsDomain {
+	dn := macosutil.DomainName(pm.Domain)
+	if len(dn) != 0 && dn[0] == '.' {
+		dn = dn[1:]
+	}
+	pd := NewDefaultsDomain(dn, macosutil.GetProcessToKill(dn))
+	for _, subKey := range pm.Subkeys {
+		if subKey.IsPayloadKey() {
 			continue
 		}
-		pm, err := ProcessProfileManifest(file)
-		if err != nil {
-			errs.Add(err)
-			goto end
+		if !subKey.SupportsOSVersion() {
+			continue
 		}
-		print(pm)
+		pd.AddDefault(NewPrefDefault(dn, PrefName(subKey.Name), &PrefDefaultOpts{
+			Kind:          subKey.Kind(),
+			SupportedIn:   OSVersion(subKey.MacOSMin),
+			UnsupportedIn: "", // TODO Add support for this
+		}))
 	}
-end:
-	return errs.Err()
-}
-
-func LoadProfileManifests() (*applemdm.ProfileManifests, error) {
-	pm := applemdm.NewProfileManifests()
-	err := pm.Load()
-	return pm, err
+	return &pd
 }

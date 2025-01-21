@@ -1,0 +1,180 @@
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.Accessibility
+spec:
+  preferences:
+    - name: InvertColorsEnabled
+      type: intBool
+      value:
+        value: ""
+      default:
+        value: "0"
+      labels:
+        - optional
+        - userManaged
+    - name: KeyRepeatDelay
+      type: float
+      value:
+        value: "0.25"
+      default:
+        value: "0.5"
+      labels:
+        - optional
+        - userManaged
+    - name: KeyRepeatInterval
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.dock
+spec:
+  preferences:
+    - name: autohide
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+    - name: region
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+    - name: showhidden
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+    - name: tilesize
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.finder
+spec:
+  preferences:
+    - name: ShowRemovableMediaOnDesktop
+      type: bool
+      value:
+        value: ""
+      default:
+        value: "true"
+      labels:
+        - optional
+        - userManaged
+    - name: ShowStatusBar
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: com.apple.keyboard
+spec:
+  preferences:
+    - name: KeyboardWordOrSentenceTrackingForPFL
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+
+
+---
+apiVersion: prefs/v1beta1
+kind: defaults
+metadata:
+  domain: GlobalPreferences
+spec:
+  preferences:
+    - name: AppleActionOnDoubleClick
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+    - name: AppleMeasurementUnits
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+    - name: AppleTemperatureUnit
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+    - name: com.apple.mouse.scaling
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+    - name: com.apple.trackpad.scaling
+      type: unknown
+      value:
+        value: ""
+      default:
+        value: ""
+      labels:
+        - optional
+        - userManaged
+

@@ -57,19 +57,19 @@ spec:
   - name:    "wvous-bl-corner"
     default: "0"
   - name:    "wvous-bl-modifier"
-    default: "0",
+    default: "0"
   - name:    "wvous-br-corner"
-    default: "0",
+    default: "0"
   - name:    "wvous-br-modifier"
-    default: "0",
+    default: "0"
   - name:    "wvous-tl-corner"
-    default: "0",
+    default: "0"
   - name:    "wvous-tl-modifier"
-    default: "0",
+    default: "0"
   - name:    "wvous-tr-corner"
-    default: "0",
+    default: "0"
   - name:    "wvous-tr-modifier"
-    default: "0",
+    default: "0"
   - name:    "mouse-over-hilite-stack"
     default: "false"
   - name:    "show-process-indicators"

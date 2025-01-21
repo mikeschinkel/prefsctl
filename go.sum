@@ -1,6 +1,8 @@
 github.com/cpuguy83/go-md2man/v2 v2.0.4/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/hashicorp/go-version v1.7.0 h1:5tqGy27NaOTB8yJKUZELlFAS/LTKJkrmONwQKeRZfjY=
+github.com/hashicorp/go-version v1.7.0/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09ZGVZPK5anwXA=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/micromdm/plist v0.2.0 h1:W/AuDP/0EB1xNhWvoP5qpE14oYeQSE+IaJqoeAU5SJ0=
@@ -9,6 +11,7 @@ github.com/mikeschinkel/go-diffator v0.0.0-20240114054559-18c353d6899c h1:Q24aAQ
 github.com/mikeschinkel/go-diffator v0.0.0-20240114054559-18c353d6899c/go.mod h1:TEV/sGeySOLWi1S16Xj1J8PCPCxKwGWILb9EBCHZ/u0=
 github.com/mikeschinkel/go-lib v0.0.0-20240105150559-6b08a12c3c43 h1:bes/7SAEJW2TO9vfo3eccIktMuAMlsr4nUDNaFiocnQ=
 github.com/mikeschinkel/go-lib v0.0.0-20240105150559-6b08a12c3c43/go.mod h1:HmJP4+kZDbZHHvuhFVlzVCRLy54grOQhtmUzZ67aLDs=
+github.com/mikeschinkel/plist v0.0.0-20250121222714-6227ce448279/go.mod h1:flkfm0od6GzyXBqI28h5sgEyi3iPO28W2t1Zm9LpwWs=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=

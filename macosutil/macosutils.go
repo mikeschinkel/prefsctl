@@ -9,6 +9,7 @@ type MacOSUtil interface {
 	GetVersionName(code Code) (name Name)
 	GetVersionCode(num VersionNumber) (code Code)
 	VersionCode() (code Code, err error)
+	MustGetVersionNumber() VersionNumber
 	MustGetVersionCode() Code
 	ValidateVersionNumber(VersionNumber) bool
 	ValidateVersionName(Name) bool
@@ -68,6 +69,10 @@ func VersionCode() (code Code, err error) {
 
 func MustGetVersionCode() Code {
 	return instance.MustGetVersionCode()
+}
+
+func MustGetVersionNumber() VersionNumber {
+	return instance.MustGetVersionNumber()
 }
 
 func ApplyPreferences(domain string, prefs []*Preference) (err error) {

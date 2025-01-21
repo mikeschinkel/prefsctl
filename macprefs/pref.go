@@ -3,11 +3,24 @@ package macprefs
 import (
 	"errors"
 	"fmt"
+	"slices"
 	"strconv"
+	"strings"
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 )
+
+type Prefs []*Pref
+
+func (pp *Prefs) Sort() {
+	slices.SortFunc(*pp, func(a, b *Pref) int {
+		return strings.Compare(
+			strings.ToLower(string(a.Key())),
+			strings.ToLower(string(b.Key())),
+		)
+	})
+}
 
 var _ kvfilters.KeyValue = (*Pref)(nil)
 

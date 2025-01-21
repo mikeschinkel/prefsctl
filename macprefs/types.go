@@ -9,47 +9,35 @@ import (
 )
 
 type (
-	Context   = context.Context
-	CmdResult = cobrautil.CmdResult
+	PrefName    string
+	Filename    string
+	BoolPtr     *bool
+	FilenamePtr *string
+	OutputPtr   *string
+)
+
+type (
+	Context    = context.Context
+	CmdResult  = cobrautil.CmdResult
+	DomainName = macosutil.DomainName
+	TypeName   = types.TypeName
+	Name       = types.Name
+	Code       = types.Code
 )
 
 type YAMLSpec interface {
 	YAMLSpec()
 }
+
 type Spec interface {
 	Spec()
-}
-
-type PrefName string
-type TypeName = types.TypeName
-type Name = types.Name
-type Code = types.Code
-
-type PrefDomain struct {
-	Domain      DomainName
-	Defaults    []*PrefDefault
-	KillOnApply macosutil.ProcessName
-}
-
-func NewPrefDomain(domain DomainName, killOnApply macosutil.ProcessName) PrefDomain {
-	return PrefDomain{
-		Domain:      domain,
-		Defaults:    make([]*PrefDefault, 0),
-		KillOnApply: killOnApply,
-	}
 }
 
 // OSPrefDefaults is used to load a list of all domains and its default
 // preferences for a given macOS version
 type OSPrefDefaults struct {
-	Domains []PrefDomain
+	Domains []DefaultsDomain
 }
-
-type Filename string
-
-type BoolPtr *bool
-type FilenamePtr *string
-type OutputPtr *string
 
 type Printer interface {
 	Print(i ...any)

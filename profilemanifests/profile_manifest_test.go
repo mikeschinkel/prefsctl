@@ -1,4 +1,4 @@
-package applemdm_test
+package profilemanifests_test
 
 import (
 	"bytes"
@@ -10,18 +10,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mikeschinkel/prefsctl/applemdm"
+	"github.com/micromdm/plist"
+	"github.com/mikeschinkel/prefsctl/profilemanifests"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 
 const (
-	gitCloneDir          = "/tmp/applemdm-test"
+	gitCloneDir          = "/tmp/profilemanifests-test"
 	gitHubCloneURLPrefix = "https://github.com"
 )
 
 type (
-	PreferenceManifest = applemdm.PreferenceManifest
-	ManifestKey        = applemdm.ManifestKey
+	ProfileManifest = profilemanifests.ProfileManifest
+	ManifestKey     = profilemanifests.ManifestKey
 )
 
 var (
@@ -30,8 +31,10 @@ var (
 
 	DevMgmtRepoURL = "https://github.com/apple/device-management/"
 	DevMgmtDir     = fmt.Sprintf("%s/%s", gitCloneDir, filepath.Base(DevMgmtRepoURL))
-
-	LoadPreferenceManifest = applemdm.LoadPreferenceManifest
+)
+var (
+	LoadProfileManifest       = profilemanifests.LoadProfileManifest
+	ErrFailedToDecodeManifest = profilemanifests.ErrFailedToDecodeManifest
 )
 
 func filePath(path string) string {
@@ -71,7 +74,211 @@ func setup() {
 func cleanup() {
 }
 
-func Test_LoadPreferenceManifest(t *testing.T) {
+func Test_DecodeProfileManifestWithMPFMRangeMinAsReal(t *testing.T) {
+	const input = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_range_min</key>
+			<real>42</real>
+			<key>pfm_type</key>
+			<string>real</string>
+		</dict>
+	</array>
+</dict>
+</plist>`
+	var err error
+
+	bb := bytes.NewBufferString(input)
+	decoder := plist.NewXMLDecoder(bb)
+	pm := ProfileManifest{}
+	err = decoder.Decode(&pm)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	if pm.Subkeys == nil {
+		t.Error(".Subkeys should not be nil")
+		return
+	}
+	if len(pm.Subkeys) != 1 {
+		t.Errorf("len(.Subkeys) should be 1, not %d", len(pm.Subkeys))
+		return
+	}
+	rMin, ok := pm.Subkeys[0].RangeMinAny.(float64)
+	if !ok {
+		t.Errorf(".Subkeys[].RangeMin should type assert to 'float64', got '%T' instead", pm.Subkeys[0].RangeMinAny)
+		return
+	}
+	if int(rMin) != 42 {
+		t.Errorf(".Subkeys[0].RangeMin should be 42.000000, not %f", rMin)
+		return
+	}
+}
+func Test_DecodeNoteDeveloperProfileCreatorManifest(t *testing.T) {
+	const input = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pfm_description</key>
+	<string>Developer: Note settings</string>
+	<key>pfm_domain</key>
+	<string>com.profilecreator.developer.note</string>
+	<key>pfm_format_version</key>
+	<integer>1</integer>
+	<key>pfm_interaction</key>
+	<string>exclusive</string>
+	<key>pfm_last_modified</key>
+	<date>2018-07-18T08:58:49Z</date>
+	<key>pfm_platforms</key>
+	<array>
+		<string>iOS</string>
+		<string>macOS</string>
+		<string>tvOS</string>
+	</array>
+	<key>pfm_subkeys</key>
+	<array>
+		<dict>
+			<key>pfm_default</key>
+			<string>Configures Developer: Note settings</string>
+			<key>pfm_description</key>
+			<string>Description of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDescription</string>
+			<key>pfm_title</key>
+			<string>Payload Description</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>Developer: Note</string>
+			<key>pfm_description</key>
+			<string>Name of the payload</string>
+			<key>pfm_name</key>
+			<string>PayloadDisplayName</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Display Name</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.profilecreator.developer.note</string>
+			<key>pfm_description</key>
+			<string>A unique identifier for the payload, dot-delimited.  Usually root PayloadIdentifier+subidentifier</string>
+			<key>pfm_name</key>
+			<string>PayloadIdentifier</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Identifier</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string>com.profilecreator.developer.note</string>
+			<key>pfm_description</key>
+			<string>The type of the payload, a reverse dns string</string>
+			<key>pfm_name</key>
+			<string>PayloadType</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Type</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<string></string>
+			<key>pfm_description</key>
+			<string>Unique identifier for the payload (format 01234567-89AB-CDEF-0123-456789ABCDEF)</string>
+			<key>pfm_format</key>
+			<string>^[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$</string>
+			<key>pfm_name</key>
+			<string>PayloadUUID</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload UUID</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		<dict>
+			<key>pfm_default</key>
+			<integer>1</integer>
+			<key>pfm_description</key>
+			<string>The version of the whole configuration profile.</string>
+			<key>pfm_name</key>
+			<string>PayloadVersion</string>
+			<key>pfm_require</key>
+			<string>always</string>
+			<key>pfm_title</key>
+			<string>Payload Version</string>
+			<key>pfm_type</key>
+			<string>integer</string>
+		</dict>
+		<dict>
+			<key>pfm_description</key>
+			<string>This value describes the issuing organization of the profile, as displayed to the user</string>
+			<key>pfm_name</key>
+			<string>PayloadOrganization</string>
+			<key>pfm_title</key>
+			<string>Payload Organization</string>
+			<key>pfm_type</key>
+			<string>string</string>
+		</dict>
+		
+		<!-- Custom Keys -->
+		
+		<dict>
+			<key>pfm_description</key>
+			<string>TextField Note.</string>
+			<key>pfm_enabled</key>
+			<true/>
+			<key>pfm_name</key>
+			<string>Note01</string>
+			<key>pfm_title</key>
+			<string>Note 01: TextField</string>
+			<key>pfm_type</key>
+			<string>string</string>
+			<key>pfm_note</key>
+			<string>This is a short note</string>
+		</dict>
+	</array>
+	<key>pfm_targets</key>
+	<array>
+		<string>user</string>
+		<string>system</string>
+	</array>
+	<key>pfm_title</key>
+	<string>Developer: Note</string>
+	<key>pfm_unique</key>
+	<true/>
+	<key>pfm_version</key>
+	<integer>1</integer>
+</dict>
+</plist>`
+	var err error
+
+	bb := bytes.NewBufferString(input)
+	decoder := plist.NewXMLDecoder(bb)
+	pm := ProfileManifest{}
+	err = decoder.Decode(&pm)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+}
+
+func Test_LoadProfileManifest(t *testing.T) {
 	tests := []struct {
 		name       string
 		path       string
@@ -89,21 +296,21 @@ func Test_LoadPreferenceManifest(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := applemdm.LoadPreferenceManifestFromFile(filePath(tt.path))
+			got, err := profilemanifests.LoadProfileManifestFromFile(filePath(tt.path))
 			if (err != nil) != tt.wantErr {
-				t.Errorf("LoadPreferenceManifest() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("LoadProfileManifest() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			{
 				got, want := got.Description, tt.descr
 				if want != got {
-					t.Errorf("LoadPreferenceManifest() descr = %v, want %v", got, want)
+					t.Errorf("LoadProfileManifest() descr = %v, want %v", got, want)
 				}
 			}
 			{
 				got, want := len(got.Subkeys), tt.numSubkeys
 				if got != want {
-					t.Errorf("LoadPreferenceManifest() subkey count = %v, want %v", got, want)
+					t.Errorf("LoadProfileManifest() subkey count = %v, want %v", got, want)
 				}
 			}
 		})
@@ -142,7 +349,7 @@ func Test_GetBoolKey(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			m := &PreferenceManifest{
+			m := &ProfileManifest{
 				Description:      tt.fields.Description,
 				DescriptionRef:   tt.fields.DescriptionRef,
 				DocumentationURL: tt.fields.DocumentationURL,
@@ -205,7 +412,7 @@ func Test_GetIntKey(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			m := &PreferenceManifest{
+			m := &ProfileManifest{
 				Description:      tt.fields.Description,
 				DescriptionRef:   tt.fields.DescriptionRef,
 				DocumentationURL: tt.fields.DocumentationURL,
@@ -267,7 +474,7 @@ func Test_GetKey(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			m := &PreferenceManifest{
+			m := &ProfileManifest{
 				Description:      tt.fields.Description,
 				DescriptionRef:   tt.fields.DescriptionRef,
 				DocumentationURL: tt.fields.DocumentationURL,
@@ -327,7 +534,7 @@ func Test_GetStringKey(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			m := &PreferenceManifest{
+			m := &ProfileManifest{
 				Description:      tt.fields.Description,
 				DescriptionRef:   tt.fields.DescriptionRef,
 				DocumentationURL: tt.fields.DocumentationURL,
@@ -358,7 +565,7 @@ func Test_GetStringKey(t *testing.T) {
 	}
 }
 
-func Test_SavePreferenceManifest(t *testing.T) {
+func Test_SaveProfileManifest(t *testing.T) {
 	type fields struct {
 		Description      string
 		DescriptionRef   string
@@ -385,7 +592,7 @@ func Test_SavePreferenceManifest(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			m := &PreferenceManifest{
+			m := &ProfileManifest{
 				Description:      tt.fields.Description,
 				DescriptionRef:   tt.fields.DescriptionRef,
 				DocumentationURL: tt.fields.DocumentationURL,
@@ -402,7 +609,7 @@ func Test_SavePreferenceManifest(t *testing.T) {
 				Version:          tt.fields.Version,
 			}
 			w := bytes.Buffer{}
-			err := m.SavePreferenceManifest(&w)
+			err := m.SaveProfileManifest(&w)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Save() error = %v, wantErr %v", err, tt.wantErr)
 				return
@@ -444,7 +651,7 @@ func Test_SaveToFile(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			m := &PreferenceManifest{
+			m := &ProfileManifest{
 				Description:      tt.fields.Description,
 				DescriptionRef:   tt.fields.DescriptionRef,
 				DocumentationURL: tt.fields.DocumentationURL,
@@ -460,7 +667,7 @@ func Test_SaveToFile(t *testing.T) {
 				Unique:           tt.fields.Unique,
 				Version:          tt.fields.Version,
 			}
-			if err := m.SavePreferenceManifestFile(tt.args.path); (err != nil) != tt.wantErr {
+			if err := m.SaveProfileManifestFile(tt.args.path); (err != nil) != tt.wantErr {
 				t.Errorf("SaveToFile() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
@@ -493,7 +700,7 @@ func Test_Validate(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			m := &PreferenceManifest{
+			m := &ProfileManifest{
 				Description:      tt.fields.Description,
 				DescriptionRef:   tt.fields.DescriptionRef,
 				DocumentationURL: tt.fields.DocumentationURL,

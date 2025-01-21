@@ -1,9 +1,9 @@
-package applemdm_test
+package profilemanifests_test
 
 import (
 	"testing"
 
-	"github.com/mikeschinkel/prefsctl/applemdm"
+	"github.com/mikeschinkel/prefsctl/profilemanifests"
 )
 
 func Test_Load(t *testing.T) {
@@ -15,12 +15,12 @@ func Test_Load(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			pm := applemdm.NewProfileManifests()
-			err := pm.Load()
+			pms := profilemanifests.New()
+			err := pms.Load()
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ListProfileManifests() error = %v, wantErr %v", err, tt.wantErr)
 			}
-			if pm.Files() == nil {
+			if pms.Files() == nil {
 				t.Errorf("ListProfileManifests() profile manifests not nil")
 			}
 		})

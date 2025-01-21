@@ -1,9 +1,9 @@
 package macprefs
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
-	"slices"
 	"strings"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
@@ -13,18 +13,6 @@ import (
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 	"gopkg.in/yaml.v3"
 )
-
-type DomainName string
-type Prefs []*Pref
-
-func (pp *Prefs) Sort() {
-	slices.SortFunc(*pp, func(a, b *Pref) int {
-		return strings.Compare(
-			strings.ToLower(string(a.Key())),
-			strings.ToLower(string(b.Key())),
-		)
-	})
-}
 
 var _ kvfilters.Group = (*PrefsDomain)(nil)
 
@@ -79,13 +67,22 @@ func (pd *PrefsDomain) DefaultsYAML(opts YAMLOpts) string {
 			Labels:   labelValues,
 		})
 	}
-	b, err := yaml.Marshal(resource)
+
+	var buf bytes.Buffer
+	enc := yaml.NewEncoder(&buf)
+	enc.SetIndent(2)
+	err := enc.Encode(resource)
 	if err != nil {
 		// This should really never happen, right?
-		panic(err)
+		panicf("ERROR: Failed to YAML encode a Go value of type '%T'; %s", resource, err.Error())
+	}
+	err = enc.Close()
+	if err != nil {
+		// This should really never happen, right?
+		panicf("ERROR: Failed to close YAML encoder; %s", err.Error())
 	}
 	sb.WriteString("\n---\n")
-	sb.WriteString(string(b))
+	sb.WriteString(buf.String())
 	sb.WriteByte('\n')
 	return sb.String()
 }

@@ -2,10 +2,12 @@ package prefsyaml
 
 import (
 	_ "embed"
+	"errors"
 	"fmt"
 	"io"
 	"os"
 
+	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
 	"gopkg.in/yaml.v3"
@@ -76,6 +78,11 @@ func LoadYAMLPrefsResources(filename string) (resources []YAMLPrefsResource, err
 			goto end
 		}
 		if err != nil {
+			err = errors.Join(
+				err,
+				ErrFailedToDecodeYAML,
+				fmt.Errorf("%s=%s", logargs.Filename, filename),
+			)
 			goto end
 		}
 		for i := range resource.Spec.Prefs {

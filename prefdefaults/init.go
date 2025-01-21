@@ -10,7 +10,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macprefs"
-	prefsyaml2 "github.com/mikeschinkel/prefsctl/prefsyaml"
+	"github.com/mikeschinkel/prefsctl/prefsyaml"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 
@@ -29,15 +29,15 @@ func OSVersionLabel(code Code) *kvfilters.Label {
 
 type (
 	Labels            = kvfilters.Labels
-	YAMLPrefsResource = prefsyaml2.YAMLPrefsResource
-	YAMLPrefSpec      = prefsyaml2.YAMLPrefSpec
-	YAMLPref          = prefsyaml2.YAMLPref
-	YAMLMetadata      = prefsyaml2.YAMLMetadata
+	YAMLPrefsResource = prefsyaml.YAMLPrefsResource
+	YAMLPrefSpec      = prefsyaml.YAMLPrefSpec
+	YAMLPref          = prefsyaml.YAMLPref
+	YAMLMetadata      = prefsyaml.YAMLMetadata
 
-	KindName   = prefsyaml2.KindName
-	PrefName   = prefsyaml2.PrefName
-	DomainName = prefsyaml2.DomainName
-	OSVersion  = prefsyaml2.OSVersion
+	KindName   = prefsyaml.KindName
+	PrefName   = prefsyaml.PrefName
+	DomainName = prefsyaml.DomainName
+	OSVersion  = prefsyaml.OSVersion
 )
 
 var NewLabels = kvfilters.NewLabels
@@ -106,12 +106,12 @@ func loadPrefDefaultsYAML(cfg config.Config) (osDefaults macprefs.OSPrefDefaults
 	if err != nil {
 		goto end
 	}
-	resources, err = prefsyaml2.LoadYAMLPrefsResources(defaultsFile)
+	resources, err = prefsyaml.LoadYAMLPrefsResources(defaultsFile)
 	if err != nil {
 		goto end
 	}
 	// Setup slice to capture list of domains and their preference defaults
-	osDefaults.Domains = make([]macprefs.PrefDomain, 0)
+	osDefaults.Domains = make([]macprefs.DefaultsDomain, 0)
 
 	// Add all domains from the YAML file
 	for _, resource := range resources {
@@ -124,9 +124,9 @@ end:
 	return osDefaults, err
 }
 
-func newPrefDomain(resource YAMLPrefsResource) macprefs.PrefDomain {
+func newPrefDomain(resource YAMLPrefsResource) macprefs.DefaultsDomain {
 	domain := resource.MetaData.Domain
-	pd := macprefs.NewPrefDomain(macprefs.DomainName(domain), resource.MetaData.KillOnApply)
+	pd := macprefs.NewDefaultsDomain(macprefs.DomainName(domain), resource.MetaData.KillOnApply)
 	for _, def := range resource.Spec.Prefs {
 		def.MetaData = &resource.MetaData
 		osDefault := convertToMacOSPrefsDefault(&def)

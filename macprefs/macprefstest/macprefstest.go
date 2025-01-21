@@ -1,10 +1,18 @@
 package macprefstest
 
 import (
-	"fmt"
+	"os"
+	"testing"
 
 	"github.com/mikeschinkel/prefsctl/macosutil"
 )
+
+const GetDefaultsTestOutputFile = "macprefstest/data/test-get-defaults.yaml"
+
+func ExpectedOutputForTest(t *testing.T) string {
+	content, _ := os.ReadFile(GetDefaultsTestOutputFile)
+	return string(content)
+}
 
 type (
 	PreferenceDomain = macosutil.PreferenceDomain
@@ -139,146 +147,4 @@ func DomainPrefsForTest() map[PreferenceDomain][]*Preference {
 			},
 		},
 	}
-}
-func ExpectedOutputForTest() string {
-	goCode := `package prefdefaults
-
-//goland:noinspection SpellCheckingInspection
-func %sPrefDefaults() DomainDefaults {
-	return DomainDefaults{
-		"com.apple.Accessibility": DomainPrefs{
-			"InvertColorsEnabled": DomainPref{
-				Type:     "intBool",
-				Default:  "0",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"KeyRepeatDelay": DomainPref{
-				Type:     "float",
-				Default:  "0.25",
-				Labels: NewLabels(
-					DefaultsSet,
-					TypeVerified,
-					UserManaged,
-				),
-			},
-			"KeyRepeatInterval": DomainPref{
-				Type:     "unknown",
-				Default:  "",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-		},
-		"com.apple.dock": DomainPrefs{
-			"autohide": DomainPref{
-				Type:     "bool",
-				Default:  "false",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"region": DomainPref{
-				Type:     "string",
-				Default:  "US",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"showhidden": DomainPref{
-				Type:     "bool",
-				Default:  "true",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"tilesize": DomainPref{
-				Type:     "int",
-				Default:  "70",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-		},
-		"com.apple.finder": DomainPrefs{
-			"ShowRemovableMediaOnDesktop": DomainPref{
-				Type:     "bool",
-				Default:  "false",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"ShowStatusBar": DomainPref{
-				Type:     "bool",
-				Default:  "true",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-		},
-		"com.apple.keyboard": DomainPrefs{
-			"KeyboardWordOrSentenceTrackingForPFL": DomainPref{
-				Type:     "bool",
-				Default:  "false",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-		},
-		"GlobalPreferences": DomainPrefs{
-			"AppleActionOnDoubleClick": DomainPref{
-				Type:     "string",
-				Default:  "Maximize",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"AppleMeasurementUnits": DomainPref{
-				Type:     "string",
-				Default:  "Inches",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"AppleTemperatureUnit": DomainPref{
-				Type:     "string",
-				Default:  "Fahrenheit",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"com.apple.mouse.scaling": DomainPref{
-				Type:     "int",
-				Default:  "3",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-			"com.apple.trackpad.scaling": DomainPref{
-				Type:     "intBool",
-				Default:  "1",
-				Labels: NewLabels(
-					DefaultsSet,
-					UserManaged,
-				),
-			},
-		},
-	}
-}`
-	versionCode, _ := macosutil.VersionCode()
-	return fmt.Sprintf(goCode, versionCode)
 }

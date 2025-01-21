@@ -6,5 +6,5 @@ import (
 
 type YAMLMetadata struct {
 	Domain      DomainName            `yaml:"domain"`
-	KillOnApply macosutil.ProcessName `yaml:"kill_on_apply"`
+	KillOnApply macosutil.ProcessName `yaml:"kill_on_apply,omitempty"`
 }

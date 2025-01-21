@@ -12,5 +12,5 @@ var (
 	ErrUnexpectedPreferenceType   = errors.New("unexpected preference type")
 	ErrInvalidOutputFormat        = errors.New("not a valid output format")
 	ErrNoPrefsFoundInResourceSpec = errors.New("no prefs found in resource spec")
-	ErrFailedToGetFileInfo        = errors.New("failed to file info")
+	ErrFailedToGetFileInfo        = errors.New("failed to get file info")
 )

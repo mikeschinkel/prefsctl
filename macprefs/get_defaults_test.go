@@ -55,7 +55,7 @@ func Test_GetDefaults(t *testing.T) {
 			},
 			output:         YAMLFormat,
 			errWanted:      nil,
-			expectedOutput: macprefstest.ExpectedOutputForTest(),
+			expectedOutput: macprefstest.ExpectedOutputForTest(t),
 			mockData: Data{
 				Domains:     macprefstest.DomainsForTest(),
 				DomainPrefs: macprefstest.DomainPrefsForTest(),
@@ -82,6 +82,8 @@ func Test_GetDefaults(t *testing.T) {
 			}
 			expected := tt.expectedOutput
 			received := ptr.String()
+			//_ = os.WriteFile(macprefstest.GetDefaultsTestOutputFile, []byte(received), os.ModePerm)
+			//t.Logf("\n\n%s\n\n", received)
 			if expected != received {
 				diff := diffator.CompareStrings(expected, received, nil)
 				t.Errorf("Body <(expected/received)>:\n\t%s", diff)

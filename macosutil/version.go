@@ -149,6 +149,13 @@ func parseVersion(v string) (int, error) {
 // code is cached by versionCode()
 var code Code
 
+func (*macOSUtils) MustGetVersionNumber() VersionNumber {
+	if versionNumber == "" {
+		panic("Must call .VersionNumber() in macosutil package before calling .MustGetVersionNumber()")
+	}
+	return versionNumber
+}
+
 func (*macOSUtils) MustGetVersionCode() Code {
 	if code == "" {
 		panic("Must call .VersionCode() in macosutil package before calling .MustGetVersionCode()")
@@ -212,6 +219,8 @@ end:
 	return code, err
 }
 
+var versionNumber VersionNumber
+
 func (m *macOSUtils) GetVersionNumber() (v VersionNumber, err error) {
 	var cVer *C.char
 	if runtime.GOOS != "darwin" {
@@ -227,6 +236,7 @@ func (m *macOSUtils) GetVersionNumber() (v VersionNumber, err error) {
 	defer C.freeMacOSVersion(cVer)
 
 	v = VersionNumber(C.GoString(cVer))
+	versionNumber = v
 end:
 	return v, err
 }

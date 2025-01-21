@@ -1,4 +1,4 @@
-package applemdm
+package profilemanifests
 
 import (
 	"embed"
@@ -52,7 +52,7 @@ type ProfileManifests struct {
 	fileMap DirEntryMap
 }
 
-func NewProfileManifests() *ProfileManifests {
+func New() *ProfileManifests {
 	return &ProfileManifests{}
 }
 
