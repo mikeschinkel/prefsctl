@@ -127,7 +127,7 @@ func NewDefaultsDomainFromProfileManifest(pm *profilemanifests.ProfileManifest) 
 		pd.AddDefault(NewPrefDefault(dn, PrefName(subKey.Name), &PrefDefaultOpts{
 			Kind:          subKey.Kind(),
 			SupportedIn:   OSVersion(subKey.MacOSMin),
-			UnsupportedIn: "", // TODO Add support for this
+			UnsupportedIn: OSVersion(subKey.MacOSMax),
 		}))
 	}
 	return &pd
