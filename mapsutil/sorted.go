@@ -1,4 +1,4 @@
-package maputil
+package mapsutil
 
 import (
 	"cmp"
