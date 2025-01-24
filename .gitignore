@@ -1,2 +1,4 @@
-bin/**
+/bin/**
 /profilemanifests/data/ProfileManifests/
+/profilemanifests/data/ProfileManifests/**
+
