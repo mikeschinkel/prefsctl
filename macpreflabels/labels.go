@@ -1,4 +1,4 @@
-package macprefs
+package macpreflabels
 
 import (
 	"github.com/mikeschinkel/prefsctl/kvfilters"
@@ -7,6 +7,7 @@ import (
 
 type (
 	Label      = kvfilters.Label
+	Labels     = kvfilters.Labels
 	LabelName  = kvfilters.LabelName
 	LabelValue = kvfilters.LabelValue
 )
@@ -88,6 +89,13 @@ var LabelMap = map[kvfilters.LabelValue]*kvfilters.Label{
 func GetLabelByValue(value LabelValue) *Label {
 	label, _ := LabelMap[value]
 	return label
+}
+func GetLabelsByValues(values []LabelValue) *Labels {
+	labels := make([]*Label, len(values))
+	for i, value := range values {
+		labels[i] = GetLabelByValue(value)
+	}
+	return kvfilters.NewLabels(labels...)
 }
 func GoVarName(value kvfilters.LabelValue) LabelName {
 	name, ok := goVarMap[value]

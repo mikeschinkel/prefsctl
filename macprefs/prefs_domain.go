@@ -1,17 +1,19 @@
 package macprefs
 
 import (
-	"bytes"
 	"errors"
 	"fmt"
 	"strings"
 
+	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/logargs"
+	"github.com/mikeschinkel/prefsctl/macpreflabels"
+	"github.com/mikeschinkel/prefsctl/prefdefaults"
 	"github.com/mikeschinkel/prefsctl/prefsyaml"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
-	"gopkg.in/yaml.v3"
+	"github.com/mikeschinkel/prefsctl/yamlutil"
 )
 
 var _ kvfilters.Group = (*PrefsDomain)(nil)
@@ -26,20 +28,19 @@ type PrefsDomain struct {
 }
 type YAMLOpts struct {
 	UseValueForDefault bool
+	APIVersion         OSVersion
 }
 
-func (pd *PrefsDomain) DefaultsYAML(opts YAMLOpts) string {
-	var labelValues []prefsyaml.LabelValue
+func (pd *PrefsDomain) GetYAMLResource(kind prefsyaml.KindName, opts YAMLOpts) (yr *prefsyaml.Resource) {
+	var labelValues []*prefsyaml.LabelValue
 	var typeName string
-
-	sb := strings.Builder{}
-	resource := prefsyaml.YAMLPrefsResource{
-		APIVersion: LatestAPIVersion,
-		KindName:   "defaults",
-		MetaData: prefsyaml.YAMLMetadata{
+	yr = &prefsyaml.Resource{
+		APIVersion: appinfo.LatestAPIVersion,
+		KindName:   kind,
+		Spec:       prefsyaml.NewSpec(),
+		MetaData: prefsyaml.Metadata{
 			Domain: prefsyaml.DomainName(pd.domain),
 		},
-		Spec: prefsyaml.NewYAMLPrefSpec(),
 	}
 	for _, pref := range pd.Prefs() {
 		var val, def string
@@ -51,40 +52,34 @@ func (pd *PrefsDomain) DefaultsYAML(opts YAMLOpts) string {
 		}
 		labels := pref.Labels()
 		// Delete "type" from in YAML because as there is an explicit "type" field
-		labels.DeleteNamedLabel(Type)
+		labels.DeleteNamedLabel(macpreflabels.Type)
 		if labels.HasLabels() {
-			labelValues = sliceconv.Func(labels.Labels(), func(l *kvfilters.Label) prefsyaml.LabelValue {
-				return prefsyaml.LabelValue(l.Value)
+			labelValues = sliceconv.Func(labels.Labels(), func(l *kvfilters.Label) *prefsyaml.LabelValue {
+				lv := prefsyaml.LabelValue(l.Value)
+				return &lv
 			})
 		}
 		typeName, _ = strings.CutSuffix(string(pref.TypeName()), "Type")
-		resource.Spec.Prefs = append(resource.Spec.Prefs, prefsyaml.YAMLPref{
-			MetaData: &resource.MetaData,
+		yr.Spec.Prefs = append(yr.Spec.Prefs, prefsyaml.Pref{
+			MetaData: &yr.MetaData,
 			Name:     prefsyaml.PrefName(pref.Name),
 			Type:     prefsyaml.PrefType(typeName),
-			Value:    prefsyaml.YAMLValue{Value: val},
-			Default:  prefsyaml.YAMLValue{Value: def},
+			Value:    yamlutil.NewValue(val),
+			Default:  yamlutil.NewValue(def),
 			Labels:   labelValues,
 		})
 	}
+	return yr
+}
 
-	var buf bytes.Buffer
-	enc := yaml.NewEncoder(&buf)
-	enc.SetIndent(2)
-	err := enc.Encode(resource)
+func (pd *PrefsDomain) GetYAMLDocument(kind prefsyaml.KindName, opts YAMLOpts) (yd yamlutil.Document, err error) {
+	yr := pd.GetYAMLResource(kind, opts)
+	yd, err = yamlutil.BuildDocument(yr)
 	if err != nil {
-		// This should really never happen, right?
-		panicf("ERROR: Failed to YAML encode a Go value of type '%T'; %s", resource, err.Error())
+		goto end
 	}
-	err = enc.Close()
-	if err != nil {
-		// This should really never happen, right?
-		panicf("ERROR: Failed to close YAML encoder; %s", err.Error())
-	}
-	sb.WriteString("\n---\n")
-	sb.WriteString(buf.String())
-	sb.WriteByte('\n')
-	return sb.String()
+end:
+	return yd, err
 }
 
 func (pd *PrefsDomain) Valid() bool {
@@ -118,12 +113,12 @@ func (pd *PrefsDomain) RetrievePrefs() (err error) {
 		goto end
 	}
 	for _, pref := range pd.prefs {
-		pd := LookupPrefDefault(pref.Id())
+		pd := prefdefaults.LookupPrefDefault(pref.Id())
 		if pd == nil {
-			pd = NewPrefDefault(pref.Domain, pref.Name, &PrefDefaultOpts{
-				Kind:          0, // TODO: Populate these opts
-				SupportedIn:   "",
-				UnsupportedIn: "",
+			pd = prefdefaults.NewPrefDefault(pref.Domain, pref.Name, &prefdefaults.PrefDefaultOpts{
+				Kind:    0, // TODO: Populate these opts
+				Added:   "",
+				Removed: "",
 			})
 		}
 		pref.PrefDefault = pd

@@ -238,9 +238,6 @@ func matchKeyValue(f Filter, kv KeyValue) (match bool, err error) {
 		fallthrough
 	default:
 		match, err = matchKeyValueFilter(f, kv)
-		if err != nil {
-			goto end
-		}
 		goto end
 	}
 	match, err = matchValueFilter(f, string(arg))

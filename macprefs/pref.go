@@ -9,6 +9,7 @@ import (
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutil"
+	"github.com/mikeschinkel/prefsctl/prefdefaults"
 )
 
 type Prefs []*Pref
@@ -26,7 +27,7 @@ var _ kvfilters.KeyValue = (*Pref)(nil)
 
 // Pref represents a preference with its Domain and name
 type Pref struct {
-	*PrefDefault
+	*prefdefaults.PrefDefault
 	value       string // raw string value
 	err         error  // last error encountered
 	Description string
@@ -41,7 +42,7 @@ func (p *Pref) TypeName() (typ TypeName) {
 	//var label *kvfilters.Label
 	var prefType macosutil.PreferenceType
 
-	typ = p.PrefDefault.typeName
+	typ = TypeName(p.PrefDefault.Type())
 	if typ != "" && typ != TypeName(macosutil.UnknownType) {
 		goto end
 	}
@@ -85,12 +86,12 @@ type PrefOpts struct {
 
 // NewPref creates a new Pref instance
 func NewPref(opts PrefOpts) *Pref {
-	dv := GetPrefDefault(opts.Domain, opts.Name, nil)
+	dv := prefdefaults.GetPrefDefault(opts.Domain, prefdefaults.PrefName(opts.Name), nil)
 	if opts.Default != "" {
 		dv.DefaultValue = opts.Default
 	}
-	if dv.labels == nil {
-		dv.labels = opts.Labels
+	if !dv.HasLabels() {
+		dv.SetLabels(opts.Labels)
 	}
 	return &Pref{
 		value:       opts.Value,
@@ -100,7 +101,7 @@ func NewPref(opts PrefOpts) *Pref {
 }
 
 // NewPrefFromDefault creates a new Pref instance from a *PrefDefault instance
-func NewPrefFromDefault(pd *PrefDefault) *Pref {
+func NewPrefFromDefault(pd *prefdefaults.PrefDefault) *Pref {
 	return &Pref{
 		PrefDefault: pd,
 	}
@@ -122,10 +123,10 @@ func (p *Pref) Retrieve() error {
 	}
 	p.value = mp.Value
 	p.Description = mp.Description
-	p.PrefDefault = GetPrefDefault(p.Domain, p.Name, &PrefDefaultOpts{
-		Kind:          0, // TODO set these values
-		SupportedIn:   "",
-		UnsupportedIn: "",
+	p.PrefDefault = prefdefaults.GetPrefDefault(p.Domain, p.Name, &prefdefaults.PrefDefaultOpts{
+		Kind:    0, // TODO set these values
+		Added:   "",
+		Removed: "",
 	})
 	p.invalid = !mp.Valid()
 end:

@@ -10,12 +10,6 @@ import (
 type ErrorFunc func() error
 type PrefsMap map[string]DomainPref
 
-type Domain struct {
-	Domain         macosutil.DomainName `yaml:"Domain"`
-	AfterApplyFunc ErrorFunc            `yaml:"-"`
-	Prefs          []DomainPref         `yaml:"Prefs"`
-}
-
 type DomainPref struct {
 	Domain    string            `yaml:"-"`
 	Name      string            `yaml:"Name"`
@@ -57,7 +51,7 @@ func (dp DomainPref) TypeLabel() (label *kvfilters.Label) {
 		goto end
 	}
 	_, prefType = macosutil.GetPrefKindAndType(dp.Kind(), PreferenceType(dp.Type), dp.Default)
-	dp.typeLabel = GetTypeLabel(TypeName(prefType))
+	dp.typeLabel = GetTypeLabel(prefType)
 end:
 	return dp.typeLabel
 }

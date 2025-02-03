@@ -108,11 +108,12 @@ func Test_DecodeProfileManifestWithMPFMRangeMinAsReal(t *testing.T) {
 		t.Errorf("len(.Subkeys) should be 1, not %d", len(pm.Subkeys))
 		return
 	}
-	rMin, ok := pm.Subkeys[0].RangeMinAny.(float64)
-	if !ok {
-		t.Errorf(".Subkeys[].RangeMin should type assert to 'float64', got '%T' instead", pm.Subkeys[0].RangeMinAny)
-		return
-	}
+	defer func() {
+		if r := recover(); r != nil {
+			t.Errorf(".Subkeys[].RangeMin should convert to 'float64', got '%T' instead", pm.Subkeys[0].RangeMin.Type())
+		}
+	}()
+	rMin := pm.Subkeys[0].RangeMin.Float64()
 	if int(rMin) != 42 {
 		t.Errorf(".Subkeys[0].RangeMin should be 42.000000, not %f", rMin)
 		return

@@ -1,46 +1,42 @@
 package profilemanifests
 
 import (
+	"bytes"
 	"embed"
-	"io"
-	"io/fs"
 	"path/filepath"
 	"slices"
 
+	"github.com/mikeschinkel/prefsctl/errutil"
+	"github.com/mikeschinkel/prefsctl/filesutil"
 	"github.com/mikeschinkel/prefsctl/logargs"
+	"github.com/mikeschinkel/prefsctl/yamlutil"
 )
-
-type (
-	EntryFiles  []*EmbeddedFile
-	DirEntryMap map[string]EntryFiles
-)
-
-type EmbeddedFile struct {
-	fs.DirEntry
-	Filepath string
-}
-
-func NewEmbeddedFile(file fs.DirEntry, fp string) *EmbeddedFile {
-	return &EmbeddedFile{
-		DirEntry: file,
-		Filepath: fp,
-	}
-}
-
-func (f *EmbeddedFile) Content() ([]byte, error) {
-	return profileManifests.ReadFile(f.Filepath)
-}
-
-func (f *EmbeddedFile) Reader() (r io.Reader, err error) {
-	return profileManifests.Open(f.Filepath)
-}
-
-//go:embed data/ProfileManifests
-var profileManifests embed.FS
 
 const (
 	profileManifestsDir = "data/ProfileManifests/Manifests"
 )
+
+type (
+	Content     = string
+	EntryFiles  = []filesutil.FileEntry
+	DirEntryMap map[string]EntryFiles
+)
+
+//go:embed data/ProfileManifests
+var profileManifests embed.FS
+
+type EmbeddedFS struct {
+	embed.FS
+	RootDir string
+}
+
+// GetEmbeddedFS returns the embedded file system object
+func GetEmbeddedFS() EmbeddedFS {
+	return EmbeddedFS{
+		FS:      profileManifests,
+		RootDir: profileManifestsDir,
+	}
+}
 
 var (
 	profileManifestFiles   EntryFiles
@@ -48,67 +44,101 @@ var (
 )
 
 type ProfileManifests struct {
+	repoDir string
 	files   EntryFiles
 	fileMap DirEntryMap
+	pms     []*ProfileManifest
 }
 
-func New() *ProfileManifests {
-	return &ProfileManifests{}
+func (pms *ProfileManifests) GetFileEntries() []filesutil.FileEntry {
+	return pms.files
 }
 
-func (pm *ProfileManifests) sortFiles() {
-	slices.SortFunc(pm.files, func(a, b *EmbeddedFile) int {
+func New(repoDir string) *ProfileManifests {
+	return &ProfileManifests{
+		repoDir: repoDir,
+	}
+}
+
+func (pms *ProfileManifests) sortFiles() {
+	slices.SortFunc(pms.files, func(a, b filesutil.FileEntry) int {
 		switch {
-		case a.Filepath < b.Filepath:
+		case a.Filepath() < b.Filepath():
 			return -1
-		case a.Filepath > b.Filepath:
+		case a.Filepath() > b.Filepath():
 			return 1
 		}
 		return 0
 	})
 }
 
-func (pm *ProfileManifests) Files() EntryFiles {
-	pm.sortFiles()
-	return pm.files
+func (pms *ProfileManifests) Files() EntryFiles {
+	pms.sortFiles()
+	return pms.files
 }
 
-func (pm *ProfileManifests) Load() error {
-	files, err := ListFilesRecursive(profileManifests, profileManifestsDir)
+func (pms *ProfileManifests) LoadFiles() error {
+	files, err := filesutil.ListFilesRecursive(profileManifests, profileManifestsDir)
 	if err != nil {
 		goto end
 	}
-	pm.files = make(EntryFiles, 0, len(files))
-	pm.fileMap = make(DirEntryMap, len(pm.files))
+	pms.files = make(EntryFiles, 0, len(files))
+	pms.fileMap = make(DirEntryMap, len(pms.files))
 	for _, file := range files {
-		name := file.Name()
-		_, ok := pm.fileMap[name]
+		fp := file.Filepath()
+		_, ok := pms.fileMap[fp]
 		if ok {
 			slog.Warn("Unexpected duplicated preference domain", logargs.PrefsDomain, filepath.Base(file.Name()))
 		} else {
-			pm.fileMap[name] = make(EntryFiles, 0, 1)
+			pms.fileMap[fp] = make(EntryFiles, 0, 1)
 		}
-		pm.files = append(pm.files, file)
-		pm.fileMap[name] = append(pm.fileMap[name], file)
+		pms.files = append(pms.files, file)
+		pms.fileMap[fp] = append(pms.fileMap[fp], file)
 	}
 end:
 	return err
 }
 
-// ListFilesRecursive returns a slice of file entries from an fs.FS
-func ListFilesRecursive(fileSys fs.FS, dir string) (files EntryFiles, err error) {
-	err = fs.WalkDir(fileSys, dir, func(path string, entry fs.DirEntry, err error) error {
-		var file *EmbeddedFile
-		if err != nil {
-			goto end
-		}
-		if entry.IsDir() {
-			goto end
-		}
-		file = NewEmbeddedFile(entry, path)
-		files = append(files, file)
-	end:
-		return err
-	})
-	return files, err
+//	func NewDefaultsDomainFromProfileManifest(pm *profilemanifests.ProfileManifest) *DefaultsDomain {
+//		dn := macosutil.DomainName(pm.Domain)
+//		if len(dn) != 0 && dn[0] == '.' {
+//			dn = dn[1:]
+//		}
+//		pd := NewDefaultsDomain(dn, macosutil.GetProcessToKill(dn))
+//		for _, subKey := range pm.Subkeys {
+//			if subKey.IsPayloadKey() {
+//				continue
+//			}
+//			if !subKey.SupportsOSVersion() {
+//				continue
+//			}
+//			pd.AddDefault(NewPrefDefault(dn, PrefName(subKey.Name), &PrefDefaultOpts{
+//				Kind:          subKey.Kind(),
+//				SupportedIn:   OSVersion(subKey.MacOSMin),
+//				UnsupportedIn: "", // TODO Add support for this
+//			}))
+//		}
+//		return &pd
+//	}
+
+func Iterator(pms *ProfileManifests) (ei yamlutil.EntriesIterator) {
+	var errs errutil.MultiErr
+	ei = yamlutil.EntriesIterator{
+		Seq2: func(yield func(entry yamlutil.FilterableEntry, _ error) (ok bool)) {
+			for _, file := range pms.Files() {
+				content, err := file.Content()
+				if err != nil {
+					errs.Add(err)
+					continue
+				}
+				if !yield(ReadProfileManifest(bytes.NewReader(content))) {
+					break
+				}
+			}
+		},
+	}
+	if errs.IsError() {
+		ei.Err = errs.Err()
+	}
+	return ei
 }

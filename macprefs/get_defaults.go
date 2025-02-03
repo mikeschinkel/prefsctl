@@ -41,7 +41,7 @@ func getDefaultsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs
 	if err != nil {
 		goto end
 	}
-	ptr.Print(domains.DefaultsYAML(YAMLOpts{
+	ptr.Print(domains.GetDefaultsYAMLDocument(YAMLOpts{
 		UseValueForDefault: args.UseCurrent,
 	}))
 end:

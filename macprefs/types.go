@@ -33,12 +33,6 @@ type Spec interface {
 	Spec()
 }
 
-// OSPrefDefaults is used to load a list of all domains and its default
-// preferences for a given macOS version
-type OSPrefDefaults struct {
-	Domains []DefaultsDomain
-}
-
 type Printer interface {
 	Print(i ...any)
 	Println(i ...any)

@@ -115,7 +115,7 @@ end:
 var floatPattern = regexp.MustCompile(`^([-+])?((\d*)\.?(\d+)|(\d+)\.?(\d*))$`)
 var ErrNotAFloat = fmt.Errorf("string value does not represent a float value")
 
-func GetFloatPrecision(f string) (prec int, err error) {
+func GetFloatPrecisionSAVE(f string) (prec int, err error) {
 	var matches []string
 
 	switch f {
@@ -136,5 +136,31 @@ end:
 	if err != nil {
 		err = errors.Join(err, fmt.Errorf("value=%s", f))
 	}
+	return prec, err
+}
+func GetFloatPrecision(f string) (prec int, err error) {
+	var matches []string
+
+	defer func() {
+		if err != nil {
+			err = errors.Join(err, fmt.Errorf("value=%s", f))
+		}
+	}()
+
+	switch f {
+	case "", ".", "+.", "-.", "-", "+":
+		err = ErrNotAFloat
+		return
+	}
+	matches = floatPattern.FindStringSubmatch(f)
+	if len(matches) < 6 {
+		err = ErrNotAFloat
+		return
+	}
+	if !strings.Contains(f, ".") {
+		return
+	}
+	prec = max(len(matches[4]), len(matches[6]))
+
 	return prec, err
 }

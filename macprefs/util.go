@@ -17,3 +17,10 @@ func writeByte(w io.Writer, b byte) {
 }
 
 func noop(any) {}
+
+func mustClose(c io.Closer) {
+	err := c.Close()
+	if err != nil {
+		slog.Error(err.Error())
+	}
+}

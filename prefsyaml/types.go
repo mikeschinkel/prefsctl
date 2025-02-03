@@ -4,14 +4,18 @@ import (
 	"github.com/mikeschinkel/prefsctl/macosutil"
 )
 
-type PreferenceType = macosutil.PreferenceType
-
+type (
+	PreferenceType = macosutil.PreferenceType
+	ProcessName    = macosutil.ProcessName
+)
 type (
 	OSVersion    string
+	Description  string
 	DomainName   string
 	PrefName     string
 	LabelName    string
 	LabelValue   string
+	OptionValue  string
 	PrefType     string
 	TemplateName string
 	TemplateText string

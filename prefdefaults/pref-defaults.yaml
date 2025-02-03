@@ -5,7 +5,7 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.Accessibility
-  kill_on_apply: Dock
+  process: Dock
 spec:
   preferences:
   - name:    "autohide"
@@ -110,7 +110,7 @@ apiVersion: prefs/v1beta1
 kind: defaults
 metadata:
   domain: com.apple.Accessibility
-  kill_after: Dock
+  process: Dock
 spec:
   preferences:
   - name: ApplicationAccessibilityEnabled

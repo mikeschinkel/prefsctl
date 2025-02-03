@@ -89,8 +89,12 @@ func (v *Value) String() (s string) {
 		s = t
 	case int:
 		s = strconv.Itoa(t)
-	case int64:
-		s = strconv.FormatInt(t, 10)
+	case float64, float32:
+		s = fmt.Sprintf("%v", t)
+	case int64, int32, int16, int8:
+		s = fmt.Sprintf("%v", t)
+	case uint64, uint32, uint16, uint8:
+		s = fmt.Sprintf("%v", t)
 	case bool:
 		switch t {
 		case true:

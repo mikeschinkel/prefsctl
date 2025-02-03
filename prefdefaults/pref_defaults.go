@@ -1,4 +1,4 @@
-package macprefs
+package prefdefaults
 
 import (
 	"github.com/mikeschinkel/prefsctl/config"
@@ -7,15 +7,15 @@ import (
 
 const prefDefaultsGoImport = "github.com/mikeschinkel/prefsctl/prefdefaults"
 
-type PrefDefaultsFunc func(cfg config.Config) (OSPrefDefaults, error)
+type Func func(cfg config.Config) (OSPrefDefaults, error)
 
-var osPrefDefaultsFuncs PrefDefaultsFunc
+var thisFunc Func
 
-func RegisterPrefDefaultsFunc(f PrefDefaultsFunc) {
-	osPrefDefaultsFuncs = f
+func RegisterPrefDefaultsFunc(f Func) {
+	thisFunc = f
 }
-func GetDefaultsFunc() PrefDefaultsFunc {
-	return osPrefDefaultsFuncs
+func GetDefaultsFunc() Func {
+	return thisFunc
 }
 func GetAfterApplyFunc(cfg config.Config, domain DomainName) (f func() error, err error) {
 	var defaults OSPrefDefaults
@@ -30,7 +30,7 @@ func GetAfterApplyFunc(cfg config.Config, domain DomainName) (f func() error, er
 			continue
 		}
 		f = func() error {
-			return macosutil.KillProcess(defaults.KillOnApply)
+			return macosutil.KillProcess(defaults.Process)
 		}
 		goto end
 	}

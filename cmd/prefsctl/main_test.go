@@ -49,7 +49,7 @@ func TestGetDefaults(t *testing.T) {
 				})
 				return nil
 			},
-			SuccessResult: macprefstest.ExpectedOutputForTest(),
+			SuccessResult: macprefstest.ExpectedOutputForTest(t),
 		},
 	})
 }

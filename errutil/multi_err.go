@@ -44,3 +44,6 @@ func (e *MultiErr) Err() (errs error) {
 	}
 	return errors.Join(e.errs...)
 }
+func (e *MultiErr) Clear() {
+	e.errs = nil
+}

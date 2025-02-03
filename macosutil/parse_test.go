@@ -7,7 +7,7 @@ import (
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutil"
-	"github.com/mikeschinkel/prefsctl/macprefs"
+	"github.com/mikeschinkel/prefsctl/macpreflabels"
 )
 
 func TestFloatParser(t *testing.T) {
@@ -78,7 +78,7 @@ func TestGetPrefKindAndTypeLabel(t *testing.T) {
 			typ:       "",
 			value:     "1",
 			wantKind:  reflect.Int64,
-			wantLabel: &macprefs.IntBoolType,
+			wantLabel: &macpreflabels.IntBoolType,
 		},
 		{
 			id:        "com.apple.driver.AppleBluetoothMultitouch.trackpad/TrackpadFiveFingerPinchGesture",
@@ -86,7 +86,7 @@ func TestGetPrefKindAndTypeLabel(t *testing.T) {
 			typ:       macosutil.IntType,
 			value:     "2",
 			wantKind:  reflect.Int64,
-			wantLabel: &macprefs.IntType,
+			wantLabel: &macpreflabels.IntType,
 		},
 		{
 			id:        "com.apple.universalaccess/mouseDriverCursorSize",
@@ -94,7 +94,7 @@ func TestGetPrefKindAndTypeLabel(t *testing.T) {
 			typ:       macosutil.FloatType,
 			value:     "1.44109",
 			wantKind:  reflect.Float64,
-			wantLabel: &macprefs.FloatType,
+			wantLabel: &macpreflabels.FloatType,
 		},
 		{
 			id:        "com.apple.internetconfigpriv/WWWHomePage",
@@ -102,35 +102,35 @@ func TestGetPrefKindAndTypeLabel(t *testing.T) {
 			typ:       macosutil.StringType,
 			value:     "http://livepage.apple.com/",
 			wantKind:  reflect.String,
-			wantLabel: &macprefs.StringType,
+			wantLabel: &macpreflabels.StringType,
 		},
 		{
 			kind:      reflect.String,
 			typ:       macosutil.UnknownType,
 			value:     "EEE MMM d  j:mm a",
 			wantKind:  reflect.String,
-			wantLabel: &macprefs.StringType,
+			wantLabel: &macpreflabels.StringType,
 		},
 		{
 			kind:      reflect.Bool,
 			typ:       macosutil.BoolType,
 			value:     "false",
 			wantKind:  reflect.Bool,
-			wantLabel: &macprefs.BoolType,
+			wantLabel: &macpreflabels.BoolType,
 		},
 		{
 			kind:      reflect.Bool,
 			typ:       macosutil.UnknownType,
 			value:     "true",
 			wantKind:  reflect.Bool,
-			wantLabel: &macprefs.BoolType,
+			wantLabel: &macpreflabels.BoolType,
 		},
 		{
 			kind:      reflect.Invalid,
 			typ:       "",
 			value:     "",
 			wantKind:  reflect.Invalid,
-			wantLabel: &macprefs.UnknownType,
+			wantLabel: &macpreflabels.UnknownType,
 		},
 		//{
 		//	id:        "com.apple.Terminal/Default Window Settings",
@@ -3766,6 +3766,39 @@ func TestGetPrefKindAndTypeLabel(t *testing.T) {
 			}
 			if !reflect.DeepEqual(gotType, tt.wantLabel) {
 				t.Errorf("GetPrefKindAndType() gotType = %v, wantKind %v", gotType, tt.wantLabel)
+			}
+		})
+	}
+}
+
+func TestGetFloatPrecision(t *testing.T) {
+	tests := []struct {
+		value    string
+		wantPrec int
+		wantErr  bool
+	}{
+		{
+			value:    "1.23foobar",
+			wantPrec: 2,
+			wantErr:  true,
+		},
+		{
+			value:    "1.23",
+			wantPrec: 2,
+			wantErr:  false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.value, func(t *testing.T) {
+			gotPrec, err := macosutil.GetFloatPrecision(tt.value)
+			if tt.wantErr {
+				if err != nil {
+					return
+				}
+				t.Errorf("GetFloatPrecision() error = %v, wantErr %v", err, tt.wantErr)
+			}
+			if gotPrec != tt.wantPrec {
+				t.Errorf("GetFloatPrecision() gotPrec = %v, want %v", gotPrec, tt.wantPrec)
 			}
 		})
 	}

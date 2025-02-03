@@ -3,7 +3,7 @@ apiVersion: prefs/v1beta1
 kind: prefs
 metadata:
   domain: com.apple.dock
-  kill_on_apply: Dock
+  process: Dock
 spec:
   # noinspection YAMLIncompatibleTypes
   preferences:
@@ -15,7 +15,7 @@ apiVersion: prefs/v1beta1
 kind: prefs
 metadata:
   domain: com.apple.dock
-  kill_on_apply: Dock
+  process: Dock
 spec:
   # noinspection YAMLIncompatibleTypes
   preferences:

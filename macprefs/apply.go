@@ -10,6 +10,7 @@ import (
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
+	"github.com/mikeschinkel/prefsctl/prefdefaults"
 	"github.com/mikeschinkel/prefsctl/prefsyaml"
 )
 
@@ -53,12 +54,12 @@ func Apply(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (result 
 	return result
 }
 
-func applyYAMLResource(ctx Context, cfg config.Config, resource prefsyaml.YAMLPrefsResource, args ApplyArgs) (result Result) {
+func applyYAMLResource(ctx Context, cfg config.Config, resource prefsyaml.Resource, args ApplyArgs) (result Result) {
 	var success strings.Builder
 	var aaf func() error
 	var err error
 
-	preparePref := func(yamlPref prefsyaml.YAMLPref) (pref *macosutil.Preference) {
+	preparePref := func(yamlPref prefsyaml.Pref) (pref *macosutil.Preference) {
 		pref = yamlPref.MacOSUtilPreference()
 		success.WriteString("\t— ")
 		success.WriteString(renderPreference(pref))
@@ -93,7 +94,7 @@ func applyYAMLResource(ctx Context, cfg config.Config, resource prefsyaml.YAMLPr
 		result = Result{Err: err}
 		goto end
 	}
-	aaf, err = GetAfterApplyFunc(cfg, DomainName(domain))
+	aaf, err = prefdefaults.GetAfterApplyFunc(cfg, DomainName(domain))
 	if err != nil {
 		result = Result{Err: err}
 		goto end
@@ -115,7 +116,7 @@ func applyYAML(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (res
 
 	successes := []string{fmt.Sprintf("Prefs applied.\n")}
 
-	resources, err := prefsyaml.LoadYAMLPrefsResources(string(args.Filename))
+	resources, err := prefsyaml.LoadPrefsResources(string(args.Filename))
 	if err != nil {
 		errs.Add(err)
 		goto end

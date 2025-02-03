@@ -1,40 +1,59 @@
-package macprefs
+package prefdefaults
 
 import (
 	"errors"
 	"fmt"
 	"reflect"
+	"sync"
 
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/logargs"
+	"github.com/mikeschinkel/prefsctl/macosutil"
+	"github.com/mikeschinkel/prefsctl/macpreflabels"
 )
+
+type Lookup map[PrefId]*PrefDefault
+
+var lookup = make(Lookup)
+var lookupMutex sync.Mutex
+
+func LookupPrefDefault(id PrefId) *PrefDefault {
+	pd, _ := lookup[id]
+	return pd
+}
+
+func SetPrefDefault(pd *PrefDefault) {
+	lookupMutex.Lock()
+	lookup[pd.Id()] = pd
+	lookupMutex.Unlock()
+}
 
 var _ kvfilters.KeyValue = (*PrefDefault)(nil)
 
 // PrefDefault represents a preference's default value
 type PrefDefault struct {
-	Domain        DomainName
-	Name          PrefName
-	DefaultValue  string       // raw string value for default
-	Kind          reflect.Kind // kind of the value
-	typeName      TypeName
-	labels        *kvfilters.Labels
-	SupportedIn   OSVersion
-	UnsupportedIn OSVersion
+	Domain       DomainName
+	Name         PrefName
+	DefaultValue string       // raw string value for default
+	Kind         reflect.Kind // kind of the value
+	typeName     TypeName
+	labels       *kvfilters.Labels
+	Added        macosutil.VersionNumber
+	Removed      macosutil.VersionNumber
 }
 
-func (pd *PrefDefault) SetKey(key kvfilters.Code) {
-	pd.Name = PrefName(key)
+func (pd *PrefDefault) HasLabels() bool {
+	return pd.labels.HasLabels()
 }
 
-func (pd *PrefDefault) SetValue(value string) {
-	pd.DefaultValue = value
+func (pd *PrefDefault) Type() TypeName {
+	return pd.typeName
 }
 
 type PrefDefaultOpts struct {
-	Kind          reflect.Kind
-	SupportedIn   OSVersion
-	UnsupportedIn OSVersion
+	Kind    reflect.Kind
+	Added   macosutil.VersionNumber
+	Removed macosutil.VersionNumber
 }
 
 func NewPrefDefault(domain DomainName, name PrefName, opts *PrefDefaultOpts) *PrefDefault {
@@ -48,30 +67,27 @@ func NewPrefDefault(domain DomainName, name PrefName, opts *PrefDefaultOpts) *Pr
 		Name:   name,
 		Kind:   opts.Kind,
 		labels: kvfilters.NewLabels(
-			&UnknownType,
+			&macpreflabels.UnknownType,
 			// 'defaults' is a reasonable default as the alternate is 'setup'
 			// so we'll discover issues when comparing to current settings and
 			// realize we need to manually change it.
-			&Optional,
+			&macpreflabels.Optional,
 			// 'userManaged' is a reasonable default as we'll discover issues
 			// when comparing to current settings and realize we need to manually
 			// change it.
-			&UserManaged,
+			&macpreflabels.UserManaged,
 		),
-		typeName:      TypeName(UnknownType.Value),
-		SupportedIn:   opts.SupportedIn,
-		UnsupportedIn: opts.UnsupportedIn,
+		typeName: TypeName(macpreflabels.UnknownType.Value),
+		Added:    opts.Added,
+		Removed:  opts.Removed,
 	}
 }
-func GetPrefDefault(domain DomainName, name PrefName, opts *PrefDefaultOpts) (d *PrefDefault) {
-	d = LookupPrefDefault(NewPrefId(domain, name))
-	if d == nil {
-		d = NewPrefDefault(domain, name, opts)
+func GetPrefDefault(domain DomainName, name PrefName, opts *PrefDefaultOpts) (pd *PrefDefault) {
+	pd = LookupPrefDefault(NewPrefId(domain, name))
+	if pd == nil {
+		pd = NewPrefDefault(domain, name, opts)
 	}
-	return d
-}
-func GetPrefId(domain DomainName, name PrefName) PrefId {
-	return NewPrefId(domain, name)
+	return pd
 }
 
 func (pd *PrefDefault) Labels() *kvfilters.Labels {
@@ -84,7 +100,7 @@ func (pd *PrefDefault) Labels() *kvfilters.Labels {
 func (pd *PrefDefault) SetLabels(labels *kvfilters.Labels) {
 	pd.labels = labels
 	pd.labels.SyncMap()
-	typeLabel := pd.GetNamedLabel(Type)
+	typeLabel := pd.GetNamedLabel(macpreflabels.Type)
 	if typeLabel != nil {
 		pd.typeName = TypeName(typeLabel.Value)
 	}
@@ -104,7 +120,7 @@ func (pd *PrefDefault) Valid() bool {
 }
 
 func (pd *PrefDefault) UserManaged() bool {
-	return pd.HasLabel(&UserManaged)
+	return pd.HasLabel(&macpreflabels.UserManaged)
 }
 
 func (pd *PrefDefault) String() string {
@@ -112,12 +128,12 @@ func (pd *PrefDefault) String() string {
 }
 
 func (pd *PrefDefault) Id() PrefId {
-	return NewPrefIdFromDefault(pd)
+	return NewPrefId(pd.Domain, pd.Name)
 }
 
 func (pd *PrefDefault) LogValue() any {
 	return fmt.Sprintf("%s (default=%s,labels=[%s])",
-		GetPrefId(pd.Domain, pd.Name),
+		NewPrefId(pd.Domain, pd.Name),
 		pd.DefaultValue,
 		pd.labels,
 	)
@@ -134,6 +150,14 @@ func (pd *PrefDefault) Value() string {
 func (pd *PrefDefault) ErrorInfo() error {
 	return errors.Join(
 		fmt.Errorf("%s=%s", logargs.Key, pd.Name),
-		fmt.Errorf("%s=%s", logargs.Value, pd.Value()),
+		fmt.Errorf("%s=%s", logargs.DefaultValue, pd.DefaultValue),
 	)
+}
+
+func (pd *PrefDefault) SetKey(key kvfilters.Code) {
+	pd.Name = PrefName(key)
+}
+
+func (pd *PrefDefault) SetValue(value string) {
+	pd.DefaultValue = value
 }

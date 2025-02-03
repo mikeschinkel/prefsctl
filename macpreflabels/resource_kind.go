@@ -1,4 +1,4 @@
-package macprefs
+package macpreflabels
 
 type ResourceKind string
 

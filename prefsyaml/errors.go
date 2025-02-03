@@ -5,6 +5,6 @@ import (
 )
 
 var (
-	ErrFoo                = errors.New("foo")
-	ErrFailedToDecodeYAML = errors.New("failed to decode YAML")
+	ErrFailedToDecodeYAML    = errors.New("failed to decode YAML")
+	ErrFailedToMarshalToYAML = errors.New("failed to marshal to YAML")
 )

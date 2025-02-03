@@ -31,6 +31,7 @@ type Config interface {
 	AppName() string
 	Dir() string
 	Filepath() string
+	OtherFilepath(string) string
 	Options() OptionsMap
 }
 
@@ -42,6 +43,10 @@ type config struct {
 	filepath    string
 	options     OptionsMap
 	initialized bool
+}
+
+func (c *config) OtherFilepath(filename string) string {
+	return filepath.Join(c.dir, filename) //TODO implement me
 }
 
 func (c *config) Dir() string {

@@ -5,7 +5,13 @@ import (
 	"github.com/mikeschinkel/prefsctl/types"
 )
 
-type TypeName string
-type Code = types.Code
+type (
+	DomainName = macosutil.DomainName
+	PrefName   = macosutil.PreferenceName
+	TypeName   = macosutil.PreferenceType
+)
 
-type PreferenceType = macosutil.PreferenceType
+type (
+	Code           = types.Code
+	PreferenceType = macosutil.PreferenceType
+)

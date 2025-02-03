@@ -6,24 +6,25 @@ import (
 	"io"
 	"slices"
 	"strings"
-	"sync"
 
 	"github.com/mikeschinkel/prefsctl/config"
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/macosutil"
+	"github.com/mikeschinkel/prefsctl/macpreflabels"
+	"github.com/mikeschinkel/prefsctl/prefdefaults"
+	"github.com/mikeschinkel/prefsctl/prefsyaml"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
+	"github.com/mikeschinkel/prefsctl/yamlutil"
 )
 
-type PrefDefaultsLookup map[PrefId]*PrefDefault
+type (
+	YAMLDocument = yamlutil.Document
+)
 
-var prefDefaultsLookup = make(PrefDefaultsLookup)
-var prefDefaultsLookupMutex sync.Mutex
-
-func LookupPrefDefault(id PrefId) *PrefDefault {
-	pd, _ := prefDefaultsLookup[id]
-	return pd
-}
+const (
+	DefaultsKind = prefsyaml.KindName(macpreflabels.DefaultsKind)
+)
 
 type PrefDomains struct {
 	domains        []*PrefsDomain
@@ -33,23 +34,29 @@ type PrefDomains struct {
 
 var osCode macosutil.Code
 
-func (pds *PrefDomains) DefaultsYAML(opts YAMLOpts) string {
-	sb := strings.Builder{}
+func (pds *PrefDomains) GetDefaultsYAMLDocument(opts YAMLOpts) (ymf yamlutil.MultidocFile, _ error) {
+	var errs errutil.MultiErr
+	ymf = yamlutil.NewMultidocFile()
 	for _, domain := range pds.domains {
-		sb.WriteString(domain.DefaultsYAML(opts))
+		yd, err := domain.GetYAMLDocument(DefaultsKind, opts)
+		if err != nil {
+			goto end
+		}
+		ymf.AddDocument(yd)
 	}
-	return sb.String()
+end:
+	return ymf, errs.Err()
 }
 
-func (pds *PrefDomains) UserManagedPrefDefaults() (pd []*PrefDefault) {
-	pd = make([]*PrefDefault, 0)
+func (pds *PrefDomains) UserManagedPrefDefaults() (pd []*prefdefaults.PrefDefault) {
+	pd = make([]*prefdefaults.PrefDefault, 0)
 	pds.Sort()
 	for _, domain := range pds.domains {
 		if domain.domain == ".GlobalPreferences_m" {
 			continue
 		}
 		for _, pref := range domain.Prefs() {
-			if !pref.HasLabel(&UserManaged) {
+			if !pref.HasLabel(&macpreflabels.UserManaged) {
 				continue
 			}
 			pd = append(pd, pref.PrefDefault)
@@ -77,15 +84,15 @@ func NewPrefDomains(domains []*PrefsDomain) *PrefDomains {
 }
 
 func (pds *PrefDomains) Initialize(cfg config.Config) (err error) {
-	var df PrefDefaultsFunc
+	var df prefdefaults.Func
 	var errs errutil.MultiErr
-	var osPrefs OSPrefDefaults
+	var osPrefs prefdefaults.OSPrefDefaults
 
 	if pds.initialized {
 		goto end
 	}
 
-	df = GetDefaultsFunc()
+	df = prefdefaults.GetDefaultsFunc()
 	osPrefs, err = df(cfg)
 	if err != nil {
 		errs.Add(err)
@@ -93,62 +100,12 @@ func (pds *PrefDomains) Initialize(cfg config.Config) (err error) {
 	}
 	for _, dd := range osPrefs.Domains {
 		for _, dv := range dd.Defaults {
-			SetPrefDefault(dv)
+			prefdefaults.SetPrefDefault(dv)
 		}
 	}
 	pds.initialized = true
 end:
 	return errs.Err()
-}
-
-//func SetPrefDefault_NEW(pd *PrefDefault) {
-//	var typeLabel *kvfilters.Label
-//	dn := DomainName(pd.Domain)
-//	pn := PrefName(pd.Name)
-//	pd = GetPrefDefault(dn, pn)
-//	if pd == nil {
-//		pd = NewPrefDefault(dn, pn)
-//	}
-//	if def.Default != "" {
-//		pd.DefaultValue = def.Default
-//		pd.Verified = def.Verified
-//		//pd.Kind = def.Kind()
-//	} else {
-//		p, err := macOSUtils.GetPreference(def.Domain, def.Name)
-//		if err == nil {
-//			pd.DefaultValue = p.Value
-//			pd.Kind = p.Kind
-//		}
-//		pd.Verified = false
-//	}
-//	pd.Kind, typeLabel = GetPrefKindAndType(pd.Kind, TypeName(def.Type), pd.DefaultValue)
-//
-//	//_, _ = fmt.Fprintf(file, "{\n")
-//	//_, _ = fmt.Fprintf(file, "\t"+"id:        \"%s/%s\",\n", pd.Domain, pd.Name)
-//	//_, _ = fmt.Fprintf(file, "\t"+"name:      \"xxx kind xxx type xxx value\",\n")
-//	//_, _ = fmt.Fprintf(file, "\t"+"kind:      reflect.%s,\n", fixCase(pd.Kind.String()))
-//	//_, _ = fmt.Fprintf(file, "\t"+"typ:       prefdefaults.%s.Value,\n", fixCase(string(typeLabel.Value)))
-//	//_, _ = fmt.Fprintf(file, "\t"+"value:     \"%s\",\n", pd.DefaultValue)
-//	//_, _ = fmt.Fprintf(file, "\t"+"wantKind:  reflect.%s,\n", fixCase(pd.Kind.String()))
-//	//_, _ = fmt.Fprintf(file, "\t"+"wantLabel: prefdefaults.%s,\n", fixCase(string(typeLabel.Value)))
-//	//_, _ = fmt.Fprintf(file, "},\n")
-//
-//	def.Labels.Add(typeLabel)
-//	if !def.Labels.HasNamedLabel(&SetupSets) {
-//		def.Labels.Add(&DefaultsSet)
-//	}
-//	if def.Labels.GetNamedLabel(Class) == nil {
-//		def.Labels.Add(&UserManaged)
-//	}
-//	pd.SetLabels(def.Labels)
-//	SetPrefDefault(pd)
-//	return pd
-//}
-
-func SetPrefDefault(dv *PrefDefault) {
-	prefDefaultsLookupMutex.Lock()
-	prefDefaultsLookup[dv.Id()] = dv
-	prefDefaultsLookupMutex.Unlock()
 }
 
 type RetrievePrefArgs struct {
@@ -222,6 +179,7 @@ func (pds *PrefDomains) Describe(w io.Writer) {
 		}
 	}
 }
+
 func (pds *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
 	groups = make([]kvfilters.Group, len(pds.domains))
 	for i, domain := range pds.domains {
@@ -298,7 +256,7 @@ func QueryPrefDomains(ctx Context, cfg config.Config, args QueryArgs) (domains *
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
 		Groups:    domains.ToFiltersGroups(),
 		Filters:   nameFilters,
-		Labels:    []*kvfilters.Label{&UserManaged},
+		Labels:    []*kvfilters.Label{&macpreflabels.UserManaged},
 		OmitEmpty: args.OmitEmpty,
 	})
 	if err != nil {
@@ -325,7 +283,7 @@ func QueryPrefDomains(ctx Context, cfg config.Config, args QueryArgs) (domains *
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
 		Groups:      domains.ToFiltersGroups(),
 		Filters:     valueFilters,
-		Labels:      []*kvfilters.Label{&UserManaged},
+		Labels:      []*kvfilters.Label{&macpreflabels.UserManaged},
 		OmitEmpty:   args.OmitEmpty,
 		OmitInvalid: true,
 	})

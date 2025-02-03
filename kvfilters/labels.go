@@ -106,6 +106,14 @@ end:
 	return contains
 }
 
+func (ll *Labels) Values() []*LabelValue {
+	values := make([]*LabelValue, len(ll.labels))
+	for i, label := range ll.labels {
+		values[i] = &label.Value
+	}
+	return values
+}
+
 func (ll *Labels) Valid() (ok bool) {
 	var label *Label
 	var index int
@@ -135,6 +143,10 @@ func (ll *Labels) Valid() (ok bool) {
 	ok = true
 end:
 	return ok
+}
+
+func (ll *Labels) SetLabels(labels ...*Label) {
+	ll.labels = labels
 }
 
 func (ll *Labels) SetLabel(label *Label) *Labels {

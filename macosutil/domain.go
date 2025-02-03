@@ -74,6 +74,8 @@ import (
 
 type PreferenceDomain string
 type DomainName string
+type PreferenceName string
+type OSVersion string
 
 type RetrievalArgs struct {
 	Domains     []PreferenceDomain

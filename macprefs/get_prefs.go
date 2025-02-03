@@ -3,12 +3,17 @@ package macprefs
 import (
 	"errors"
 
+	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/config"
-	prefsyaml2 "github.com/mikeschinkel/prefsctl/prefsyaml"
+	"github.com/mikeschinkel/prefsctl/errutil"
+	"github.com/mikeschinkel/prefsctl/macpreflabels"
+	"github.com/mikeschinkel/prefsctl/prefsyaml"
+	"github.com/mikeschinkel/prefsctl/yamlutil"
 )
 
 type (
-	OSVersion = prefsyaml2.OSVersion
+	OSVersion  = prefsyaml.OSVersion
+	APIVersion = prefsyaml.APIVersion
 )
 
 func GetPrefs(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
@@ -33,41 +38,46 @@ func GetPrefs(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (resu
 	return result
 }
 
-func newDomains(domains []*PrefsDomain) []*prefsyaml2.YAMLDomain {
-	dd := make([]*prefsyaml2.YAMLDomain, len(domains))
+func newYAMLResources(kind prefsyaml.KindName, domains []*PrefsDomain, opts YAMLOpts) []*prefsyaml.Resource {
+	yrs := make([]*prefsyaml.Resource, len(domains))
 	for i, domain := range domains {
-		prefs := make([]*prefsyaml2.YAMLPrefLite, len(domain.Prefs()))
-		for j, pref := range domain.Prefs() {
-			prefs[j] = &prefsyaml2.YAMLPrefLite{
-				Domain: prefsyaml2.DomainName(pref.Domain),
-				Name:   prefsyaml2.PrefName(pref.Name),
-				Value:  pref.Value(),
-			}
-		}
-		dd[i] = &prefsyaml2.YAMLDomain{
-			Name:  prefsyaml2.DomainName(domain.Name()),
-			Prefs: prefs,
-		}
+		yrs[i] = domain.GetYAMLResource(kind, opts)
 	}
-	return dd
+	return yrs
 }
 
 func getPrefsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
-	var resources []prefsyaml2.YAMLPrefsResource
+	var resources []*prefsyaml.Resource
+	var ymf yamlutil.MultidocFile
+	var yd yamlutil.Document
+	var errs errutil.MultiErr
 
 	domains, err := QueryPrefDomains(ctx, cfg, args)
 	if err != nil {
 		goto end
 	}
 
-	resources = prefsyaml2.NewYAMLPrefsResources(newDomains(domains.domains))
+	resources = newYAMLResources(
+		prefsyaml.KindName(macpreflabels.PrefsKind),
+		domains.domains,
+		YAMLOpts{
+			UseValueForDefault: false,
+			APIVersion:         appinfo.LatestAPIVersion,
+		},
+	)
+	ymf = yamlutil.NewMultidocFile()
 	for _, resource := range resources {
-		ptr.Println("---")
-		resource.APIVersion = LatestAPIVersion
-		ptr.Println(resource.YAML())
+		yd, err = resource.YAMLDocument()
+		if err != nil {
+			errs.Add(err)
+			goto end
+		}
+		ymf.AddDocument(yd)
 	}
+	ptr.Print(ymf.String())
+
 end:
-	return Result{Err: err}
+	return Result{Err: errs.Err()}
 }
 
 func getPrefsJSON(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
