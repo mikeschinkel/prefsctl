@@ -253,7 +253,7 @@ import (
 	"unsafe"
 )
 
-const GlobalPreferencesDomain = "GlobalPreferences"
+const GlobalPreferencesDomain = ".GlobalPreferences"
 
 type Preference struct {
 	Domain      string

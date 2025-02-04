@@ -4,16 +4,18 @@ import (
 	"errors"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
+	"github.com/mikeschinkel/prefsctl/sliceconv"
 	"github.com/mikeschinkel/prefsctl/stdlibex"
 )
 
 type QueryArgs struct {
-	Filters       []Filter
-	Groups        []Group
-	Labels        []*Label
-	OmitEmpty     bool
-	OmitInvalid   bool
-	OmitUnchanged bool
+	Filters        []Filter
+	Groups         []Group
+	Labels         []*Label
+	KeepEmptyGroup bool
+	OmitEmpty      bool
+	OmitInvalid    bool
+	OmitUnchanged  bool
 }
 
 func Query(args QueryArgs) (result []Group, err error) {
@@ -21,18 +23,22 @@ func Query(args QueryArgs) (result []Group, err error) {
 	var mustKeep, omit bool
 	var newGroup Group
 	var groupAdded bool
+	var keyValues []KeyValue
 
 	groups, err := QueryGroups(args)
 	if err != nil {
 		goto end
 	}
 
-	result = make([]Group, 0)
+	result = make([]Group, 0, len(groups))
 	for _, g := range groups {
+		keyValues = g.KeyValues()
+		if len(keyValues) == 0 && args.KeepEmptyGroup {
+			result = append(result, g.ShallowCopy())
+			continue
+		}
 		groupAdded = false
-		for _, kv := range g.KeyValues() {
-			name := g.Name()
-			noop(name)
+		for _, kv := range keyValues {
 			if args.Labels != nil && !stdlibex.SlicesIntersect(args.Labels, kv.Labels().labels) {
 				continue
 			}
@@ -62,7 +68,9 @@ func Query(args QueryArgs) (result []Group, err error) {
 					continue
 				}
 			}
-			if !groupAdded {
+			if groupAdded {
+				print()
+			} else {
 				// Copy the group but w/o its key-values
 				newGroup = g.ShallowCopy()
 				// Add to our result
@@ -75,6 +83,8 @@ func Query(args QueryArgs) (result []Group, err error) {
 			newGroup.AddKeyValue(kv)
 		}
 	}
+	// Eliminate any unused capacity
+	result = sliceconv.Minimize(result)
 end:
 	return result, errs.Join(err)
 }
@@ -83,7 +93,7 @@ func QueryGroups(args QueryArgs) (result []Group, err error) {
 	var errs errutil.MultiErr
 	var mustKeep, omit bool
 
-	result = make([]Group, 0)
+	result = make([]Group, 0, len(args.Groups))
 	for _, g := range args.Groups {
 		mustKeep, err = MustKeepGroup(args.Filters, g.Name(), Groups)
 		if err != nil {
@@ -102,5 +112,7 @@ func QueryGroups(args QueryArgs) (result []Group, err error) {
 		}
 		result = append(result, g)
 	}
+	// Eliminate any unused capacity
+	result = sliceconv.Minimize(result)
 	return result, errs.Join(err)
 }

@@ -26,42 +26,42 @@ func DomainsForTest() []PreferenceDomain {
 		"com.apple.finder",
 		"com.apple.findmy",
 		"com.apple.keyboard",
-		"GlobalPreferences",
+		".GlobalPreferences",
 	}
 }
 func DomainPrefsForTest() map[PreferenceDomain][]*Preference {
 	return map[PreferenceDomain][]*Preference{
 		"GlobalPreferences": {
 			{
-				Domain:      "GlobalPreferences",
+				Domain:      ".GlobalPreferences",
 				Name:        "AppleActionOnDoubleClick",
 				Value:       "",
 				Description: "",
 				Kind:        0,
 			},
 			{
-				Domain:      "GlobalPreferences",
+				Domain:      ".GlobalPreferences",
 				Name:        "AppleMeasurementUnits",
 				Value:       "",
 				Description: "",
 				Kind:        0,
 			},
 			{
-				Domain:      "GlobalPreferences",
+				Domain:      ".GlobalPreferences",
 				Name:        "com.apple.mouse.scaling",
 				Value:       "",
 				Description: "",
 				Kind:        0,
 			},
 			{
-				Domain:      "GlobalPreferences",
+				Domain:      ".GlobalPreferences",
 				Name:        "com.apple.trackpad.scaling",
 				Value:       "",
 				Description: "",
 				Kind:        0,
 			},
 			{
-				Domain:      "GlobalPreferences",
+				Domain:      ".GlobalPreferences",
 				Name:        "AppleTemperatureUnit",
 				Value:       "",
 				Description: "",

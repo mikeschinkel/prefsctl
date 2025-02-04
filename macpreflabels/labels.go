@@ -2,7 +2,6 @@ package macpreflabels
 
 import (
 	"github.com/mikeschinkel/prefsctl/kvfilters"
-	"github.com/mikeschinkel/prefsctl/macosutil"
 )
 
 type (
@@ -41,32 +40,6 @@ var (
 	Required    = NewLabel(Sets, "required")
 )
 
-//goland:noinspection GoStructInitializationWithoutFieldNames
-var (
-	UnknownType = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.UnknownType))
-	StringType  = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.StringType))
-	NumberType  = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.NumberType))
-	IntType     = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.IntType))
-	FloatType   = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.FloatType))
-	BoolType    = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.BoolType))
-
-	IntBoolType = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.IntBoolType))
-
-	LanguageType = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.LanguageType))
-	LocaleType   = kvfilters.NewUnknownLabel(Type, kvfilters.LabelValue(macosutil.LocaleType))
-)
-var TypeLabelMap = map[macosutil.PreferenceType]*kvfilters.Label{
-	macosutil.UnknownType:  &UnknownType,
-	macosutil.StringType:   &StringType,
-	macosutil.NumberType:   &NumberType,
-	macosutil.IntType:      &IntType,
-	macosutil.FloatType:    &FloatType,
-	macosutil.BoolType:     &BoolType,
-	macosutil.IntBoolType:  &IntBoolType,
-	macosutil.LanguageType: &LanguageType,
-	macosutil.LocaleType:   &LocaleType,
-}
-
 var LabelMap = map[kvfilters.LabelValue]*kvfilters.Label{
 	UserManaged.Value:      &UserManaged,
 	SystemManaged.Value:    &SystemManaged,
@@ -75,15 +48,6 @@ var LabelMap = map[kvfilters.LabelValue]*kvfilters.Label{
 	VersionMigration.Value: &VersionMigration,
 	Optional.Value:         &Optional,
 	Required.Value:         &Required,
-	UnknownType.Value:      &UnknownType,
-	StringType.Value:       &StringType,
-	NumberType.Value:       &NumberType,
-	IntType.Value:          &IntType,
-	FloatType.Value:        &FloatType,
-	BoolType.Value:         &BoolType,
-	IntBoolType.Value:      &IntBoolType,
-	LanguageType.Value:     &LanguageType,
-	LocaleType.Value:       &LocaleType,
 }
 
 func GetLabelByValue(value LabelValue) *Label {
@@ -109,10 +73,4 @@ var goVarMap = map[kvfilters.LabelValue]LabelName{
 	UnknownSets.Value: "UnknownSets",
 	Optional.Value:    "Optional",
 	Required.Value:    "Required",
-
-	StringType.Value:   "StringType",
-	NumberType.Value:   "NumberType",
-	BoolType.Value:     "BoolType",
-	LanguageType.Value: "LanguageType",
-	LocaleType.Value:   "LocaleType",
 }

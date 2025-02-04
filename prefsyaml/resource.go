@@ -24,10 +24,15 @@ type Resource struct {
 	Spec       Spec       `yaml:"spec"`
 }
 
+// Initialize initializes either the Props or the Defaults.
+func (r Resource) Initialize() {
+	r.Spec.Initialize(&r.MetaData)
+}
+
 var osVersion OSVersion
 
 type ResourceOpts struct {
-	Description Description
+	Description string
 	Process     ProcessName
 	APIVersion  APIVersion
 	Added       macosutil.VersionNumber
@@ -52,7 +57,7 @@ func NewResource(kind KindName, domain DomainName, opts ResourceOpts) Resource {
 	}
 	return Resource{
 		APIVersion: opts.APIVersion,
-		KindName:   KindName(kind),
+		KindName:   kind,
 		Spec:       spec,
 		MetaData: Metadata{
 			Domain:      domain,
@@ -60,6 +65,7 @@ func NewResource(kind KindName, domain DomainName, opts ResourceOpts) Resource {
 			Description: opts.Description,
 			Added:       opts.Added,
 			Removed:     opts.Removed,
+			KindName:    kind,
 		},
 	}
 }
@@ -72,7 +78,7 @@ func (r Resource) Id() Identifier {
 	return Identifier(fmt.Sprintf("%s:%s", r.KindName, r.MetaData.Domain))
 }
 
-func LoadPrefsResources(filename string) (resources []Resource, err error) {
+func LoadPrefsResources(kind KindName, filename string) (resources []Resource, err error) {
 	var decoder *yaml.Decoder
 
 	file, err := os.Open(filename)
@@ -98,9 +104,9 @@ func LoadPrefsResources(filename string) (resources []Resource, err error) {
 			)
 			goto end
 		}
-		for i := range resource.Spec.Prefs {
-			resource.Spec.Prefs[i].MetaData = &resource.MetaData
-		}
+		// For our purposes
+		resource.MetaData.KindName = kind
+		resource.Initialize()
 		resources = append(resources, resource)
 	}
 end:
@@ -121,7 +127,7 @@ func (r Resource) YAMLDocument() (yd yamlutil.Document, err error) {
 		)
 		goto end
 	}
-	yd = yamlutil.Document(y.String())
+	yd = yamlutil.Document(fmt.Sprintf("\n---\n%s", y.String()))
 end:
 	return yd, err
 }

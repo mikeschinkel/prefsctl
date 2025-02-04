@@ -45,7 +45,6 @@ func (f *multidocFile) String() string {
 		if y == "" {
 			continue
 		}
-		sb.WriteString("\n---\n")
 		sb.WriteString(string(y))
 	}
 	return sb.String()

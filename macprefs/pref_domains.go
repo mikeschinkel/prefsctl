@@ -27,9 +27,7 @@ const (
 )
 
 type PrefDomains struct {
-	domains        []*PrefsDomain
-	initialized    bool
-	prefsRetrieved bool
+	domains []*PrefsDomain
 }
 
 var osCode macosutil.Code
@@ -52,7 +50,8 @@ func (pds *PrefDomains) UserManagedPrefDefaults() (pd []*prefdefaults.PrefDefaul
 	pd = make([]*prefdefaults.PrefDefault, 0)
 	pds.Sort()
 	for _, domain := range pds.domains {
-		if domain.domain == ".GlobalPreferences_m" {
+		if domain.Domain == ".GlobalPreferences_m" {
+			// This appears to be a duplicate, so we are ignoring it
 			continue
 		}
 		for _, pref := range domain.Prefs() {
@@ -70,11 +69,7 @@ func (pds *PrefDomains) Domains() []*PrefsDomain {
 }
 
 func (pds *PrefDomains) DebugString() string {
-	return fmt.Sprintf("Domains: %d, Initialized: %t, PrefsRetrieved: %t",
-		len(pds.domains),
-		pds.initialized,
-		pds.prefsRetrieved,
-	)
+	return fmt.Sprintf("Domains: %d", len(pds.domains))
 }
 
 func NewPrefDomains(domains []*PrefsDomain) *PrefDomains {
@@ -83,71 +78,8 @@ func NewPrefDomains(domains []*PrefsDomain) *PrefDomains {
 	}
 }
 
-func (pds *PrefDomains) Initialize(cfg config.Config) (err error) {
-	var df prefdefaults.Func
-	var errs errutil.MultiErr
-	var osPrefs prefdefaults.OSPrefDefaults
-
-	if pds.initialized {
-		goto end
-	}
-
-	df = prefdefaults.GetDefaultsFunc()
-	osPrefs, err = df(cfg)
-	if err != nil {
-		errs.Add(err)
-		goto end
-	}
-	for _, dd := range osPrefs.Domains {
-		for _, dv := range dd.Defaults {
-			prefdefaults.SetPrefDefault(dv)
-		}
-	}
-	pds.initialized = true
-end:
-	return errs.Err()
-}
-
 type RetrievePrefArgs struct {
 	IgnoreMissingDomains bool
-}
-
-func (pds *PrefDomains) RetrievePrefs(args RetrievePrefArgs) (err error) {
-	if !pds.initialized {
-		panic("ERROR: Preferences domains must be initialized before calling " +
-			"macprefs.PrefDomains.RetrievePrefs().", // TODO Explain how to initialize them
-		)
-	}
-	var errs errutil.MultiErr
-	for _, domain := range pds.domains {
-		err = domain.RetrievePrefs()
-		if err == nil {
-			continue
-		}
-		if args.IgnoreMissingDomains && errors.Is(err, macosutil.ErrFailedToGetPrefDomain) {
-			continue
-		}
-		errs.Add(err) // TODO: Annotate
-	}
-	pds.prefsRetrieved = true
-	return errs.Err()
-}
-
-func (pds *PrefDomains) RetrievePrefValues() (err error) {
-	if !pds.prefsRetrieved {
-		panicf("ERROR: Domain preferences must be retrieved with " +
-			"macprefs.PrefDomains.RetrievePref() before calling " +
-			"macprefs.PrefDomains.RetrievePrefValues()",
-		)
-	}
-	var errs errutil.MultiErr
-	for _, domain := range pds.domains {
-		err = domain.RetrievePrefValues()
-		if err != nil {
-			errs.Add(err) // TODO: Annotate
-		}
-	}
-	return errs.Err()
 }
 
 func (pds *PrefDomains) Sort() {
@@ -190,35 +122,36 @@ func (pds *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
 
 // GetPrefDomains retrieves the list of macOS preference domains available
 // currently on the system via macOS.
-func GetPrefDomains(args QueryArgs) (pds *PrefDomains, err error) {
-	domains, err := macosutil.GetPreferenceDomains(macosutil.RetrievalArgs{
-		Domains: args.ToMacOSUtilPreferenceDomains(),
-	})
+func GetPrefDomains(cfg config.Config, args QueryArgs) (pds *PrefDomains, err error) {
+	domains, err := prefdefaults.GetDomains(cfg) // TODO: Limit based on args.Domains, if applicable
 	if err != nil {
 		goto end
 	}
-	pds = NewPrefDomains(sliceconv.Func(domains, func(pd macosutil.PreferenceDomain) *PrefsDomain {
-		return NewPrefsDomain(DomainName(pd))
-	}))
+	pds = NewPrefDomains(make([]*PrefsDomain, len(domains)))
+	for i, domain := range domains {
+		pd := NewPrefsDomain(domain.Domain, PrefsDomainArgs{
+			Description: domain.Description,
+			Process:     domain.Process,
+			Added:       domain.Added,
+			Removed:     domain.Removed,
+		})
+		pd.prefs = make(Prefs, len(domain.Defaults))
+		for j, dd := range domain.Defaults {
+			pd.prefs[j] = NewPref(PrefArgs{
+				Domain:      dd.Domain,
+				Name:        dd.Name,
+				Description: dd.Description,
+				Value:       dd.Value(),
+				Default:     dd.Default,
+				Labels:      dd.Labels(),
+				Kind:        dd.Kind,
+				Type:        dd.Type,
+			})
+		}
+		pds.domains[i] = pd
+	}
 end:
 	return pds, err
-}
-
-// RetrieveDomainPrefs retrieves the macOS preferences for the specified
-// preference domain from macOS.
-func RetrieveDomainPrefs(domain DomainName) (pp Prefs, err error) {
-	prefs, err := macosutil.GetPreferences(macosutil.PreferenceDomain(domain))
-	if err != nil {
-		goto end
-	}
-	pp = sliceconv.Func(prefs, func(p *macosutil.Preference) *Pref {
-		return NewPref(PrefOpts{
-			Domain: DomainName(p.Domain),
-			Name:   PrefName(p.Name),
-		})
-	})
-end:
-	return pp, err
 }
 
 // QueryPrefDomains queries for a set of preference domains based on the QueryArg provided
@@ -232,19 +165,7 @@ func QueryPrefDomains(ctx Context, cfg config.Config, args QueryArgs) (domains *
 		})
 	}
 
-	domains, err = GetPrefDomains(args)
-	if err != nil {
-		goto end
-	}
-	err = domains.Initialize(cfg)
-	if err != nil {
-		goto end
-	}
-
-	// Retrieve all the prefs for all domains, including all their pref defaults
-	err = domains.RetrievePrefs(RetrievePrefArgs{
-		IgnoreMissingDomains: true,
-	})
+	domains, err = GetPrefDomains(cfg, args)
 	if err != nil {
 		goto end
 	}
@@ -256,7 +177,6 @@ func QueryPrefDomains(ctx Context, cfg config.Config, args QueryArgs) (domains *
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
 		Groups:    domains.ToFiltersGroups(),
 		Filters:   nameFilters,
-		Labels:    []*kvfilters.Label{&macpreflabels.UserManaged},
 		OmitEmpty: args.OmitEmpty,
 	})
 	if err != nil {
@@ -265,12 +185,6 @@ func QueryPrefDomains(ctx Context, cfg config.Config, args QueryArgs) (domains *
 	}
 
 	domains.domains = toDomains(domains, filtered)
-
-	// Not retrieve all the current values of the prefs for all domains
-	err = domains.RetrievePrefValues()
-	if err != nil {
-		goto end
-	}
 
 	valueFilters, err = QueryFiltersForTargets(kvfilters.Values, kvfilters.KeyValues)
 	if err != nil {
@@ -281,11 +195,9 @@ func QueryPrefDomains(ctx Context, cfg config.Config, args QueryArgs) (domains *
 	}
 
 	filtered, err = kvfilters.Query(kvfilters.QueryArgs{
-		Groups:      domains.ToFiltersGroups(),
-		Filters:     valueFilters,
-		Labels:      []*kvfilters.Label{&macpreflabels.UserManaged},
-		OmitEmpty:   args.OmitEmpty,
-		OmitInvalid: true,
+		Groups:    domains.ToFiltersGroups(),
+		Filters:   valueFilters,
+		OmitEmpty: args.OmitEmpty,
 	})
 
 	if err != nil {

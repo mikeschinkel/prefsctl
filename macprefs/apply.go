@@ -116,7 +116,7 @@ func applyYAML(ctx Context, cfg config.Config, ptr Printer, args ApplyArgs) (res
 
 	successes := []string{fmt.Sprintf("Prefs applied.\n")}
 
-	resources, err := prefsyaml.LoadPrefsResources(string(args.Filename))
+	resources, err := prefsyaml.LoadPrefsResources(prefsyaml.PrefsKind, string(args.Filename))
 	if err != nil {
 		errs.Add(err)
 		goto end

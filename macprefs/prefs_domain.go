@@ -1,16 +1,14 @@
 package macprefs
 
 import (
-	"errors"
 	"fmt"
+	"reflect"
 	"strings"
 
 	"github.com/mikeschinkel/prefsctl/appinfo"
-	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macpreflabels"
-	"github.com/mikeschinkel/prefsctl/prefdefaults"
 	"github.com/mikeschinkel/prefsctl/prefsyaml"
 	"github.com/mikeschinkel/prefsctl/sliceconv"
 	"github.com/mikeschinkel/prefsctl/yamlutil"
@@ -18,13 +16,14 @@ import (
 
 var _ kvfilters.Group = (*PrefsDomain)(nil)
 
-// PrefsDomain represents a preference domain in macOS
+// PrefsDomain represents a preference Domain in macOS
 type PrefsDomain struct {
-	domain               DomainName
-	invalid              bool
-	prefs                Prefs
-	prefsRetrieved       bool
-	prefsValuesRetrieved bool
+	Domain      DomainName
+	Description string
+	Process     ProcessName
+	Added       VersionNumber
+	Removed     VersionNumber
+	prefs       Prefs
 }
 type YAMLOpts struct {
 	UseValueForDefault bool
@@ -33,13 +32,13 @@ type YAMLOpts struct {
 
 func (pd *PrefsDomain) GetYAMLResource(kind prefsyaml.KindName, opts YAMLOpts) (yr *prefsyaml.Resource) {
 	var labelValues []*prefsyaml.LabelValue
-	var typeName string
+
 	yr = &prefsyaml.Resource{
 		APIVersion: appinfo.LatestAPIVersion,
 		KindName:   kind,
 		Spec:       prefsyaml.NewSpec(),
 		MetaData: prefsyaml.Metadata{
-			Domain: prefsyaml.DomainName(pd.domain),
+			Domain: prefsyaml.DomainName(pd.Domain),
 		},
 	}
 	for _, pref := range pd.Prefs() {
@@ -59,14 +58,14 @@ func (pd *PrefsDomain) GetYAMLResource(kind prefsyaml.KindName, opts YAMLOpts) (
 				return &lv
 			})
 		}
-		typeName, _ = strings.CutSuffix(string(pref.TypeName()), "Type")
 		yr.Spec.Prefs = append(yr.Spec.Prefs, prefsyaml.Pref{
 			MetaData: &yr.MetaData,
 			Name:     prefsyaml.PrefName(pref.Name),
-			Type:     prefsyaml.PrefType(typeName),
+			Type:     prefsyaml.PrefType(pref.Type),
 			Value:    yamlutil.NewValue(val),
 			Default:  yamlutil.NewValue(def),
 			Labels:   labelValues,
+			Kind:     reflect.Invalid, // TODO: Update this
 		})
 	}
 	return yr
@@ -82,19 +81,20 @@ end:
 	return yd, err
 }
 
+// Valid is needed to implement kvfilters.Group
 func (pd *PrefsDomain) Valid() bool {
-	// TODO: Change to determining invalid based on labels
-	//       Need to understand what determines something is invalid before doing so, though
-	return !pd.invalid
+	return true
 }
 
+// ShallowCopy is used to copy PrefsDomain without its children
 func (pd *PrefsDomain) ShallowCopy() kvfilters.Group {
 	return &PrefsDomain{
-		domain:               pd.domain,
-		invalid:              pd.invalid,
-		prefsRetrieved:       pd.prefsRetrieved,
-		prefsValuesRetrieved: pd.prefsValuesRetrieved,
-		prefs:                make(Prefs, 0),
+		Domain:      pd.Domain,
+		Description: pd.Description,
+		Process:     pd.Process,
+		Added:       pd.Added,
+		Removed:     pd.Removed,
+		prefs:       make(Prefs, 0),
 	}
 }
 
@@ -104,61 +104,25 @@ func (pd *PrefsDomain) SortPrefs() {
 
 var unsupportedTypes = make(map[string]struct{})
 
-func (pd *PrefsDomain) RetrievePrefs() (err error) {
-	pd.prefsRetrieved = true
-	pd.prefs, err = RetrieveDomainPrefs(pd.DomainName())
-	if err != nil {
-		pd.invalid = true
-		pd.prefs = make(Prefs, 0)
-		goto end
-	}
-	for _, pref := range pd.prefs {
-		pd := prefdefaults.LookupPrefDefault(pref.Id())
-		if pd == nil {
-			pd = prefdefaults.NewPrefDefault(pref.Domain, pref.Name, &prefdefaults.PrefDefaultOpts{
-				Kind:    0, // TODO: Populate these opts
-				Added:   "",
-				Removed: "",
-			})
-		}
-		pref.PrefDefault = pd
-	}
-end:
-	return err
+type PrefsDomainArgs struct {
+	Description string
+	Process     ProcessName
+	Added       VersionNumber
+	Removed     VersionNumber
 }
 
-func (pd *PrefsDomain) RetrievePrefValues() (err error) {
-	var errs errutil.MultiErr
-
-	for _, pref := range pd.prefs {
-		err = pref.Retrieve()
-		if err == nil {
-			continue
-		}
-		if errors.Is(err, ErrUnsupportedType) {
-			unsupportedType, _ := strings.CutPrefix(pref.value, "unsupported preference class: ")
-			unsupportedTypes[unsupportedType] = struct{}{}
-			continue
-		}
-		errs.Add(err) // TODO Annotate
-	}
-	pd.prefsValuesRetrieved = true
-	return errs.Err()
-}
-
-func NewPrefsDomain(domain DomainName) *PrefsDomain {
+func NewPrefsDomain(domain DomainName, args PrefsDomainArgs) *PrefsDomain {
 	return &PrefsDomain{
-		domain: domain,
-		prefs:  make([]*Pref, 0),
+		Domain:      domain,
+		Description: args.Description,
+		Process:     args.Process,
+		Added:       args.Added,
+		Removed:     args.Removed,
+		prefs:       make([]*Pref, 0),
 	}
 }
 
 func (pd *PrefsDomain) KeyValues() (kvs []kvfilters.KeyValue) {
-	if !pd.prefsRetrieved {
-		panicf("ERROR: Preferences domain '%s' must be retrieved before calling macprefs.PrefsDomain.KeyValues()",
-			pd.Name(),
-		)
-	}
 	kvs = make([]kvfilters.KeyValue, len(pd.prefs))
 	for i, pref := range pd.prefs {
 		kvs[i] = pref
@@ -166,15 +130,12 @@ func (pd *PrefsDomain) KeyValues() (kvs []kvfilters.KeyValue) {
 	return kvs
 }
 
-func (pd *PrefsDomain) DomainName() DomainName {
-	return pd.domain
-}
 func (pd *PrefsDomain) Name() kvfilters.Name {
-	return kvfilters.Name(pd.domain)
+	return kvfilters.Name(pd.Domain)
 }
 
 func (pd *PrefsDomain) Code() kvfilters.Code {
-	return kvfilters.Codify(string(pd.domain))
+	return kvfilters.Codify(string(pd.Domain))
 }
 
 func (pd *PrefsDomain) AddKeyValue(value kvfilters.KeyValue) {
@@ -209,10 +170,5 @@ func (pd *PrefsDomain) HasPrefix(prefix string) bool {
 
 // Prefs returns all available preferences for this domain
 func (pd *PrefsDomain) Prefs() []*Pref {
-	if !pd.prefsRetrieved {
-		panicf("ERROR: Preferences domain '%s' must be retrieved before calling macprefs.PrefsDomain.Prefs()",
-			pd.Name(),
-		)
-	}
 	return pd.prefs
 }

@@ -150,7 +150,7 @@ func (pm *ProfileManifest) GetPrefsYAMLResource(includeFilter yamlutil.EntryFilt
 		prefsyaml.DomainName(pm.Domain),
 		prefsyaml.ResourceOpts{
 			APIVersion:  appinfo.LatestAPIVersion,
-			Description: prefsyaml.Description(pm.Description),
+			Description: pm.Description,
 			Added:       macosutil.VersionNumber(pm.MacOSMin),
 			Removed:     macosutil.VersionNumber(pm.MacOSMax),
 			Process:     macosutil.GetProcessToKill(macosutil.DomainName(pm.Domain)),
@@ -167,14 +167,15 @@ func (pm *ProfileManifest) GetPrefsYAMLResource(includeFilter yamlutil.EntryFilt
 		}
 		def := prefsyaml.NewDefault(prefsyaml.PrefName(sk.Name), prefsyaml.DefaultOpts{
 			Value:       value,
-			Description: prefsyaml.Description(sk.Description),
+			Description: sk.Description,
 			Options:     ExtractYAMLUtilValues(sk.Options()),
 			Type:        prefsyaml.PrefType(sk.Type),
+			Kind:        sk.Kind(),
 			Added:       macosutil.VersionNumber(sk.MacOSMin),
 			Removed:     macosutil.VersionNumber(sk.MacOSMax),
 			Labels:      nil, // TODO Find a way to derive labels
 		})
-		if !includeFilter(def) {
+		if !includeFilter(&def) {
 			continue
 		}
 		yr.Spec.Defaults = append(yr.Spec.Defaults, def)
@@ -182,14 +183,3 @@ func (pm *ProfileManifest) GetPrefsYAMLResource(includeFilter yamlutil.EntryFilt
 end:
 	return yr, include
 }
-
-//func (pm *ProfileManifest) YAMLDocument() (yd yamlutil.Document, err error) {
-//	var yml []byte
-//	yml, err = yaml.Marshal(pm)
-//	if err != nil {
-//		goto end
-//	}
-//	yd = yamlutil.Document(yml)
-//end:
-//	return yd, err
-//}

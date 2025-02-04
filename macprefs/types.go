@@ -9,7 +9,10 @@ import (
 )
 
 type (
-	PrefName    string
+	PrefName = macosutil.PreferenceName
+)
+
+type (
 	Filename    string
 	BoolPtr     *bool
 	FilenamePtr *string
@@ -17,12 +20,14 @@ type (
 )
 
 type (
-	Context    = context.Context
-	CmdResult  = cobrautil.CmdResult
-	DomainName = macosutil.DomainName
-	TypeName   = types.TypeName
-	Name       = types.Name
-	Code       = types.Code
+	Context       = context.Context
+	CmdResult     = cobrautil.CmdResult
+	DomainName    = macosutil.DomainName
+	VersionNumber = macosutil.VersionNumber
+	ProcessName   = macosutil.ProcessName
+	TypeName      = macosutil.PreferenceType
+	Name          = types.Name
+	Code          = types.Code
 )
 
 type YAMLSpec interface {

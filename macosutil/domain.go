@@ -28,7 +28,7 @@ CFArrayRef GetPreferenceDomains() {
 
 CFArrayRef GetPrefNamesForDomain(CFStringRef domain) {
     CFStringRef useDomain = domain;
-    if (CFStringCompare(domain, CFSTR("GlobalPreferences"), 0) == kCFCompareEqualTo) {
+    if (CFStringCompare(domain, CFSTR(".GlobalPreferences"), 0) == kCFCompareEqualTo) {
         useDomain = kCFPreferencesAnyApplication;
     }
     return CFPreferencesCopyKeyList(

@@ -1,8 +1,8 @@
 package macprefs
 
 import (
-	"errors"
 	"fmt"
+	"reflect"
 	"slices"
 	"strconv"
 	"strings"
@@ -28,33 +28,12 @@ var _ kvfilters.KeyValue = (*Pref)(nil)
 // Pref represents a preference with its Domain and name
 type Pref struct {
 	*prefdefaults.PrefDefault
-	value       string // raw string value
-	err         error  // last error encountered
-	Description string
-	invalid     bool
+	value string // raw string value
+	err   error  // last error encountered
 }
 
 func (p *Pref) SetValue(value string) {
 	p.value = value
-}
-
-func (p *Pref) TypeName() (typ TypeName) {
-	//var label *kvfilters.Label
-	var prefType macosutil.PreferenceType
-
-	typ = TypeName(p.PrefDefault.Type())
-	if typ != "" && typ != TypeName(macosutil.UnknownType) {
-		goto end
-	}
-	//label = p.labels.GetNamedLabel(Type)
-	//if label != nil {
-	//	typ = TypeName(label.Value)
-	//	goto end
-	//}
-	_, prefType = macosutil.ParsePrefValue(p.DefaultOrValue())
-	typ = TypeName(prefType)
-end:
-	return typ
 }
 
 func (p *Pref) HasLabel(label *kvfilters.Label) bool {
@@ -69,33 +48,51 @@ func (p *Pref) HasLabels(ll ...*kvfilters.Label) bool {
 	return labels.ContainsAny(labelPtrs...)
 }
 
+// Valid is needed to implement *kvfilters.KeyValue
 func (p *Pref) Valid() bool {
-	return !p.invalid
+	return true
 }
 
-// PrefOpts are used to pass to NewPref() to set initial struct properties
-type PrefOpts struct {
-	Domain  DomainName
-	Name    PrefName
-	Value   string // raw string value
-	Default string // raw string value
-	Labels  *kvfilters.Labels
-	//Kind    reflect.Kind // kind of the value
-	Invalid bool
+// PrefArgs are used to pass to NewPref() to set initial struct properties
+type PrefArgs struct {
+	Domain      DomainName
+	Name        PrefName
+	Description string
+	Value       string // raw string value
+	Default     string // raw string value
+	Labels      *kvfilters.Labels
+	Added       macosutil.VersionNumber
+	Removed     macosutil.VersionNumber
+	Kind        reflect.Kind // kind of the value
+	Type        TypeName
+}
+
+func (opts *PrefArgs) GetLabels() *kvfilters.Labels {
+	labels := opts.Labels
+	if labels == nil {
+		labels = kvfilters.NewLabels()
+	}
+	return labels
 }
 
 // NewPref creates a new Pref instance
-func NewPref(opts PrefOpts) *Pref {
-	dv := prefdefaults.GetPrefDefault(opts.Domain, prefdefaults.PrefName(opts.Name), nil)
-	if opts.Default != "" {
-		dv.DefaultValue = opts.Default
+func NewPref(args PrefArgs) *Pref {
+	dv := prefdefaults.NewPrefDefault(args.Domain, prefdefaults.PrefName(args.Name), &prefdefaults.PrefDefaultArgs{
+		Type:        args.Type,
+		Description: args.Description,
+		Added:       args.Added,
+		Removed:     args.Removed,
+		Kind:        args.Kind,
+		Default:     args.Default,
+	})
+	if args.Default != "" {
+		dv.Default = args.Default
 	}
 	if !dv.HasLabels() {
-		dv.SetLabels(opts.Labels)
+		dv.SetLabels(args.GetLabels())
 	}
 	return &Pref{
-		value:       opts.Value,
-		invalid:     opts.Invalid,
+		value:       args.Value,
 		PrefDefault: dv,
 	}
 }
@@ -107,53 +104,6 @@ func NewPrefFromDefault(pd *prefdefaults.PrefDefault) *Pref {
 	}
 }
 
-// Retrieve fetches the preference value from the system
-func (p *Pref) Retrieve() error {
-	mp, err := macosutil.GetPreference(string(p.Domain), string(p.Name))
-	if errors.Is(err, macosutil.ErrUnsupportedType) {
-		err = nil
-		p.value = mp.Description
-		p.err = fmt.Errorf(p.value)
-		p.invalid = true
-		goto end
-	}
-	if err != nil {
-		err = errors.Join(ErrUnexpectedPreferenceType, err)
-		goto end
-	}
-	p.value = mp.Value
-	p.Description = mp.Description
-	p.PrefDefault = prefdefaults.GetPrefDefault(p.Domain, p.Name, &prefdefaults.PrefDefaultOpts{
-		Kind:    0, // TODO set these values
-		Added:   "",
-		Removed: "",
-	})
-	p.invalid = !mp.Valid()
-end:
-	return err
-}
-
-// IsDefault returns true if the property's current value is the same as its default value.
-//func (p *Pref) IsDefault() (isDefault bool) {
-//	if p.err != nil {
-//		isDefault = false
-//		goto end
-//	}
-//	switch p.Kind {
-//	case reflect.String:
-//		isDefault = p.value == p.DefaultValue
-//	case reflect.Int:
-//		isDefault = p.Int() == p.DefaultInt()
-//	case reflect.Bool:
-//		isDefault = p.value == p.DefaultValue
-//		if !isDefault && p.DefaultValue == "" {
-//			isDefault = true
-//		}
-//	}
-//end:
-//	return isDefault
-//}
-
 // Value returns the current value of the pref
 func (p *Pref) Value() string {
 	return p.value
@@ -161,14 +111,14 @@ func (p *Pref) Value() string {
 
 // Default returns the default value of the pref, as best we can tell
 func (p *Pref) Default() string {
-	return p.PrefDefault.DefaultValue
+	return p.PrefDefault.Default
 }
 
 // DefaultOrValue DefaultOrValue returns the default value unless it is empty
 // then returns the current value
 func (p *Pref) DefaultOrValue() string {
-	if p.PrefDefault.DefaultValue != "" {
-		return p.PrefDefault.DefaultValue
+	if p.PrefDefault.Default != "" {
+		return p.PrefDefault.Default
 	}
 	return p.value
 }

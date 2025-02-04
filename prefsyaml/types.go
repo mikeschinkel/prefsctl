@@ -10,7 +10,6 @@ type (
 )
 type (
 	OSVersion    string
-	Description  string
 	DomainName   string
 	PrefName     string
 	LabelName    string

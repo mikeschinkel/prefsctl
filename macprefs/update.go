@@ -91,7 +91,7 @@ func entryFilter(entry yamlutil.FilterableEntry) (include bool) {
 			include = false
 			goto end
 		}
-	case prefsyaml.Default:
+	case *prefsyaml.Default:
 		if !osSupported(osVersionNumber, t.Added, t.Removed) {
 			include = false
 			goto end

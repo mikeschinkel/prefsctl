@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"time"
 
@@ -60,12 +61,6 @@ var (
 	SystemManaged    = &macpreflabels.SystemManaged
 	Optional         = &macpreflabels.Optional
 	Required         = &macpreflabels.Required
-	UnknownType      = &macpreflabels.UnknownType
-	StringType       = &macpreflabels.StringType
-	BoolType         = &macpreflabels.BoolType
-	IntBoolType      = &macpreflabels.IntBoolType
-	IntType          = &macpreflabels.IntType
-	FloatType        = &macpreflabels.FloatType
 )
 
 type OSPrefDefaults struct {
@@ -131,7 +126,7 @@ func loadPrefDefaultsFromYAML(cfg config.Config) (osDefaults OSPrefDefaults, err
 	if err != nil {
 		goto end
 	}
-	resources, err = prefsyaml.LoadPrefsResources(defaultsFile)
+	resources, err = prefsyaml.LoadPrefsResources(prefsyaml.DefaultsKind, defaultsFile)
 	if err != nil {
 		goto end
 	}
@@ -151,64 +146,50 @@ end:
 
 // convertToYAMLDefault converts a `DomainPref` to a `*prefdefaults.PrefDefault` with
 // caveats, the caveats being if no `.Default` value is set — e.g. `.Default==""`
-// — then `PrefDefault.DefaultValue` will be set by the current value from macOS
+// — then `PrefDefault.Default` will be set by the current value from macOS
 // and `.Verified` will be set to `false`. Also Kind
 func convertToPrefDefault(dn DomainName, yd *prefsyaml.Default) (pd *PrefDefault) {
-	var prefType, labelType PreferenceType
-	var pdLabels *kvfilters.Labels
-	var typeLabel, setsLabel, classLabel *kvfilters.Label
-	var unknownType macosutil.PreferenceType
-	pn := PrefName(yd.Name)
-	opts := PrefDefaultOpts{
-		Kind:    0, // TODO fill these out,
-		Added:   "",
-		Removed: "",
+	//var prefType, labelType PreferenceType
+	//var pdLabels *kvfilters.Labels
+	//var typeLabel, setsLabel, classLabel *kvfilters.Label
+	//var unknownType macosutil.PreferenceType
+
+	prefName := PrefName(yd.Name)
+	opts := PrefDefaultArgs{
+		Type:    macosutil.PreferenceType(yd.Type),
+		Kind:    reflect.Invalid,
+		Added:   yd.Added,
+		Removed: yd.Removed,
 	}
-	pd = GetPrefDefault(dn, pn, &opts)
+	pd = NewPrefDefault(dn, prefName, &opts)
+	//pd = GetPrefDefault(dn, prefName, &opts)
 	if pd == nil {
-		pd = NewPrefDefault(dn, pn, &opts)
 	}
-	if pd.DefaultValue == "" {
-		pd.DefaultValue = yd.Value.String()
-	} else {
-		p, err := macosutil.GetPreference(string(dn), string(pn))
-		if err != nil {
-			pd = nil
-			goto end
-		}
-		pd.DefaultValue = p.Value
-		pd.Kind = p.Kind
-	}
-	panic("The following needed to be verified and likely fixed. The Type value is probably wrong)")
-	pd.Kind, prefType = macosutil.GetPrefKindAndType(
-		pd.Kind,
-		macosutil.PreferenceType(yd.Type),
-		pd.DefaultValue,
-	)
+	pd.Kind = macosutil.GetKind(macosutil.PreferenceType(yd.Type))
 
-	pdLabels = pd.Labels()
-	for _, labelValue := range yd.Labels {
-		label := macpreflabels.GetLabelByValue(macpreflabels.LabelValue(*labelValue))
-		if !pdLabels.HasLabel(label) {
-			*label = kvfilters.NewLabel(label.Name, label.Value)
-		}
-		pdLabels.SetLabel(label)
-	}
-
-	unknownType = macosutil.PreferenceType(macpreflabels.UnknownType.Value)
-	labelType = macosutil.PreferenceType(pdLabels.GetNamedLabel(macpreflabels.Type).Value)
-	if prefType != labelType && prefType != unknownType {
-		typeLabel = macpreflabels.GetLabelByValue(kvfilters.LabelValue(prefType))
-		pdLabels.SetLabel(typeLabel)
-	}
-	if setsLabel = pdLabels.GetNamedLabel(macpreflabels.Sets); setsLabel == nil {
-		pdLabels.SetLabel(&macpreflabels.Optional)
-	}
-	if classLabel = pdLabels.GetNamedLabel(macpreflabels.Class); classLabel == nil {
-		pdLabels.SetLabel(&macpreflabels.UserManaged)
-	}
-
-	pd.SetLabels(pdLabels)
-end:
+	//pdLabels = pd.Labels()
+	//for _, labelValue := range yd.Labels {
+	//	label := macpreflabels.GetLabelByValue(macpreflabels.LabelValue(*labelValue))
+	//	if !pdLabels.HasLabel(label) {
+	//		*label = kvfilters.NewLabel(label.Name, label.Value)
+	//	}
+	//	pdLabels.SetLabel(label)
+	//}
+	//
+	//unknownType = macosutil.PreferenceType(macpreflabels.UnknownType.Value)
+	//labelType = macosutil.PreferenceType(pdLabels.GetNamedLabel(macpreflabels.Type).Value)
+	//if prefType != labelType && prefType != unknownType {
+	//	typeLabel = macpreflabels.GetLabelByValue(kvfilters.LabelValue(prefType))
+	//	pdLabels.SetLabel(typeLabel)
+	//}
+	//if setsLabel = pdLabels.GetNamedLabel(macpreflabels.Sets); setsLabel == nil {
+	//	pdLabels.SetLabel(&macpreflabels.Optional)
+	//}
+	//if classLabel = pdLabels.GetNamedLabel(macpreflabels.Class); classLabel == nil {
+	//	pdLabels.SetLabel(&macpreflabels.UserManaged)
+	//}
+	//
+	//pd.SetLabels(pdLabels)
+	//end:
 	return pd
 }
