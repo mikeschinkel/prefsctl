@@ -2,6 +2,7 @@ package macprefs
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 
 	"github.com/mikeschinkel/prefsctl/appinfo"
@@ -59,7 +60,9 @@ func Update(ctx Context, cfg config.Config, ptr Printer, args UpdateArgs) (resul
 	if err != nil {
 		goto end
 	}
-	result = Result{Success: "Prefs updated."}
+	result = Result{
+		Success: fmt.Sprintf("Pref defaults updated in %s", cfg.OtherFilepath(appinfo.PrefDefaultsFile)),
+	}
 end:
 	if err != nil {
 		result = Result{Err: err}
