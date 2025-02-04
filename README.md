@@ -1,5 +1,7 @@
 # Prefsctl
 
+**CURRENTLY A WORK-IN-PROGRESS**
+
 **Prefsctl** is a command-line tool written in Golang for managing macOS preferences using a YAML or
 JSON configuration file. Inspired by the conceptual model of `kubectl` for Kubernetes, Prefsctl
 allows software engineers, IT professionals, DevOps engineers, and power users to declaratively
