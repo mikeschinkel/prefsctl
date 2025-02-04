@@ -260,6 +260,6 @@ Prefsctl is released under the MIT License. See `LICENSE` for more details.
 
 ## Future Directions
 
-Prefsctl’s vision is to become the `kubectl`for`brew bundle` for macOS preferences. By encoding
+Prefsctl’s vision is to become the `kubectl` or `brew bundle` for macOS preferences. By encoding
 known preference attributes and supporting customizable overrides, it aims to empower technical
 users to manage macOS configurations with precision and ease.
