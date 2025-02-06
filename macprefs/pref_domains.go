@@ -24,27 +24,32 @@ type (
 
 const (
 	DefaultsKind = prefsyaml.KindName(macpreflabels.DefaultsKind)
+	PrefsKind    = prefsyaml.KindName(macpreflabels.PrefsKind)
 )
 
 type PrefDomains struct {
 	domains []*PrefsDomain
 }
 
-var osCode macosutil.Code
-
-func (pds *PrefDomains) GetDefaultsYAMLDocument(opts YAMLOpts) (ymf yamlutil.MultidocFile, _ error) {
+func (pds *PrefDomains) DomainsIterator(kind prefsyaml.KindName, opts YAMLOpts) (ei yamlutil.EntriesIterator) {
 	var errs errutil.MultiErr
-	ymf = yamlutil.NewMultidocFile()
-	for _, domain := range pds.domains {
-		yd, err := domain.GetYAMLDocument(DefaultsKind, opts)
-		if err != nil {
-			goto end
-		}
-		ymf.AddDocument(yd)
+	ei = yamlutil.EntriesIterator{
+		Seq2: func(yield func(entry yamlutil.FilterableEntry, _ error) (ok bool)) {
+			for _, domain := range pds.domains {
+				resource := domain.GetPrefsYAMLResource(kind, opts)
+				if !yield(resource, nil) {
+					break
+				}
+			}
+		},
 	}
-end:
-	return ymf, errs.Err()
+	if errs.IsError() {
+		ei.Err = errs.Err()
+	}
+	return ei
 }
+
+var osCode macosutil.Code
 
 func (pds *PrefDomains) UserManagedPrefDefaults() (pd []*prefdefaults.PrefDefault) {
 	pd = make([]*prefdefaults.PrefDefault, 0)
@@ -123,7 +128,9 @@ func (pds *PrefDomains) ToFiltersGroups() (groups []kvfilters.Group) {
 // GetPrefDomains retrieves the list of macOS preference domains available
 // currently on the system via macOS.
 func GetPrefDomains(cfg config.Config, args QueryArgs) (pds *PrefDomains, err error) {
-	domains, err := prefdefaults.GetDomains(cfg) // TODO: Limit based on args.Domains, if applicable
+	domains, err := prefdefaults.GetDomains(cfg, prefdefaults.QueryArgs{
+		Domains: args.Domains,
+	})
 	if err != nil {
 		goto end
 	}

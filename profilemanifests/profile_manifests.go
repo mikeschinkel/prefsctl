@@ -5,10 +5,12 @@ import (
 	"embed"
 	"path/filepath"
 	"slices"
+	"strings"
 
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/filesutil"
 	"github.com/mikeschinkel/prefsctl/logargs"
+	"github.com/mikeschinkel/prefsctl/prefdefaults"
 	"github.com/mikeschinkel/prefsctl/yamlutil"
 )
 
@@ -78,6 +80,9 @@ func (pms *ProfileManifests) Files() EntryFiles {
 }
 
 func (pms *ProfileManifests) LoadFiles() error {
+	return pms.LoadFilesForDomains(nil)
+}
+func (pms *ProfileManifests) LoadFilesForDomains(domains []DomainName) error {
 	files, err := filesutil.ListFilesRecursive(profileManifests, profileManifestsDir)
 	if err != nil {
 		goto end
@@ -85,6 +90,11 @@ func (pms *ProfileManifests) LoadFiles() error {
 	pms.files = make(EntryFiles, 0, len(files))
 	pms.fileMap = make(DirEntryMap, len(pms.files))
 	for _, file := range files {
+		fn := file.Name()
+		domain := DomainName(strings.TrimSuffix(fn, filepath.Ext(fn)))
+		if !prefdefaults.IncludeDomain(domains, domain) {
+			continue
+		}
 		fp := file.Filepath()
 		_, ok := pms.fileMap[fp]
 		if ok {

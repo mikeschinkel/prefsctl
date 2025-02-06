@@ -30,7 +30,7 @@ var MinRepoURLLen = 22
 //	1
 var MinRepoPathLen = 1
 
-func EnsureGitRepo(repoURL string, parentDir string) (string, error) {
+func EnsureGitRepo(repoURL string, parentDir string) error {
 	return ensureGitRepo(repoURL, parentDir, true)
 }
 
@@ -55,9 +55,15 @@ end:
 	return err
 }
 
-func ensureGitRepo(repoURL string, parentDir string, retry bool) (repoDir string, err error) {
+func GetGitRepoPathAndDir(repoURL string, parentDir string) (repoPath, repoDir string) {
+	repoPath = filepath.Base(repoURL)
+	return repoPath, filepath.Join(parentDir, repoPath)
+}
+
+func ensureGitRepo(repoURL string, parentDir string, retry bool) (err error) {
 	var exists bool
 	var cmd *exec.Cmd
+	var repoDir string
 	var repoPath string
 	var output []byte
 	var paths []pathLenArgs
@@ -66,8 +72,7 @@ func ensureGitRepo(repoURL string, parentDir string, retry bool) (repoDir string
 	if err != nil {
 		goto end
 	}
-	repoPath = filepath.Base(repoURL)
-	repoDir = filepath.Join(parentDir, repoPath)
+	repoPath, repoDir = GetGitRepoPathAndDir(repoURL, parentDir)
 	exists, err = stdlibex.DirExists(repoDir)
 	if err != nil {
 		goto end
@@ -100,7 +105,7 @@ func ensureGitRepo(repoURL string, parentDir string, retry bool) (repoDir string
 	output, err = cmd.CombinedOutput()
 	if err != nil {
 		if retry {
-			repoDir, err = ensureGitRepo(repoURL, parentDir, false)
+			err = ensureGitRepo(repoURL, parentDir, false)
 			goto end
 		}
 		err = errors.Join(
@@ -113,5 +118,5 @@ func ensureGitRepo(repoURL string, parentDir string, retry bool) (repoDir string
 		goto end
 	}
 end:
-	return repoDir, err
+	return err
 }

@@ -76,13 +76,30 @@ func GetLabelsByValues(values []*prefsyaml.LabelValue) *Labels {
 	return kvfilters.NewLabels(labels...)
 }
 
-func GetDomains(cfg config.Config) (domains []*Domain, err error) {
+func GetDomains(cfg config.Config, args QueryArgs) (domains []*Domain, err error) {
 	f := GetDefaultsFunc()
-	prefDefaults, err := f(cfg)
+	prefDefaults, err := f(cfg, args.Domains)
 	if err != nil {
 		goto end
 	}
 	domains = prefDefaults.Domains
 end:
 	return domains, err
+}
+
+// IncludeDomain returns true if name is in domains, or domains is empty meaning
+// "include all"
+func IncludeDomain(domains []DomainName, name DomainName) (ok bool) {
+	if domains == nil {
+		ok = true
+		goto end
+	}
+	for _, domain := range domains {
+		if DomainName(name) == domain {
+			ok = true
+			goto end
+		}
+	}
+end:
+	return ok
 }

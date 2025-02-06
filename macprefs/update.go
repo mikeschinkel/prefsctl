@@ -8,10 +8,12 @@ import (
 	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/config"
 	"github.com/mikeschinkel/prefsctl/gitutil"
+	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/prefdefaults"
 	"github.com/mikeschinkel/prefsctl/prefsyaml"
 	"github.com/mikeschinkel/prefsctl/profilemanifests"
+	"github.com/mikeschinkel/prefsctl/slogutil"
 	"github.com/mikeschinkel/prefsctl/yamlutil"
 )
 
@@ -33,10 +35,12 @@ func Update(ctx Context, cfg config.Config, ptr Printer, args UpdateArgs) (resul
 	if ptr == nil {
 		ptr = StandardPrinter{}
 	}
-	repoDir, err := gitutil.EnsureGitRepo(profileManifestsRepoURL, gitRepoParentDir)
+	err := gitutil.EnsureGitRepo(profileManifestsRepoURL, gitRepoParentDir)
 	if err != nil {
 		goto end
 	}
+	_, repoDir = gitutil.GetGitRepoPathAndDir(profileManifestsRepoURL, gitRepoParentDir)
+
 	ptr.Printf("\nProfileManifests Git repo (%s) updated in %s.", profileManifestsRepoURL, gitRepoParentDir)
 
 	pms = profilemanifests.New(repoDir)
@@ -114,7 +118,9 @@ func entryFilter(entry yamlutil.FilterableEntry) (include bool) {
 		}
 		goto end
 	default:
-		panicf("entryFilter: unknown entry type %T", entry)
+		_ = slogutil.PanicInTest(slog, "entryFilter: unknown kind for prefsctl YAML file",
+			logargs.UnknownKind, entry,
+		)
 	}
 end:
 	return include

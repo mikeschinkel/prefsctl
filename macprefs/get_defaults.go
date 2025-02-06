@@ -2,10 +2,34 @@ package macprefs
 
 import (
 	"errors"
+	"fmt"
 	"os"
 
 	"github.com/mikeschinkel/prefsctl/config"
+	"github.com/mikeschinkel/prefsctl/gitutil"
+	"github.com/mikeschinkel/prefsctl/logargs"
+	"github.com/mikeschinkel/prefsctl/prefsyaml"
+	"github.com/mikeschinkel/prefsctl/profilemanifests"
+	"github.com/mikeschinkel/prefsctl/slogutil"
+	"github.com/mikeschinkel/prefsctl/yamlutil"
 )
+
+func GetYAMLDocumentFromPrefsDomain(entry yamlutil.FilterableEntry, filter yamlutil.EntryFilterFunc) (yd yamlutil.Document, err error) {
+	yr, ok := entry.(*prefsyaml.Resource)
+	if !ok {
+		err = slogutil.PanicInTest(slog, "ERROR: Expected entry to be a *prefsyaml.Resource",
+			logargs.EntryType,
+			fmt.Sprintf("%T", entry),
+		)
+		goto end
+	}
+	yd, err = yr.YAMLDocument()
+	if err != nil {
+		goto end
+	}
+end:
+	return yd, err
+}
 
 func GetDefaults(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
 	if ptr == nil {
@@ -33,17 +57,30 @@ func GetDefaults(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (r
 }
 
 func getDefaultsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) Result {
-	//var tmpl *prefsyaml.DefaultsGoTemplate
-	//var output string
-	//
-	//code, err := macosutil.VersionCode()
-	domains, err := QueryPrefDomains(ctx, cfg, args)
+	var pms *profilemanifests.ProfileManifests
+	var repoDir string
+	var pmsIterator yamlutil.EntriesIterator
+	var yamlFile yamlutil.MultidocFile
+
+	_, repoDir = gitutil.GetGitRepoPathAndDir(profileManifestsRepoURL, gitRepoParentDir)
+	pms = profilemanifests.New(repoDir)
+	err := pms.LoadFilesForDomains(args.Domains)
 	if err != nil {
 		goto end
 	}
-	ptr.Print(domains.GetDefaultsYAMLDocument(YAMLOpts{
-		UseValueForDefault: args.UseCurrent,
-	}))
+	slog.Info("ProfileManifests loaded.")
+
+	pmsIterator = profilemanifests.Iterator(pms)
+	yamlFile, err = yamlutil.BuildMultidocFile(
+		pmsIterator,
+		entryFilter,
+		profilemanifests.GetYAMLDocumentFromProfileManifest,
+	)
+	if pmsIterator.Err != nil || err != nil {
+		err = errors.Join(err, pmsIterator.Err)
+		goto end
+	}
+	ptr.Print(yamlFile.String())
 end:
 	return Result{
 		Success: "Defaults YAML generated.",
@@ -52,7 +89,7 @@ end:
 }
 func GetDefaultsJSON(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) Result {
 	return Result{
-		Err: errors.New("JSON output not implemented"),
+		Err: errors.New("JSON output not yet implemented"),
 	}
 }
 

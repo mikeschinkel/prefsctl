@@ -5,8 +5,8 @@ import (
 )
 
 type QueryArgs struct {
-	OmitEmpty        bool
-	UseCurrent       bool
+	OmitEmpty bool
+	//UseCurrent       bool
 	IncludeUnchanged bool
 	Domains          []DomainName
 }

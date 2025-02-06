@@ -5,7 +5,6 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/kvfilters"
 	"github.com/mikeschinkel/prefsctl/logargs"
 	"github.com/mikeschinkel/prefsctl/macpreflabels"
@@ -25,16 +24,18 @@ type PrefsDomain struct {
 	Removed     VersionNumber
 	prefs       Prefs
 }
+
+func (*PrefsDomain) FilterableEntry() {}
+
 type YAMLOpts struct {
-	UseValueForDefault bool
-	APIVersion         OSVersion
+	APIVersion OSVersion
 }
 
-func (pd *PrefsDomain) GetYAMLResource(kind prefsyaml.KindName, opts YAMLOpts) (yr *prefsyaml.Resource) {
+func (pd *PrefsDomain) GetPrefsYAMLResource(kind prefsyaml.KindName, opts YAMLOpts) (yr *prefsyaml.Resource) {
 	var labelValues []*prefsyaml.LabelValue
 
 	yr = &prefsyaml.Resource{
-		APIVersion: appinfo.LatestAPIVersion,
+		APIVersion: APIVersion(opts.APIVersion),
 		KindName:   kind,
 		Spec:       prefsyaml.NewSpec(),
 		MetaData: prefsyaml.Metadata{
@@ -43,12 +44,8 @@ func (pd *PrefsDomain) GetYAMLResource(kind prefsyaml.KindName, opts YAMLOpts) (
 	}
 	for _, pref := range pd.Prefs() {
 		var val, def string
-		if opts.UseValueForDefault {
-			def = pref.Value()
-		} else {
-			val = pref.Value()
-			def = pref.Default()
-		}
+		val = pref.Value()
+		def = pref.Default()
 		labels := pref.Labels()
 		// Delete "type" from in YAML because as there is an explicit "type" field
 		labels.DeleteNamedLabel(macpreflabels.Type)
@@ -72,7 +69,7 @@ func (pd *PrefsDomain) GetYAMLResource(kind prefsyaml.KindName, opts YAMLOpts) (
 }
 
 func (pd *PrefsDomain) GetYAMLDocument(kind prefsyaml.KindName, opts YAMLOpts) (yd yamlutil.Document, err error) {
-	yr := pd.GetYAMLResource(kind, opts)
+	yr := pd.GetPrefsYAMLResource(kind, opts)
 	yd, err = yamlutil.BuildDocument(yr)
 	if err != nil {
 		goto end

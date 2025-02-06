@@ -1,6 +1,7 @@
 package prefsyaml
 
 import (
+	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/macpreflabels"
 )
@@ -10,6 +11,7 @@ const (
 	ResourceIdErrKey   errutil.ErrKey = "resource_id"
 )
 const (
-	PrefsKind    = KindName(macpreflabels.PrefsKind)
-	DefaultsKind = KindName(macpreflabels.DefaultsKind)
+	PrefsKind        = KindName(macpreflabels.PrefsKind)
+	DefaultsKind     = KindName(macpreflabels.DefaultsKind)
+	LatestAPIVersion = appinfo.LatestAPIVersion
 )

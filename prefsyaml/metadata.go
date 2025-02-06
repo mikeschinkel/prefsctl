@@ -5,7 +5,7 @@ import (
 )
 
 type Metadata struct {
-	Domain      DomainName              `yaml:"domain"`
+	Domain      macosutil.DomainName    `yaml:"domain"`
 	Description string                  `yaml:"description,omitempty"`
 	Process     macosutil.ProcessName   `yaml:"process,omitempty"`
 	Added       macosutil.VersionNumber `yaml:"added,omitempty"`

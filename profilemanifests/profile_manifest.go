@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/micromdm/plist"
-	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macpreflabels"
 	"github.com/mikeschinkel/prefsctl/prefsyaml"
@@ -149,7 +148,7 @@ func (pm *ProfileManifest) GetPrefsYAMLResource(includeFilter yamlutil.EntryFilt
 		prefsyaml.KindName(macpreflabels.DefaultsKind),
 		prefsyaml.DomainName(pm.Domain),
 		prefsyaml.ResourceOpts{
-			APIVersion:  appinfo.LatestAPIVersion,
+			APIVersion:  LatestAPIVersion,
 			Description: pm.Description,
 			Added:       macosutil.VersionNumber(pm.MacOSMin),
 			Removed:     macosutil.VersionNumber(pm.MacOSMax),

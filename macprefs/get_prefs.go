@@ -3,10 +3,7 @@ package macprefs
 import (
 	"errors"
 
-	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/config"
-	"github.com/mikeschinkel/prefsctl/errutil"
-	"github.com/mikeschinkel/prefsctl/macpreflabels"
 	"github.com/mikeschinkel/prefsctl/prefsyaml"
 	"github.com/mikeschinkel/prefsctl/yamlutil"
 )
@@ -41,43 +38,37 @@ func GetPrefs(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (resu
 func newYAMLResources(kind prefsyaml.KindName, domains []*PrefsDomain, opts YAMLOpts) []*prefsyaml.Resource {
 	yrs := make([]*prefsyaml.Resource, len(domains))
 	for i, domain := range domains {
-		yrs[i] = domain.GetYAMLResource(kind, opts)
+		yrs[i] = domain.GetPrefsYAMLResource(kind, opts)
 	}
 	return yrs
 }
 
-func getPrefsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {
-	var resources []*prefsyaml.Resource
-	var ymf yamlutil.MultidocFile
-	var yd yamlutil.Document
-	var errs errutil.MultiErr
+func getPrefsYAML(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) Result {
+	var domainsIterator yamlutil.EntriesIterator
+	var yamlFile yamlutil.MultidocFile
 
 	domains, err := QueryPrefDomains(ctx, cfg, args)
 	if err != nil {
 		goto end
 	}
-
-	resources = newYAMLResources(
-		prefsyaml.KindName(macpreflabels.PrefsKind),
-		domains.domains,
-		YAMLOpts{
-			UseValueForDefault: false,
-			APIVersion:         appinfo.LatestAPIVersion,
-		},
+	domainsIterator = domains.DomainsIterator(PrefsKind, YAMLOpts{
+		APIVersion: LatestAPIVersion,
+	})
+	yamlFile, err = yamlutil.BuildMultidocFile(
+		domainsIterator,
+		entryFilter,
+		GetYAMLDocumentFromPrefsDomain,
 	)
-	ymf = yamlutil.NewMultidocFile()
-	for _, resource := range resources {
-		yd, err = resource.YAMLDocument()
-		if err != nil {
-			errs.Add(err)
-			goto end
-		}
-		ymf.AddDocument(yd)
+	if domainsIterator.Err != nil || err != nil {
+		err = errors.Join(err, domainsIterator.Err)
+		goto end
 	}
-	ptr.Print(ymf.String())
-
+	ptr.Print(yamlFile.String())
 end:
-	return Result{Err: errs.Err()}
+	return Result{
+		Success: "Defaults YAML generated.",
+		Err:     err,
+	}
 }
 
 func getPrefsJSON(ctx Context, cfg config.Config, ptr Printer, args QueryArgs) (result Result) {

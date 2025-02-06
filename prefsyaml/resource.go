@@ -8,7 +8,6 @@ import (
 	"io"
 	"os"
 
-	"github.com/mikeschinkel/prefsctl/appinfo"
 	"github.com/mikeschinkel/prefsctl/errutil"
 	"github.com/mikeschinkel/prefsctl/macosutil"
 	"github.com/mikeschinkel/prefsctl/macpreflabels"
@@ -23,6 +22,8 @@ type Resource struct {
 	MetaData   Metadata   `yaml:"metadata"`
 	Spec       Spec       `yaml:"spec"`
 }
+
+func FilterableEntry() {}
 
 // Initialize initializes either the Props or the Defaults.
 func (r Resource) Initialize() {
@@ -53,7 +54,7 @@ func NewResource(kind KindName, domain DomainName, opts ResourceOpts) Resource {
 		}
 	}
 	if opts.APIVersion == "" {
-		opts.APIVersion = appinfo.LatestAPIVersion
+		opts.APIVersion = LatestAPIVersion
 	}
 	return Resource{
 		APIVersion: opts.APIVersion,

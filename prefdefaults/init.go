@@ -71,8 +71,8 @@ type OSPrefDefaults struct {
 var prefDefaultsYAML []byte
 
 func init() {
-	RegisterPrefDefaultsFunc(func(cfg config.Config) (OSPrefDefaults, error) {
-		return loadPrefDefaultsFromYAML(cfg)
+	RegisterPrefDefaultsFunc(func(cfg config.Config, domains []DomainName) (OSPrefDefaults, error) {
+		return loadPrefDefaultsFromYAML(cfg, domains)
 	})
 }
 
@@ -111,7 +111,7 @@ func insertFilenameTimestamp(filename string) string {
 //
 //	able to be 1.) global from a file in ~/.config, 2.) from a file in the
 //	current dir, or 3. from a file specified via CLI flag.
-func loadPrefDefaultsFromYAML(cfg config.Config) (osDefaults OSPrefDefaults, err error) {
+func loadPrefDefaultsFromYAML(cfg config.Config, domains []DomainName) (osDefaults OSPrefDefaults, err error) {
 	var resources []YAMLResource
 
 	defaultsFile := cfg.OtherFilepath(appinfo.PrefDefaultsFile)
@@ -135,6 +135,9 @@ func loadPrefDefaultsFromYAML(cfg config.Config) (osDefaults OSPrefDefaults, err
 
 	// Add all domains from the YAMLDocument file
 	for _, resource := range resources {
+		if !IncludeDomain(domains, resource.MetaData.Domain) {
+			continue
+		}
 		osDefaults.Domains = append(
 			osDefaults.Domains,
 			newDomainFromYAMLResource(resource),

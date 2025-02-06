@@ -15,3 +15,7 @@ type (
 	Code           = types.Code
 	PreferenceType = macosutil.PreferenceType
 )
+
+type QueryArgs struct {
+	Domains []DomainName
+}

@@ -7,7 +7,7 @@ import (
 
 const prefDefaultsGoImport = "github.com/mikeschinkel/prefsctl/prefdefaults"
 
-type Func func(cfg config.Config) (OSPrefDefaults, error)
+type Func func(cfg config.Config, domains []DomainName) (OSPrefDefaults, error)
 
 var thisFunc Func
 
@@ -21,7 +21,7 @@ func GetAfterApplyFunc(cfg config.Config, domain DomainName) (f func() error, er
 	var defaults OSPrefDefaults
 
 	defaultsFunc := GetDefaultsFunc()
-	defaults, err = defaultsFunc(cfg)
+	defaults, err = defaultsFunc(cfg, []DomainName{domain})
 	if err != nil {
 		goto end
 	}
