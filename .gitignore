@@ -1,4 +1,7 @@
 /bin/**
 /profilemanifests/data/ProfileManifests/
 /profilemanifests/data/ProfileManifests/**
-
+/go.work
+/**/go.work
+/go.work.sum
+/**/go.work.sum

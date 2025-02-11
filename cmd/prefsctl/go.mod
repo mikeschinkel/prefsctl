@@ -16,4 +16,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/micromdm/plist v0.2.1 => github.com/mikeschinkel/plist v0.0.0-20250129020546-50b570acb5e1
+replace github.com/micromdm/plist v0.2.1 => github.com/mikeschinkel/go-plist v0.0.0-20250129020546-50b570acb5e1

@@ -9,8 +9,8 @@ github.com/mikeschinkel/go-diffator v0.0.0-20240114054559-18c353d6899c h1:Q24aAQ
 github.com/mikeschinkel/go-diffator v0.0.0-20240114054559-18c353d6899c/go.mod h1:TEV/sGeySOLWi1S16Xj1J8PCPCxKwGWILb9EBCHZ/u0=
 github.com/mikeschinkel/go-lib v0.0.0-20240730075321-74d570fe6a1a h1:PnpgjvUyAmtcFMbmc5ph3qxAV8U7nmnQyHEMkm86EpY=
 github.com/mikeschinkel/go-lib v0.0.0-20240730075321-74d570fe6a1a/go.mod h1:HmJP4+kZDbZHHvuhFVlzVCRLy54grOQhtmUzZ67aLDs=
-github.com/mikeschinkel/plist v0.0.0-20250129020546-50b570acb5e1 h1:oAInHvc9NdP0S2nus9O/uqmaSN9KYymnRonJIwiZ0hE=
-github.com/mikeschinkel/plist v0.0.0-20250129020546-50b570acb5e1/go.mod h1:flkfm0od6GzyXBqI28h5sgEyi3iPO28W2t1Zm9LpwWs=
+github.com/mikeschinkel/go-plist v0.0.0-20250129020546-50b570acb5e1 h1:oAInHvc9NdP0S2nus9O/uqmaSN9KYymnRonJIwiZ0hE=
+github.com/mikeschinkel/go-plist v0.0.0-20250129020546-50b570acb5e1/go.mod h1:flkfm0od6GzyXBqI28h5sgEyi3iPO28W2t1Zm9LpwWs=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=

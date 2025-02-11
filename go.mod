@@ -17,4 +17,4 @@ require (
 	github.com/mikeschinkel/go-lib v0.0.0-20240730075321-74d570fe6a1a // indirect
 )
 
-replace github.com/micromdm/plist v0.2.1 => github.com/mikeschinkel/plist v0.0.0-20250129020546-50b570acb5e1
+replace github.com/micromdm/plist v0.2.1 => github.com/mikeschinkel/go-plist v0.0.0-20250129020546-50b570acb5e1
